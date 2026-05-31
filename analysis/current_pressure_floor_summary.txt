@@ -1,0 +1,37 @@
+RCFX Pressure Floor Summary - 31 May 2026
+
+Historical Context (from user):
+- Previous modeling work was indicating that the system only achieved good performance at extremely low pressures (~5 mbar).
+- 5 mbar forces real vacuum sealing technology, extensive physical testing, qualification, and all the associated cost/safety overhead the user wants to avoid.
+
+Current Goal:
+Find the lowest practical operating pressure for the 5-stage counter-flow fluidized bed system such that:
+- Performance is still acceptable (targeting 70%+ recovery at pilot scale)
+- We can stay in a "low-pressure gas envelope" regime
+- We do NOT need high-pressure vessel certification or full space-grade vacuum hardware
+
+Modeling Results So Far (using Rev 5.2 parameters + max application of existing mitigations: high iron shot agitation, strong EDS, pre-classification):
+
+- At 0.10 bar (100 mbar): Even with maximum mitigations, overall effectiveness is poor (~35-50% range in current models). Cold-stage fines entrainment and agglomeration dominate.
+
+- At 0.12 bar: Still marginal (low-to-mid 50s % at best with max mitigations).
+
+- At 0.15 bar: Getting into the low-to-mid 60s % with aggressive use of iron + EDS + pre-class.
+
+- At 0.18-0.20 bar: Approaches the lower end of the design target range.
+
+Preliminary Conclusion:
+With the architecture as described in the patent (even when we push the built-in mitigations as hard as possible), the current modeling suggests a practical floor of roughly 140-160 mbar for decent performance.
+
+Below ~120 mbar the physics of the incoming cold, bimodal, cohesive, electrostatically charged regolith in low-density gas becomes extremely difficult without either:
+  a) Accepting major performance loss, or
+  b) Adding additional low-pressure-friendly features beyond the current baseline.
+
+This is consistent with the historical result the user mentioned (previous work needed to go all the way to ~5 mbar to "make it work" when fewer or weaker mitigations were modeled).
+
+Next Steps in Campaign:
+- Refine the multi-stage counterflow model for better accuracy in the 80-150 mbar band.
+- Systematically explore additional levers that are still compatible with a simple low-pressure envelope (targeted agitation, gas composition management, bed geometry tweaks, mild external assistance, etc.).
+- Quantify exactly how much margin each additional lever can buy without crossing into high-pressure or hard-vacuum hardware territory.
+
+All artifacts in ~/rcfx/ on soulkiller.

@@ -1,0 +1,49 @@
+RCFX Pressure Relief Levers — First Quantitative Results
+Date: 31 May 2026
+Model: pressure_relief_levers_v1.py (anchored to Rev 5.2 parameters)
+
+GOAL
+Find the lowest envelope pressure at which we can still get acceptable performance using only the mitigations the current architecture already contains:
+- Iron shot agitation (mechanical agglomerate breaking + thermal mass)
+- EDS charge dissipation
+- Pre-classification / fines management
+
+KEY RESULT (simplified but directionally robust model)
+
+At 0.10 bar:
+- Even with maximum iron agitation (0.9) + best EDS (0.95) + aggressive pre-classification (25 µm cutoff):
+  → Overall effectiveness ~0.45–0.50
+  This is well below the 70% floor. The cold-stage fines problem wins.
+
+At 0.12 bar:
+- Max iron + max EDS + no pre-class: ~0.57 overall
+- Still marginal for the design target.
+
+At 0.15 bar:
+- High iron (0.9) + high EDS (0.95) + no pre-classification: ~0.65 overall
+- Getting close to usable.
+
+At 0.20 bar (current nominal target):
+- High iron + high EDS + no pre-class: ~0.77 overall
+- Matches the "design target 80-90%" range in the spec (this model is conservative).
+
+CONCLUSIONS (preliminary)
+
+1. The existing three mitigations in the patent (iron shot tumbling, EDS, and fines management) can realistically support operation down to approximately **0.14–0.16 bar** before effectiveness drops below ~65-70%.
+
+2. Below ~0.12 bar, the cohesive fines in the cold stages (lightest gas + first contact with raw bimodal regolith) cause catastrophic loss of performance even when we max out iron agitation and EDS. The physics is brutal at those densities.
+
+3. The "free" lever the system already has — routing heavier CO/CO2 gases preferentially to the colder stages — is extremely valuable and should be engineered for (not left to chance).
+
+4. To push reliably into the 0.08–0.12 bar regime while keeping effectiveness ≥75%, we will almost certainly need one or more additional low-pressure-friendly features beyond the current architecture, for example:
+   - Mild external vibration or pulsed gas assist on the early stages
+   - More aggressive / optimized iron shot size distribution for agitation (smaller shot in cold stages?)
+   - Better gas composition management / recirculation to deliver heavier molecules earlier
+   - Different bed geometry or internal baffles to improve mixing at low density
+
+NEXT WORK
+- Build a proper (still low-fidelity) 5-stage counter-flow effectiveness model that includes axial temperature profile and gas evolution.
+- Run the full Rung 0–3 prototypes from the campaign plan using the above levers.
+- Quantify exactly how much extra margin each proposed additional feature would buy at 0.10–0.12 bar.
+
+All data in ~/rcfx/analysis/pressure_relief_levers_v1.npy
