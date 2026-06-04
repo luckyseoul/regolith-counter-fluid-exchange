@@ -61,3 +61,10 @@ This is now using the optimized (sync-free stepper) path. Physical heights + mec
 - Shows the full optimized + lid code path functions correctly while actually saturating the card's VRAM (unlike the evidence Rung1 runs which use the lower validated N~2600 for direct comparability to prior audits).
 - Note: absolute bed heights/vels not comparable to the long-evolved low-N Rung1 because this was a short run from random high initial positions (not from a 99k-settled ckpt). The point was "can we run the exact same mechanistic lid code at the N that was optimal for VRAM?" — yes.
 
+**High-N extension (cell_list path, +100 steps from step 400 ckpt):**
+- From rung1_highn_with_iron_step000400.npz, +100 steps using compute_forces_cell_list (cell_size=0.003) + opt stepper + lid.
+- At step 500: reg 15.2 ±8.5 mm (iron 17.2), EMI 4.74× (vs 3.2 mm no-iron baseline), inside 100.0%, zmax 32 mm, vmean 51.6 m/s.
+- Saved rung1_highn_with_iron_step000500.npz.
+- Took ~685 s (slow due to current cell_list Python for-cell loops — see RawKernel work below for high-util path).
+- Continues to demonstrate building physical bed under lid with strong iron agitation differential at full VRAM N.
+
