@@ -1,4 +1,8 @@
-Rung1 lid+freeboard fast demo (post-process damping on 99k ckpt)
+Rung1 lid+freeboard fast demo (post-process damping on 99k ckpt) — HISTORICAL / low-N
+
+**Note (highN primary)**: The citable Rung1 evidence is now the high-N (N=6500) migration with lid+freeboard **from step 0** (fresh generate). See Rung1_HighN_Primary_Audit_6500.md + .json (direct np.load: EMI 8.0445× at step 1000 via compute_forces_raw, reg ~25.99 mm physical, 100% inside, zmax 41.29 mm). This low-N demo ( ~59 mm final, 3.2× EMI preserved) validated the lid approach and led to baking the physical boundary into the highN runs from the start. All new work uses highN.
+
+
 Baseline reg bed: ~2012 mm
 With lid settling (1200 iters proxy): 59.0 mm mean reg (iron 57.9 mm)
 z capped near 60 mm

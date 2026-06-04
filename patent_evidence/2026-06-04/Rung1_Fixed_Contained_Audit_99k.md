@@ -1,4 +1,6 @@
-# Rung 1 Fixed Contained Audit (99k steps, current runner)
+# Rung 1 Fixed Contained Audit (99k steps, current runner) — HISTORICAL / superseded by highN
+
+**Note (highN primary)**: The authoritative Rung1 data is now **Rung1_HighN_Primary_Audit_6500.md + .json** (N=6500 fresh generate + lid from step 0, direct np.load numbers, EMI 8.0445× at 1000s via RawKernel, physical ~26-41 mm, 100% contained, full VRAM). This 99k document is historical (it identified the need for lid + highN physical-scale evidence). Use highN audit for all current citations.
 
 **Containment**: 100.0% inside on both with-iron and no-iron legs (x,y ∈ [0, 0.018] m, z ≥ 0; zmin >0).
 
