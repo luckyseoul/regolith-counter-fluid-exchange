@@ -37,7 +37,13 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).parent / "common"))
-from dem_kernels import compute_forces, DENSITY
+from dem_kernels import DENSITY
+try:
+    from cell_list import compute_forces_cell_list as compute_forces
+    print("Using cell_list for compute_forces (scalable for high-N)")
+except Exception:
+    from dem_kernels import compute_forces
+    print("Using brute compute_forces (for small N)")
 from optimized_step import (
     make_optimized_stepper,
     make_lid_freeboard_damper,
