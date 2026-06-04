@@ -204,7 +204,7 @@ def run_case(with_iron, no_iron_baseline_mm, total_steps, log_every, save_every,
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--steps", type=int, default=300, help="Total steps per case (settle + prod); use 1500+ for full stats after migration")
-    parser.add_argument("--log-every", type=int, default=500)
+    parser.add_argument("--log-every", type=int, default=1000, help="Large for sustained GPU util (fewer host syncs)")
     parser.add_argument("--save-every", type=int, default=1000)
     args = parser.parse_args()
 

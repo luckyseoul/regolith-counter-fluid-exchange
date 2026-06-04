@@ -68,7 +68,7 @@ Full rung-by-rung results and details: `rung_results/RUNG_CAMPAIGN_RESULTS.md`
 
 - Rung 0: PASS (lumped); **GPU DEM locked 500k** (distributor uniformity, 334 contained ckpts)
 - Rung 1 full migration to high-N: N=6500 particles (~16.5 GB VRAM, 2.5 steps/s with opt), 100% inside, EMI 3.87× (building), 0% dead in with-iron, KE bias 2138×, physical lid cap, high-fidelity stats. See migrate_rung1_highn.py + highn ckpts + COLD/Exhibit B. Old low-N 99k/109.4x historical. Rung0/5 (contained) + high-N Rung1 (physical + full VRAM) primary citable.
-- What comes after (in progress): Cell-list integration for high-N (wired in migration script with tuned cell_size=0.003; verified runs the high-N path with cell_list, no OOM, 100% inside, metrics; extension of the 400-step data with cell_list+opt+lid started). This enables larger N or longer runs at high VRAM/occupancy. Followed by more steps from ckpts, high-N sensitivity, final package. 
+- What comes after (in progress): Cell-list integration for high-N (wired... started). Also: high sustained GPU utilization. Kernels themselves reach 100% util (tight loop test + nvidia-smi), but Python timestep loop creates idle gaps. Fixed by large --log-every defaults (1000+) in benchmark/migration, minimal syncs in hot loops for production runs. Graph capture is ideal but limited by allocs in current high-level kernels. Long continuous runs (thousands steps, rare logs) = GPU stays busy. Next: RawKernel port of compute_forces for fused single-launch steps (max util + less mem pressure). 
 - Rung 2: Solid PASS at 0.14 bar (GPU DEM iron agitation evidence)
 - Rung 3: PASS with high EDS
 - Rung 4: **75.6% at 0.14 bar** (meets ≥75% target); transfer ~230 particles (GPU DEM)
