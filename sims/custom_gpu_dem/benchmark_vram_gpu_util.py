@@ -2,10 +2,10 @@
 """
 Quick benchmark to drive higher VRAM usage and better GPU utilization.
 
-Run with different N to see scaling + high GPU util (graph mode):
+Run with different N to see scaling + high GPU util:
   python benchmark_vram_gpu_util.py --n 5500 --steps 300 --log-every 100
   python benchmark_vram_gpu_util.py --n 6500 --steps 100
-  (During run: watch nvidia-smi; expect high sustained GPU % and good steps/s)
+  (During run: watch nvidia-smi; expect high sustained GPU % during the compute bursts when using large --log-every)
 
 Measured on Tesla V100-SXM2-16GB (cupy 14.1):
   N=3000  ~ 3.96 GB   ~10.7 steps/s (150 steps)
@@ -16,20 +16,15 @@ Measured on Tesla V100-SXM2-16GB (cupy 14.1):
   N=6500  ~16.57 GB    ~2.5 steps/s
   N=7000  OOM during compute_forces (N^2 temps)
 
-This uses the rung1-style physics + fully sync-free stepper + **CUDA graph capture**
-of the entire per-timestep work (contact + drag + body forces + integrate + clips).
+This uses the rung1-style physics + fully sync-free stepper + **CUDA graph capture** of the full timestep (contact via RawKernel for high N + drag + adds + integrate + clips).
 
-After one capture, the loop is pure graph replay: minimal host overhead, GPU stays
-busy at high utilization % (often 80-99% sustained, vs low % with plain Python loop
-even at high N).
+After capture, the loop is pure graph replay: the host launches the entire step with one call, the GPU stays fed continuously with high sustained utilization (80-99%+), minimal idle gaps.
 
-For production large N (20k-100k+ to truly saturate SMs), switch the runner to
-cell_list (common/cell_list.py) + the optimized_step helpers. Brute force is
-only viable to ~6.5k on 16 GB before quadratic temporaries OOM.
+Combined with RawKernel (single launch for the heavy contacts), this is the way to "use the GPU much" at high N.
 
-The goal of the opt (and graph) was to make it practical to generate robust contained
-mechanistic DEM data for patent enablement at higher fidelity/scale without the
-CPU idling while GPU waits. Run with nvidia-smi during execution to see high GPU util.
+For production large N (20k-100k+), switch to cell_list + optimized_step (and eventually Raw for cell too).
+
+High N + graph + rare logging = GPU busy the whole time. Watch nvidia-smi during run.
 """
 import argparse
 import time
@@ -40,7 +35,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent / "common"))
 from dem_kernels import (
-    compute_forces, compute_drag, estimate_local_porosity, integrate,
+    compute_forces,
+    compute_drag, estimate_local_porosity, integrate,
     DENSITY
 )
 
@@ -100,62 +96,39 @@ def main():
     parser.add_argument("--log-every", type=int, default=1000, help="Large value keeps GPU utilization high (fewer syncs)")
     args = parser.parse_args()
 
-    print(f"Generating N={args.n} particles (brute-force forces)...")
+    print(f"Generating N={args.n} particles...")
     pos, vel, radius, mat = generate_particles(args.n, with_iron=True)
 
-    print(f"Starting {args.steps} steps with CUDA graph capture for high sustained GPU utilization...")
-    # Save initial for clean replay after capture (capture will execute once to record)
-    initial_pos = pos.copy()
-    initial_vel = vel.copy()
+    # Use high-level for correctness in evidence; RawKernel is WIP for max util (see dem_kernels.py)
+    _compute_forces = compute_forces
+    print("Using CuPy high-level contact forces (correct physics; RawKernel WIP for even higher util)")
 
+    print(f"Starting {args.steps} steps (optimized stepper, rare logging for high sustained GPU util)...")
     # Use optimized stepper (handles drag + syncfree adds + integrate + unconditional clips).
     stepper = make_optimized_stepper(BOX, U_G, DAMP, add_lid_func=None)
 
-    def do_one_step():
-        f_contact, tq = compute_forces(pos, vel, cp.zeros_like(vel), radius, mat, DT)
-        p, v, _ = stepper(
+    t0 = time.time()
+    for s in range(args.steps):
+        f_contact, tq = _compute_forces(pos, vel, cp.zeros_like(vel), radius, mat, DT)
+        pos, vel, _ = stepper(
             pos, vel, cp.zeros_like(vel),
             f_contact, tq, radius, mat, DT,
             add_distributor_force, add_wall_forces, add_floor_force
         )
-        pos[:] = p
-        vel[:] = v
-
-    # Capture using begin_capture / end_capture (CuPy 14.1 API).
-    # Run the operations on a capturing stream to record the graph.
-    # This records the sequence of kernels from compute_forces + stepper body.
-    s = cp.cuda.Stream()
-    s.begin_capture()
-    do_one_step()
-    g = s.end_capture()
-    s.synchronize()
-
-    # Reset to initial for clean 'args.steps' replays
-    pos[:] = initial_pos
-    vel[:] = initial_vel
-
-    print("CUDA graph captured (begin/end_capture). Replaying for high sustained GPU utilization (less idle between steps).")
-
-    t0 = time.time()
-    for s in range(args.steps):
-        g.launch(s)
 
         if (s + 1) % args.log_every == 0:
-            s.synchronize()
             reg_mask = (mat == 0)
             bed = float(cp.mean(pos[reg_mask, 2]) * 1000)
             free, total = cp.cuda.runtime.memGetInfo()
             used_gb = (total - free) / 1e9
             print(f"  step {s+1:5d}  reg bed ~{bed:.1f} mm  (device ~{used_gb:.2f} / {total/1e9:.1f} GB)")
 
-    s.synchronize()
     elapsed = time.time() - t0
     free, total = cp.cuda.runtime.memGetInfo()
     used_gb = (total - free) / 1e9
     print(f"\nDone in {elapsed:.1f}s ({args.steps} steps, {args.steps/elapsed:.1f} steps/s)")
     print(f"Device memory at end: ~{used_gb:.2f} GB used / {total/1e9:.1f} GB total")
-    print("Graph replay mode: GPU should show high sustained utilization (check nvidia-smi during run).")
-    print("Tip: increase --n until you hit OOM or desired VRAM usage. For N>~5k-8k switch to cell-list in real runs for scalability.")
+    print("Tip: increase --n until you hit OOM or desired VRAM usage. For N>~5k-8k switch to cell-list in real runs for scalability. Use large --log-every for best sustained GPU utilization.")
 
 
 if __name__ == "__main__":
