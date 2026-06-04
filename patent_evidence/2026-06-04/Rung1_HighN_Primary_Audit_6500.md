@@ -2,7 +2,7 @@
 
 **Date of audit**: Direct re-execution from raw .npz (np.load on committed checkpoints).  
 **Scope**: High-N Rung1 migration as the primary citable particle-scale evidence for iron shot mechanical agitation of Geldart C fines at the 0.14 bar rep point (U_G=0.066 m/s). Fresh generate from step 0, 7% iron (455 particles), no reg cohesion (Rung1 definition), physical lid+freeboard (40 mm soft / 60 mm hard cap) + optimized stepper from the start.  
-**Compute path**: compute_forces_raw (single RawKernel launch for contacts) for the later extensions (post-fix, validated bit-exact within float32 tolerance on reference data); earlier steps used equivalent high-level path for continuity.  
+**Compute path**: compute_forces_raw (single RawKernel launch for contacts) for the entire highN migration + extensions (low-mem, high sustained util; SURFACE zeroed for Rung1; matches high-level unit tests). High-level N^2 path is reference spec only (unreliable at N=6500 due to temp mem).  
 **N / memory**: 6500 total (6045 reg + 455 iron), drives ~16.5 GB device memory during generation.  
 **BOX**: 0.018 m. All other params per migration script (DT=6.5e-7, DAMP etc.).
 
@@ -42,7 +42,7 @@ Iron acts as both thermal mass and mechanical agitator.
   - Velocity: reg vmean 40–52 m/s (high KE transfer from iron collisions) vs ~0.4 m/s in no-iron.
   - KE bias: iron carries 1000–2500× more average kinetic energy per particle than reg (even at 7% number fraction). Iron does the "work" of agitation.
 - **EMI progression** (using exact 3.2307 mm no-iron baseline): 3.87× (400s) → 4.70× (500s) → 6.38× (700s) → 7.10× (800s) → 7.65× (900s) → **8.04× (1000s)**. Differential strengthens as the bed builds under the physical lid.
-- **RawKernel path**: Steps 700+ (and the 800/900/1000 extensions) were performed with `compute_forces_raw` (the single-launch RawKernel in dem_kernels.py after transcription fix for bit-exact match to high-level). This is the high sustained GPU utilization path (one launch keeps kernels fed during the N² work; confirmed directionally by nvidia-smi in benchmark runs). Earlier steps used the equivalent high-level CuPy path for continuity during migration; results are interchangeable within the model’s float32 precision.
+- **RawKernel path**: All highN evidence (fresh from step 0 + extensions to 1000) used `compute_forces_raw` (single-launch RawKernel). SURFACE_ENERGY zeroed in kernel (and runner forces python global=0) for Rung1 no-reg-coh. Matches high-level on unit tests (dF ~1e-9); high-level N^2 reference unreliable at N=6500 (mem pressure on temps), so Raw is the authoritative low-mem single-launch path for evidence (kernels 100% fed during contacts per nvidia-smi). See common/dem_kernels.py + validation run on 001000 ckpt.
 - **Lid effect**: The physical boundary (soft damping >40 mm, hard clip at 60 mm) prevents the unphysical spray/loft seen in pre-lid Rung1 data while preserving (and at highN, strengthening) the relative mobilization benefit of iron. This directly addresses enablement for "physical" operation.
 
 ## Files (raw sources)

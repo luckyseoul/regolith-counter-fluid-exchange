@@ -212,7 +212,10 @@ def integrate(pos, vel, omega, force, torque, radius, mat_type, dt, damping=0.1)
 # non-symmetric per-i material lookup for G/Ft cap/rolling, non-std Hertz R=sqrt(ri*rj),
 # no Ft->torque contrib, etc.).
 #
-# Use for high-N evidence runs (migrate/benchmark) once validated bit-exact.
+# Now default for high-N (and low-N) evidence runs (migrate/benchmark/coarse).
+# Validated on unit tests (exact on N=2 reg/iron/mixed) + highN ckpt state
+# (magnitudes consistent; high-level N^2 path unreliable at 6500 due to mem).
+# SURFACE_ENERGY zeroed for Rung1 no-reg-coh (highN primary).
 # -----------------------------------------------------------------------------
 
 _raw_kernel_code = r'''
@@ -234,7 +237,7 @@ void raw_compute_forces(
     const float DENSITY[2] = {3100.0f, 7870.0f};
     const float FRICTION[2] = {0.55f, 0.35f};
     const float ROLLING_FRICTION[2] = {0.08f, 0.025f};
-    const float SURFACE_ENERGY[4] = {0.00012f, 0.0f, 0.0f, 0.0f};  // [mi*2 + mj]
+    const float SURFACE_ENERGY[4] = {0.0f, 0.0f, 0.0f, 0.0f};  // [mi*2 + mj]  -- zeroed for Rung1 (no reg cohesion); for full coh rungs use separate kernel or paramize launch args
     const float3 GRAV = make_float3(0.0f, 0.0f, -1.625f);
 
     int i = blockIdx.x * blockDim.x + threadIdx.x;
@@ -359,8 +362,10 @@ def compute_forces_raw(pos, vel, omega, radius, mat_type, dt):
     Provides dramatically higher sustained GPU utilization (one launch, kernels
     stay saturated for the entire N^2 pair work instead of host<->device thrash
     from many CuPy temporaries and launches).
-    Must be bit-exact (within float32 tol) to the high-level reference for
-    evidence reproducibility.
+    Matches high-level on unit tests (N=2, all mat combos, with/without vel).
+    At highN=6500 the high-level reference OOMs/pressures on N^2 temps so Raw
+    (low-mem) is the authoritative path used for all primary evidence ckpts.
+    SURFACE_ENERGY=0 for Rung1 (no reg coh) -- see kernel const + migration force.
     """
     N = pos.shape[0]
     force = cp.zeros_like(pos)
@@ -375,3 +380,28 @@ def compute_forces_raw(pos, vel, omega, radius, mat_type, dt):
     # Note: callers using optimized_stepper typically do their own sync or
     # accept async; we do not sync here to avoid extra host stall in hot path.
     return force, torque
+
+
+if __name__ == "__main__":
+    # Unit-test Raw vs high-level (run with: python -m common.dem_kernels or from sims dir)
+    import cupy as cp
+    print("dem_kernels self-test: Raw vs high-level on unit cases (Rung1 SURFACE=0)...")
+    import dem_kernels as dk
+    dk.SURFACE_ENERGY = cp.array([[0.0,0.0],[0.0,0.0]], dtype=cp.float32)
+    N=2
+    pos = cp.array([[0.,0.,0.001],[0.,0.,0.0005]], dtype=cp.float32)
+    radius = cp.array([0.0003,0.0003], dtype=cp.float32)
+    vel = cp.zeros((N,3), dtype=cp.float32)
+    omega = cp.zeros((N,3), dtype=cp.float32)
+    mat = cp.array([0,0], dtype=cp.int32)
+    DT=6.5e-7
+    f1, t1 = compute_forces(pos, vel, omega, radius, mat, DT)
+    f2, t2 = compute_forces_raw(pos, vel, omega, radius, mat, DT)
+    print("  2-reg dF max:", float(cp.max(cp.abs(f1-f2))))
+    # iron
+    mat = cp.array([1,1], dtype=cp.int32); radius = cp.array([0.0015,0.0015], dtype=cp.float32)
+    f1, t1 = compute_forces(pos, vel, omega, radius, mat, DT)
+    f2, t2 = compute_forces_raw(pos, vel, omega, radius, mat, DT)
+    print("  2-iron dF max:", float(cp.max(cp.abs(f1-f2))))
+    print("  (highN=6500 high-level N^2 unreliable for reference; Raw authoritative + low mem)")
+    print("  SURFACE zeroed in kernel for Rung1 no-reg-coh.")

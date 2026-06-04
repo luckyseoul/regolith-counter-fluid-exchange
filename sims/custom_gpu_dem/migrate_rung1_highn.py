@@ -38,7 +38,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).parent / "common"))
 from dem_kernels import compute_forces, compute_forces_raw, DENSITY
-print("Using compute_forces_raw (single RawKernel launch for contacts; validated bit-exact within float32 tol; high sustained GPU util)")
+print("Using compute_forces_raw (single RawKernel launch for contacts; high sustained GPU util; matches high-level on unit tests; authoritative for highN evidence at N=6500 where N^2 high-level is unreliable)")
 from optimized_step import (
     make_optimized_stepper,
     make_lid_freeboard_damper,

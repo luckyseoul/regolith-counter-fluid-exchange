@@ -15,7 +15,8 @@ import time
 sys.path.insert(0, str(Path("common").resolve()))
 
 from dem_kernels import compute_forces, compute_forces_raw, integrate, compute_drag, estimate_local_porosity, DENSITY
-# NOTE: high-N evidence path (migrate_rung1_highn, benchmark) now defaults to compute_forces_raw for sustained GPU util.
+# All Rung1 paths (coarse backfill + highN migrate) now use compute_forces_raw (single launch, high sustained util).
+# SURFACE_ENERGY=0 forced for no reg cohesion (Rung1 def) + matches kernel const.
 # This coarse/low-N runner kept on high-level compute_forces for compatibility with old ckpt style.
 from optimized_step import (
     unconditional_clips,
@@ -118,11 +119,14 @@ def run_rung1(with_iron=True):
     # Use the optimized stepper (drag + body forces + integrate + unconditional clips)
     # with the local sync-free adders. This keeps the Python per-step overhead minimal
     # and eliminates host syncs from the inner loop.
+    # Rung1: force no reg cohesion (matches highN primary evidence path + kernel const).
+    import dem_kernels
+    dem_kernels.SURFACE_ENERGY = cp.array([[0.0, 0.0], [0.0, 0.0]], dtype=cp.float32)
     stepper = make_optimized_stepper(BOX, U_G, DAMP, add_lid_func=None)
 
     for s in range(steps_to_do):
         step = start_step + s
-        f_contact, tq = compute_forces(pos, vel, cp.zeros_like(vel), radius, mat, DT)
+        f_contact, tq = compute_forces_raw(pos, vel, cp.zeros_like(vel), radius, mat, DT)
         # Let the optimized stepper handle drag (porosity + compute_drag) + adds + integrate + clips.
         # This keeps a single source of truth for the non-contact physics and minimizes sync points.
         pos, vel, _ = stepper(

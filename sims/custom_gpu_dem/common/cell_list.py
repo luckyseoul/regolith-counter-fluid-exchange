@@ -164,8 +164,10 @@ def compute_forces_cell_list(pos, vel, omega, radius, mat_type, dt,
             scale = cp.minimum(1.0, F_t_max / (F_t_mag + 1e-12))
             F_t = F_t * scale[..., None]
 
-            # Rolling torque (simplified) - temporarily disabled for first scaled run
-            torque_roll = cp.zeros_like(p_omega[:, None, :])
+            # Rolling torque (matches high-level / Raw: per-i mat + ri, no Ft->torque)
+            omega_rel = p_omega[:, None, :] - omega_s[nids][None, :, :]
+            torque_roll = - ROLLING_FRICTION[p_mat[:, None]] * cp.abs(F_n)[..., None] * p_rad[:, None, None] * (omega_rel / (cp.linalg.norm(omega_rel, axis=2)[..., None] + 1e-12))
+            torque_roll = cp.where(mask[..., None], torque_roll, 0.0)
 
             # Accumulate to local
             local_force += cp.sum(F_n[..., None] * n + F_t, axis=1)
