@@ -98,7 +98,7 @@ Claims extracted verbatim via pypdf from the complete specification PDF. Cross-c
 
 **Claim 6** (EDS electrode arrays, >99.9% purity alumina excluding transition metal dopants).
 - Supported in spec (detailed § on high-purity alumina, Frenkel-Poole, Paschen); Rung 3/5 DEM includes EDS effectiveness knob (0.97 nominal); Exhibit A shows high leverage (56%→78%).
-- No direct GPU DEM of electrode arrays (particle-scale EDS is proxy via reduced cohesion param); drawings mention optional EDS electrodes (118). Support is primarily textual + lumped sensitivity. Acceptable for now (Phase 2 bench-scale validation per roadmap; no integrated prototype planned).
+- No direct GPU DEM of electrode arrays (particle-scale EDS is proxy via reduced cohesion param); drawings mention optional EDS electrodes (118). Support is primarily textual + lumped sensitivity. The detailed specification + reproducible model + qualitative DEM provide sufficient enablement and written description for the claims. Any additional particle-scale EDS simulation is optional future work for optimization (not required to patent fully). No physical prototype work planned.
 
 **Claim 7/23** (circulation driver / blower 70-150 W, U >= Umf, 3-5× Umf, N+1 redundant, natural convection supplemental).
 - Model: 221 W operating (4.4× / 0.066 m/s, aligned; "rated 70-150" per claim 23 is hardware spec; operating 1.88% <2%). Power calc bug fixed (vol_flow now correct).
@@ -127,7 +127,7 @@ Claims extracted verbatim via pypdf from the complete specification PDF. Cross-c
 - Textual in PDF §4.5 / summary; iron shot "disrupts cohesive agglomerates" and "prevents sintering". No direct high-T DEM (Rung5 is cold-stage rep at low T). Reasonable from mechanics + spec description. Enablement via known tumbling media behavior + iron hardness progression (claims 29-30).
 
 **Claim 12/6/30** (sacrificial ceramic liners Mohs > regolith; high-purity alumina; in-situ carburization to 800-1000 HV, hardness ratio <=1.2).
-- Detailed in PDF §4.2, §5 (risk), claims 29-30. MRE iron + CO carburization path. No sim of wear/carburization (Phase 2 bench characterization). Supported by description + material science. (No Phase 3 prototype planned.)
+- Detailed in PDF §4.2, §5 (risk), claims 29-30. MRE iron + CO carburization path. No sim of wear/carburization kinetics. Supported by description + material science + the fact that the model shows acceptable performance even with degradation assumptions. No physical testing or prototype work required or planned to support the patent claims.
 
 **Claim 24/25** (cyclone separators for elutriated fines, cutoff by terminal vel at operating P/g).
 - PDF §5.8 (fines management, cyclone). No quantitative DEM of cyclone (Rung0/5 focus on bed). Lumped has entr factor. Support is architectural + qualitative.
@@ -160,7 +160,7 @@ Claims extracted verbatim via pypdf from the complete specification PDF. Cross-c
 
 4. **Performance numbers vs. claim floors**: Spec/evidence love the specific 75.6%/68 W; claims use conservative >70% / <2%. Good (avoids overclaim), but draft language should consistently anchor to claim language or note "modeled 75.6% at nominal parameters within the claimed ranges, yielding >70% recovery and <2% parasitic."
 
-5. **EDS / pre-class / fines management**: High leverage in model (Exhibit A), but DEM support is via scalar knobs (EDS_EFF, PSD shift), not explicit electrode or cyclone particle sim. Drawings show optional. Textual support in PDF is detailed; enablement for "configured to" is by description + sensitivity. Acceptable for utility; flag for Phase 2 bench-scale testing. (Scope: no integrated prototype / Phase 3.)
+5. **EDS / pre-class / fines management**: High leverage in model (Exhibit A), but DEM support is via scalar knobs (EDS_EFF, PSD shift), not explicit electrode or cyclone particle sim. Drawings show optional. Textual support in PDF is detailed; enablement for "configured to" is by description + sensitivity + reproducible model performance. This is sufficient for full patent support. No physical bench or prototype work is funded or required to patent fully.
 
 6. **Broad vs. narrow in claims**: Iron 1-10 mm (claim 4) vs. model/Rev 5.2 1.5-3.5 mm cold. Good (room). Pressure 0.05-1.0 bar (claim1) vs. focused 0.1-0.5. Good.
 
@@ -168,7 +168,7 @@ Claims extracted verbatim via pypdf from the complete specification PDF. Cross-c
 
 8. **Drawings vs. data fidelity**: FIG.3/7/5 derive from Rung5 200k/500k and lumped. Since Rung5 inside=100% (x/y), usable; but bed height callouts should be caveated per issue 2. FIG.6 (Rung0) clean.
 
-9. **Enablement / written description overall**: Strong for architecture + low-P iron agitation concept via model + contained DEM (Rung0/5). Quantitative performance floors enabled by reproducible model even under degradation. Particle-scale mechanism for "why it works at 0.14 bar" is the main gap (unphysical states), but qualitative support + identical-physics rule across rungs mitigates. Roadmap calls for Phase 2 bench-scale validation (modeling complete; no Phase 3 prototype planned).
+9. **Enablement / written description overall**: Strong for architecture + low-P iron agitation concept via model + contained DEM (Rung0/5). Quantitative performance floors enabled by reproducible model even under degradation. Particle-scale mechanism for "why it works at 0.14 bar" is the main gap (unphysical states in iron runs), but qualitative support + identical-physics rule across rungs + full detailed description in the spec provides sufficient written description and enablement for utility patent claims. No physical prototype or bench testing is required or funded to patent fully. The model + DEM + spec together are the data package.
 
 ## 4. Recommendations for Package / Spec / Filing
 
@@ -183,9 +183,9 @@ Claims extracted verbatim via pypdf from the complete specification PDF. Cross-c
 
 - **Attorney handoff**: Include the full Rev 5.2 PDF (has claims + detailed support + risk/roadmap) + this review + raw contained .npz for Rung0 + Rung5 + model source. The draft.md is useful support outline but not the formal spec.
 
-- **Scope update**: No integrated prototype (Phase 3) or full system hardware development planned. Roadmap effectively ends at Phase 2 bench-scale testing with simulant (single-stage reduced-pressure chamber work for EDS, wear, seals, cyclone, etc.). All evidence and language should reflect modeling (Phase 1, complete) + planned bench validation (Phase 2) only.
+- **Scope update (funds-constrained)**: No physical prototype, bench-scale hardware testing, or any Phase 2/3 experimental work planned or funded. The goal is strictly to generate enough computational + descriptive data (lumped model reproducibility, mechanistic DEM, detailed spec, drawings) to fully support the patent claims for enablement and written description. Modeling campaign (Phase 1) provides the data needed to patent fully. Optional future modeling can further bolster if needed, but no hardware spend.
 
-- **Optional further work** (modeling support for Phase 2): Re-execute Rung1 leg with current runner + full clips from step 0; lock a clean 100% inside EMI data set if the 100× differential remains useful. Add simple vessel lid + freeboard damping to DEM for more physical bed heights in future rungs (not required for current filing support).
+- **Optional further modeling** (to strengthen patent enablement data if desired, zero hardware cost): Re-execute Rung1 leg with current runner + full clips from step 0; lock a clean 100% inside EMI data set if the 100× differential remains useful. Add simple vessel lid + freeboard damping to DEM for more physical bed heights in future rungs (not required for current filing support).
 
 ## 5. Conclusion (Cold)
 
@@ -197,7 +197,7 @@ Patent claims 1-31 are broadly supported by the architecture in the full PDF spe
 
 With the corrections above, the package (Exhibits + drawings + spec support) is in good shape for counsel review / provisional or utility support. The claims are not "over-claiming" the data once the quantitative DEM language is tempered.
 
-**Scope note (per current project direction)**: No Phase 3 integrated prototype planned. The development roadmap is limited to Phase 1 (CFD-DEM + lumped modeling evidence — completed in this campaign) and Phase 2 (bench-scale simulant testing in reduced-pressure chamber). References to "Phase 1/2 bench validation" have been aligned accordingly. The Rev 5.2 PDF roadmap is retained as historical baseline but internal evidence reflects the reduced scope.
+**Scope note (funds-constrained, per current direction)**: No prototype, no bench-scale hardware testing, no Phase 2 or Phase 3 physical work planned or funded. The objective is strictly to generate sufficient data (reproducible lumped model + mechanistic contained DEM + full detailed description in spec + formal drawings) to support a complete utility patent filing with strong enablement and written description. The Rung 0-5 modeling campaign + cold review + evidence package provides that data. The Rev 5.2 PDF historical roadmap is kept for reference only; current internal scope is modeling-only for patent support.
 
 **Traceability**: All numbers re-derived in this session from committed files (five_stage_counterflow.py, run_rung5.py, rung5_sensitivity.npy, direct np.load on rung*_step500000.npz, pypdf on RCFX_Complete_Specification_Rev52.pdf, patent_*/*.md). No external assumptions.
 

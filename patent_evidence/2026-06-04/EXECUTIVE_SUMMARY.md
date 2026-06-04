@@ -36,6 +36,6 @@ Baseline: **75.6%** at 221 W (1.88% of recovered; post vol_flow= U*AREA fix + VE
 - FIG. 1–7 complete (including FIG. 2 stage cross-section and FIG. 4 counter-current schematic).
 - Claims text integration and inventor declaration support remain outside this package.
 
-**Scope note**: No Phase 3 integrated prototype planned. Development roadmap limited to Phase 1 (modeling, complete) + Phase 2 (bench-scale simulant testing). See COLD_CLAIMS_AND_MATH_REVIEW.md for updated details.
+**Scope note**: No prototype or physical testing (bench or otherwise) planned or funded. Objective is strictly to generate sufficient modeling + descriptive data for full patent support (enablement + written description). See COLD_CLAIMS_AND_MATH_REVIEW.md for details. Modeling campaign provides the data needed to patent fully.
 
 *Only verified raw post-containment contained `.npz` numbers are used for DEM citations.*

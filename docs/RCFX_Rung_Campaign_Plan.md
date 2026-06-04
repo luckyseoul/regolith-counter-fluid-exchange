@@ -81,8 +81,8 @@ See `analysis/it_works_configuration.md` for the clean one-pager on the current 
 1. Attorney review of specification draft, exhibits, and FIG. 1–7.
 2. Integrate formal claims text and inventor declaration (outside repo).
 3. Optional: assemble exhibits + spec into Word for counsel.
-4. Optional engineering (modeling support for Phase 2 bench, not blocking filing): higher-N cell-list DEM, 0.12 bar robustness backfill (see RUNG_CAMPAIGN_RESULTS.md Rung 2 notes). No integrated prototype / Phase 3 hardware development planned.
+4. Optional additional modeling (to further strengthen enablement data for full patent filing, zero hardware cost): higher-N cell-list DEM, 0.12 bar robustness backfill (see RUNG_CAMPAIGN_RESULTS.md Rung 2 notes). No physical prototype, bench testing, or hardware work of any kind planned or funded.
 
 All work is in ~/rcfx/ on soulkiller and will be updated in place.
 
-This campaign (Phase 1 modeling) is now explicitly scoped to generate the supporting math/evidence for the existing provisional (PERRY-RCFX-004) while exploring how low the operating pressure can realistically go without requiring new patent filings or heavy high-pressure/vacuum hardware. Roadmap updated: no Phase 3 prototype; focus ends at Phase 2 bench-scale simulant testing. See COLD_CLAIMS_AND_MATH_REVIEW.md for details and scope note.
+This modeling campaign is explicitly scoped to generate sufficient computational data (lumped model + GPU DEM + sensitivity) + descriptive evidence to fully support the utility patent claims for enablement (35 USC 112) and written description, without any physical prototype or bench hardware work. No funds for prototypes or testing. The goal is "enough data to patent fully." The historical PDF roadmap is retained as background only. See updated COLD_CLAIMS_AND_MATH_REVIEW.md for scope and enablement analysis.
