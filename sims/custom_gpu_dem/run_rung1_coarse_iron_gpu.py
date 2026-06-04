@@ -15,6 +15,7 @@ import time
 sys.path.insert(0, str(Path("common").resolve()))
 
 from dem_kernels import compute_forces, integrate, compute_drag, estimate_local_porosity, DENSITY
+from optimized_step import unconditional_clips  # sync-free clips for hot loop
 
 # Force no cohesion on regolith for Rung 1
 import dem_kernels
@@ -157,23 +158,8 @@ def run_rung1(with_iron=True):
         f = add_floor_force(f, pos, vel, radius, mat)
         pos, vel, _ = integrate(pos, vel, cp.zeros_like(vel), f, tq, radius, mat, DT, DAMP)
 
-        # Hard post-integrate floor + wall enforcement (restitution <1 to damp, prevent tunneling/escape)
-        # Ensures 100% of regolith stays inside vessel domain for meaningful bed height (mean z of contained bed)
-        z = pos[:, 2]
-        below = z < 0.0
-        if cp.any(below):
-            pos[below, 2] = 0.0
-            vel[below, 2] = cp.abs(vel[below, 2]) * 0.80
-        for ax in [0, 1]:
-            p = pos[:, ax]
-            below = p < 0.0
-            if cp.any(below):
-                pos[below, ax] = 0.0
-                vel[below, ax] = cp.abs(vel[below, ax]) * 0.80
-            over = p > BOX
-            if cp.any(over):
-                pos[over, ax] = float(BOX)
-                vel[over, ax] = -cp.abs(vel[over, ax]) * 0.80
+        # Hard post-integrate floor + wall enforcement - unconditional device-side (no host sync in hot path)
+        pos, vel = unconditional_clips(pos, vel, BOX)
 
         if (s + 1) % 500 == 0:
             reg_mask = (mat == 0)

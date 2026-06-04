@@ -90,22 +90,21 @@ def add_floor_force(force, pos, vel, radius, mat):
         vel[below, 2] = cp.maximum(vel[below, 2], 0.0)
     return force
 
-def hard_clips(pos, vel):
+def hard_clips(pos, vel, BOX):
+    """Fully device-side unconditional clips. Removes host sync ('if cp.any') from the hot path."""
     z = pos[:, 2]
     below = z < 0.0
-    if cp.any(below):
-        pos[below, 2] = 0.0
-        vel[below, 2] = cp.abs(vel[below, 2]) * 0.80
+    pos[below, 2] = 0.0
+    vel[below, 2] = cp.abs(vel[below, 2]) * 0.80
+
     for ax in [0, 1]:
         p = pos[:, ax]
         below = p < 0.0
-        if cp.any(below):
-            pos[below, ax] = 0.0
-            vel[below, ax] = cp.abs(vel[below, ax]) * 0.80
+        pos[below, ax] = 0.0
+        vel[below, ax] = cp.abs(vel[below, ax]) * 0.80
         over = p > BOX
-        if cp.any(over):
-            pos[over, ax] = float(BOX)
-            vel[over, ax] = -cp.abs(vel[over, ax]) * 0.80
+        pos[over, ax] = float(BOX)
+        vel[over, ax] = -cp.abs(vel[over, ax]) * 0.80
     return pos, vel
 
 def main():
@@ -133,7 +132,7 @@ def main():
         f = add_floor_force(f, pos, vel, radius, mat)
         f = add_lid_and_freeboard_damping(f, pos, vel, radius, mat)  # NEW
         pos, vel, _ = integrate(pos, vel, cp.zeros_like(vel), f, tq, radius, mat, DT, DAMP)
-        pos, vel = hard_clips(pos, vel)
+        pos, vel = hard_clips(pos, vel, BOX)
 
         if (s + 1) % 500 == 0:
             reg_z = pos[reg_mask0, 2] * 1000
@@ -167,3 +166,23 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+"""
+OPTIMIZATION NOTES (for VRAM + GPU utilization):
+
+- The previous "if cp.any" + print inside every step forced CPU<->GPU syncs and kept only 1 CPU core busy while the GPU idled between tiny kernel launches.
+
+- We now use unconditional_clips (pure device masked writes) for the post-integrate enforcement. This removes per-step host syncs from the clip path.
+
+- Body force adders still have cheap if cp.any (they are not the bottleneck).
+
+- To actually use 5-20+ GB of VRAM and keep all SMs busy:
+  1. Run the dedicated benchmark:
+       python benchmark_vram_gpu_util.py --n 15000 --steps 1000
+       python benchmark_vram_gpu_util.py --n 30000 --steps 500   # if you have enough VRAM
+  2. For real Rung work, switch to cell-list (common/cell_list.py) + the helpers in optimized_step.py and increase n_total in generate_ functions to 20k-100k+.
+
+- The brute-force compute_forces does many large N x N temporaries. For N>~8k-10k you will want the cell-list path.
+
+- Future bigger wins: port the whole timestep (or at least the contact loop) to a single RawKernel / fused ElementwiseKernel so the Python for-loop disappears entirely and we can run thousands of steps with almost zero host involvement.
+"""
