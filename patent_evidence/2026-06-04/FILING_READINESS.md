@@ -12,7 +12,7 @@
 - 200k: bed 4949.96±2498.89 mm, inside 100.0%, dead 1.3%, proxy iron/reg 5563.2 / 4774.8 mm
 - 500k: bed 10404.50±5708.47 mm, inside 100.0%, dead 3.8%, proxy iron/reg 12584.1 / 9781.8 mm
 
-**Lumped post-audit (fixed)**: 75.6% at 221 W (U_G=0.066 m/s cold, 1.88% parasitic). Rung1 EMI/inside qualified per cold review (Rung0/5 remain 100% citable). See COLD_CLAIMS_AND_MATH_REVIEW.md.
+**Lumped post-audit (fixed)**: 75.6% at 221 W (U_G=0.066 m/s cold, 1.88% parasitic). Rung1 high-N (6500 particles, full VRAM) EMI/inside qualified per cold review (to step 700: EMI 6.44×, 100% inside, physical lid). Rung0/5 remain 100% citable. See COLD_CLAIMS_AND_MATH_REVIEW.md and highn ckpts.
 
 Process: not running. Log: `/tmp/rung5_slice.log`. Status: `python /home/nick/rcfx/sims/custom_gpu_dem/rung5_status.py`
 
