@@ -13,7 +13,7 @@ The primary Rung1 evidence for iron agitation at physical scale is now the high-
 
 | Metric | Value | Source |
 |--------|-------|--------|
-| EMI (iron / no-iron bed height ratio) | **3.87×** (at 400 steps, brute); **4.74×** (at 500 steps, cell_list extension) | migrate_rung1_highn.py; no-iron baseline 3.2 mm; with-iron 12.5 mm → 15.2 mm; see COLD_CLAIMS for full log + ckpt step000500 |
+| EMI (iron / no-iron bed height ratio) | **3.87×** (400s brute) → **4.74×** (500s cell) → **6.44×** (700s high-level) | migrate_rung1_highn.py; baseline 3.2 mm; with-iron 12.5 → 15.2 → 20.6 mm; ckpts 000400/500/700; see COLD_CLAIMS |
 | U_G | 0.066 m/s (0.14 bar rep) | — |
 | Containment | **100.0% inside** on both legs (with opt unconditional clips) | same run |
 | With-iron (high-N) | reg bed 12.5 ±7.1 mm (iron 14.2 mm); dead% reg 0.0%; vmean 52 m/s; KE bias 2138×; zmax 27 mm (capped by lid) | final metrics from run |

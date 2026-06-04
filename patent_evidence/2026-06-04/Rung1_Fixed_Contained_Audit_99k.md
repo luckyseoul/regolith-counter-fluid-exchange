@@ -28,8 +28,9 @@ See also lid+freeboard test (separate run) for mitigation showing physical-scale
 
 Full migration completed to high-N Rung1 (N=6500 particles driving ~16.5 GB VRAM). See details in COLD_CLAIMS_AND_MATH_REVIEW.md and Exhibit_B. 
 - 400 steps (brute): no-iron baseline 3.2 mm; with-iron EMI 3.87×, 100% inside, 0% dead reg, KE bias 2138×, reg 12.5 mm.
-- +100 steps cell_list extension (step 500): reg 15.2 ±8.5 mm (iron 17.2), EMI 4.74×, 100% inside, zmax 32 mm. (ckpt rung1_highn_with_iron_step000500.npz; took ~685s due to cell_list Python loops).
-Bed building under lid; differential/KE bias strong. Old low-N details above are historical. 
+- +100 steps cell_list (step 500): reg 15.2 ±8.5 mm (iron 17.2), EMI 4.74×, 100% inside, zmax 32 mm. (ckpt ...000500; ~685s).
+- +200 steps high-level (step 700): reg 20.6 ±11.1 mm (iron 23.1), EMI 6.44×, 100% inside, zmax 41 mm. (ckpt ...000700; 81.5s).
+- EMI builds to 6.44x; 100% containment; high KE bias preserved. Bed building under lid. RawKernel for high util. New ckpts to 000700. Old low-N details historical. 
 - Created common/optimized_step.py with unconditional_clips (device-only masked), sync-free body force helpers, make_optimized_stepper, and make_lid_freeboard_damper.
 - Ported the Rung1 coarse runner and lid test to the stepper.
 - New benchmark_vram_gpu_util.py (N scaling + real memGetInfo) shows we can now drive 14+ GB (N=6000) to 16.6 GB (N=6500) on the V100 while the opt path keeps the loop from forcing host syncs per step.
