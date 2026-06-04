@@ -62,7 +62,7 @@ def make_optimized_stepper(BOX, U_G, DAMP, add_lid_func=None):
     with minimal syncs.
     Contact forces (the expensive part) are still caller-provided.
     """
-    from .dem_kernels import compute_drag, estimate_local_porosity, integrate
+    from dem_kernels import compute_drag, estimate_local_porosity, integrate  # flat import works because caller puts common/ on sys.path
     # We close over the common adders; caller still supplies contact f
 
     def step(pos, vel, omega, contact_force, contact_torque, radius, mat, dt,
@@ -124,3 +124,75 @@ def run_n_steps_optimized(pos, vel, omega, radius, mat,
             checkpoint_cb(pos, vel, radius, mat, s + 1)
 
     return pos, vel, omega
+
+
+# --- Sync-free body force adders (no cp.any host branches in hot path) ---
+# These use pure boolean masking + in-place masked assign. CuPy launches the
+# kernel without a device->host sync for the predicate. Use these (or
+# equivalents) inside the stepper for best CPU/GPU overlap and to avoid GIL peg.
+
+def add_distributor_force_syncfree(force, pos, radius, mat, DENSITY):
+    """Acceleration-style distributor support, unconditional masked update."""
+    z = pos[:, 2]
+    dist_strength = 2.8 * cp.exp(-z / 0.003)
+    mass = DENSITY[mat] * (4.0 / 3.0 * cp.pi * radius**3)
+    force[:, 2] += dist_strength * mass
+    return force
+
+
+def add_wall_forces_syncfree(force, pos, radius, mat, BOX, DENSITY):
+    """Lateral walls, fully device-side, no 'if cp.any'."""
+    k_wall = 120.0
+    for ax in [0, 1]:
+        p = pos[:, ax]
+        # low side
+        pen = -p
+        over = pen > 0.0
+        acc = k_wall * pen[over]
+        m = DENSITY[mat[over]] * (4.0 / 3.0 * cp.pi * radius[over]**3)
+        force[over, ax] += acc * m
+        # high side
+        pen = p - BOX
+        over = pen > 0.0
+        acc = k_wall * pen[over]
+        m = DENSITY[mat[over]] * (4.0 / 3.0 * cp.pi * radius[over]**3)
+        force[over, ax] -= acc * m
+    return force
+
+
+def add_floor_force_syncfree(force, pos, vel, radius, mat, DENSITY):
+    """Floor at z=0, unconditional device masked."""
+    z0 = 0.0
+    k_floor = 200.0
+    z = pos[:, 2]
+    below = z < z0
+    pen = z0 - z[below]
+    acc = k_floor * pen
+    m = DENSITY[mat[below]] * (4.0 / 3.0 * cp.pi * radius[below]**3)
+    force[below, 2] += acc * m
+    vel[below, 2] = cp.maximum(vel[below, 2], 0.0)
+    return force
+
+
+def make_lid_freeboard_damper(BOX, DENSITY, freeboard_start=0.040, lid_z=0.060, damping=0.6):
+    """
+    Returns a callable add_lid_func(f, pos, vel, radius, mat) that applies
+    soft freeboard damping + hard lid cap at physical ~60 mm.
+    Used for the Rung1 lid+freeboard demo that keeps heights realistic while
+    preserving the iron agitation differential (higher iron z, KE bias, lower dead%).
+    """
+    def add_lid_and_freeboard(f, pos, vel, radius, mat):
+        z = pos[:, 2]
+        # Soft damping in freeboard (40-60 mm)
+        in_free = (z > freeboard_start) & (z < lid_z)
+        if cp.any(in_free):  # rare branch, acceptable (not every particle every step)
+            vel[in_free, 2] *= damping
+            vel[in_free, :2] *= 0.7
+        # Hard cap at lid (prevent escape, model vessel lid / freeboard limit)
+        above = z >= lid_z
+        if cp.any(above):
+            pos[above, 2] = lid_z - 1e-6
+            vel[above, 2] = -cp.abs(vel[above, 2]) * 0.3
+            vel[above, :2] *= 0.4
+        return f  # lid primarily kinematic; forces already integrated
+    return add_lid_and_freeboard

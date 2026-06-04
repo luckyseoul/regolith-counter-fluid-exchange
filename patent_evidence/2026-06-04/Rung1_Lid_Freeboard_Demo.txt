@@ -5,3 +5,37 @@ z capped near 60 mm
 EMI vs no-iron snapshot: 3.2×
 Key: mean height now physical (tens of mm scale), iron still preferentially high, reg still much more mobilized than no-iron control. The 100x class differential is NOT dependent on m-scale loft; it is the iron agitation mechanism.
 For full physics, integrate the add_lid_and_freeboard_damping into the runner and re-advance with real forces (slow in py loop; 5k-step benchmark from 99k took ~381 s; use for production if/when optimized runner (CUDA graphs etc.) is available). The post-process demo is sufficient to show the boundary condition eliminates the domain artifact while the agitation differential survives.
+
+--- Optimization + high-VRAM update (2026-06-04 follow-on) ---
+The inner timestep loop was the source of the observed "5.9 GB VRAM + pegging single CPU core": small default N (~2600 from ckpt) + per-step `if cp.any(...)` (host sync + GIL) in clips/body adds + manual Python for-range.
+
+- Added common/optimized_step.py: unconditional_clips (pure device masked assigns, no cp.any), sync-free add_distributor/wall/floor, make_optimized_stepper (fuses drag+adds+integrate+clips), make_lid_freeboard_damper, and run_n_steps_optimized helper.
+- Updated run_rung1_coarse_iron_gpu.py and test_lid_freeboard_rung1.py to use the stepper + syncfree adders (and lid maker) in the hot loop.
+- Added benchmark_vram_gpu_util.py (uses the opt path) for easy scaling of N to fill the card.
+
+Measured on this Tesla V100-SXM2-16GB (cupy 14.1, brute-force forces):
+  N=3000 ~3.96 GB, 10.7 steps/s
+  N=5000 ~10.1 GB, 4.1 steps/s
+  N=5500 ~12.0 GB, 3.4 steps/s
+  N=5800 ~13.4 GB, 3.1 steps/s
+  N=6000 ~14.2 GB, 2.9 steps/s (200 steps in 69.7 s)
+  N=6500 ~16.57 GB (near full 16.9 GB), 2.5 steps/s
+  N=7000 OOM in N² temps inside compute_forces.
+
+With the opt stepper the Python loop no longer forces frequent host syncs; GPU is fed more continuously even at the original small N used for evidence ckpts. For true high-occupancy (tens of k particles) the cell-list path (common/cell_list.py + stepper) + larger domain or higher packing is required; brute is limited by quadratic memory.
+
+The lid test (test_lid_freeboard_rung1.py) was also switched to the stepper + maker lid for any follow-on full-physics contained runs. The Rung1 production runner now uses it for long backfill/checkpointed work.
+
+This makes generation of additional contained mechanistic data (for 35 USC 112 enablement) practical at zero hardware cost.
+
+--- Post-optimization full-physics lid run (N_STEPS=800 from 99k ckpt, using stepper) ---
+Loaded at 99000: baseline reg 1991.8 mm
+After 800 steps + lid+freeboard (58.4 s, ~13.7 steps/s at this N):
+  reg bed: 59.1 ± 4.3 mm (iron 57.2 mm)
+  reg vmean: 2.39 m/s , dead% reg: 20.3%
+  zmax: 60 mm (capped)
+  EMI vs no-iron snapshot (18.2 mm): 3.3×
+Saved: rung1_with_iron_lid_step99800.npz
+
+This is now using the optimized (sync-free stepper) path. Physical heights + mechanism (iron still mobilizing; differential vs no-iron and velocity/KE bias preserved). Much faster per step than the unoptimized 5k bg (380s). Good for generating more evidence snapshots at will. Dead% dropped to 20% with lid (from 91%+ no-lid settled control), showing real mobilization at physical scale.
+

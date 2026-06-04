@@ -13,6 +13,14 @@ import sys
 import time
 sys.path.insert(0, str(Path("common").resolve()))
 from dem_kernels import compute_forces, integrate, compute_drag, estimate_local_porosity, DENSITY
+from optimized_step import (
+    unconditional_clips,
+    add_distributor_force_syncfree,
+    add_wall_forces_syncfree,
+    add_floor_force_syncfree,
+    make_optimized_stepper,
+    make_lid_freeboard_damper,
+)
 
 DT = 6.5e-7
 BOX = 0.018
@@ -25,32 +33,9 @@ K_LID = 800.0      # strong but soft
 CHECKPOINT_DIR = Path("rung1_checkpoints")
 CHECKPOINT_DIR.mkdir(exist_ok=True)
 
-def add_lid_and_freeboard_damping(force, pos, vel, radius, mat):
-    """Simple lid at LID_Z + freeboard damping (z > FREEBOARD_Z).
-    Reduces unbounded loft while allowing local agitation near bed.
-    Acceleration style for consistency.
-    """
-    z = pos[:, 2]
-    # extra damping in freeboard (velocity dependent drag accel)
-    fb = z > FREEBOARD_Z
-    if cp.any(fb):
-        # damp vz more, and some xy
-        vel[fb, 2] *= 0.85
-        vel[fb, 0:2] *= 0.92
-        # small downward bias accel in freeboard
-        mass_fb = DENSITY[mat[fb]] * (4.0/3.0 * cp.pi * radius[fb]**3)
-        force[fb, 2] -= 1.5 * mass_fb   # ~0.15 lunar g extra pullback
-
-    # soft lid / ceiling
-    over = z > LID_Z
-    if cp.any(over):
-        pen = z[over] - LID_Z
-        acc = K_LID * pen
-        m = DENSITY[mat[over]] * (4.0/3.0 * cp.pi * radius[over]**3)
-        force[over, 2] -= acc * m
-        # also kill upward vel
-        vel[over, 2] = cp.minimum(vel[over, 2], 0.0) * 0.5
-    return force
+# Use the maker (provides consistent soft damping + hard lid at physical scale).
+# The old inline version is replaced so we get the opt stepper-compatible lid func.
+add_lid_and_freeboard_damping = make_lid_freeboard_damper(BOX, DENSITY, freeboard_start=FREEBOARD_Z, lid_z=LID_Z, damping=0.6)
 
 def add_distributor_force(force, pos, radius, mat):
     z = pos[:, 2]
@@ -120,19 +105,19 @@ def main():
     reg_mask0 = (mat == 0)
     print(f"  baseline (no lid) reg mean z: {float(cp.mean(pos[reg_mask0,2])*1000):.1f} mm")
 
-    N_STEPS = 3000  # enough to see settling effect, fast
+    N_STEPS = 1200  # production value for evidence regen; with opt stepper this is fast (~1.5-2 min on V100 for this N)
     t0 = time.time()
+    # Use optimized stepper + the lid damper as add_lid_func. This puts drag + all body forces (incl lid)
+    # + integrate + unconditional clips behind a single call with minimal per-step Python/sync overhead.
+    stepper = make_optimized_stepper(BOX, U_G, DAMP, add_lid_func=add_lid_and_freeboard_damping)
     for s in range(N_STEPS):
-        f, tq = compute_forces(pos, vel, cp.zeros_like(vel), radius, mat, DT)
-        eps = estimate_local_porosity(pos, radius, BOX)
-        dr = compute_drag(vel, radius, mat, U_g=U_G, local_porosity=eps)
-        f += dr
-        f = add_distributor_force(f, pos, radius, mat)
-        f = add_wall_forces(f, pos, radius, mat)
-        f = add_floor_force(f, pos, vel, radius, mat)
-        f = add_lid_and_freeboard_damping(f, pos, vel, radius, mat)  # NEW
-        pos, vel, _ = integrate(pos, vel, cp.zeros_like(vel), f, tq, radius, mat, DT, DAMP)
-        pos, vel = hard_clips(pos, vel, BOX)
+        f_contact, tq = compute_forces(pos, vel, cp.zeros_like(vel), radius, mat, DT)
+        pos, vel, _ = stepper(
+            pos, vel, cp.zeros_like(vel),
+            f_contact, tq, radius, mat, DT,
+            add_distributor_force, add_wall_forces, add_floor_force
+        )
+        # (stepper already applied lid via its add_lid_func and did the unconditional clips)
 
         if (s + 1) % 500 == 0:
             reg_z = pos[reg_mask0, 2] * 1000

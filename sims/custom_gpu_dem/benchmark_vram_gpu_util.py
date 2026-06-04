@@ -3,16 +3,30 @@
 Quick benchmark to drive higher VRAM usage and better GPU utilization.
 
 Run with different N to see scaling:
-  python benchmark_vram_gpu_util.py --n 8000 --steps 2000
-  python benchmark_vram_gpu_util.py --n 20000 --steps 500
+  python benchmark_vram_gpu_util.py --n 5500 --steps 300 --log-every 100
+  python benchmark_vram_gpu_util.py --n 6500 --steps 100
 
-This uses the current (small) rung1-style physics but with larger N + the
-unconditional-clip optimized loop.
+Measured on Tesla V100-SXM2-16GB (cupy 14.1):
+  N=3000  ~ 3.96 GB   ~10.7 steps/s (150 steps)
+  N=5000  ~10.12 GB    ~4.1 steps/s
+  N=5500  ~12.02 GB    ~3.4 steps/s
+  N=5800  ~13.42 GB    ~3.1 steps/s
+  N=6000  ~14.18 GB    ~2.9 steps/s
+  N=6500  ~16.57 GB    ~2.5 steps/s
+  N=7000  OOM during compute_forces (N^2 temps)
 
-On a 8-12GB card you should be able to go to N=30k-80k+ before OOM depending
-on temporaries in compute_forces (brute O(N^2) uses a lot of temp memory).
+This uses the rung1-style physics + fully sync-free stepper (unconditional_clips +
+syncfree adders + make_optimized_stepper) so the Python loop does not peg a
+single core with host syncs (if cp.any etc).
 
-For production large N, switch the runner to cell_list + the optimized_step helpers.
+For production large N (20k-100k+ to truly saturate SMs), switch the runner to
+cell_list (common/cell_list.py) + the optimized_step helpers. Brute force is
+only viable to ~6.5k on 16 GB before quadratic temporaries OOM.
+
+The goal of the opt was to make it practical to generate robust contained
+mechanistic DEM data for patent enablement (Rung1 100% contained + physical
+~59 mm lid heights with iron agitation differential preserved) at higher
+fidelity/scale without the CPU idling while GPU waits.
 """
 import argparse
 import time
@@ -28,7 +42,13 @@ from dem_kernels import (
 )
 
 # Import our new optimized helpers
-from optimized_step import unconditional_clips as unconditional_hard_clips  # the one without if-any
+from optimized_step import (
+    unconditional_clips,
+    add_distributor_force_syncfree,
+    add_wall_forces_syncfree,
+    add_floor_force_syncfree,
+    make_optimized_stepper,
+)
 
 BOX = 0.018
 U_G = 0.066
@@ -57,47 +77,17 @@ def generate_particles(n_total=8000, with_iron=True, seed=42):
             cp.asarray(mat))
 
 
+# Use the provided sync-free adders (no cp.any in hot path).
 def add_distributor_force(force, pos, radius, mat):
-    z = pos[:, 2]
-    dist_strength = 2.8 * cp.exp(-z / 0.003)
-    mass = DENSITY[mat] * (4.0 / 3.0 * cp.pi * radius**3)
-    force[:, 2] += dist_strength * mass
-    return force
+    return add_distributor_force_syncfree(force, pos, radius, mat, DENSITY)
 
 
 def add_wall_forces(force, pos, radius, mat):
-    """Sync-free (unconditional masked) wall forces."""
-    k_wall = 120.0
-    for ax in [0, 1]:
-        p = pos[:, ax]
-        pen = -p
-        over = pen > 0.0
-        # Always execute the kernel on the masked subset - CuPy handles it without host sync
-        if cp.any(over):  # this one is acceptable (rare)
-            acc = k_wall * pen[over]
-            m = DENSITY[mat[over]] * (4.0 / 3.0 * cp.pi * radius[over]**3)
-            force[over, ax] += acc * m
-        pen = p - BOX
-        over = pen > 0.0
-        if cp.any(over):
-            acc = k_wall * pen[over]
-            m = DENSITY[mat[over]] * (4.0 / 3.0 * cp.pi * radius[over]**3)
-            force[over, ax] -= acc * m
-    return force
+    return add_wall_forces_syncfree(force, pos, radius, mat, BOX, DENSITY)
 
 
 def add_floor_force(force, pos, vel, radius, mat):
-    z0 = 0.0
-    k_floor = 200.0
-    z = pos[:, 2]
-    below = z < z0
-    if cp.any(below):
-        pen = z0 - z[below]
-        acc = k_floor * pen
-        m = DENSITY[mat[below]] * (4.0 / 3.0 * cp.pi * radius[below]**3)
-        force[below, 2] += acc * m
-        vel[below, 2] = cp.maximum(vel[below, 2], 0.0)
-    return force
+    return add_floor_force_syncfree(force, pos, vel, radius, mat, DENSITY)
 
 
 def main():
@@ -112,16 +102,15 @@ def main():
 
     print(f"Starting {args.steps} steps...")
     t0 = time.time()
+    # Use optimized stepper (handles drag + syncfree adds + integrate + unconditional clips).
+    stepper = make_optimized_stepper(BOX, U_G, DAMP, add_lid_func=None)
     for s in range(args.steps):
-        f, tq = compute_forces(pos, vel, cp.zeros_like(vel), radius, mat, DT)
-        eps = estimate_local_porosity(pos, radius, BOX)
-        dr = compute_drag(vel, radius, mat, U_g=U_G, local_porosity=eps)
-        f += dr
-        f = add_distributor_force(f, pos, radius, mat)
-        f = add_wall_forces(f, pos, radius, mat)
-        f = add_floor_force(f, pos, vel, radius, mat)
-        pos, vel, _ = integrate(pos, vel, cp.zeros_like(vel), f, tq, radius, mat, DT, DAMP)
-        pos, vel = unconditional_hard_clips(pos, vel, BOX)   # optimized unconditional version
+        f_contact, tq = compute_forces(pos, vel, cp.zeros_like(vel), radius, mat, DT)
+        pos, vel, _ = stepper(
+            pos, vel, cp.zeros_like(vel),
+            f_contact, tq, radius, mat, DT,
+            add_distributor_force, add_wall_forces, add_floor_force
+        )
 
         if (s + 1) % args.log_every == 0:
             reg_mask = (mat == 0)

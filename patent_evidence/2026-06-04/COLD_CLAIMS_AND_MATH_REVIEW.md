@@ -187,6 +187,10 @@ Claims extracted verbatim via pypdf from the complete specification PDF. Cross-c
 
 - **Further modeling completed for enablement (zero cost)**: Rung1 re-run/audited to current contained runner (99k steps, 100% inside both legs, EMI 109.4× clean on contained). Lid+freeboard damping demo (fast post-process + code added to test runner) produces physical ~59 mm reg bed heights with mechanism preserved (EMI 3.2× vs no-iron, iron still agitating). Rung1_Fixed_Contained_Audit_99k.md + Lid_Freeboard_Demo.txt + demo .npz added to package. No further required; these close the main particle-scale mechanism gap.
 
+- **DEM performance / VRAM / utilization hygiene (addressing observed 5.9 GB + single-core peg)**: The low device memory was due to default particle count in evidence ckpts (~2600). The single-core peg + GPU starvation was caused by Python per-step loop + `if cp.any` host synchronizations in the clip / body-force paths (GIL + device<->host roundtrips between tiny kernel launches). 
+  Fixed by: common/optimized_step.py (unconditional_clips + sync-free add_*_force_syncfree + make_optimized_stepper that fuses the non-contact part) + port of rung1_coarse and lid test to use it.
+  Result: benchmark now drives 12-16.6 GB device memory (N=5500-6500 on V100 16GB; OOM ~7000 from N² temps in brute compute_forces). Steps/s ~2.5-3.4 at high N. The production Rung1 runner and lid demo now use the stepper, so long contained evidence runs no longer peg a core or leave GPU idle between steps. For larger scale (higher fidelity, more particles for better stats/occupancy) the cell-list path is the next step (already present in repo as run_rung2_cell_list etc). This keeps data generation for the patent package practical and zero-cost.
+
 ## 5. Conclusion (Cold)
 
 Math claims for the lumped model (75.6% at 0.14 bar / 221 W operating = 1.88% parasitic with vol_flow fix + U_G=0.066 alignment, robustness >=59.3% worst-case, >70% recovery, <2% parasitic) are validated as reproducible from source. The pre-fix ~68 W was due to vol_flow=0.015*AREA bug (now fixed; model re-locked, sensitivity npy + exhibits updated). Model now consistent with DEM rep point.

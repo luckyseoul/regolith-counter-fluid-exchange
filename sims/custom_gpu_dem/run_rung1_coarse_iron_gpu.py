@@ -15,7 +15,13 @@ import time
 sys.path.insert(0, str(Path("common").resolve()))
 
 from dem_kernels import compute_forces, integrate, compute_drag, estimate_local_porosity, DENSITY
-from optimized_step import unconditional_clips  # sync-free clips for hot loop
+from optimized_step import (
+    unconditional_clips,
+    add_distributor_force_syncfree,
+    add_wall_forces_syncfree,
+    add_floor_force_syncfree,
+    make_optimized_stepper,
+)  # sync-free everything for hot loop (no GIL peg / host syncs per step)
 
 # Force no cohesion on regolith for Rung 1
 import dem_kernels
@@ -54,60 +60,20 @@ def load_latest_checkpoint(prefix):
             cp.asarray(d['radius']), cp.asarray(d['mat']), int(d['step']))
 
 
+# Thin wrappers over the sync-free (no cp.any, no host sync per step) implementations.
+# The entire body-force + integrate + clip path now runs without Python-level branches
+# that force device syncs. This directly addresses "pegging a single cpu core" while
+# the GPU was starved; larger N (via benchmark) drives VRAM to 12-16 GB.
 def add_distributor_force(force, pos, radius, mat):
-    """Body-force acceleration (upward) near bottom to simulate high distributor ΔP / gas injection support.
-    Treated as acceleration (m/s^2) and scaled by particle mass to produce proper force (N).
-    This fixes previous version that added a constant to the force array (producing mass-dependent
-    insane accelerations for small regolith particles, leading to unphysical 79 m/s launch and 10+m "bed" CoM).
-    2.8 m/s^2 is a few x lunar g near the plate, decaying over mm scale.
-    """
-    z = pos[:, 2]
-    dist_strength = 2.8 * cp.exp(-z / 0.003)   # acceleration (m/s^2) upward, decays quickly
-    mass = DENSITY[mat] * (4.0 / 3.0 * cp.pi * radius**3)
-    force[:, 2] += dist_strength * mass
-    return force
+    return add_distributor_force_syncfree(force, pos, radius, mat, DENSITY)
 
 
 def add_wall_forces(force, pos, radius, mat):
-    """Lateral box walls (x/y containment within [0, BOX]) to keep particles inside the simulated vessel.
-    Prevents radial escape that makes mean-z 'bed height' meaningless (CoM of spray instead of fluidized bed).
-    Uses acceleration-style (scaled by mass) for consistency with distributor; stiff but stable.
-    """
-    k_wall = 120.0  # m/s^2 per meter of penetration (tuned for small particles)
-    for ax in [0, 1]:  # x and y
-        p = pos[:, ax]
-        # low side (x=0 or y=0)
-        pen = -p
-        over = pen > 0.0
-        if cp.any(over):
-            acc = k_wall * pen[over]
-            m = DENSITY[mat[over]] * (4.0 / 3.0 * cp.pi * radius[over]**3)
-            force[over, ax] += acc * m
-        # high side (x=BOX or y=BOX)
-        pen = p - BOX
-        over = pen > 0.0
-        if cp.any(over):
-            acc = k_wall * pen[over]
-            m = DENSITY[mat[over]] * (4.0 / 3.0 * cp.pi * radius[over]**3)
-            force[over, ax] -= acc * m
-    return force
+    return add_wall_forces_syncfree(force, pos, radius, mat, BOX, DENSITY)
 
 
 def add_floor_force(force, pos, vel, radius, mat):
-    """Hard floor support at z=0 (prevents penetration, models distributor plate + vessel bottom).
-    Acceleration based + vel clip to avoid sinking. Complements the soft exponential distributor.
-    """
-    z0 = 0.0
-    k_floor = 200.0  # m/s^2 per m pen
-    z = pos[:, 2]
-    below = z < z0
-    if cp.any(below):
-        pen = z0 - z[below]
-        acc = k_floor * pen
-        m = DENSITY[mat[below]] * (4.0 / 3.0 * cp.pi * radius[below]**3)
-        force[below, 2] += acc * m
-        vel[below, 2] = cp.maximum(vel[below, 2], 0.0)
-    return force
+    return add_floor_force_syncfree(force, pos, vel, radius, mat, DENSITY)
 
 
 def generate_coarse_particles(n_total=2600, with_iron=True):
@@ -147,19 +113,22 @@ def run_rung1(with_iron=True):
     # Force long backfill run - do not early exit even if previous target was met
     print(f"Running {steps_to_do} steps from {start_step} (FORCED LONG BACKFILL)")
 
+    # Use the optimized stepper (drag + body forces + integrate + unconditional clips)
+    # with the local sync-free adders. This keeps the Python per-step overhead minimal
+    # and eliminates host syncs from the inner loop.
+    stepper = make_optimized_stepper(BOX, U_G, DAMP, add_lid_func=None)
+
     for s in range(steps_to_do):
         step = start_step + s
-        f, tq = compute_forces(pos, vel, cp.zeros_like(vel), radius, mat, DT)
-        eps = estimate_local_porosity(pos, radius, BOX)
-        dr = compute_drag(vel, radius, mat, U_g=U_G, local_porosity=eps)
-        f += dr
-        f = add_distributor_force(f, pos, radius, mat)
-        f = add_wall_forces(f, pos, radius, mat)
-        f = add_floor_force(f, pos, vel, radius, mat)
-        pos, vel, _ = integrate(pos, vel, cp.zeros_like(vel), f, tq, radius, mat, DT, DAMP)
-
-        # Hard post-integrate floor + wall enforcement - unconditional device-side (no host sync in hot path)
-        pos, vel = unconditional_clips(pos, vel, BOX)
+        f_contact, tq = compute_forces(pos, vel, cp.zeros_like(vel), radius, mat, DT)
+        # Let the optimized stepper handle drag (porosity + compute_drag) + adds + integrate + clips.
+        # This keeps a single source of truth for the non-contact physics and minimizes sync points.
+        pos, vel, _ = stepper(
+            pos, vel, cp.zeros_like(vel),   # omega slot (coarse rung1 does not track angular velocity meaningfully)
+            f_contact, tq, radius, mat, DT,
+            add_distributor_force, add_wall_forces, add_floor_force
+        )
+        # Note: stepper already did unconditional_clips inside.
 
         if (s + 1) % 500 == 0:
             reg_mask = (mat == 0)

@@ -23,3 +23,11 @@ At 0.14 bar / U_G=0.066 m/s, iron shot produces ~110× higher regolith bed mobil
 See also lid+freeboard test (separate run) for mitigation showing physical-scale heights while preserving benefit.
 
 **Benchmark note (full physics loop overhead)**: A 5k-step continuation benchmark from the 99k checkpoint (pure Python + cupy per-step calls, same kernels) took 380.8 s on this hardware and lofted reg mean z further to ~2106 mm. This confirms the Python loop overhead makes full re-execution to 500k (or repeated lid tests) impractical here (~76 s / 1k steps); the fast post-process lid damping demo is the appropriate zero-cost way to demonstrate the boundary fix for enablement. When a compiled / CUDA-graph version of the runner is available, the lid force function can be dropped in for production runs.
+
+**Optimization update (unconditional clips + stepper)**: The hot-loop syncs (if cp.any in clips and adds) + small N from ckpt were the root of the "5.9 GB VRAM + pegging single CPU core". 
+- Created common/optimized_step.py with unconditional_clips (device-only masked), sync-free body force helpers, make_optimized_stepper, and make_lid_freeboard_damper.
+- Ported the Rung1 coarse runner and lid test to the stepper.
+- New benchmark_vram_gpu_util.py (N scaling + real memGetInfo) shows we can now drive 14+ GB (N=6000) to 16.6 GB (N=6500) on the V100 while the opt path keeps the loop from forcing host syncs per step.
+- Rung1 production backfill and future lid full-physics runs now benefit automatically (less CPU peg, GPU fed better). For the evidence package this means we can affordably generate more contained mechanistic snapshots at the rep point if needed. Brute-force still limits N; cell-list + stepper is the path for 10x+ particles / higher VRAM occupancy in future sensitivity.
+- The 800-step lid test run (full forces + lid via stepper) was executed post-opt to verify the path; see Rung1_Lid_Freeboard_Demo.txt for results + timing.
+
