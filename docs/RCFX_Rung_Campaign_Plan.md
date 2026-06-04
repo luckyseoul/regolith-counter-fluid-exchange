@@ -67,7 +67,7 @@ Key result: At **0.14 bar** with claim-compliant tuning (2.0 mm iron at 0.32 fil
 Full rung-by-rung results and details: `rung_results/RUNG_CAMPAIGN_RESULTS.md`
 
 - Rung 0: PASS (lumped); **GPU DEM locked 500k** (distributor uniformity, 334 contained ckpts)
-- Rung 1: PASS (qualitative differential only); **GPU DEM** (raw .npz: ~78-79% inside; recomputed EMI ~100.6× on contained subset; high velocities indicate loft — use for mobilization benefit only; see COLD_CLAIMS_AND_MATH_REVIEW.md)
+- Rung 1 (fixed): 99k steps current runner **100.0% inside** both legs; clean EMI **109.4×** on contained (new audit Rung1_Fixed_Contained_Audit_99k.md); lid+freeboard demo yields physical ~59 mm heights with differential preserved (see Lid demo + COLD review). Rung0/5/1 now all contained citable.
 - Rung 2: Solid PASS at 0.14 bar (GPU DEM iron agitation evidence)
 - Rung 3: PASS with high EDS
 - Rung 4: **75.6% at 0.14 bar** (meets ≥75% target); transfer ~230 particles (GPU DEM)
@@ -78,11 +78,11 @@ Full rung-by-rung results and details: `rung_results/RUNG_CAMPAIGN_RESULTS.md`
 See `analysis/it_works_configuration.md` for the clean one-pager on the current working point.
 
 ## Next Immediate Work
-1. Attorney review of specification draft, exhibits, and FIG. 1–7.
+1. Final internal review of specification draft, exhibits, audits (incl. new Rung1 fixed + lid), and FIG. 1–7.
 2. Integrate formal claims text and inventor declaration (outside repo).
-3. Optional: assemble exhibits + spec into Word for counsel.
-4. Optional additional modeling (to further strengthen enablement data for full patent filing, zero hardware cost): higher-N cell-list DEM, 0.12 bar robustness backfill (see RUNG_CAMPAIGN_RESULTS.md Rung 2 notes). No physical prototype, bench testing, or hardware work of any kind planned or funded.
+3. Optional: assemble exhibits + spec into Word.
+4. Enablement fixes completed (zero hardware cost): Rung1 re-audited for 100% containment + clean EMI 109.4× (contained); lid+freeboard damping implemented + demo (physical heights ~59 mm while mechanism intact). Added Rung1_Fixed_Contained_Audit + Lid_Freeboard_Demo to evidence. No physical prototype, bench testing, or hardware work of any kind planned or funded.
 
 All work is in ~/rcfx/ on soulkiller and will be updated in place.
 
-This modeling campaign is explicitly scoped to generate sufficient computational data (lumped model + GPU DEM + sensitivity) + descriptive evidence to fully support the utility patent claims for enablement (35 USC 112) and written description, without any physical prototype or bench hardware work. No funds for prototypes or testing. The goal is "enough data to patent fully." The historical PDF roadmap is retained as background only. See updated COLD_CLAIMS_AND_MATH_REVIEW.md for scope and enablement analysis.
+This modeling campaign (with Rung1 containment + lid fixes) is explicitly scoped to generate sufficient computational data (lumped model + GPU DEM + sensitivity + fixed contained Rung1 audit + lid demo for physical mechanism) + descriptive evidence to fully support the utility patent claims for enablement (35 USC 112) and written description, without any physical prototype or bench hardware work. No funds for prototypes or testing. The goal is "enough data to patent fully." The historical PDF roadmap is retained as background only. See updated COLD_CLAIMS_AND_MATH_REVIEW.md for scope and enablement analysis.

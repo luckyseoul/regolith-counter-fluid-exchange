@@ -98,6 +98,6 @@ See generated files in:
 
 **Rung 0 locked** (500k) and **Rung 5 locked** (200k initial + 500k sensitivity backfill final) with only citable contained raw .npz. "Rung 1 locked... now on Rung 0 (locked at 500k)... per directive: finish Rung 0 500k then Rung 5 real DEM then patent skills." "Bed heights remain correct (contained, no loft per prior fix)." "Only 100.0% inside + zmin>=0 numbers are citable for patent evidence." "Rung 5 locked... now invoking patent skills."
 
-This draft is for support; integrate with formal claims and attorney review.
+This draft is for support; integrate with formal claims.
 
-**Funds-constrained scope note**: No prototype or physical testing planned or funded. The reproducible lumped model (75.6% effectiveness, 221 W / 1.88% parasitic at 0.14 bar, robustness cases), contained GPU DEM (Rung 0 distributor uniformity, Rung 5 iron agitation), detailed description, and drawings provide sufficient data to patent fully (enablement and written description under 35 USC 112). See 2026-06-04 evidence package and COLD_CLAIMS_AND_MATH_REVIEW.md.
+**Funds-constrained scope note**: No prototype or physical testing planned or funded. The reproducible lumped model (75.6% effectiveness, 221 W / 1.88% parasitic at 0.14 bar, robustness cases), contained GPU DEM (Rung 0 distributor uniformity, Rung 5 iron agitation, Rung 1 fixed 99k 100% inside clean 109.4× EMI + lid+freeboard demo for physical heights), detailed description, and drawings provide sufficient data to patent fully (enablement and written description under 35 USC 112). See 2026-06-04 evidence package and COLD_CLAIMS_AND_MATH_REVIEW.md.

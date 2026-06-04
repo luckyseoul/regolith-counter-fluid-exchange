@@ -54,7 +54,7 @@ The GPU DEM at *identical* U_G shows that:
 
 This establishes, at the particle scale, that the iron agitation is **not incremental but enabling** for the fluidization state assumed in the lumped model. The ~6× mobilization multiplier provides direct mechanistic support for the performance jump that allows the 5-stage system to reach the 75.6% target at 0.14 bar / 68 W rather than remaining near the no-fluidization floor.
 
-## Limitations (Transparent for Prosecution)
+## Limitations (Transparent for Patent Support)
 
 - Screening scale (3000 particles, ~8 ms physical time). Full pilot (50–100 kg/hr) requires 10^5–10^6 particles and longer runs.
 - Drag force on micron fines produces high velocities in current formulation (known tuning needed for absolute speeds; differential iron benefit is robust).

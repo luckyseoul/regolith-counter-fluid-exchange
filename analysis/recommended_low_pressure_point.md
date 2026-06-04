@@ -1,5 +1,5 @@
 # Recommended Low-Pressure Operating Point for RCFX
-## Supporting Math for Patent Prosecution (within existing claims)
+## Supporting Math for Patent Filing (within existing claims)
 
 **Date**: 31 May 2026  
 **Basis**: Systematic tuning studies on soulkiller using parameters and features from PERRY-RCFX-004 Rev 5.2 only.

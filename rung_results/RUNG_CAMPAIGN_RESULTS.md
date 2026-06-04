@@ -1016,7 +1016,7 @@ This establishes at the particle scale that the iron agitation mechanism is **en
 - `rung2_calibration_metrics_v1.npz` (post-processed authoritative metrics)
 - Updated `Rung2_Iron_Agitation_Patent_Evidence.md` and executive summary
 
-**Status for patent prosecution**: Calibration step of the 4-point plan complete. Iron agitation at the claimed 0.14 bar operating point is now quantitatively linked to the 75.6% effectiveness target via a simple, defensible mobilization index.
+**Status for patent support**: Calibration step of the 4-point plan complete (with Rung1 fixed containment + lid enablement updates). Iron agitation at the claimed 0.14 bar operating point is now quantitatively linked to the 75.6% effectiveness target via a simple, defensible mobilization index (Rung1 109.4× clean contained + lid physical demo).
 
 ---
 

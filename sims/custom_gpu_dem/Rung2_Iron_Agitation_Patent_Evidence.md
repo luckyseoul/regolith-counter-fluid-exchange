@@ -45,7 +45,7 @@ These results provide particle-level DEM validation, now calibrated directly to 
 
 The iron shot agitation (size range, fill, and gas velocity all within Rev 5.2 claim language) is therefore shown to be **material and enabling** for the low-pressure performance target.
 
-**Calibration deliverable**: `Rung2_Calibration_Results.md` + `Rung2_Calibration_Summary.txt` (formal EMI definition and mapping table ready for prosecution package).
+**Calibration deliverable**: `Rung2_Calibration_Results.md` + `Rung2_Calibration_Summary.txt` (formal EMI definition and mapping table ready for patent support package).
 
 ---
 

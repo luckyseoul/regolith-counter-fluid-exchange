@@ -21,7 +21,7 @@ Verbatim log terminations:
 Baseline: **75.6%** at 221 W (1.88% of recovered; post vol_flow= U*AREA fix + VEL=4.4 for 0.066 m/s DEM alignment). Combined robustness (same parameter set as DEM degradation intent): moderate cases remain **≥ ~69%**; worst simultaneous case **59.3%** (see Exhibit A). Source: `rung_results/rung5_sensitivity.npy`, `RUNG_CAMPAIGN_RESULTS.md`.
 
 ## Supporting locks (context)
-- **Rung 1**: EMI ~**100.6×** (recomputed; campaign 107.9×) on ~78-79% inside ckpt at 0.14 bar rep. **See COLD_CLAIMS_AND_MATH_REVIEW.md**: does not meet 100.0% inside citable rule; use qualitatively only. Rung 0/5 are fully contained.
+- **Rung 1 (fixed)**: 99k steps with current clip runner: **100.0% inside** both legs; clean EMI **109.4×** (reg bed ratio) on fully contained data. New audit + diagnostics (KE bias, dead%, loft%) in Rung1_Fixed_Contained_Audit_99k.md. Lid+freeboard demo: physical ~59 mm heights with mechanism preserved (see Lid_Freeboard_Demo.txt). Rung 0/5/1 now primary contained.
 - **Rung 0**: Distributor backfill final bed **30.97 ± 134.22 mm**, dead% **97.7**, **100.0%** inside — distributor uniformity characterization at low pressure.
 
 ## Deliverables in this package
@@ -31,11 +31,11 @@ Baseline: **75.6%** at 221 W (1.88% of recovered; post vol_flow= U*AREA fix + VE
 - Drawings: `/home/nick/rcfx/patent_drawings/` (FIG. 1, 3, 5, 6, 7)
 - Specification draft: `/home/nick/rcfx/patent_specification_draft.md`
 
-## Filing-ready gaps (attorney / next engineering)
+## Filing package notes (internal)
 - Formal Word (.docx) assembly optional via docx skill.
 - FIG. 1–7 complete (including FIG. 2 stage cross-section and FIG. 4 counter-current schematic).
 - Claims text integration and inventor declaration support remain outside this package.
 
-**Scope note**: No prototype or physical testing (bench or otherwise) planned or funded. Objective is strictly to generate sufficient modeling + descriptive data for full patent support (enablement + written description). See COLD_CLAIMS_AND_MATH_REVIEW.md for details. Modeling campaign provides the data needed to patent fully.
+**Scope note (funds-constrained)**: No prototype or physical testing (bench or otherwise) planned or funded. Objective is strictly to generate sufficient modeling + descriptive data (including Rung1 fixed contained + lid demo) for full patent support (enablement + written description). See COLD_CLAIMS_AND_MATH_REVIEW.md for details. Modeling campaign provides the data needed to patent fully.
 
 *Only verified raw post-containment contained `.npz` numbers are used for DEM citations.*

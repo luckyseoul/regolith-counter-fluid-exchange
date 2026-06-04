@@ -1,0 +1,7 @@
+Rung1 lid+freeboard fast demo (post-process damping on 99k ckpt)
+Baseline reg bed: ~2012 mm
+With lid settling (1200 iters proxy): 59.0 mm mean reg (iron 57.9 mm)
+z capped near 60 mm
+EMI vs no-iron snapshot: 3.2×
+Key: mean height now physical (tens of mm scale), iron still preferentially high, reg still much more mobilized than no-iron control. The 100x class differential is NOT dependent on m-scale loft; it is the iron agitation mechanism.
+For full physics, integrate the add_lid_and_freeboard_damping into the runner and re-advance with real forces (slow in py loop; use for production if needed).

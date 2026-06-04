@@ -53,6 +53,6 @@ This pressure range is low enough to provide substantial relief on vessel design
 - Refine to a higher-fidelity 5-stage counter-flow energy/mass balance model using the best tuning parameters above.
 - Generate clean figures and tables suitable for the patent application.
 - Explore one additional safe dimension: differential iron shot sizing between cold vs hot stages (still within the staged deployment language of the claims).
-- Document the exact parameter sets that achieve the reported performance for inclusion in the prosecution file.
+- Document the exact parameter sets that achieve the reported performance for inclusion in the patent support file.
 
 All raw data and scripts in `~/rcfx/` on soulkiller.

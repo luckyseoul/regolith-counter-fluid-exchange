@@ -22,7 +22,7 @@ Process: not running. Log: `/tmp/rung5_slice.log`. Status: `python /home/nick/rc
 | Evidence index + Exhibits A–E | `patent_evidence/2026-06-04/` | Complete |
 | Claim element matrix | `CLAIM_ELEMENT_MATRIX.md` | Complete |
 | Executive summary | `EXECUTIVE_SUMMARY.md` | Complete |
-| Specification draft | `patent_specification_draft.md` | Complete (attorney review) |
+| Specification draft | `patent_specification_draft.md` | Complete (internal support) |
 | Drawings FIG. 1–7 (SVG/PDF) | `patent_drawings/` | Complete |
 | Cold claims + math validation review | `COLD_CLAIMS_AND_MATH_REVIEW.md` | **Added this session** (independent audit) |
 | Assembled evidence package (.docx) | `RCFX_Patent_Evidence_Package_2026-06-04.docx` | **Generated this session** (US Letter, TOC, headers/footers, tables, full content + cold review) |
@@ -30,18 +30,18 @@ Process: not running. Log: `/tmp/rung5_slice.log`. Status: `python /home/nick/rc
 
 ## Outstanding (outside engineering)
 1. Formal independent/dependent **claims** text integration (not in repo).
-2. **Inventor declaration** and attorney prosecution workflow.
-3. Optional **Word (.docx)** assembly of exhibits + spec for counsel.
+2. **Inventor declaration** (outside this repo).
+3. Optional **Word (.docx)** assembly of exhibits + spec.
 4. Optional FIG. 2B/2C embodiment series (not required for current support set).
 
-**Scope note (funds-constrained)**: No prototype, no bench-scale testing, no physical hardware work planned or funded at any phase. All work is modeling + analysis to generate enough data to patent fully (enablement via reproducible model + mechanistic DEM + detailed spec). See COLD_CLAIMS_AND_MATH_REVIEW.md and updated Rung Campaign Plan.
+**Scope note (funds-constrained)**: No prototype, no bench-scale testing, no physical hardware work planned or funded at any phase. All work is modeling + analysis to generate enough data to patent fully (enablement via reproducible model + mechanistic DEM + detailed spec + Rung1 fixed audit + lid demo). See COLD_CLAIMS_AND_MATH_REVIEW.md and updated Rung Campaign Plan.
 
-## Recommended counsel handoff bundle
+## Recommended filing package bundle
 Copy or zip these paths:
 ```
 /home/nick/rcfx/patent_evidence/2026-06-04/RCFX_Patent_Evidence_Package_2026-06-04.docx
 /home/nick/rcfx/patent_evidence/2026-06-04/RCFX_Specification_Support_Draft_2026-06-04.docx
-/home/nick/rcfx/patent_evidence/2026-06-04/  (source MDs + COLD_CLAIMS_AND_MATH_REVIEW.md + raw exhibits for reference)
+/home/nick/rcfx/patent_evidence/2026-06-04/  (source MDs + COLD_CLAIMS_AND_MATH_REVIEW.md + Rung1_Fixed_Contained_Audit_99k.* + Rung1_Lid_Freeboard_Demo.txt + raw exhibits for reference)
 /home/nick/rcfx/patent_drawings/FIG_*.pdf
 /home/nick/rcfx/patent_specification_draft.md
 /home/nick/rcfx/rung_results/RUNG_CAMPAIGN_RESULTS.md
