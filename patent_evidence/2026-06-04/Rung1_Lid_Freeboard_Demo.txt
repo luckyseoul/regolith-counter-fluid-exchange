@@ -4,4 +4,4 @@ With lid settling (1200 iters proxy): 59.0 mm mean reg (iron 57.9 mm)
 z capped near 60 mm
 EMI vs no-iron snapshot: 3.2×
 Key: mean height now physical (tens of mm scale), iron still preferentially high, reg still much more mobilized than no-iron control. The 100x class differential is NOT dependent on m-scale loft; it is the iron agitation mechanism.
-For full physics, integrate the add_lid_and_freeboard_damping into the runner and re-advance with real forces (slow in py loop; use for production if needed).
+For full physics, integrate the add_lid_and_freeboard_damping into the runner and re-advance with real forces (slow in py loop; 5k-step benchmark from 99k took ~381 s; use for production if/when optimized runner (CUDA graphs etc.) is available). The post-process demo is sufficient to show the boundary condition eliminates the domain artifact while the agitation differential survives.
