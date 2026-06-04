@@ -43,3 +43,5 @@ python3 -c "import numpy as np; d=np.load('/home/nick/rcfx/sims/custom_gpu_dem/r
 
 ## Integrity note
 Do not cite pre-containment or partial-escape checkpoints. The campaign explicitly invalidates any ckpt not meeting 100.0% inside + zmin ≥ 0.
+
+**Batch audit (2026-06-04)**: All **334** files in `rung5_checkpoints/rung5_step*.npz` pass the inside mask (x,y ∈ [0, 0.016] m, z ≥ 0) with zmin ≥ 0 on every particle.

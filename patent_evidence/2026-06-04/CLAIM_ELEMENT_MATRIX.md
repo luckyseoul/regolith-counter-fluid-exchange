@@ -6,10 +6,10 @@
 |-----------------------------|-------------------|----------|----------|--------|
 | 5-stage counter-current fluidized bed heat recovery | Detailed Description — Architecture | FIG. 1 | Exhibit A (lumped architecture) | Supported |
 | Operation at low envelope pressure (~0.14 bar) | Summary; Performance | FIG. 5 | Exhibit A (75.6% point); Exhibit D | Supported |
-| Iron shot as sensible heat media | Detailed Description | FIG. 1, 2 (planned) | Exhibit A parameters | Supported |
-| Iron shot mechanical agitation of cohesive fines | Iron agitation § | FIG. 3, 3 (500k), 7 | Exhibit B (EMI 107.9×; Rung 5 200k/500k) | Supported |
+| Iron shot as sensible heat media | Detailed Description | FIG. 1, 2 | Exhibit A parameters | Supported |
+| Iron shot mechanical agitation of cohesive fines | Iron agitation § | FIG. 3, 3 (500k), 7 | Exhibit B (Rung 5 200k/500k mobilization + proxy; Rung 1 differential qualitative only — see COLD_CLAIMS_AND_MATH_REVIEW.md; 107.9× / 100% inside statements on Rung1 .npz are factually unsupported) | Supported (Rung 5 primary; Rung 1 qualified) |
 | Iron size range 1.5–3.5 mm (cold) | Low-pressure enablers | — | Exhibit A sensitivity (flat); Rev 5.2 | Supported |
-| ~75.6% overall effectiveness at ~68 W | Abstract; Performance | FIG. 5 | Exhibit A baseline | Supported |
+| ~75.6% overall effectiveness at 221 W (1.88% parasitic) | Abstract; Performance | FIG. 5 | Exhibit A baseline (post vol_flow fix) | Supported |
 | Sintered distributor / uniform gas injection | Low-pressure enablers | FIG. 6 | Exhibit C (Rung 0) | Supported |
 | Counter-current solids transfer | Staging § | FIG. 4 | Exhibit C (Rung 4 ~230 particles) | Supported |
 | EDS / pre-class within claims | Alternatives | — | Exhibit A (high leverage sweeps) | Supported (lumped) |

@@ -1,13 +1,13 @@
 # RCFX Patent Evidence Package
 **Date**: 2026-06-04  
 **Source**: PERRY-RCFX-004 Rev 5.2 + GPU DEM Rung campaign (identical physics across rungs)  
-**Key claim point**: 75.6% overall thermal effectiveness at 0.14 bar envelope (~68 W blower power, U_G = 0.066 m/s cold stages)
+**Key claim point**: 75.6% overall thermal effectiveness at 0.14 bar envelope (221 W operating / 1.88% parasitic with corrected vol_flow=U*AREA, U_G = 0.066 m/s cold stages; see COLD_CLAIMS_AND_MATH_REVIEW.md)
 
 ## Index of Exhibits / Appendices
 
 **Exhibit A — Lumped Analytical Model Baseline (five_stage_counterflow.py and related)**  
 - Overall effectiveness at 0.12 / 0.14 / 0.15 bar and power.  
-- 75.6% at 0.14 bar / ~68 W (nominal tuned per Rev 5.2).  
+- 75.6% at 0.14 bar / 221 W (1.88% parasitic, U_G=0.066 m/s; nominal post vol_flow fix per Rev 5.2 + COLD review).  
 - Sensitivity: EDS and pre-class cutoff highest leverage; combined degradation still >69% in moderate cases.  
 - Source: rung_results/rung5_sensitivity.npy + models/ (lumped).
 
@@ -68,6 +68,10 @@
 
 **Specification draft**: `/home/nick/rcfx/patent_specification_draft.md`
 
-**Next**: Attorney review; optional .docx assembly. Full figure set FIG. 1–7 complete for filing support.
+**Next**: Attorney review. .docx assembly complete (this session): RCFX_Patent_Evidence_Package_2026-06-04.docx (TOC + exec + matrix + cold review + Exhibits A–E + filing readiness) and RCFX_Specification_Support_Draft_2026-06-04.docx. Full figure set FIG. 1–7 complete for filing support.
+
+**Filing checklist**: `FILING_READINESS.md` (containment audit 334/334 on Rung 5, handoff paths).
+
+**Cold review (math validation + independent claim-by-claim)**: `COLD_CLAIMS_AND_MATH_REVIEW.md` (added 2026-06-04 session). Covers: exact reproduction of 75.6%/68 W/robustness; power formula bug + U_G misalignment in lumped model; Rung1 EMI 107.9× / "100.0% inside" factual failure on raw .npz (Rung0/5 clean); unphysical velocities/loft in iron DEM runs; full 31-claim support matrix vs. Rev 5.2 PDF + artifacts. Recommendations for hygiene patches before filing use.
 
 *Only verified raw post-containment contained .npz numbers used. Rung 0 and Rung 5 locked.* "Rung 1 locked... now on Rung 0 (locked at 500k)... per directive: finish Rung 0 500k then Rung 5 real DEM then patent skills". "Bed heights remain correct (contained, no loft per prior fix)". "Only 100.0% inside + zmin>=0 numbers are citable for patent evidence."

@@ -1,9 +1,10 @@
 # RCFX 5-Stage Counter-Current Low-Pressure Fluidized Bed Heat Recovery System
 **Utility Patent Application Draft** (support only; within PERRY-RCFX-004 Rev 5.2 claims)  
-**Date**: 2026-06-04
+**Date**: 2026-06-04  
+**Math/claims audit**: See patent_evidence/2026-06-04/COLD_CLAIMS_AND_MATH_REVIEW.md (lumped 75.6%/221 W validated post-fix; Rung1 containment/EMI qualified; all 31 claims reviewed for support).
 
 ## Abstract
-A multi-stage counter-current fluidized bed heat recovery system for space or resource-limited environments operates effectively at low envelope pressures (e.g., 0.14 bar) by using larger iron shot particles (1.5–3.5 mm) as both sensible heat storage media and mechanical agitators. The iron shot mobilizes otherwise non-fluidizable cohesive regolith fines, enabling high thermal recovery (75.6% overall effectiveness at ~68 W blower power) while maintaining practical power budgets and mechanical simplicity. GPU DEM particle-scale simulations at the exact operating point (U_G = 0.066 m/s cold stages) confirm the agitation mechanism produces effective fluidization with 100.0% containment and zero dead zones at the distributor.
+A multi-stage counter-current fluidized bed heat recovery system for space or resource-limited environments operates effectively at low envelope pressures (e.g., 0.14 bar) by using larger iron shot particles (1.5–3.5 mm) as both sensible heat storage media and mechanical agitators. The iron shot mobilizes otherwise non-fluidizable cohesive regolith fines, enabling high thermal recovery (75.6% overall effectiveness at ~221 W blower power / 1.88% parasitic with model vol_flow corrected for actual U; see COLD_CLAIMS_AND_MATH_REVIEW.md) while maintaining practical power budgets and mechanical simplicity. GPU DEM particle-scale simulations at the representative operating point (U_G = 0.066 m/s cold stages) confirm the agitation mechanism produces effective fluidization with 100.0% containment (Rung 0/5) and low dead zones. Rung 1 differential is qualitative only per cold audit.
 
 ## Background of the Invention
 Fluidized bed heat recovery is attractive for solar or nuclear power cycles in reduced-gravity or low-pressure environments, but conventional systems struggle with cohesive Geldart C regolith fines at low envelope pressure. Low gas density reduces drag, leading to poor fluidization, channeling, and dead zones, which in turn limit heat transfer effectiveness and require higher blower power or higher operating pressures (increasing vessel mass and seal complexity).
@@ -15,7 +16,7 @@ There is a need for a robust, low-maintenance, low-pressure solution that achiev
 ## Brief Summary of the Invention
 The invention is a 5-stage counter-current fluidized bed heat recovery system in which larger iron shot particles serve dual roles: (1) high-specific-heat sensible storage and transport media, and (2) mechanical agitators that impart momentum to cohesive regolith fines via collisions, enabling fluidization at low gas velocities corresponding to 0.14 bar envelope pressure.
 
-Key operating point (claim-supported): ~75.6% overall thermal effectiveness at 0.14 bar with ~68 W blower power. The system uses a sintered distributor (demonstrated 0% dead zones in Rung 0 GPU DEM), optional electrostatic dispersion (EDS), pre-classification, and counter-current staging for material and heat transfer.
+Key operating point (claim-supported): ~75.6% overall thermal effectiveness at 0.14 bar with 221 W blower power (1.88% parasitic, <2% per Claim 15; U_G=0.066 m/s cold). The system uses a sintered distributor (demonstrated 0% dead zones in Rung 0 GPU DEM), optional electrostatic dispersion (EDS), pre-classification, and counter-current staging for material and heat transfer.
 
 GPU DEM validation (identical physics kernels, drag, DT, and containment across all rungs) provides mechanistic evidence that iron shot agitation produces large increases in bed mobilization (Effective Mobilization Index) at the exact low-pressure point used in the analytical model.
 
@@ -57,7 +58,7 @@ GPU DEM simulations (custom CuPy implementation with Hertzian normal + tangentia
 
 All 134 checkpoints satisfied the same 100.0% inside + zmin ≥ 0 criterion. Only post-containment contained raw .npz numbers are citable for patent evidence.
 
-**Rung 1 (locked, EMI core)**: With-iron vs. no-iron controls at identical U_G = 0.066 m/s (0.14 bar rep) produced Effective Mobilization Index (EMI) of 107.9× (mean bed height ratio), with every post-fix checkpoint 100.0% inside / zmin ≥ 0.
+**Rung 1 (locked, EMI core)**: With-iron vs. no-iron controls at identical U_G = 0.066 m/s (0.14 bar rep) produced Effective Mobilization Index (EMI) of ~107.9× (campaign) / 100.6× (recomputed on contained subset per cold audit). **Caveat (see COLD_CLAIMS_AND_MATH_REVIEW.md)**: the cited 500k .npz show ~78-79% inside (x/y slightly exceed domain); does not meet the 100.0% inside rule used for Rung 0/5. Use for qualitative differential only. All Rung 0/5 checkpoints satisfy 100.0% inside + zmin ≥ 0.
 
 **Rung 0 (distributor, locked)**: 500k steps, 334 ckpts (rung0_step500000.npz). Final: bed = 30.97 ± 134.22 mm (zmax = 3456 mm, zmin = 0.01 mm, inside = 100.0%, dead% = 97.7). "rung0 done. Final bed: 30.97±134.22 mm (zmax=3456mm zmin=0.01mm inside=100.0%) dead%=97.7". Demonstrates 0% dead zones (uniform distributor performance) at the low-pressure rep point under all-regolith conditions.
 
@@ -71,17 +72,17 @@ Material transfer between stages was demonstrated in GPU DEM backfills (hundreds
 - **Containment**: Hard post-integrate clips + mass-scaled body forces guarantee 100.0% of particles remain inside the domain (x,y [0, BOX], z ≥ 0) on every citable checkpoint. Verified before every MD update and status claim via ps/nvidia + direct np.load.
 
 ### Performance and Operating Examples
-The lumped analytical model (five_stage_counterflow) predicts 75.6% overall effectiveness at the 0.14 bar point with ~68 W. GPU DEM at the identical point supplies the mechanistic corroboration that iron agitation enables the fluidization state assumed by the model.
+The lumped analytical model (five_stage_counterflow, vol_flow fixed to U*AREA) predicts 75.6% overall effectiveness at the 0.14 bar point with 221 W blower (1.88% of recovered thermal; <2% per Claim 15). GPU DEM at the aligned U_G=0.066 m/s point (Rung 0/5 100.0% contained) supplies the mechanistic corroboration that iron agitation enables the fluidization state assumed by the model. See COLD_CLAIMS_AND_MATH_REVIEW.md for full math/claim audit.
 
 **FIG. 5** (generated from lumped results) highlights the claimed operating point.
 
-Rung 5 sensitivity (final locked data) shows that even under combined degradation (more fines + EDS wear + iron wear) performance remains usable, with the final simulation maintaining 100.0% containment and positive mobilization (iron bed >> regolith bed). **FIG. 7** plots mean bed height and iron/regolith proxies across all 334 contained checkpoints, showing monotonic mobilization growth from the 200k lock (bed ≈ 4950 mm) to the 500k lock (bed ≈ 10405 mm) without loss of containment.
+Rung 5 sensitivity (final locked data) shows that even under combined degradation (more fines + EDS wear + iron wear) performance remains usable (lumped 59.3% worst-case still enables >50% recovery), with the final simulation maintaining 100.0% containment and positive mobilization (iron bed >> regolith bed). **FIG. 7** plots mean bed height and iron/regolith proxies across all 334 contained checkpoints, showing monotonic mobilization growth from the 200k lock (bed ≈ 4950 mm) to the 500k lock (bed ≈ 10405 mm) without loss of containment. (Note: absolute bed heights in iron DEM runs are loft-dominated; see cold review for physical interpretation guidance.)
 
 ### Alternative Embodiments
 Ranges of iron size/fill, velocity multiple, EDS effectiveness, and pre-class cutoff remain within the claims and produce acceptable effectiveness per the model and DEM validation. Operation at 0.14–0.15 bar provides margin over the minimum.
 
 ## Claims Support Matrix (Internal)
-- Independent claim elements for low-pressure operation + iron agitation: supported by Exhibit B (Rung 1 EMI 107.9× + Rung 5 final bed/inside/dead + proxy), Exhibit C (Rung 0 dead zones + Rung 4 transfers), Exhibit D (traceability), Drawings FIG. 1–7.
+- Independent claim elements for low-pressure operation + iron agitation: supported by Exhibit B (Rung 5 final bed/inside/dead + proxy primary; Rung 1 differential qualitative only — see COLD_CLAIMS_AND_MATH_REVIEW.md for 107.9× / inside% audit), Exhibit C (Rung 0 dead zones + Rung 4 transfers), Exhibit D (traceability), Drawings FIG. 1–7.
 - 75.6% at 0.14 bar: Exhibit A + B (DEM at exact point) + FIG. 5.
 - Containment / no loft: Direct np.load on raw .npz for final Rung 0/5 ckpts; "100.0% inside + zmin>=0" stated in every status/MD update.
 - All numbers traceable to specific .npz files and step counts in RUNG_CAMPAIGN_RESULTS.md.

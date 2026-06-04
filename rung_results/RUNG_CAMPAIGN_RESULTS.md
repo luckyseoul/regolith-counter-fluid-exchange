@@ -2,11 +2,12 @@
 
 **Campaign Goal**: Find the lowest practical envelope pressure (within existing claims) at which the 5-stage RCFX system can achieve ≥70-75% thermal recovery at pilot scale with conservative, defensible margins and low maintenance burden.
 
-**Working Configuration (from Rung 4)**:
+**Working Configuration (from Rung 4 / updated post cold review 2026-06-04)**:
 - Pressure: 0.14 bar
-- Cold stages: 2.0 mm iron @ 0.32 fill, 5.5× Umf, EDS=0.97, pre-class 22 µm
+- Cold stages: 2.0 mm iron @ 0.32 fill, 4.4× Umf (U_G=0.066 m/s for DEM alignment), EDS=0.97, pre-class 22 µm
 - Hot stages: 3.5 mm iron @ 0.20 fill, 3.5× Umf, EDS=0.97
-- 5-stage counterflow result: **75.6% overall effectiveness**, ~68 W blower power
+- 5-stage counterflow result (vol_flow fixed): **75.6% overall effectiveness**, 221 W blower (1.88% parasitic, <2% per claims). Pre-fix ~68 W was vol_flow=0.015*AREA bug.
+- See COLD_CLAIMS_AND_MATH_REVIEW.md + updated patent_evidence/2026-06-04/ for full audit + corrections. Rung1 107.9× qualified (containment not 100% on cited ckpt).
 
 ---
 

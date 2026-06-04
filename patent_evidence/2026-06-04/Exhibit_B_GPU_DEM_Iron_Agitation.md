@@ -11,9 +11,11 @@
 ## Rung 1 — Effective Mobilization Index (EMI)
 | Metric | Value | Source |
 |--------|-------|--------|
-| EMI (iron / no-iron bed height ratio) | **107.9×** | Locked Rung 1 checkpoints, `RUNG_CAMPAIGN_RESULTS.md` |
+| EMI (iron / no-iron bed height ratio) | **~100.6× (recomputed on contained subset)** | Direct `np.load(rung1_*_step500000.npz)`; campaign logs claimed 107.9× / 100.0% inside |
 | U_G | 0.066 m/s (0.14 bar rep) | — |
-| Containment | 100.0% inside all post-fix ckpts | direct `np.load` |
+| Containment (raw ckpt) | ~78-79% inside (x/y exceed BOX=0.016; z>=0, zmin>=0) | direct `np.load` (see COLD_CLAIMS_AND_MATH_REVIEW.md §1.6 and §3) |
+
+**Cold audit note**: Rung 1 final ckpts do not satisfy the "100.0% inside + zmin>=0 on all post-fix" citable rule repeated throughout the package. Use Rung 5 (100.0% inside, contained) as primary for quantitative mobilization support. Rung 1 remains useful for qualitative with-iron vs. no-iron differential at identical conditions. High velocities (tens of m/s) present; metrics demonstrate relative agitation benefit, not literal bed heights.
 
 ## Rung 5 — Sensitivity / combined degradation (real DEM)
 

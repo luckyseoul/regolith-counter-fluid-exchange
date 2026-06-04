@@ -5,7 +5,8 @@ Uses the best parameters from the full tuning sweep (within existing claims).
 
 This is the first higher-fidelity math artifact intended to support the full patent.
 
-Configuration: 0.11 bar nominal with optimized cold-stage iron shot, velocity, EDS, and pre-class.
+Configuration: 0.14 bar / U_G=0.066 m/s cold (VEL=4.4) with vol_flow=U*AREA power calc fixed (post cold review).
+Operating power ~221 W (1.88% parasitic, <2% per claims); eff 75.6% flat vs velocity.
 """
 
 import numpy as np
@@ -15,12 +16,12 @@ import numpy as np
 # =============================================================================
 P = 0.14                    # current working demonstration point (0.14 bar, 75.6%)
 # Best parameters from cold-stage optimizer + hot stage tuning (within claims)
-# Even more aggressive cold-stage tuning (still within 1-5mm iron, high EDS, aggressive pre-class)
+# VEL_MULT_COLD set for U_G ~0.066 m/s alignment with DEM Rung rep point + correct vol_flow power calc
 IRON_COLD_MM = 2.0
 IRON_HOT_MM = 3.5
 FILL_COLD = 0.32
 FILL_HOT = 0.20
-VEL_MULT_COLD = 5.5
+VEL_MULT_COLD = 4.4
 VEL_MULT_HOT = 3.5
 EDS_EFF = 0.97
 PRECLASS_UM = 22
@@ -107,7 +108,8 @@ def run_5stage():
 
         # Local stage performance
         is_cold = (i < 2)
-        eff, entr, dp_bed, Umf = stage(vmult * 0.015, rho, mu, iron_d, iron_f, EDS_EFF, PRECLASS_UM, is_cold)
+        U = vmult * 0.015
+        eff, entr, dp_bed, Umf = stage(U, rho, mu, iron_d, iron_f, EDS_EFF, PRECLASS_UM, is_cold)
         stage_effs.append(eff)
 
         # Counterflow heat transfer in this stage
@@ -123,7 +125,8 @@ def run_5stage():
         T_hot  -= actual_heat_this_stage / (mdot * CP_REG)
 
         # Blower power for this stage (parallel manifold)
-        vol_flow = 0.015 * AREA
+        # vol_flow must use actual local U (was hardcoded 0.015*AREA — bug)
+        vol_flow = U * AREA
         stage_blower = (vol_flow * dp_bed) / 0.60
         blower_powers.append(stage_blower)
 

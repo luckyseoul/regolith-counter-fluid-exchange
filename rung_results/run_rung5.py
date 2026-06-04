@@ -16,13 +16,13 @@ import five_stage_counterflow as m
 import numpy as np
 from pathlib import Path
 
-# Lock to Rung 4 best configuration
+# Lock to Rung 4 best configuration (updated post vol_flow fix for U_G=0.066 alignment + power <2%)
 P_TARGET = 0.14
 m.IRON_COLD_MM = 2.0
 m.IRON_HOT_MM = 3.5
 m.FILL_COLD = 0.32
 m.FILL_HOT = 0.20
-m.VEL_MULT_COLD = 5.5
+m.VEL_MULT_COLD = 4.4
 m.VEL_MULT_HOT = 3.5
 m.EDS_EFF = 0.97
 m.PRECLASS_UM = 22

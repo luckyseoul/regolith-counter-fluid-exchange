@@ -7,28 +7,28 @@
 |----------|-------|--------|
 | Envelope pressure | 0.14 bar | PERRY-RCFX-004 Rev 5.2 |
 | Overall effectiveness | **75.6%** | `rung_results/rung5_sensitivity.npy` → `baseline` |
-| Blower power | **~68 W** | same |
-| Cold-stage U_G (rep) | 0.066 m/s | Rev 5.2 / DEM alignment |
+| Blower power | **221 W** (post vol_flow fix; 1.88% of recovered) | same |
+| Cold-stage U_G (rep) | 0.066 m/s (VEL_MULT_COLD=4.4) | Rev 5.2 / DEM alignment (model/DEM now consistent) |
 
 ## Single-parameter sensitivity (selected)
-From `RUNG_CAMPAIGN_RESULTS.md` § Rung 5, source `rung_results/rung5_sensitivity.npy`:
+From `RUNG_CAMPAIGN_RESULTS.md` § Rung 5, source `rung_results/rung5_sensitivity.npy` (recomputed post vol_flow fix in five_stage_counterflow.py:126):
 
 | Parameter | Range tested | Effect on overall effectiveness |
 |-----------|--------------|----------------------------------|
 | Iron shot diameter (cold) | 1.5–5.0 mm | Very flat (~75.6%) |
 | Iron fill (cold) | 0.18–0.42 | Very flat |
-| Velocity multiple (cold) | 3.5–6.5× | 75.6% (power 47 W → 81 W) |
+| Velocity multiple (cold) | 3.5–6.5× | 75.6% (power 165 W → 440 W; nominal 4.4× / 0.066 m/s = 221 W, 1.88% parasitic) |
 | EDS effectiveness | 0.70–0.99 | 56.2% → 78.1% |
 | Pre-class cutoff | 50 µm → 18 µm | 52.2% → 84.0% |
 
 ## Combined robustness cases (0.14 bar fixed)
 | Case | Overall effectiveness |
 |------|----------------------|
-| Nominal | 75.6% |
-| +20% fines, 15% iron wear | 69.0% |
-| EDS 0.85 + moderate wear | 64.2% |
-| Low gas generation (−25%) | 69.0% |
-| Worst combined (more fines + EDS 0.85 + wear) | 59.3% |
+| Nominal | 75.6% (221 W) |
+| +20% fines, 15% iron wear | 69.0% (221 W) |
+| EDS 0.85 + moderate wear | 64.2% (221 W) |
+| Low gas generation (−25%) | 69.0% (221 W) |
+| Worst combined (more fines + EDS 0.85 + wear) | 59.3% (221 W) |
 
 ## Model artifact
 - **Primary**: `/home/nick/rcfx/rung_results/rung5_sensitivity.npy`
