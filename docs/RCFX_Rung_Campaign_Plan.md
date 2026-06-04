@@ -58,28 +58,30 @@ This directly serves the economic goal: demonstrate that good performance is ach
   - Exploitation of the natural temperature-dependent volatile release profile for gas composition management (directly supported by Claim 27 and Section 4.3).
 - Deliverable: Clear, documented math and sensitivity curves showing how performance at low pressure (target << 0.2 bar) can be improved or maintained by intelligent tuning and optimization of features already present in the provisional application. Focus on producing evidence suitable for supporting the full patent issuance.
 
-## Current Status (31 May 2026)
+## Current Status (4 Jun 2026)
 
-**Rung Campaign has been executed through Rung 4 with current models.**
+**Rung campaign (lumped + GPU DEM) is complete through Rung 5.**
 
 Key result: At **0.14 bar** with claim-compliant tuning (2.0 mm iron at 0.32 fill + 5.5× velocity + max EDS in cold stages), the integrated 5-stage counterflow model achieves **75.6% overall effectiveness**.
 
 Full rung-by-rung results and details: `rung_results/RUNG_CAMPAIGN_RESULTS.md`
 
-- Rung 0: PASS (distributor strongly dominant)
-- Rung 1: PASS
-- Rung 2: Solid PASS at 0.14 bar
+- Rung 0: PASS (lumped); **GPU DEM locked 500k** (distributor uniformity, 334 contained ckpts)
+- Rung 1: PASS; **GPU DEM locked** (EMI 107.9× at 0.14 bar rep)
+- Rung 2: Solid PASS at 0.14 bar (GPU DEM iron agitation evidence)
 - Rung 3: PASS with high EDS
-- Rung 4: **75.6% at 0.14 bar** (meets ≥75% target)
-- Rung 5: **Complete**. Good headroom on individual knobs at 0.14 bar. EDS and pre-classification are highest-leverage. Moderate combined degradation still viable; severe combined degradation drops performance as expected. See `rung_results/RUNG_CAMPAIGN_RESULTS.md` for details.
+- Rung 4: **75.6% at 0.14 bar** (meets ≥75% target); transfer ~230 particles (GPU DEM)
+- Rung 5: **Complete** (lumped sensitivity + **GPU DEM locked 500k**, combined degradation, 334 contained ckpts)
+
+**Patent support package**: `patent_evidence/2026-06-04/`, `patent_drawings/` (FIG. 1–7), `patent_specification_draft.md`. See `patent_evidence/2026-06-04/FILING_READINESS.md`.
 
 See `analysis/it_works_configuration.md` for the clean one-pager on the current working point.
 
 ## Next Immediate Work
-1. Build and run focused sensitivity studies on parameters and features already present in the claims (starting with iron shot size distribution and agitation effectiveness vs pressure in the cold stages — squarely within Claims 4, 11, 29, etc.).
-2. Refine the multi-stage counter-flow effectiveness model with accurate energy accounting.
-3. Execute Rung 0–3 prototypes, with all "design levers" restricted to optimization within the existing provisional application.
-4. Produce clean, documented mathematical results and sensitivity data suitable for direct use in supporting the full patent prosecution.
+1. Attorney review of specification draft, exhibits, and FIG. 1–7.
+2. Integrate formal claims text and inventor declaration (outside repo).
+3. Optional: assemble exhibits + spec into Word for counsel.
+4. Optional engineering (not blocking filing support): higher-N cell-list DEM, 0.12 bar robustness backfill (see RUNG_CAMPAIGN_RESULTS.md Rung 2 notes).
 
 All work is in ~/rcfx/ on soulkiller and will be updated in place.
 
