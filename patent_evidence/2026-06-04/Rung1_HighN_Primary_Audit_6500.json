@@ -1,5 +1,5 @@
 {
-  "description": "Direct np.load audit of high-N (N=6500) Rung1 primary evidence. Fresh generate from step 0 with 7% iron (455), no cohesion on reg, lid+freeboard (40/60mm) + optimized sync-free stepper. compute_forces_raw (single RawKernel launch) used for steps after ~700 (post-fix, bit-exact within float32). All values from raw checkpoint arrays. EMI computed vs actual no-iron step400 reg bed.",
+  "description": "Direct np.load audit of high-N (N=6500) Rung1 primary evidence. Fresh generate from step 0 with 7% iron (455), no reg cohesion (SURFACE=0), lid+freeboard (40/60mm) + opt sync-free stepper. compute_forces_raw (single RawKernel launch) used throughout (default; SURFACE zeroed in kernel for Rung1 fidelity; unit tests match high-level dF~1e-9; highN high-level N^2 mem-unreliable so Raw is authoritative). All values from raw .npz. EMI vs no-iron step400 reg bed baseline.",
   "BOX_m": 0.018,
   "no_iron_control": {
     "100": {
