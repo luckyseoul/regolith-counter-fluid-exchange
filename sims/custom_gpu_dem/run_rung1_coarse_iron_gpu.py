@@ -76,9 +76,9 @@ def add_floor_force(force, pos, vel, radius, mat):
     return add_floor_force_syncfree(force, pos, vel, radius, mat, DENSITY)
 
 
-def generate_coarse_particles(n_total=2600, with_iron=True):
+def generate_coarse_particles(n_total=6500, with_iron=True):  # high-N migration default (full VRAM ~16.5GB); was 2600 low-N historical
     np.random.seed(42)
-    n_iron = 180 if with_iron else 0
+    n_iron = int(0.07 * n_total) if with_iron else 0  # 7% for high-N consistency with benchmark/migration
     n_reg = n_total - n_iron
 
     # Coarse only (Rung 1 definition)
