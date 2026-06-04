@@ -51,3 +51,10 @@ This is now using the optimized (sync-free stepper) path. Physical heights + mec
 - Bed height and EMI have been stable for thousands of steps. The system damps to a low-velocity state under the lid (as expected for a bounded vessel), but the iron shot retains orders-of-magnitude higher kinetic energy — direct signature of the dual-role (thermal mass + mechanical agitator) mechanism at physically realistic bed heights. 100% containment holds throughout.
 - This is the data generated after the VRAM/GPU utilization optimization; the runner no longer pegs a single core with host syncs.
 
+**High-N (6500 particles) VRAM utilization test with same lid+freeboard physics:**
+- Ran 200 steps at N=6500 (the particle count that drives ~16.57 GB device memory on this V100, using the benchmark generator + identical opt stepper + lid damper).
+- Device: 16.57 GB used during the run.
+- 100% inside, bed capped (zmax 17 mm in this short run from spread initial conditions).
+- Shows the full optimized + lid code path functions correctly while actually saturating the card's VRAM (unlike the evidence Rung1 runs which use the lower validated N~2600 for direct comparability to prior audits).
+- Note: absolute bed heights/vels not comparable to the long-evolved low-N Rung1 because this was a short run from random high initial positions (not from a 99k-settled ckpt). The point was "can we run the exact same mechanistic lid code at the N that was optimal for VRAM?" — yes.
+
