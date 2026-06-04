@@ -34,6 +34,8 @@ Process: not running. Log: `/tmp/rung5_slice.log`. Status: `python /home/nick/rc
 3. Optional **Word (.docx)** assembly of exhibits + spec for counsel.
 4. Optional FIG. 2B/2C embodiment series (not required for current support set).
 
+**Scope note (updated)**: No Phase 3 / integrated prototype development planned. All work scoped to Phase 1 modeling evidence (Rung campaign complete) + Phase 2 bench-scale validation. See COLD_CLAIMS_AND_MATH_REVIEW.md and updated Rung Campaign Plan.
+
 ## Recommended counsel handoff bundle
 Copy or zip these paths:
 ```

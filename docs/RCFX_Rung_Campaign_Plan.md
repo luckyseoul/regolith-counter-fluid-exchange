@@ -67,7 +67,7 @@ Key result: At **0.14 bar** with claim-compliant tuning (2.0 mm iron at 0.32 fil
 Full rung-by-rung results and details: `rung_results/RUNG_CAMPAIGN_RESULTS.md`
 
 - Rung 0: PASS (lumped); **GPU DEM locked 500k** (distributor uniformity, 334 contained ckpts)
-- Rung 1: PASS; **GPU DEM locked** (EMI 107.9× at 0.14 bar rep)
+- Rung 1: PASS (qualitative differential only); **GPU DEM** (raw .npz: ~78-79% inside; recomputed EMI ~100.6× on contained subset; high velocities indicate loft — use for mobilization benefit only; see COLD_CLAIMS_AND_MATH_REVIEW.md)
 - Rung 2: Solid PASS at 0.14 bar (GPU DEM iron agitation evidence)
 - Rung 3: PASS with high EDS
 - Rung 4: **75.6% at 0.14 bar** (meets ≥75% target); transfer ~230 particles (GPU DEM)
@@ -81,8 +81,8 @@ See `analysis/it_works_configuration.md` for the clean one-pager on the current 
 1. Attorney review of specification draft, exhibits, and FIG. 1–7.
 2. Integrate formal claims text and inventor declaration (outside repo).
 3. Optional: assemble exhibits + spec into Word for counsel.
-4. Optional engineering (not blocking filing support): higher-N cell-list DEM, 0.12 bar robustness backfill (see RUNG_CAMPAIGN_RESULTS.md Rung 2 notes).
+4. Optional engineering (modeling support for Phase 2 bench, not blocking filing): higher-N cell-list DEM, 0.12 bar robustness backfill (see RUNG_CAMPAIGN_RESULTS.md Rung 2 notes). No integrated prototype / Phase 3 hardware development planned.
 
 All work is in ~/rcfx/ on soulkiller and will be updated in place.
 
-This campaign is now explicitly scoped to generate the supporting math/evidence for the existing provisional (PERRY-RCFX-004) while exploring how low the operating pressure can realistically go without requiring new patent filings or heavy high-pressure/vacuum hardware.
+This campaign (Phase 1 modeling) is now explicitly scoped to generate the supporting math/evidence for the existing provisional (PERRY-RCFX-004) while exploring how low the operating pressure can realistically go without requiring new patent filings or heavy high-pressure/vacuum hardware. Roadmap updated: no Phase 3 prototype; focus ends at Phase 2 bench-scale simulant testing. See COLD_CLAIMS_AND_MATH_REVIEW.md for details and scope note.
