@@ -1,0 +1,17 @@
+Welcome to Yade 2026.1.0 
+Using python version: 3.14.4 (main, Apr  8 2026, 04:02:31) [GCC 15.2.0]
+TCP python prompt on localhost:9000, auth cookie `ydsaeu'
+XMLRPC info provider on http://localhost:21000
+Running script rung2_drag_demo.py
+=== RCFX Rung 2 Drag Demo (~3000 particles) ===
+Box: 26.0 mm | N_reg=2700 + N_iron=180
+U_G = 0.0660 m/s (tied to ~68 W lumped model)
+Drag: Stokes + quadratic, applied to ALL particles (stronger on iron by size)
+Generating particles...
+Generated 2880 bodies
+Settling (no drag)...
+t=0.06ms  bed=23.40mm  iron_z=13.17mm  KEi/KEr=0.000  iron-reg_coll~54
+t=0.12ms  bed=23.93mm  iron_z=13.17mm  KEi/KEr=0.000  iron-reg_coll~38
+Starting fluidization with drag (U_G=0.0660 m/s)...
+t=0.18ms  bed=24.35mm  iron_z=13.17mm  KEi/KEr=0.000  iron-reg_coll~26
+t=0.24ms  bed=24.59mm  iron_z=13.17mm  KEi/KEr=0.000  iron-reg_coll~12

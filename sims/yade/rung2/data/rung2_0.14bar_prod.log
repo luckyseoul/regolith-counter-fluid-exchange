@@ -1,0 +1,12 @@
+Welcome to Yade 2026.1.0 
+Using python version: 3.14.4 (main, Apr  8 2026, 04:02:31) [GCC 15.2.0]
+TCP python prompt on localhost:9000, auth cookie `kcedsu'
+XMLRPC info provider on http://localhost:21000
+Running script rung2_production_0.14bar.py
+=== RCFX rung2_0.14bar_prod_v1 ===
+P=0.14 bar | iron=2.0mm | vel_mult=5.5x | EDS=0.97 | preclass~22um
+Particles: 48000 regolith (bimodal) + 420 iron shot
+Effective regolith cohesion: 10980.0 Pa
+Generating particles...
+Total bodies: 48420
+Initial settling (gravity + cohesion, no gas)...

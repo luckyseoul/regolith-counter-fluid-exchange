@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+.env
+.venv/
+
+# Large GPU DEM checkpoint series (transfer via rsync bundle, not git)
+sims/custom_gpu_dem/rung*_checkpoints/
+
+# Keep lumped/analytical artifacts
+!rung_results/*.npy

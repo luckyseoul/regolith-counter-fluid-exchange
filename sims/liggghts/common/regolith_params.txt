@@ -1,0 +1,30 @@
+# Common regolith and gas parameters for RCFX rungs (from Rev 5.2)
+# Pressure: 0.14 bar target working point
+
+# Particle properties (lunar regolith approx)
+density 3100.0
+youngsModulus 1e8          # Pa (effective for granular)
+poissonsRatio 0.25
+coefficientRestitution 0.3
+coefficientFriction 0.6
+coefficientRollingFriction 0.1
+
+# Cohesion (JKR style) - will be varied per rung
+# Base Hamaker constant for silicates in vacuum ~ 1e-19 to 5e-19 J
+hamaker 2.0e-19
+
+# Gas properties at 0.14 bar, ~500K average (light gas mix early)
+# Will be updated per stage in later rungs
+gasDensity 0.035           # kg/m3 at 0.14 bar, light mix
+gasViscosity 2.3e-5        # Pa.s
+
+# Gravity
+gravity 1.625              # m/s^2 lunar
+
+# Iron shot properties
+ironDensity 7870.0
+ironYoungs 2e11
+ironPoisson 0.3
+ironRestitution 0.5
+ironFriction 0.4
+ironRollingFriction 0.05

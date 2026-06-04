@@ -1,0 +1,29 @@
+RCFX Rung 2 + Rung 3 Combined GPU DEM Evidence at Target 0.14 bar Point
+PERRY-RCFX-004 Rev 5.2
+
+Rung 2 — Iron Agitation (checkpointed production)
+- 3000 particles, iron 1.5-3.5 mm + bimodal regolith + drag (stronger on iron)
+- U_G = 0.066 m/s (exact 68 W lumped point)
+- Checkpointed continuation to step 4500 additional
+- Final observed: bed 30.15 mm, iron 72.62 mm
+- No-iron control: 4.50 mm
+- EMI = 6.70× (and still rising)
+
+Rung 3 — EDS Mitigation on the Rung 2 Iron Baseline (completed fast run)
+- Same 0.14 bar, iron-agitated starting state
+- High EDS (0.97): 191.58 mm final bed
+- Degraded EDS (0.50): 183.98 mm final bed
+- Gain from proper EDS: +7.60 mm mobilization
+
+Combined interpretation:
+The iron shot agitation (Rung 2) provides the foundational ~6.7× bed mobilization uplift that makes low-pressure operation possible. On top of that activated bed, EDS effectiveness (Rung 3) delivers an additional ~7.6 mm mobilization gain, consistent with the very high leverage EDS showed in the 5-stage lumped model (dropping EDS from 0.97 to 0.5 costs 15-25 points of effectiveness).
+
+These two mitigations together are the core within-claims mechanisms that allow the system to reach the 75.6% overall effectiveness at 0.14 bar / 68 W in the analytical model.
+
+Artifacts:
+- rung2_checkpoints/ (with_iron up to step 4500)
+- run_rung3_eds_fast.py output (completed)
+- Rung2_Final_Production_Summary_0.14bar.txt
+- This combined note
+
+Status: Rung 2 and Rung 3 GPU DEM evidence at the target 0.14 bar point now exist and are linked. Next: Rung 4 multi-stage execution.

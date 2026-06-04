@@ -1,0 +1,43 @@
+# RCFX Rung 4 - Single stage representative case (for validation before full 5-stage)
+# This is a stepping stone to the full multi-stage counterflow runs
+
+atom_style granular
+atom_modify map array
+
+boundary p p p
+newton off
+
+read_data data/rung4_stage.data
+
+neighbor 0.002 bin
+neigh_modify delay 0 every 1 check yes
+
+# Material properties (regolith + iron shot)
+fix m1 all property/global youngsModulus peratomtype 1e8 2.1e11
+fix m2 all property/global poissonsRatio peratomtype 0.25 0.29
+fix m3 all property/global coefficientRestitution peratomtype 0.25 0.45
+fix m4 all property/global coefficientFriction peratomtype 0.55 0.35
+fix m5 all property/global coefficientRollingFriction peratomtype 0.08 0.025
+
+# JKR cohesion for regolith
+fix coh all property/global cohesionEnergyDensity peratomtype 2.0e-19 0.0
+
+pair_style gran model hertz tangential history cohesion model jkr
+pair_coeff * *
+
+fix grav all gravity 1.625 vector 0.0 0.0 -1.0
+
+fix integr all nve/sphere
+
+thermo 5000
+thermo_style custom step atoms ke vol cpu
+
+# Short relaxation
+run 20000
+
+dump dmp all custom 5000 post/dump.rung4 id type x y z vx vy vz radius
+
+# Main run - representative of one stage at 0.14 bar
+run 200000
+
+write_restart post/restart.rung4.*

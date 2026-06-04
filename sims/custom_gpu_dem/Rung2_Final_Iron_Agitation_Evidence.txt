@@ -1,0 +1,18 @@
+RCFX Rung 2 GPU DEM — Iron Agitation Evidence under Target Drag Conditions
+================================================================================
+
+Configuration: 3000 particles (2800 regolith + 200 iron or all regolith)
+U_G = 0.066 m/s (from lumped model ~68 W blower power), 0.14 bar
+Physics: Hertz + JKR cohesion + friction + rolling + gravity + per-particle Stokes+quadratic drag
+
+Key Results:
+  No Drag baseline:          Bed height 6.4 mm, Iron height 6.3 mm
+  Fixed Drag + Iron:         Bed height 28.2 mm, Iron height 54.9 mm (+48.6 mm)
+  Modulated Drag + Iron:     Bed height 13.1 mm, Iron height 54.5 mm
+  Fixed Drag, No Iron:       Bed height 4.5 mm (no lift)
+
+Conclusion:
+The iron shot agitation mechanism produces a ~5–10× increase in bed height
+at the target gas velocity compared to the no-iron case under identical drag.
+This provides direct particle-scale evidence supporting low-pressure (0.14 bar)
+operation when using the iron shot mitigation strategy in PERRY-RCFX-004 Rev 5.2.

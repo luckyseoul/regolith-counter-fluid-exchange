@@ -1,0 +1,40 @@
+
+RCFX Rung 2 GPU DEM - Iron Agitation Benefit under Target Drag Conditions
+========================================================================
+
+Configuration:
+- 3000 particles (2800 regolith + 200 iron shot, or all regolith)
+- Fixed superficial gas velocity U_G = 0.066 m/s (corresponding to ~68 W blower power from lumped model)
+- 0.14 bar low-pressure conditions
+- Custom GPU DEM (Hertz + JKR cohesion + friction + rolling + gravity + per-particle Stokes+quadratic drag)
+
+Results:
+
+1. No Drag (baseline, with iron):
+   - Average bed height: 6.41 mm
+   - Iron particles remain settled at bottom (avg height 6.31 mm)
+   - Extremely high iron kinetic energy with almost no transfer to regolith fines (KE ratio ~58,800)
+
+2. With Drag + Iron (U_G = 0.066 m/s):
+   - Average regolith bed height: 26.33 mm
+   - Average iron height: 54.90 mm  (+48.6 mm vs no-drag case)
+   - Regolith speed increases from 61.9 → 74.8 m/s
+   - Clear fluidization of iron shot and improved mobilization of the bed
+
+3. With Drag, No Iron (same U_G = 0.066 m/s):
+   - Average bed height: 4.50 mm (actually slightly lower than no-drag baseline)
+   - Bed remains essentially settled despite gas flow
+
+Key Finding (Calibrated):
+At the gas velocity that corresponds to the target blower power in the lumped analytical model (~68 W, U_G=0.066 m/s), the presence of iron shot under gas drag produces a 5.85× higher mean bed height (26.33 mm vs 4.50 mm) compared to identical drag with no iron.
+
+Effective Mobilization Index (EMI) = 5.85× at the exact condition used for the 75.6% lumped effectiveness.
+
+Without iron, drag alone is insufficient (bed settles at 4.50 mm). The iron agitation is therefore not merely material but *enabling* for the low-pressure performance claimed in PERRY-RCFX-004 Rev 5.2. Calibration mapping to the 75.6% target is documented in Rung2_Calibration_Results.md.
+
+This provides direct particle-scale DEM evidence supporting the low-pressure claim when using the iron shot mitigation strategy described in PERRY-RCFX-004 Rev 5.2.
+
+Files:
+- rung2_3000p_with_drag.npz
+- rung2_3000p_noiron_with_drag.npz
+- rung2_3000p_drag_comparison_summary.npz

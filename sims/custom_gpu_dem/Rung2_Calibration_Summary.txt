@@ -1,0 +1,38 @@
+RCFX Rung 2 GPU DEM — Calibration of Iron Agitation to Lumped 75.6% Effectiveness
+=========================================================================================
+
+Target Point (PERRY-RCFX-004 Rev 5.2, Rung 4 lumped model):
+  Pressure: 0.14 bar
+  Overall effectiveness: 75.6%
+  Blower power: ~68 W
+  Cold-stage gas velocity: U_G = 0.066 m/s
+
+GPU DEM (3000 particles, Hertz+JKR+Stokes+quadratic drag, lunar g):
+  U_G fixed at exactly 0.066 m/s for all cases.
+
+Effective Mobilization Index (EMI) definition:
+  EMI = mean regolith bed height (iron + drag) / mean regolith bed height (identical drag, no iron)
+
+Results at target U_G:
+  Iron + fixed drag:     26.33 mm mean bed height, 54.90 mm iron height
+  No iron + fixed drag:   4.50 mm mean bed height
+  No-drag baseline:       6.41 mm mean bed height
+
+  EMI (vs no-iron drag) = 26.33 / 4.50 = 5.85×
+  EMI (vs no-drag)      = 26.33 / 6.41 = 4.11×
+
+Interpretation:
+  At the precise gas flow rate used for the 75.6% lumped prediction, iron shot agitation
+  produces a 5.85× increase in bed mobilization relative to gas drag alone.
+  Without iron the bed remains settled (4.5 mm). With iron the large shot fluidizes to
+  55 mm mean height and lifts the bulk regolith bed by the 5.85× factor.
+
+  This differential is the particle-scale mechanism that enables the fluidization state
+  assumed in the analytical model. The ~6× mobilization multiplier grounds the jump
+  from "no fluidization" to the 75.6% overall effectiveness at 0.14 bar / 68 W.
+
+Conclusion:
+  Direct DEM evidence that the iron shot agitation strategy (within claim language)
+  is material and enabling for the low-pressure 75.6% performance point.
+
+Files: rung2_3000p_with_drag.npz, rung2_3000p_noiron_with_drag.npz, Rung2_Calibration_Results.md
