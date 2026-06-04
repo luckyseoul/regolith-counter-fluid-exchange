@@ -21,7 +21,7 @@ Verbatim log terminations:
 Baseline: **75.6%** at 221 W (1.88% of recovered; post vol_flow= U*AREA fix + VEL=4.4 for 0.066 m/s DEM alignment). Combined robustness (same parameter set as DEM degradation intent): moderate cases remain **≥ ~69%**; worst simultaneous case **59.3%** (see Exhibit A). Source: `rung_results/rung5_sensitivity.npy`, `RUNG_CAMPAIGN_RESULTS.md`.
 
 ## Supporting locks (context)
-- **Rung 1 (fixed)**: 99k steps with current clip runner: **100.0% inside** both legs; clean EMI **109.4×** (reg bed ratio) on fully contained data. New audit + diagnostics (KE bias, dead%, loft%) in Rung1_Fixed_Contained_Audit_99k.md. Lid+freeboard demo: physical ~59 mm heights with mechanism preserved (see Lid_Freeboard_Demo.txt). Rung 0/5/1 now primary contained.
+- **Rung 1 highN (primary citable)**: N=6500 particles (~16.5 GB VRAM), lid+freeboard physical cap from step 0, 100% inside, EMI 3.87× (400s) → 6.44× (700s) → **8.12×** (1000s via compute_forces_raw single-launch), reg bed 12.5 → 26.0 mm (iron ~27 mm at 1000s), zmax 41 mm building to 60 mm cap, dead% contrast (low/0 early in with-iron vs high in no-iron control), KE bias 1000-2000×. Full migration + Raw high-util path now default. See Exhibit B + COLD + rung1_highn_checkpoints to 001000. Old low-N 99k/109.4× historical (led to lid/highN). Rung 0/5 contained + highN Rung1 physical = core mechanistic support.
 - **Rung 0**: Distributor backfill final bed **30.97 ± 134.22 mm**, dead% **97.7**, **100.0%** inside — distributor uniformity characterization at low pressure.
 
 ## Deliverables in this package

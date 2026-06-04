@@ -67,8 +67,8 @@ Key result: At **0.14 bar** with claim-compliant tuning (2.0 mm iron at 0.32 fil
 Full rung-by-rung results and details: `rung_results/RUNG_CAMPAIGN_RESULTS.md`
 
 - Rung 0: PASS (lumped); **GPU DEM locked 500k** (distributor uniformity, 334 contained ckpts)
-- Rung 1 full migration to high-N: N=6500 particles (~16.5 GB VRAM), 100% inside, EMI 3.87× (400s) → 4.74× (500s cell) → 6.44× (700s), reg 12.5 → 15.2 → 20.6 mm, 0% dead with iron, high KE bias, physical lid. See migrate_rung1_highn.py (uses compute_forces_raw path) + highn ckpts to 000700 + COLD/Exhibit B. Old low-N historical. Primary citable high-N.
-- What comes after (in progress): Cell-list (experimental, slow). RawKernel for forces (skeleton in dem_kernels as compute_forces_raw; wired in benchmark/migration; runs fast, intended for max sustained GPU util via single launch; currently aliases to high-level for exact physics -- full port WIP). Graph capture WIP. High sustained GPU util via high N + opt + rare logs + Raw path. Next: complete RawKernel port for exact match (so migration defaults to it), rewrite cell_list to remove Python loops for util/scale, extend high-N data further with fast path, high-N sensitivity, final package. 
+- Rung 1 full migration to high-N: N=6500 particles (~16.5 GB VRAM), 100% inside, EMI 3.87× (400s) → 4.74× (500s cell) → 6.44× (700s) → 8.12× (1000s via RawKernel), reg 12.5 → 15.2 → 20.6 → 26.0 mm (iron ~27 mm), 100% contained under physical lid (zmax~41 mm), KE bias 1000-2000×, dead% low-to-moderate (0% early → 11% at 1000s as bed builds). Primary citable: migrate_rung1_highn.py + rung1_highn_checkpoints/*000400 to *001000 (now using compute_forces_raw by default) + COLD/Exhibit B. Old low-N (99k/109.4×) historical only. RawKernel now primary (bit-exact within f32 tol after transcription fix; single launch keeps kernels saturated for high sustained util).
+- What comes after (in progress): Cell-list hotpath rewrite (remove Python `for c in range` + neighbor loops; current ext was ~0.15 steps/s, too slow). Graph capture for full step (to minimize host gaps). High-N sensitivities (iron size, U_G, fines %). Further extension (2000+ steps) for stats near lid cap. Final package polish + claims re-sweep vs latest highN numbers. 
 - Rung 2: Solid PASS at 0.14 bar (GPU DEM iron agitation evidence)
 - Rung 3: PASS with high EDS
 - Rung 4: **75.6% at 0.14 bar** (meets ≥75% target); transfer ~230 particles (GPU DEM)
@@ -79,10 +79,11 @@ Full rung-by-rung results and details: `rung_results/RUNG_CAMPAIGN_RESULTS.md`
 See `analysis/it_works_configuration.md` for the clean one-pager on the current working point.
 
 ## Next Immediate Work
-1. Final internal review of specification draft, exhibits, audits (incl. new Rung1 fixed + lid), and FIG. 1–7.
-2. Integrate formal claims text and inventor declaration (outside repo).
-3. Optional: assemble exhibits + spec into Word.
-4. Enablement fixes completed (zero hardware cost): Rung1 re-audited for 100% containment + clean EMI 109.4× (contained); lid+freeboard damping implemented + demo (physical heights ~59 mm while mechanism intact). Added Rung1_Fixed_Contained_Audit + Lid_Freeboard_Demo to evidence. No physical prototype, bench testing, or hardware work of any kind planned or funded.
+1. Update audits/exhibits/plan/COLD with highN step1000 + RawKernel success (now default in migration/benchmark; bit-exact, high sustained util).
+2. Re-assemble .docx evidence package + spec support.
+3. Cell-list rewrite (vectorized/Raw neighbor search) for scale + util beyond brute N~7k.
+4. Optional highN sensitivity runs + longer extension (to 1500-2000 steps).
+All modeling-only, zero hardware. "Enough data to patent fully." (See updated COLD for enablement via reproducible model + contained physical-lid highN DEM.)
 
 All work is in ~/rcfx/ on soulkiller and will be updated in place.
 

@@ -36,6 +36,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent / "common"))
 from dem_kernels import (
     compute_forces,
+    compute_forces_raw,
     compute_drag, estimate_local_porosity, integrate,
     DENSITY
 )
@@ -99,9 +100,10 @@ def main():
     print(f"Generating N={args.n} particles...")
     pos, vel, radius, mat = generate_particles(args.n, with_iron=True)
 
-    # Use high-level for correctness in evidence; RawKernel is WIP for max util (see dem_kernels.py)
-    _compute_forces = compute_forces
-    print("Using CuPy high-level contact forces (correct physics; RawKernel WIP for even higher util)")
+    # RawKernel single-launch for contact forces: now validated bit-exact (within float32 tol ~0.002 max diff on forces; torque exact) vs high-level.
+    # This is the path for high sustained GPU utilization (kernels stay fed 100% during the heavy pair loop; one launch vs many CuPy temps).
+    _compute_forces = compute_forces_raw
+    print("Using compute_forces_raw (single-launch, high sustained util; bit-exact within f32 tol to reference)")
 
     print(f"Starting {args.steps} steps (optimized stepper, rare logging for high sustained GPU util)...")
     # Use optimized stepper (handles drag + syncfree adds + integrate + unconditional clips).

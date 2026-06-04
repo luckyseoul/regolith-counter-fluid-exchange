@@ -29,7 +29,7 @@ const doc = new Document({
       new Paragraph({ children: [] }),
 
       new Paragraph({ heading: HeadingLevel.HEADING_1, children: [new TextRun("Scope Note (Funds-Constrained)")] }),
-      new Paragraph({ children: [new TextRun("No funds for prototype, bench-scale testing, or any physical hardware work. The sole objective is to generate sufficient computational and descriptive data (reproducible lumped model, mechanistic GPU DEM including fixed Rung1 99k 100% inside + clean 109.4× EMI, lid+freeboard demo for physical heights, detailed specification, formal drawings) to fully support the utility patent claims for enablement (35 U.S.C. §112) and written description. The Rung 0-5 + Rung1-fixed modeling campaign plus this cold review and evidence package provides that data. Historical PDF roadmap retained only as background.")] }),
+      new Paragraph({ children: [new TextRun("No funds for prototype, bench-scale testing, or any physical hardware work. The sole objective is to generate sufficient computational and descriptive data (reproducible lumped model 75.6%/221W/1.88%, mechanistic GPU DEM with highN Rung1 N=6500 100% contained lid physical ~26-41 mm EMI 8.12× at step 1000 via compute_forces_raw single-launch high-util path, Rung0/5 contained, detailed spec, formal drawings) to fully support the utility patent claims for enablement (35 U.S.C. §112) and written description. The Rung 0-5 + highN Rung1 + Raw modeling campaign plus this cold review and evidence package provides that data. Historical PDF roadmap retained only as background.")] }),
       new Paragraph({ children: [] }),
 
       new Paragraph({ heading: HeadingLevel.HEADING_1, children: [new TextRun("Executive Summary")] }),

@@ -14,7 +14,9 @@ import sys
 import time
 sys.path.insert(0, str(Path("common").resolve()))
 
-from dem_kernels import compute_forces, integrate, compute_drag, estimate_local_porosity, DENSITY
+from dem_kernels import compute_forces, compute_forces_raw, integrate, compute_drag, estimate_local_porosity, DENSITY
+# NOTE: high-N evidence path (migrate_rung1_highn, benchmark) now defaults to compute_forces_raw for sustained GPU util.
+# This coarse/low-N runner kept on high-level compute_forces for compatibility with old ckpt style.
 from optimized_step import (
     unconditional_clips,
     add_distributor_force_syncfree,

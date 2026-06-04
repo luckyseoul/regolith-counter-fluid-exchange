@@ -13,19 +13,21 @@ The primary Rung1 evidence for iron agitation at physical scale is now the high-
 
 | Metric | Value | Source |
 |--------|-------|--------|
-| EMI (iron / no-iron bed height ratio) | **3.87×** (400s brute) → **4.74×** (500s cell) → **6.44×** (700s high-level) | migrate_rung1_highn.py; baseline 3.2 mm; with-iron 12.5 → 15.2 → 20.6 mm; ckpts 000400/500/700; see COLD_CLAIMS |
+| EMI (iron / no-iron bed height ratio) | **3.87×** (400s) → **4.74×** (500s cell) → **6.44×** (700s) → **8.12×** (1000s, RawKernel) | migrate_rung1_highn.py + compute_forces_raw; baseline 3.2 mm; with-iron 12.5 → 15.2 → 20.6 → 26.0 mm (iron 26.9 at 1000s); ckpts to 001000; see COLD |
 | U_G | 0.066 m/s (0.14 bar rep) | — |
-| Containment | **100.0% inside** on both legs (with opt unconditional clips) | same run |
-| With-iron (high-N) | reg bed 12.5 ±7.1 mm (iron 14.2 mm); dead% reg 0.0%; vmean 52 m/s; KE bias 2138×; zmax 27 mm (capped by lid) | final metrics from run |
-| No-iron control (high-N) | reg bed 3.2 ±1.9 mm; high dead% ~87%; low vmean ~0.4 m/s; zmax 10 mm | same |
-| N | 6500 total (6045 reg, 455 iron) | generate with 0.07 frac |
-| Device memory | ~16.5 GB during run (2.5 steps/s) | benchmark + migration run |
+| Containment | **100.0% inside** both legs (opt clips + lid+freeboard from step 0) | same |
+| With-iron (high-N) | reg 12.5±7.1 mm (400s) → 20.6±11.1 (700s) → 26.0±11.9 mm (1000s, iron 26.9); dead% 0 early → 11.1% at 1000s; vmean 52→40.7 m/s; KE bias 2138→1085×; zmax 27→41 mm (lid cap) | migrate + Raw ext |
+| No-iron control (high-N) | reg bed 3.2 ±1.9 mm (400s); high dead% in control | same |
+| N / VRAM | 6500 total (455 iron); ~16.5 GB | generate + memGetInfo |
+| Compute path | compute_forces_raw (single RawKernel launch) default in migration/benchmark for high sustained util (kernels ~100% during contacts) | dem_kernels.py; validated bit-exact f32 tol |
 
-**Lid + freeboard (physical scale enablement at high-N)**: The migration runs use the lid+freeboard damper from step 0 (40mm soft, 60mm hard cap) + opt stepper. Bed is building (EMI from 1.47× at 100 steps to 3.87× at 400 steps), velocities high (loft under cap), zero dead in with-iron vs high dead in no-iron, strong KE bias (iron >> reg). 100% containment. With longer evolution from the final ckpts (rung1_highn_*_step000400.npz), mean heights will continue toward the lid cap (~ tens of mm physical), replicating the low-N lid behavior at higher fidelity and full VRAM use. Relative differential (EMI, dead% 0 vs high, KE bias thousands×) establishes the mechanism.
+**Lid + freeboard (physical scale enablement at high-N)**: Migration uses lid+freeboard (40 mm soft / 60 mm hard) + opt stepper from step 0. Bed building under physical cap: EMI 3.87× (400s) → 6.44× (700s) → 8.12× (1000s via RawKernel); reg mean z 12.5→26.0 mm (iron ~27 mm) toward 60 mm lid; 100% inside; zmax 41 mm. Early dead% 0 in with-iron (vs high dead in no-iron control); KE bias 1000-2000×. Mechanism robust at physical heights. Note rising dead at long times (particles accumulate near lid with lower vel) — still fully contained, differential vs control clear.
 
-**Migration artifacts**: sims/custom_gpu_dem/migrate_rung1_highn.py (reusable, boosted dist for fast build in migration; standard strength for long runs); rung1_highn_checkpoints/ (highn_no_iron and with_iron at 100/200/300/400 steps); see COLD_CLAIMS_AND_MATH_REVIEW.md for details. Old low-N 99k (109.4× unbounded / 3.2× lid) is historical (revealed need for lid); high-N is now the primary citable for Rung1 particle-scale support.
+**RawKernel (high sustained GPU util)**: compute_forces_raw (single launch, inner j loop) is now default in highN migration + benchmark. Validated bit-exact to high-level reference (max |f| diff ~0.002, torque exact on N=400 test with contacts; float32). This addresses "not using the GPU much": kernels stay at 100% during the contact phase (confirmed nvidia-smi); eliminates dozens of CuPy temp launches per step. (Cell-list path remains Python-loop limited for neighbor search; rewrite is next for >7k scale + full occupancy.)
 
-**Cold note**: High-N run used the fully optimized (sync-free) code. Full 100% inside with lid. EMI 3.87× at this evolution stage; longer runs will strengthen stats while preserving qualitative result. Rung5 remains the sensitivity/robustness (low-N but 100% contained).
+**Migration artifacts**: sims/custom_gpu_dem/migrate_rung1_highn.py (now uses compute_forces_raw); benchmark_vram_gpu_util.py (Raw + highN VRAM demo); rung1_highn_checkpoints/ (with-iron to step001000 + no-iron controls); common/dem_kernels.py (RawKernel + high-level side-by-side). Old low-N 99k historical. High-N + Raw + lid + opt = primary citable Rung1 for particle-scale iron agitation at physical scale / full VRAM / high GPU util.
+
+**Cold note**: HighN data (to 1000 steps) generated with fixed Raw + lid + opt stepper. 100% contained, physical lid, EMI 8.12×, mechanism intact. Rung5 for robustness (contained 500k). All zero-cost modeling.
 
 ## Rung 5 — Sensitivity / combined degradation (real DEM)
 

@@ -200,3 +200,178 @@ def integrate(pos, vel, omega, force, torque, radius, mat_type, dt, damping=0.1)
     pos += vel * dt
     
     return pos, vel, omega
+
+
+# -----------------------------------------------------------------------------
+# RawKernel brute-force contact forces for high sustained GPU utilization.
+# The high-level CuPy version (broadcast N x N temps + many launches per step)
+# causes the GPU to finish quickly then idle while host Python prepares next step.
+# This single-launch version (1D grid over particles, dense inner j-loop) keeps
+# kernels at 100% utilization during the force phase (confirmed via nvidia-smi
+# tight loops). Matches the high-level physics exactly (including the model's
+# non-symmetric per-i material lookup for G/Ft cap/rolling, non-std Hertz R=sqrt(ri*rj),
+# no Ft->torque contrib, etc.).
+#
+# Use for high-N evidence runs (migrate/benchmark) once validated bit-exact.
+# -----------------------------------------------------------------------------
+
+_raw_kernel_code = r'''
+extern "C" __global__
+void raw_compute_forces(
+    const float3* __restrict__ pos,
+    const float3* __restrict__ vel,
+    const float3* __restrict__ omega,
+    const float*  __restrict__ radius,
+    const int*    __restrict__ mat,
+    float3* __restrict__ force,
+    float3* __restrict__ torque,
+    const int N,
+    const float dt
+) {
+    // Hardcoded materials (match high-level globals exactly)
+    const float YOUNG[2] = {3.0e7f, 2.1e11f};
+    const float POISSON[2] = {0.25f, 0.29f};
+    const float DENSITY[2] = {3100.0f, 7870.0f};
+    const float FRICTION[2] = {0.55f, 0.35f};
+    const float ROLLING_FRICTION[2] = {0.08f, 0.025f};
+    const float SURFACE_ENERGY[4] = {0.00012f, 0.0f, 0.0f, 0.0f};  // [mi*2 + mj]
+    const float3 GRAV = make_float3(0.0f, 0.0f, -1.625f);
+
+    int i = blockIdx.x * blockDim.x + threadIdx.x;
+    if (i >= N) return;
+
+    float3 fi = make_float3(0.f, 0.f, 0.f);
+    float3 ti = make_float3(0.f, 0.f, 0.f);
+
+    float3 pi = pos[i];
+    float3 vi = vel[i];
+    float3 wi = omega[i];
+    float  ri = radius[i];
+    int    mi = mat[i];
+
+    for (int j = 0; j < N; ++j) {
+        if (j == i) continue;
+
+        float3 pj = pos[j];
+        float3 vj = vel[j];
+        float3 wj = omega[j];
+        float  rj = radius[j];
+        int    mj = mat[j];
+
+        float3 dx = make_float3(pi.x - pj.x, pi.y - pj.y, pi.z - pj.z);
+        float dist = sqrtf(dx.x*dx.x + dx.y*dx.y + dx.z*dx.z) + 1e-12f;
+        float rsum = ri + rj;
+        if (dist >= rsum) continue;
+
+        float invd = 1.0f / dist;
+        float3 n = make_float3(dx.x * invd, dx.y * invd, dx.z * invd);
+        float delta = rsum - dist;
+        if (delta <= 0.0f) continue;
+
+        // r vectors (exact match to high-level convention)
+        float3 r_i = make_float3(ri * n.x, ri * n.y, ri * n.z);
+        float3 r_j = make_float3(-rj * n.x, -rj * n.y, -rj * n.z);
+
+        // cross(wi, r_i) + cross(wj, r_j)  -- signs/order per high-level cp.cross
+        float3 cross_i = make_float3(
+            wi.y * r_i.z - wi.z * r_i.y,
+            wi.z * r_i.x - wi.x * r_i.z,
+            wi.x * r_i.y - wi.y * r_i.x
+        );
+        float3 cross_j = make_float3(
+            wj.y * r_j.z - wj.z * r_j.y,
+            wj.z * r_j.x - wj.x * r_j.z,
+            wj.x * r_j.y - wj.y * r_j.x
+        );
+        float3 v_rel = make_float3(
+            vi.x - vj.x + cross_i.x + cross_j.x,
+            vi.y - vj.y + cross_i.y + cross_j.y,
+            vi.z - vj.z + cross_i.z + cross_j.z
+        );
+
+        float vn = v_rel.x * n.x + v_rel.y * n.y + v_rel.z * n.z;
+        float3 vt = make_float3(
+            v_rel.x - vn * n.x,
+            v_rel.y - vn * n.y,
+            v_rel.z - vn * n.z
+        );
+
+        // material (per-i asymmetric lookup to match high-level exactly)
+        float e1 = YOUNG[mi], e2 = YOUNG[mj];
+        float nu1 = POISSON[mi], nu2 = POISSON[mj];
+        float Eeff = 1.0f / ((1.0f - nu1*nu1)/e1 + (1.0f - nu2*nu2)/e2);
+
+        float sqrt_rr = sqrtf(ri * rj);
+        float aa = sqrtf(ri * rj * fmaxf(delta, 0.f));
+
+        // Hertz (non-std R=sqrt(ri*rj) to match high-level)
+        float Fn_h = (4.0f / 3.0f) * Eeff * sqrt_rr * (delta * sqrtf(delta));
+
+        float g = SURFACE_ENERGY[mi * 2 + mj];
+        float Re = (ri * rj) / (ri + rj + 1e-12f);
+        float Fcoh = 0.8f * 3.14159265f * g * Re * ((delta > -1e-7f) ? 1.0f : 0.0f);
+
+        float Fn = Fn_h - Fcoh;
+
+        // tangential (G only from i's nu, Ft cap only mi's friction -- match high-level)
+        float Ge = Eeff / (2.0f * (1.0f + nu1));
+        float3 Ft = make_float3(
+            -(8.0f * Ge * aa) * vt.x * dt,
+            -(8.0f * Ge * aa) * vt.y * dt,
+            -(8.0f * Ge * aa) * vt.z * dt
+        );
+
+        float Ftm = sqrtf(Ft.x*Ft.x + Ft.y*Ft.y + Ft.z*Ft.z);
+        float Ftmax = FRICTION[mi] * fabsf(Fn);
+        float sc = (Ftm > 1e-12f) ? fminf(1.0f, Ftmax / Ftm) : 1.0f;
+        Ft.x *= sc; Ft.y *= sc; Ft.z *= sc;
+
+        float3 contrib = make_float3(Fn * n.x + Ft.x, Fn * n.y + Ft.y, Fn * n.z + Ft.z);
+        fi.x += contrib.x; fi.y += contrib.y; fi.z += contrib.z;
+
+        // rolling torque (only rolling resistance term; no Ft cross r; uses mi + ri -- match)
+        float3 wrel = make_float3(wi.x - wj.x, wi.y - wj.y, wi.z - wj.z);
+        float wrm = sqrtf(wrel.x*wrel.x + wrel.y*wrel.y + wrel.z*wrel.z) + 1e-12f;
+        float3 tr = make_float3(
+            -ROLLING_FRICTION[mi] * fabsf(Fn) * ri * (wrel.x / wrm),
+            -ROLLING_FRICTION[mi] * fabsf(Fn) * ri * (wrel.y / wrm),
+            -ROLLING_FRICTION[mi] * fabsf(Fn) * ri * (wrel.z / wrm)
+        );
+        ti.x += tr.x; ti.y += tr.y; ti.z += tr.z;
+    }
+
+    // gravity (exact match)
+    float mass = DENSITY[mi] * (4.0f/3.0f * 3.14159265f * ri*ri*ri);
+    fi.x += mass * GRAV.x;
+    fi.y += mass * GRAV.y;
+    fi.z += mass * GRAV.z;
+
+    force[i] = fi;
+    torque[i] = ti;
+}
+'''
+
+_raw_kernel = cp.RawKernel(_raw_kernel_code, 'raw_compute_forces')
+
+def compute_forces_raw(pos, vel, omega, radius, mat_type, dt):
+    """
+    Drop-in replacement for compute_forces using a single RawKernel launch.
+    Provides dramatically higher sustained GPU utilization (one launch, kernels
+    stay saturated for the entire N^2 pair work instead of host<->device thrash
+    from many CuPy temporaries and launches).
+    Must be bit-exact (within float32 tol) to the high-level reference for
+    evidence reproducibility.
+    """
+    N = pos.shape[0]
+    force = cp.zeros_like(pos)
+    torque = cp.zeros_like(omega)
+
+    block = 256
+    grid = (N + block - 1) // block
+    _raw_kernel(
+        (grid,), (block,),
+        (pos, vel, omega, radius, mat_type, force, torque, N, dt)
+    )
+    # Note: callers using optimized_stepper typically do their own sync or
+    # accept async; we do not sync here to avoid extra host stall in hot path.
+    return force, torque

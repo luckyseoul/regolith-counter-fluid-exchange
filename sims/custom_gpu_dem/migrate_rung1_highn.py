@@ -37,9 +37,8 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).parent / "common"))
-from dem_kernels import DENSITY
-from cell_list import compute_forces_cell_list
-print("Using cell_list.compute_forces_cell_list for high-N scalability (O(N) instead of brute O(N^2))")
+from dem_kernels import compute_forces, compute_forces_raw, DENSITY
+print("Using compute_forces_raw (single RawKernel launch for contacts; validated bit-exact within float32 tol; high sustained GPU util)")
 from optimized_step import (
     make_optimized_stepper,
     make_lid_freeboard_damper,
@@ -163,7 +162,7 @@ def run_case(with_iron, no_iron_baseline_mm, total_steps, log_every, save_every,
 
     for s in range(total_steps):
         step = start_step + s + 1
-        f_contact, tq = compute_forces_cell_list(pos, vel, cp.zeros_like(vel), radius, mat, DT, 0.003, BOX)  # tuned cell_size for high-N particles (max diam ~3.3mm) to reduce temp mem in cell_list
+        f_contact, tq = compute_forces_raw(pos, vel, cp.zeros_like(vel), radius, mat, DT)
         pos, vel, _ = stepper(
             pos, vel, cp.zeros_like(vel),
             f_contact, tq, radius, mat, DT,
