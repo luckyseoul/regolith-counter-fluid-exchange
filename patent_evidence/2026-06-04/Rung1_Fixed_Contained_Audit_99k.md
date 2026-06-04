@@ -24,7 +24,9 @@ See also lid+freeboard test (separate run) for mitigation showing physical-scale
 
 **Benchmark note (full physics loop overhead)**: A 5k-step continuation benchmark from the 99k checkpoint (pure Python + cupy per-step calls, same kernels) took 380.8 s on this hardware and lofted reg mean z further to ~2106 mm. This confirms the Python loop overhead makes full re-execution to 500k (or repeated lid tests) impractical here (~76 s / 1k steps); the fast post-process lid damping demo is the appropriate zero-cost way to demonstrate the boundary fix for enablement. When a compiled / CUDA-graph version of the runner is available, the lid force function can be dropped in for production runs.
 
-**Optimization update (unconditional clips + stepper)**: The hot-loop syncs (if cp.any in clips and adds) + small N from ckpt were the root of the "5.9 GB VRAM + pegging single CPU core". 
+**Optimization update (unconditional clips + stepper) and full high-N migration**: The hot-loop syncs (if cp.any in clips and adds) + small N from ckpt were the root of the "5.9 GB VRAM + pegging single CPU core". 
+
+Full migration completed to high-N Rung1 (N=6500 particles driving ~16.5 GB VRAM). See details in COLD_CLAIMS_AND_MATH_REVIEW.md and Exhibit_B. New primary numbers (400 steps, lid+opt from fresh generate): no-iron baseline 3.2 mm; with-iron EMI 3.87×, 100% inside, 0% dead reg, KE bias 2138×, building physical heights under cap. Old low-N details above are historical. 
 - Created common/optimized_step.py with unconditional_clips (device-only masked), sync-free body force helpers, make_optimized_stepper, and make_lid_freeboard_damper.
 - Ported the Rung1 coarse runner and lid test to the stepper.
 - New benchmark_vram_gpu_util.py (N scaling + real memGetInfo) shows we can now drive 14+ GB (N=6000) to 16.6 GB (N=6500) on the V100 while the opt path keeps the loop from forcing host syncs per step.
