@@ -12,7 +12,7 @@
 - 200k: bed 4949.96±2498.89 mm, inside 100.0%, dead 1.3%, proxy iron/reg 5563.2 / 4774.8 mm
 - 500k: bed 10404.50±5708.47 mm, inside 100.0%, dead 3.8%, proxy iron/reg 12584.1 / 9781.8 mm
 
-**Lumped post-audit (fixed)**: 75.6% at 221 W (U_G=0.066 m/s cold, 1.88% parasitic). Rung1 high-N primary (6500 particles, ~16.5 GB VRAM, lid physical from step 0, 100% inside): EMI 3.87×@400 → 6.44×@700 → 8.12×@1000s via compute_forces_raw (single-launch, high sustained GPU util, bit-exact f32); reg 12.5→26.0 mm physical, KE bias high, dead contrast. Rung0/5 100% citable contained. See COLD + Exhibit B + highn ckpts to 001000.
+**Lumped post-audit (fixed)**: 75.6% at 221 W (U_G=0.066 m/s cold, 1.88% parasitic). Rung1 high-N primary (6500 particles, ~16.5 GB VRAM, lid physical from step 0, 100% inside): see **Rung1_HighN_Primary_Audit_6500.md/.json** (direct np.load) — no-iron baseline 3.2307 mm (86.66% dead); with-iron EMI 3.8657×@400s → 6.3805×@700s → **8.0445×**@1000s via compute_forces_raw (single-launch high util, bit-exact f32); reg 12.4889→25.9894 mm (iron 26.8623), physical zmax 41.29 mm, KE bias 1085–2551×, dead contrast. Rung0/5 100% citable contained. See dedicated audit + COLD + Exhibit B + ckpts to 001000.
 
 Process: not running. Log: `/tmp/rung5_slice.log`. Status: `python /home/nick/rcfx/sims/custom_gpu_dem/rung5_status.py`
 

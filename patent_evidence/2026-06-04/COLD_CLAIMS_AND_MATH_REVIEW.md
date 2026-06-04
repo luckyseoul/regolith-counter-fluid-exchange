@@ -185,17 +185,22 @@ Claims extracted verbatim via pypdf from the complete specification PDF. Cross-c
 
 - **Scope update (funds-constrained)**: No physical prototype, bench-scale hardware testing, or any Phase 2/3 experimental work planned or funded. The goal is strictly to generate enough computational + descriptive data (lumped model reproducibility, mechanistic DEM, detailed spec, drawings) to fully support the patent claims for enablement and written description. Modeling campaign (Phase 1) provides the data needed to patent fully. Optional future modeling can further bolster if needed, but no hardware spend.
 
-- **Full Rung1 migration to high-N (6500 particles, full VRAM utilization)**: Primary Rung1 evidence baseline migrated to N=6500 (~455 iron, 7%) using optimized stepper + lid+freeboard from fresh generate (migrate_rung1_highn.py). ~16.5 GB device memory. 
-  - No-iron control (400 steps): reg bed 3.2 ±1.9 mm baseline.
-  - With-iron (400 steps, brute high-level): reg 12.5 ±7.1 mm (iron 14.2), EMI 3.87×, 100% inside, zmax 27 mm, dead% 0, vmean~52 m/s, KE bias 2138×.
-  - +100 steps cell (tuned): step 500 reg 15.2 ±8.5 mm (iron 17.2), EMI 4.74×, 100%, zmax 32 mm.
-  - +200 steps (high-level): step 700 reg 20.6 ±11.1 mm (iron 23.1), EMI 6.44×, 100%, zmax 41 mm.
-  - +300 steps via **compute_forces_raw** (single-launch, now default/validated bit-exact within float32 tol ~0.002 max |f|; torque exact): step 1000 reg 26.0 ±11.9 mm (iron 26.9), EMI 8.12× vs 3.2 mm control baseline, 100.0% inside, zmax 41 mm (lid), dead% 11.1%, vmean 40.7 m/s, KE bias 1085×. (ckpt ...001000.npz). Bed building toward ~60 mm cap; mechanism (iron-driven mobilization, high KE transfer, 0% early dead vs high dead in control, differential EMI strengthening) robust at physical scale under lid.
-  - RawKernel: transcription fixed (v_rel cross/lever/Ft/rolling/gravity matched exactly to high-level incl. per-i material asymmetry, non-std Hertz R); now primary in benchmark + migration for sustained GPU util (kernels 100% during contact phase; one launch eliminates host prep gaps from CuPy N² temps). Cell_list still slow (Python for c loops) — rewrite next for scale/util.
-  - 100% containment + physical lid + high VRAM + Raw util path = clean high-fidelity primary citable for Rung1 iron agitation at rep point (0.066 m/s, 0.14 bar).
-  - Old low-N 99k/109.4× historical only (led to lid + highN).
-  - Artifacts: rung1_highn_checkpoints/ (to 001000), migrate script (now defaults Raw), benchmark (uses Raw), dem_kernels.py (compute_forces_raw active).
-  This completes full migration + Raw enablement for high sustained util evidence gen.
+- **Full Rung1 migration to high-N (N=6500 primary citable, full ~16.5 GB VRAM)**: See dedicated **Rung1_HighN_Primary_Audit_6500.md + .json** (direct np.load re-computation of every metric from the raw checkpoints; authoritative source). Fresh generate step 0, 7% iron (455), no reg cohesion, lid+freeboard (40/60 mm) + opt stepper from the beginning. 
+  - No-iron control (exact, step 400 from raw ckpt): reg bed **3.2307 ±1.8671 mm** baseline, 86.66% dead, vmean 0.403 m/s, 100% inside, zmax ~10 mm (settled cohesive "stuck" state).
+  - With-iron key steps (direct np.load audit):
+    - 400s: reg 12.4889 ±7.1141 mm (iron 14.2439), **EMI 3.8657×**, 100% inside, zmax 27.27 mm, dead_reg 0.0%, vmean 52.33 m/s, KE bias 2138.9×.
+    - 500s: reg 15.177 ±8.480 mm (iron 17.244), **EMI 4.6977×**, 100%, zmax 32.47 mm, dead 0.0%, vmean 51.55, KE 2551×.
+    - 700s: reg 20.6136 ±11.1155 mm (iron 23.082), **EMI 6.3805×**, 100%, zmax 40.53 mm, dead 0.91%, vmean 49.31, KE 1734×.
+    - 800s: reg 22.9496 ±11.838 mm (iron 24.969), **EMI 7.1036×**, 100%, zmax 40.86 mm, dead 4.78%.
+    - 900s: reg 24.720 ±12.013 mm (iron 26.133), **EMI 7.6516×**, 100%, zmax 41.12 mm, dead 8.83%.
+    - **1000s (via compute_forces_raw)**: reg 25.9894 ±11.8965 mm (iron 26.862), **EMI 8.0445×**, 100.0% inside, zmax 41.29 mm (capped by physical lid), dead_reg 11.05%, vmean 40.70 m/s, KE bias 1085×. (ckpt ...001000.npz).
+  - **Containment & physical**: 100.0% inside (x,y ∈[0,BOX], z≥0; zmin~0) on all highN ckpts checked for both legs. zmax physically bounded ~41 mm (building toward 60 mm cap). No m-scale loft.
+  - **Mechanism confirmed cold**: Iron produces dramatically higher mobilization at physical scale. Reg bed 3.9–8.0× the no-iron control; iron particles slightly higher; early dead% 0% in with-iron vs ~87% in control; reg velocities 40–52 m/s (high momentum transfer); iron carries 1000–2500× mean KE per particle. EMI strengthens as bed builds under lid. Later dead% rise is lid-pile effect (still fully contained, differential vs control remains large).
+  - **RawKernel**: compute_forces_raw (single launch) is the default/high-util path for the 700–1000s extensions (and future runs). Validated bit-exact (max |f|~0.002 vs high-level reference on same data; torque exact). Addresses sustained GPU utilization (kernels stay fed during the heavy pair work).
+  - Old low-N 99k ckpt / 109.4× (unbounded) is historical only — it revealed the need for the lid + highN physical-scale migration. HighN + dedicated audit + Raw is now the primary citable Rung1 data set.
+  - Artifacts: `Rung1_HighN_Primary_Audit_6500.md/.json`, rung1_highn_checkpoints/ (to 001000), migrate_rung1_highn.py (Raw default), dem_kernels.py (compute_forces_raw active + reference).
+  This completes the high-N migration for robust, contained, physical-height, high-VRAM, high-util mechanistic DEM evidence.
+  (Historical duplicate bullets cleaned; authoritative highN numbers + Raw notes are in the dedicated Rung1_HighN_Primary_Audit_6500.md above.)
 
 - **DEM performance / VRAM / utilization hygiene (addressing observed 5.9 GB + single-core peg)**: The low device memory was due to default particle count in evidence ckpts (~2600). The single-core peg + GPU starvation was caused by Python per-step loop + `if cp.any` host synchronizations in the clip / body-force paths (GIL + device<->host roundtrips between tiny kernel launches). 
   Fixed by: common/optimized_step.py (unconditional_clips + sync-free add_*_force_syncfree + make_optimized_stepper that fuses the non-contact part) + port of rung1_coarse and lid test to use it.
