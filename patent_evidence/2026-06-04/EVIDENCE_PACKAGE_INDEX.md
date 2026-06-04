@@ -63,9 +63,11 @@
 - `/home/nick/rcfx/patent_drawings/FIG_05_effectiveness_vs_pressure.svg/pdf` (lumped curve, 0.14 bar / 75.6%)
 - `/home/nick/rcfx/patent_drawings/FIG_06_distributor_rung0_final.svg/pdf` (rung0_step500000.npz)
 - `/home/nick/rcfx/patent_drawings/FIG_07_rung5_mobilization_progression.svg/pdf` (all 334 contained Rung 5 ckpts; 200k/500k callouts)
+- `/home/nick/rcfx/patent_drawings/FIG_02_stage_cross_section.svg/pdf` (single-stage cross-section, reference numerals 100–120)
+- `/home/nick/rcfx/patent_drawings/FIG_04_countercurrent_transfer.svg/pdf` (five-stage counter-current schematic, Rung 4 ~230 particle transfer callout)
 
 **Specification draft**: `/home/nick/rcfx/patent_specification_draft.md`
 
-**Next**: Attorney review; generate FIG. 2 and FIG. 4 schematics; optional .docx assembly. Rung 5 DEM and patent evidence package structure are filing-support ready for cited numbers.
+**Next**: Attorney review; optional .docx assembly. Full figure set FIG. 1–7 complete for filing support.
 
 *Only verified raw post-containment contained .npz numbers used. Rung 0 and Rung 5 locked.* "Rung 1 locked... now on Rung 0 (locked at 500k)... per directive: finish Rung 0 500k then Rung 5 real DEM then patent skills". "Bed heights remain correct (contained, no loft per prior fix)". "Only 100.0% inside + zmin>=0 numbers are citable for patent evidence."

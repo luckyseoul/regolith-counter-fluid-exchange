@@ -32,8 +32,8 @@ Baseline: **75.6%** at 68 W. Combined robustness (same parameter set as DEM degr
 - Specification draft: `/home/nick/rcfx/patent_specification_draft.md`
 
 ## Filing-ready gaps (attorney / next engineering)
-- FIG. 2 (stage cross-section) and FIG. 4 (counter-current transfer schematic) not yet generated.
 - Formal Word (.docx) assembly optional via docx skill.
+- FIG. 1–7 complete (including FIG. 2 stage cross-section and FIG. 4 counter-current schematic).
 - Claims text integration and inventor declaration support remain outside this package.
 
 *Only verified raw post-containment contained `.npz` numbers are used for DEM citations.*

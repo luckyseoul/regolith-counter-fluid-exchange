@@ -22,11 +22,11 @@ GPU DEM validation (identical physics kernels, drag, DT, and containment across 
 ## Brief Description of the Drawings
 **FIG. 1** is a schematic overview of the 5-stage counter-current fluidized bed heat recovery system showing regolith and iron/heat media flow directions, process gas flow, distributor plates, and stage-to-stage transfer.
 
-**FIG. 2** (series) shows cross-sections of a single stage with iron shot (larger particles), regolith fines, distributor, gas inlet, overflow/weir, and heat transfer surfaces.
+**FIG. 2** is a cross-section of a single fluidized bed stage showing the vessel wall (100), bed chamber (102), sintered distributor plate (104), gas plenum and inlet (106, 108), regolith fines (110), iron shot (112), overflow/weir (114), heat transfer surface (116), optional EDS electrodes (118), and solids transfer opening (120).
 
 **FIG. 3** is a particle-scale illustration (derived from GPU DEM checkpoint rung5_step200000.npz) of iron shot agitation mobilizing cohesive regolith at 0.14 bar (U_G = 0.066 m/s), 100.0% contained. **FIG. 3 (500k)** (FIG_03_iron_agitation_rung5_500k_final.svg/pdf from rung5_step500000.npz) shows the continued state after sensitivity backfill to 500k steps: bed=10404.50±5708.47 mm (zmin=0.49 mm inside=100.0% dead%=3.8), confirming the mechanism remains effective and contained under combined degradation.
 
-**FIG. 4** illustrates counter-current material transfer between stages.
+**FIG. 4** illustrates counter-current flow in the five-stage system: system envelope (204), process gas circulation (206), upward gas flow per stage (208), regolith feed-to-discharge path (210), iron shot/heat media return path (212), and inter-stage weirs (214), with GPU DEM support for inter-stage particle transfer (~230 particles, Rung 4).
 
 **FIG. 5** is a plot of overall thermal effectiveness versus envelope pressure, highlighting the 75.6% point at 0.14 bar.
 
@@ -81,7 +81,7 @@ Rung 5 sensitivity (final locked data) shows that even under combined degradatio
 Ranges of iron size/fill, velocity multiple, EDS effectiveness, and pre-class cutoff remain within the claims and produce acceptable effectiveness per the model and DEM validation. Operation at 0.14–0.15 bar provides margin over the minimum.
 
 ## Claims Support Matrix (Internal)
-- Independent claim elements for low-pressure operation + iron agitation: supported by Exhibit B (Rung 1 EMI 107.9× + Rung 5 final bed/inside/dead + proxy), Exhibit C (Rung 0 dead zones + Rung 4 transfers), Exhibit D (traceability), Drawings FIG. 1–3, 5–7.
+- Independent claim elements for low-pressure operation + iron agitation: supported by Exhibit B (Rung 1 EMI 107.9× + Rung 5 final bed/inside/dead + proxy), Exhibit C (Rung 0 dead zones + Rung 4 transfers), Exhibit D (traceability), Drawings FIG. 1–7.
 - 75.6% at 0.14 bar: Exhibit A + B (DEM at exact point) + FIG. 5.
 - Containment / no loft: Direct np.load on raw .npz for final Rung 0/5 ckpts; "100.0% inside + zmin>=0" stated in every status/MD update.
 - All numbers traceable to specific .npz files and step counts in RUNG_CAMPAIGN_RESULTS.md.
@@ -92,7 +92,7 @@ Ranges of iron size/fill, velocity multiple, EDS effectiveness, and pre-class cu
 
 ## Drawings and Evidence
 See generated files in:
-- /home/nick/rcfx/patent_drawings/ (FIG_01, FIG_03 series, FIG_05, FIG_06, FIG_07_rung5_mobilization_progression.svg/pdf, ...)
+- /home/nick/rcfx/patent_drawings/ (FIG_01–07 including FIG_02_stage_cross_section, FIG_04_countercurrent_transfer)
 - /home/nick/rcfx/patent_evidence/2026-06-04/ (index, Exhibits A–E, executive summary, claim matrix; 500k lock verified)
 
 **Rung 0 locked** (500k) and **Rung 5 locked** (200k initial + 500k sensitivity backfill final) with only citable contained raw .npz. "Rung 1 locked... now on Rung 0 (locked at 500k)... per directive: finish Rung 0 500k then Rung 5 real DEM then patent skills." "Bed heights remain correct (contained, no loft per prior fix)." "Only 100.0% inside + zmin>=0 numbers are citable for patent evidence." "Rung 5 locked... now invoking patent skills."
