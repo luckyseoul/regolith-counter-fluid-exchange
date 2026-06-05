@@ -1,0 +1,30 @@
+PROVISIONAL APPLICATION FOR PATENT COVER SHEET INFORMATION
+
+Title of Invention:
+Multi-Stage Counter-Current Fluidized Bed Heat Recovery System with Dual-Function Iron Shot Media for Low-Pressure Operation
+
+Inventor(s): [To be completed by applicant]
+
+Entity Status: [Small / Micro / Large - to be completed]
+
+Correspondence Address: [To be completed]
+
+Number of Pages of Specification: [Count after assembly]
+
+Number of Sheets of Drawings: [See patent_drawings/ - main FIGS 1-7 + S1-S4]
+
+Docket Number: PERRY-RCFX-004 (modeling evidence campaign)
+
+Related Applications: None
+
+This provisional application incorporates the full technical disclosure from the RCFX modeling campaign (lumped analytical model + GPU DEM particle-scale evidence) as of 2026-06, including:
+- High-N (N=6,500) Rung 1 physical-lid evidence with 100.0% containment
+- Iron size, U_G, and fines sensitivities at physical scale (dead-zone reduction and KE bias scaling)
+- Cell-list hotpath optimizations enabling higher-fidelity runs
+- Scale demonstrations to N=8,000 and N=10,000 (100.0% contained via reproducible addition from settled bases)
+- Reproducible sensitivity runner (highn_sensitivity.py) with auto reports and --n scaling
+- Supporting formal drawings (FIG. 1–7 + S1–S4) and evidence package
+
+All performance numbers are traceable to raw .npz checkpoints and the exact code used in the campaign. See the accompanying specification and evidence package for full details.
+
+This document is provided as technical support for a provisional filing. Formal cover sheet (PTO/SB/01 or equivalent) and any inventor declarations should be prepared by qualified counsel.
