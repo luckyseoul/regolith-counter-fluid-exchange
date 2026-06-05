@@ -67,13 +67,13 @@ The modeling evidence base (lumped + highN physical-lid DEM + scale demo + sensi
 
 - N=10000 scale run completed via runner (100% inside, KE bias to 45k x, ~70 s/s). FIG_S4 (perf scaling) added. All in updated audit/COLD/evidence package.
 
-## 2026-06-05: New Provisional Generated
-Full updated provisional specification, bundle index, cover info, and suggested claims created in /home/nick/rcfx/patent_provisional/2026-06-05/. Incorporates 10k scale, cell-list, iron size sensitivities, runner, S3/S4, all 100% contained high-N data, and campaign results. MD source of truth; drawings symlinked/copied. Practitioner can convert to .docx/PDF and complete cover sheet with inventor details.
+## 2026-06-05: New Utility Bundle Generated
+Full updated utility specification, bundle index, and suggested claims created in /home/nick/rcfx/patent_application/2026-06-05/. Incorporates 10k scale, cell-list, iron size sensitivities, runner, S3/S4, all 100% contained high-N data, and campaign results. MD source of truth; drawings included. Practitioner can convert to .docx/PDF and complete cover sheet with inventor details for utility filing.
 
 ## Clean Data for Filing (2026-06-05 update)
-Use ONLY the clean summary: patent_provisional/2026-06-05/Patent_Citable_Evidence_Summary.md (or the excerpt at top of Rung1_HighN_Primary_Audit_6500.md).
+Use ONLY the clean summary: patent_application/2026-06-05/Patent_Citable_Evidence_Summary.md (or the excerpt at top of Rung1_HighN_Primary_Audit_6500.md).
 
-All bad/unphysical data (Rung5 loft, non-lid runs, contradictory claims) have been purged from the provisional spec and are NOT to be presented.
+All bad/unphysical data (Rung5 loft, non-lid runs, contradictory claims) have been purged from the utility spec and are NOT to be presented.
 
 The spec has been fixed to only cite the clean physical-lid mechanism data.
 

@@ -1,0 +1,21 @@
+# UTILITY PATENT APPLICATION COVER SHEET INFORMATION
+**Title:** Multi-Stage Counter-Current Fluidized Bed Heat Recovery System with Dual-Function Iron Shot Media for Low-Pressure Operation
+**Docket/Reference:** PERRY-RCFX-004 Rev 5.2 (modeling evidence support)
+**Date of bundle:** 2026-06-05
+**Entity status:** [To be completed by counsel: e.g. small entity / micro entity]
+**Inventor(s):** [To be added]
+**Assignee (if any):** [To be added]
+
+**Drawings:** 11 (FIG. 1–7 + S1–S4; see patent_drawings/ and subdir copies; black & white line art / vector per 37 CFR 1.84)
+
+**Specification pages:** See RCFX_Complete_Clean_Utility_Spec_and_Evidence.md (combined spec + evidence)
+
+**Evidence package reference:** patent_evidence/2026-06-04/ (RCFX_Patent_Evidence_Package_2026-06-04.docx, COLD_CLAIMS_AND_MATH_REVIEW.md, exhibits, audits) + raw citable .npz in sims/custom_gpu_dem/ (physical-lid only)
+
+**Related application(s):** None
+
+**Note:** This bundle provides the technical specification, enablement evidence (lumped model + clean 100% physical-lid GPU DEM under real drag), suggested claims (narrowed to Option A supported by good-variable run at 1.5 mm iron / 3.5 m/s), operating envelope calculation, and formal drawings for a utility (non-provisional) patent application. No provisional language. All citable data is 100% inside physical lid from verified checkpoints. Sub-grid distributor momentum qualified per momentum budget. See UTILITY_BUNDLE_INDEX.md and the main spec for MPEP 2164/2163/2001 + 37 CFR 1.56 guidance.
+
+Practitioner: Use PTO/SB/01 or EFS-Web equivalent; complete inventor details, entity status, exact page/sheet counts from final PDF assembly. File with formal claims prepared by counsel.
+
+This is technical content only; consult qualified patent counsel for filing.

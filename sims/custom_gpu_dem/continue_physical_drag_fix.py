@@ -32,7 +32,7 @@ Usage (from sims/custom_gpu_dem/):
       --steps 2000 --log-every 200 --save-every 500 --prefix physical_drag_fix_rung1
 
 Then audit the final ckpts with python -c "import numpy as np; d=np.load('...'); ..." for vmean, dead, inside=100, zmax, ke etc.
-Append results + paths to Patent_Citable_Evidence_Summary.md and the complete provisional doc.
+Append results + paths to Patent_Citable_Evidence_Summary.md and the complete utility spec doc.
 """
 
 import sys

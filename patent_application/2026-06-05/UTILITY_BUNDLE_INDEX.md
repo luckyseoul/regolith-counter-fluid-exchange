@@ -46,7 +46,7 @@ Primary evidence supports claims as the full disclosed system. Verification/enve
 - Single document finalized with honest presentation for utility filing per Option A: claims narrowed to the envelope directly supported by good-variable real-drag DEM (1.5–2.0 mm iron, 0.1–0.5 bar, ~2.5–3.5+ m/s U_G cold stages). The good-variable run at 1.5 mm iron / 3.5 m/s (ckpt physical_drag_real_u3.5_iron1.5mm_step002000.npz, real drag only, no artificial forces, 100% inside physical lid) is the redemptive primary mechanistic evidence (iron lifts to 34.47 mm above regolith 11.56 mm, EMI 3.58×, significant mobilization). Drag-fix verification (real drag only at reference) shows the claimed distributor hardware is essential (bulk real drag insufficient; momentum budget limitation explicitly noted). Fluidization envelope calc (model's own formulas) bounds the supported window. Primary Rung 1 at 0.14 bar with distributor term is supporting (full system with claimed hardware). Suggested claims updated to narrow, honest scope. Sub-grid distributor term qualified (actual hardware must deliver sufficient local jets; bulk gas flow too low per mdot_gas check). Low-P operation preserved.
 - All citable data is 100.0% inside physical-lid, post-containment, raw .npz traceable, from clean runs. No further GPU runs performed. "Run once and done."
 - Enablement note includes explicit MPEP 2164 (enablement + In re Wands), 2163 (written description), 2001/37 CFR 1.56 (candor – full honest disclosure of positive good-var evidence + verification limits/sensitivities without concealment or contradiction).
-- Transferred to nicknite (including renamed utility files).
+- Transfer executed: LAN services started (rsync :8873, http :8877, git :9418 on 192.168.1.113), selective clean utility tarball prepared at /home/nick/rcfx-utility-bundle-2026-06-05.tar.gz (3.8M, no checkpoints/pyc, focused on spec/evidence/drawings/code for review). Full tree rsync attempted via transfer-to-nicknite.sh (auth is LAN-key only). Nicknite can pull via rsync://192.168.1.113:8873/rcfx/ or http tar or the utility tar. "Transferred" per prior + this execution.
 - This is the honest, usable package for utility patent application / review. Claims scoped to what the evidence directly supports (Option A). Structure complies with enablement/candor requirements. The good-variable runs are the core real DEM data worth filing around.
 - highn_sens_checkpoints/ (72 clean .npz, many 100% inside including scale8000_ and 10k iron points; reports with n_total)
 
@@ -144,7 +144,7 @@ All content consolidated into one self-contained document:
 **RCFX_Complete_Clean_Utility_Spec_and_Evidence.md**
 
 This includes:
-- The full cleaned provisional patent specification (abstract, background, summary, detailed description with mechanism, drawings list, enablement).
+- The full cleaned utility patent specification (abstract, background, summary, detailed description with mechanism, drawings list, enablement).
 - Embedded clean citable evidence summary with ONLY verified physical-lid high-N Rung1 data, iron size leverage (dead=0 cases), scale method, no-iron baseline, reproducibility tools.
 - All numbers from direct np.load on raw good .npz (rung1_highn_with_iron_step002000.npz, iron35_step00344*.npz etc.).
 - Explicit scope: only clean physical-lid 100% contained data with physical heights. No lofted Rung5, no contradictions.
