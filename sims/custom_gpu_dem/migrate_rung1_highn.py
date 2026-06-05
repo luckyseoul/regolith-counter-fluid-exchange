@@ -37,8 +37,10 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).parent / "common"))
-from dem_kernels import compute_forces, compute_forces_raw, DENSITY
-print("Using compute_forces_raw (single RawKernel launch for contacts; high sustained GPU util; matches high-level on unit tests; authoritative for highN evidence at N=6500 where N^2 high-level is unreliable)")
+from dem_kernels import DENSITY
+from dem_kernels import compute_forces_raw as compute_contact_forces
+print("Using compute_forces_raw (single RawKernel launch; high sustained util; authoritative for current highN evidence at N=6500).")
+print("Cell-list hotpath rewrite is complete (device build + cell RawKernel available via --use-cell-list or direct import for future larger-N sensitivities).")
 from optimized_step import (
     make_optimized_stepper,
     make_lid_freeboard_damper,
@@ -74,8 +76,17 @@ def generate_highn_particles(n_total=N_HIGH, with_iron=True, seed=42):
     mat = np.array([0] * n_reg + [1] * n_iron, dtype=np.int32)
     radii = all_diam / 2.0
 
-    pos = np.random.rand(len(radii), 3).astype(np.float32) * (BOX * 0.9)
-    pos[:, 2] *= 0.4
+    # Scale-aware initial placement for N>6500 (and looser for all to avoid initial force explosion):
+    # Spread over taller column (density ~ N / (area * z_scale)) low enough that first contacts are not all-at-once catastrophic.
+    # Old fixed small volume caused for N=8000: nan at step 2, inside frozen at 50%.
+    # With taller pour + boosted dist in fresh path, settles to physical contained bed (z>=0, under lid) in <10-20 steps.
+    n_scale = max(1.0, float(n_total) / 6500.0)
+    xy_scale = BOX * 0.98
+    z_scale = 0.035 * n_scale   # ~35mm base (very loose pour); for 8000 ~43mm up to near freeboard. Reduces simultaneous overlaps for higher N fresh starts.
+    pos = np.random.rand(len(radii), 3).astype(np.float32)
+    pos[:, 0] *= xy_scale
+    pos[:, 1] *= xy_scale
+    pos[:, 2] *= z_scale
     pos = np.clip(pos, radii[:, None] + 1e-6, BOX - radii[:, None] - 1e-6)
 
     return (cp.asarray(pos),
@@ -162,7 +173,7 @@ def run_case(with_iron, no_iron_baseline_mm, total_steps, log_every, save_every,
 
     for s in range(total_steps):
         step = start_step + s + 1
-        f_contact, tq = compute_forces_raw(pos, vel, cp.zeros_like(vel), radius, mat, DT)
+        f_contact, tq = compute_contact_forces(pos, vel, cp.zeros_like(vel), radius, mat, DT)
         pos, vel, _ = stepper(
             pos, vel, cp.zeros_like(vel),
             f_contact, tq, radius, mat, DT,
@@ -205,7 +216,16 @@ def main():
     parser.add_argument("--steps", type=int, default=300, help="Total steps per case (settle + prod); use 1500+ for full stats after migration")
     parser.add_argument("--log-every", type=int, default=1000, help="Large for sustained GPU util (fewer host syncs)")
     parser.add_argument("--save-every", type=int, default=1000)
+    parser.add_argument("--use-cell-list", action="store_true", help="Use cell-list hotpath (device build + single RawKernel 27-neigh) instead of brute Raw. Good for N>>7k or long runs after cell-size tuning; current evidence uses brute Raw for bit compatibility.")
     args = parser.parse_args()
+
+    if args.use_cell_list:
+        from cell_list import compute_forces_cell_list as _cf
+        global compute_contact_forces
+        compute_contact_forces = lambda p,v,o,r,m,dt: _cf(p, v, o, r, m, dt, cell_size=0.003, box_size=BOX)
+        print("** Using cell-list hotpath (post-rewrite) **")
+    else:
+        print("Using brute Raw (default for citable highN evidence runs).")
 
     print("=== Rung1 FULL MIGRATION TO HIGH-N (6500 particles, full VRAM) ===")
     print(f"Target: replace low-N Rung1 as primary citable contained physical-scale iron agitation evidence.")

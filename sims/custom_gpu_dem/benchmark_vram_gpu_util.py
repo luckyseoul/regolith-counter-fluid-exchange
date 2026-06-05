@@ -35,11 +35,11 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent / "common"))
 from dem_kernels import (
-    compute_forces,
-    compute_forces_raw,
     compute_drag, estimate_local_porosity, integrate,
     DENSITY
 )
+# Cell-list hotpath (device build + single RawKernel) is the scalable default for this benchmark.
+# Brute paths available for cross-check if needed.
 
 # Import our new optimized helpers
 from optimized_step import (
@@ -67,8 +67,14 @@ def generate_particles(n_total=8000, with_iron=True, seed=42):
     mat = np.array([0] * n_reg + [1] * n_iron, dtype=np.int32)
     radii = all_diam / 2.0
 
-    pos = np.random.rand(len(radii), 3).astype(np.float32) * (BOX * 0.9)
-    pos[:, 2] *= 0.4
+    # Scale-aware (for its default n_total=8000); keep consistent with highn generator
+    n_scale = max(1.0, float(n_total) / 6500.0)
+    xy_scale = BOX * 0.98
+    z_scale = 0.035 * n_scale
+    pos = np.random.rand(len(radii), 3).astype(np.float32)
+    pos[:, 0] *= xy_scale
+    pos[:, 1] *= xy_scale
+    pos[:, 2] *= z_scale
     pos = np.clip(pos, radii[:, None] + 1e-6, BOX - radii[:, None] - 1e-6)
 
     return (cp.asarray(pos),
@@ -100,11 +106,11 @@ def main():
     print(f"Generating N={args.n} particles...")
     pos, vel, radius, mat = generate_particles(args.n, with_iron=True)
 
-    # RawKernel single-launch for contact forces: high sustained GPU util (kernels 100% fed during pair work).
-    # Matches high-level exactly on small-N unit tests (reg/iron/mixed, vel+cross). At highN the
-    # high-level N^2 path is mem-unreliable (5+GB temps), so Raw is the production/evidence path.
-    _compute_forces = compute_forces_raw
-    print("Using compute_forces_raw (single-launch, high sustained util; matches unit tests; highN authoritative)")
+    # Cell-list hotpath (post-rewrite): device-only build_cell_list + single RawKernel launch
+    # for 27-neighbor search. Scalable to 20k-100k+, maximal sustained GPU util (no per-cell Python).
+    # Brute Raw still available for small N / cross-check. Cell is now the recommended path for N>~5k.
+    from cell_list import compute_forces_cell_list as _compute_forces
+    print("Using compute_forces_cell_list (cell-list hotpath rewrite complete: device build + single RawKernel; recommended for N>~5k, high sustained util + scale)")
 
     print(f"Starting {args.steps} steps (optimized stepper, rare logging for high sustained GPU util)...")
     # Use optimized stepper (handles drag + syncfree adds + integrate + unconditional clips).
@@ -131,7 +137,7 @@ def main():
     used_gb = (total - free) / 1e9
     print(f"\nDone in {elapsed:.1f}s ({args.steps} steps, {args.steps/elapsed:.1f} steps/s)")
     print(f"Device memory at end: ~{used_gb:.2f} GB used / {total/1e9:.1f} GB total")
-    print("Tip: increase --n until you hit OOM or desired VRAM usage. For N>~5k-8k switch to cell-list in real runs for scalability. Use large --log-every for best sustained GPU utilization.")
+    print("Tip: cell-list hotpath active. Knob tuning (highN=6500 lid setup): cs=0.006 gave ~58 steps/s vs brute Raw ~27 steps/s (same stepper). Use --n larger for scale (cell wins when N^2 pressure hits). Large --log-every for util. Rewrite removed the Python per-cell loops.")
 
 
 if __name__ == "__main__":

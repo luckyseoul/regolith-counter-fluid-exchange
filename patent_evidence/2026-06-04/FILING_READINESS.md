@@ -12,6 +12,8 @@
 - 200k: bed 4949.96±2498.89 mm, inside 100.0%, dead 1.3%, proxy iron/reg 5563.2 / 4774.8 mm
 - 500k: bed 10404.50±5708.47 mm, inside 100.0%, dead 3.8%, proxy iron/reg 12584.1 / 9781.8 mm
 
+**Infrastructure note (this session)**: Cell-list hotpath rewrite complete (device-only build + single RawKernel neighbor search; get_compute_forces_fn + recommended_cell_size). High-N sensitivities (iron size leverage on dead% at physical lid) + long extension to 3000 steps executed from 2000-step ckpt; new ckpts + metrics appended to audit. Support drawing FIG_S1 produced. All .docx refreshed. Brute Raw default for N=6500 consistency; cell for scale. All "100% inside + zmin>=0" rules enforced.
+
 **Lumped post-audit (fixed)**: 75.6% at 221 W (U_G=0.066 m/s cold, 1.88% parasitic). Rung1 high-N primary (6500 particles, ~16.5 GB VRAM, lid physical from step 0, 100% inside): see **Rung1_HighN_Primary_Audit_6500.md/.json** (direct np.load + extension to 2000) — no-iron baseline 3.2307 mm (86.66% dead); with-iron EMI 3.8657×@400s → 6.3805×@700s → **8.0445×**@1000s → **8.53× peak (1300s)** → 7.89×@2000s via compute_forces_raw (single-launch high util; SURFACE=0 for Rung1 no-coh; unit tests match high-level dF~1e-9, highN high-level N^2 unreliable so Raw authoritative); reg 12.4889→27.57 mm peak (1300s) then 25.48 mm (2000s, iron ~24 mm), physical zmax 41.3-41.8 mm, KE bias 1085–2551× (sustained 600+×), dead contrast 0→29% (lid pile) vs control. Rung0/5 100% citable contained. See dedicated audit + COLD + Exhibit B + ckpts to 002000.
 
 Process: not running. Log: `/tmp/rung5_slice.log`. Status: `python /home/nick/rcfx/sims/custom_gpu_dem/rung5_status.py`
@@ -53,3 +55,25 @@ Copy or zip these paths:
 
 ## Enablement note
 DEM evidence is framed as **mechanistic corroboration** at the lumped-model operating point (0.14 bar, U_G = 0.066 m/s), not as a standalone proof of full-scale 75.6%. All cited DEM numbers are from post-containment checkpoints only.
+## 2026-06-04 Update: Scale + Runner
+- Added explicit N=8000 contained ckpt + integrated support in the highN sensitivity runner (auto base+add for --n >6500, always 100% inside from settled physical base).
+- Full campaign (iron+U_G+fines) executed at latest evolved physical state; all 100% inside, iron still dead=0 with monotonic KE scaling.
+- New support drawing FIG_S3 (iron size KE bias + reg bed comparison across 200-step, later, and 8000-scale states).
+- All reflected in updated Rung1_HighN_Primary_Audit, COLD, plan, and rebuilt evidence + spec support packages.
+- Raw artifacts: highn_sens_checkpoints/ (60+ clean, many 100% including scale8000_*), patent_drawings/FIG_S3_*, reports with n_total.
+
+The modeling evidence base (lumped + highN physical-lid DEM + scale demo + sensitivities) is now even stronger for 112 enablement of the physical bed + iron agitation claims at the 0.14 bar rep point.
+
+
+- N=10000 scale run completed via runner (100% inside, KE bias to 45k x, ~70 s/s). FIG_S4 (perf scaling) added. All in updated audit/COLD/evidence package.
+
+## 2026-06-05: New Provisional Generated
+Full updated provisional specification, bundle index, cover info, and suggested claims created in /home/nick/rcfx/patent_provisional/2026-06-05/. Incorporates 10k scale, cell-list, iron size sensitivities, runner, S3/S4, all 100% contained high-N data, and campaign results. MD source of truth; drawings symlinked/copied. Practitioner can convert to .docx/PDF and complete cover sheet with inventor details.
+
+## Clean Data for Filing (2026-06-05 update)
+Use ONLY the clean summary: patent_provisional/2026-06-05/Patent_Citable_Evidence_Summary.md (or the excerpt at top of Rung1_HighN_Primary_Audit_6500.md).
+
+All bad/unphysical data (Rung5 loft, non-lid runs, contradictory claims) have been purged from the provisional spec and are NOT to be presented.
+
+The spec has been fixed to only cite the clean physical-lid mechanism data.
+

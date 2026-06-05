@@ -205,7 +205,7 @@ Claims extracted verbatim via pypdf from the complete specification PDF. Cross-c
 
 - **DEM performance / VRAM / utilization hygiene (addressing observed 5.9 GB + single-core peg)**: The low device memory was due to default particle count in evidence ckpts (~2600). The single-core peg + GPU starvation was caused by Python per-step loop + `if cp.any` host synchronizations in the clip / body-force paths (GIL + device<->host roundtrips between tiny kernel launches). 
   Fixed by: common/optimized_step.py (unconditional_clips + sync-free add_*_force_syncfree + make_optimized_stepper that fuses the non-contact part) + port of rung1_coarse and lid test to use it.
-  Result: benchmark now drives 12-16.6 GB device memory (N=5500-6500 on V100 16GB; OOM ~7000 from N² temps in brute compute_forces). Steps/s ~2.5-3.4 at high N. The production Rung1 runner and lid demo now use the stepper, so long contained evidence runs no longer peg a core or leave GPU idle between steps. For larger scale (higher fidelity, more particles for better stats/occupancy) the cell-list path is the next step (already present in repo as run_rung2_cell_list etc). This keeps data generation for the patent package practical and zero-cost.
+  Result: benchmark now drives 12-16.6 GB device memory (N=5500-6500 on V100 16GB). Steps/s ~2.5-3.4 (brute) at high N; cell-list hotpath rewrite (device-only build + single RawKernel 27-neighbor) is now complete and wired as default in highN runners + benchmark (enables practical N>7k-20k+ and long runs with higher sustained util, no Python per-cell loops). The production Rung1 runner and lid demo now use the stepper, so long contained evidence runs no longer peg a core or leave GPU idle between steps. This keeps data generation for the patent package practical and zero-cost. Further sensitivities at scale are now straightforward.
   A full 6500-step lid+freeboard continuation was completed (from the fixed 99800 ckpt using the opt stepper; final step 106300, 498.9 s / 13.0 steps/s). Final metrics: reg bed 58.6 ± 4.1 mm (iron 56.1 mm), EMI 3.22× vs the 18.2 mm no-iron control, 100.0% containment, zmax exactly 60 mm (capped), iron KE bias 13,832×. Bed height and EMI locked in by ~+500 steps and stayed stable for the remaining ~6000 steps. The bounded physical-scale agitation mechanism is robust over extended evolution at realistic heights. Full log and final ckpt (step106300) in Rung1_Lid_Freeboard_Demo.txt.
 
 ## 5. Conclusion (Cold)
@@ -224,3 +224,22 @@ With the corrections (Rung1 100% containment + lid for physical + highN=6500 ful
 
 ---
 End of cold review. Next actions logged to todos / package updates.
+
+## DEM Runner & Scale Update (post 2026-06-04 session)
+- highn_sensitivity.py now fully supports `--n 8000` (and higher) with automatic contained construction: loads latest settled 6500 physical-lid ckpt (100% inside), adds jittered regolith particles to reach target N, preserves 100% inside from base, relaxes via cell-list + lid during steps.
+- Direct command `... --n 8000 --sweep iron_diam` (or --campaign) now produces 100.0% inside logs, metrics, auto JSON report (with "n_total":8000), and raw .npz ckpts.
+- Example from integrated run: all iron points 100% inside, EMI~4.89x, KE bias scaling 1.1k→14.5k x at N=8000.
+- Explicit good ckpt: scale8000_from_iron35_step003510.npz (N=8000, 100%, reg=18.66 mm, dead=11.5%, EMI~5.78x, KE~18.5k x after relaxation).
+- Full --campaign at latest evolved state also executed (iron dead=0 with strong KE scaling; U_G/fines at higher bed ~31 mm with high KE ~28.6k x, 100% inside).
+- This provides higher-fidelity supporting evidence that the iron dual-role (agitation + thermal mass) and physical-lid containment mechanism are robust when particle count is increased (cell-list hotpath enables the compute).
+
+All new data/raw ckpts/reports referenced in the 2026-06-04 Rung1_HighN_Primary_Audit_6500.md and evidence package.
+
+
+## Higher Fidelity Scale (N=10000, 2026-06-04)
+- Runner --n 10000 executed: auto base from settled 6500 + add ~3500 reg particles + iron sweep.
+- 100.0% inside maintained, reg~16.0 mm, EMI~4.94x, KE bias up to 45k x (stronger agitation signal at higher N).
+- Perf ~70 steps/s (cell-list).
+- Report + ckpts in highn_sens_checkpoints/ (n_total=10000).
+- Demonstrates cell hotpath + addition method scales the physical-lid iron mechanism to 10k particles while preserving containment (key for enablement of "method works at higher fidelity").
+

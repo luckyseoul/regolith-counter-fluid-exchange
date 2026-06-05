@@ -93,8 +93,13 @@ def generate_coarse_particles(n_total=6500, with_iron=True):  # high-N migration
     mat = np.array([0] * n_reg + [1] * n_iron, dtype=np.int32)
 
     radii = all_diam / 2.0
-    pos = np.random.rand(len(radii), 3).astype(np.float32) * (BOX * 0.9)
-    pos[:, 2] *= 0.4
+    n_scale = max(1.0, float(n_total) / 6500.0)
+    xy_scale = BOX * 0.98
+    z_scale = 0.035 * n_scale
+    pos = np.random.rand(len(radii), 3).astype(np.float32)
+    pos[:, 0] *= xy_scale
+    pos[:, 1] *= xy_scale
+    pos[:, 2] *= z_scale
     pos = np.clip(pos, radii[:, None] + 1e-6, BOX - radii[:, None] - 1e-6)
 
     return (cp.asarray(pos), cp.zeros((len(radii), 3), dtype=cp.float32),

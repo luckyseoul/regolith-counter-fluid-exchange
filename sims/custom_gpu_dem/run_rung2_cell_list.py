@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """
 Rung 2 production runner using cell-list accelerated custom GPU DEM.
+
+Now uses the rewritten hotpath (compute_forces_cell_list shim -> device-only build_cell_list
++ single RawKernel launch for neighbor search). No more Python for-c-in-range or per-cell
+CuPy loops in the contact hot path.
 """
 
 import sys

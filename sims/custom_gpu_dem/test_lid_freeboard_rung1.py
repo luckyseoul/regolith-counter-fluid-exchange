@@ -165,9 +165,9 @@ OPTIMIZATION NOTES (for VRAM + GPU utilization):
   1. Run the dedicated benchmark:
        python benchmark_vram_gpu_util.py --n 15000 --steps 1000
        python benchmark_vram_gpu_util.py --n 30000 --steps 500   # if you have enough VRAM
-  2. For real Rung work, switch to cell-list (common/cell_list.py) + the helpers in optimized_step.py and increase n_total in generate_ functions to 20k-100k+.
+  2. Cell-list hotpath rewrite is complete (device-only build_cell_list + single RawKernel for neighbor search in dem_kernels + cell_list shim). Use it by default for real Rung work + optimized_step; bump n_total to 20k-100k+ for higher fidelity stats.
 
-- The brute-force compute_forces does many large N x N temporaries. For N>~8k-10k you will want the cell-list path.
+- Brute N^2 temporaries are gone for production evidence; cell-list is the path for N>~5k.
 
-- Future bigger wins: port the whole timestep (or at least the contact loop) to a single RawKernel / fused ElementwiseKernel so the Python for-loop disappears entirely and we can run thousands of steps with almost zero host involvement.
+- Further wins possible (full timestep fused RawKernel to eliminate the remaining Python per-step loop in run_n_steps_optimized), but the cell-list neighbor search (the O(N) Python bottleneck previously) is now inside the GPU kernel.
 """

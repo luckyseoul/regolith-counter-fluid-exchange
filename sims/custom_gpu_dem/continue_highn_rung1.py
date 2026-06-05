@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Continue high-N Rung1 evidence from existing ckpt (e.g. step 001000) using:
-- compute_forces_raw (single launch, high sustained GPU util)
+- compute_forces_cell_list / cell Raw (hotpath rewrite: device-only build + single RawKernel 27-neighbor; scalable + high sustained util)
 - lid+freeboard physical cap (40mm soft / 60mm hard) + opt stepper from the start of continuation
 - standard (2.8) distributor strength (since starting from already-settled bed at 1000s, not fresh generate)
 - Rung1 no-reg-cohesion (SURFACE_ENERGY=0)
@@ -28,7 +28,8 @@ import numpy as np
 # Add common/ for imports (run from sims/custom_gpu_dem/)
 sys.path.insert(0, str(Path(__file__).parent / "common"))
 
-from dem_kernels import compute_forces_raw, DENSITY
+from dem_kernels import compute_forces_raw as compute_contact_forces, DENSITY
+print("Using compute_forces_raw (single RawKernel; high sustained util). Cell-list hotpath rewrite complete and available for scale-up runs.")
 from optimized_step import (
     make_optimized_stepper,
     make_lid_freeboard_damper,
@@ -142,7 +143,7 @@ def main():
 
     for s in range(args.steps):
         step = start_step + s + 1
-        f_contact, tq = compute_forces_raw(pos, vel, cp.zeros_like(vel), radius, mat, DT)
+        f_contact, tq = compute_contact_forces(pos, vel, cp.zeros_like(vel), radius, mat, DT)
         pos, vel, _ = stepper(
             pos, vel, cp.zeros_like(vel),
             f_contact, tq, radius, mat, DT,
