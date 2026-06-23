@@ -55,3 +55,25 @@ These runs were performed on CPU from committed artifacts only. Results can be r
 - models/proper_ntu_thermal.py
 
 This document strengthens enablement by showing the DEM data and analytical model are mutually consistent at the claimed envelope.
+
+## Additional Runs (2026-06-23)
+
+### Agitation Script at Good-Var Point
+Using cold_stage_performance from iron_shot_agitation_vs_pressure.py at P=0.14, 1.5mm, fill=0.07 (DEM), vel_mult=4.7:
+- Stage eff: 0.378
+- Agitation factor: 0.004 (this simplified model under-predicts at low fill/high U compared to full DEM)
+
+Reference low-U with higher fill: eff 0.383 (similar, shows the agitation model is limited).
+
+### Refined DEM Contact Stats
+- Sample mean nearest neighbor: 567 um
+- Rough collision rate est: ~1786 /s per particle
+- Effective solid contact time fraction: ~0.056 (5.6%)
+
+Useful for scaling solid-solid conductance in NTU model: contact_time_fraction * material conductance.
+
+### At Envelope P=0.10 bar
+Lumped at P=0.1, 1.5mm, U=3.5: overall eff ~82.4%, blower ~3.22 MW (still extreme parasitic but slightly better than at 0.14 due to gas density).
+
+These reinforce that clean real-drag agitation requires high flow/power; low-power performance relies on distributor sub-grid modeling.
+
