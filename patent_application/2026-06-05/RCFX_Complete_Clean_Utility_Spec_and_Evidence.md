@@ -316,7 +316,7 @@ Previous May analysis used strict gas-limited NTU assuming poor contact; the iro
 
 The DEM relative metrics (mobilization, dead reduction) provide qualitative support for the contact improvement assumed in the eff formula.
 
-Full first-principles would require explicit h calculation from particle velocities/collisions in DEM, which is future work; current is consistent empirical + mechanism.
+Quantitative contact/porosity data from the primary good-var checkpoint (physical_drag_real_u3.5_iron1.5mm_step002000.npz) is now available in GoodVar_Model_Link.md: mean bed porosity ~0.775, characteristic contact duration ~31.5 µs, estimated collision rate ~1786/s per particle, effective solid contact time fraction ~0.056, and near-neighbor |v_rel| ~10 m/s. Full time-resolved first-principles solid-solid h would require instrumented force histories (future work); the checkpoint post-processing provides the strongest mechanistic bridge currently available between DEM and the thermal model. See also proper_ntu_thermal.py forward derivations.
 
 See COLD for sensitivities: even combined degradation >=59.3%, nominal 75.6% within ranges.
 

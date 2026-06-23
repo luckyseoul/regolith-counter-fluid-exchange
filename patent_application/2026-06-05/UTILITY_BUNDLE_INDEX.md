@@ -1,5 +1,5 @@
 # RCFX Patent Application Evidence and Enablement Support Bundle (Utility Filing)
-**Date**: 2026-06-05 (incorporating full campaign through 10k scale + cell-list + sensitivities)
+**Date**: 2026-06-23 (final cross-checks and model linkage for utility conversion handoff; original campaign 2026-06-05)
 **Scope**: Modeling-only evidence and specification support for a utility patent application on the 5-stage counter-current low-pressure fluidized bed heat recovery system with dual-role iron shot (PERRY-RCFX-004 Rev 5.2 parameters). All evidence limited to clean 100% inside physical-lid DEM data + lumped model + envelope calculation. No provisional language or structure.
 
 ## Core Documents (this directory)
@@ -73,7 +73,8 @@ All modeling-only. Sufficient for 35 USC 112 enablement + written description wh
 4. Full claims required for utility filing; the internal matrix in the spec + COLD provides strong support.
 5. File before any public disclosure or bar date.
 
-**Update log for this document (2026-06-05)**:
+**Update log for this document**:
+- 2026-06-23: Added GoodVar_Model_Link.md (CPU post-processing of good-var checkpoint + lumped/NTU runs at envelope conditions). Updated main spec language around "future work" for explicit h. Final t-crossing for conversion.
 - Incorporated full high-N Rung1 physical-lid campaign (N=6500 + 10k scale via runner addition method, 100% containment on all cited ckpts).
 - Added iron size sensitivity leverage (dead=0, KE bias to 45k× at 10k).
 - Integrated cell-list hotpath and reproducible runner (highn_sensitivity.py) as part of the disclosure.
