@@ -77,3 +77,5 @@ All bad/unphysical data (Rung5 loft, non-lid runs, contradictory claims) have be
 
 The spec has been fixed to only cite the clean physical-lid mechanism data.
 
+The architecture was scoped to use iron-collision agitation + static distributor + physical containment precisely to avoid dynamic rotary seals or rotating mechanicals in the regolith path. Such seals (as required by prior auger-based recuperator concepts) would necessitate physical prototypes and extended wear/leakage testing for validation — costs that are unaffordable under current constraints. Enablement for the utility filing rests entirely on the modeling + clean DEM evidence package. The design still requires standard low-pressure vessel seals and boundary regolith feed/exit interfaces (common to all ISRU systems), but these are not the continuous rotary dynamic seals in the hot abrasive stream that make mechanical recuperators prototype-heavy.
+
