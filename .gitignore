@@ -6,8 +6,15 @@ __pycache__/
 .env
 .venv/
 
-# Large GPU DEM checkpoint series (transfer via rsync bundle, not git)
-sims/custom_gpu_dem/rung*_checkpoints/
+# Nested clone of the extracted engine (published separately)
+/custom-gpu-dem/
 
-# Keep lumped/analytical artifacts
-!rung_results/*.npy
+# Self-copies, not source
+*.bundle
+rcfx-utility-bundle*.tar.gz
+*.tar.gz
+
+# Root duplicates; canonical copies live under docs/
+/RCFX_Complete_Specification_Rev52.pdf
+/RCFX_Leverage_Report_2page.pdf
+__pycache__/

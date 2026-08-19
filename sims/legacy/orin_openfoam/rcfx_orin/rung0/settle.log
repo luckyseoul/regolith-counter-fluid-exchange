@@ -1,0 +1,44 @@
+LIGGGHTS (Version LIGGGHTS-PUBLIC 3.8.0, compiled 2026-04-03-21:26:15 by nick, git commit 3d5c00f20519e6bb6eb6756f51f1ad36564e649d)
+Created orthogonal box = (0 0 0) to (0.3 0.01 0.6)
+  2 by 1 by 3 MPI processor grid
+Fix particledistribution/discrete (id pdd): distribution based on mass%:
+    pts1: d=7.500000e-04 (max. bounding sphere) mass%=37.000000%
+    pts2: d=1.750000e-03 (max. bounding sphere) mass%=26.000000%
+    pts3: d=3.125000e-03 (max. bounding sphere) mass%=21.000000%
+    pts4: d=5.000000e-03 (max. bounding sphere) mass%=16.000000%
+Fix particledistribution/discrete (id pdd): distribution based on number%:
+    pts1: d=7.500000e-04 (max. bounding sphere) number%=93.930202%
+    pts2: d=1.750000e-03 (max. bounding sphere) number%=5.195729%
+    pts3: d=3.125000e-03 (max. bounding sphere) number%=0.736981%
+    pts4: d=5.000000e-03 (max. bounding sphere) number%=0.137087%
+Setting up run at Sun Apr 12 07:16:54 2026
+
+INFO: Resetting random generator for region bed_region
+INFO: Particle insertion ins: inserting every 0 steps
+Memory usage per processor = 4.32949 Mbytes
+    Step    Atoms         KinEng         Volume 
+       0        0              0         0.0018 
+insertion: proc 0 at 0 %
+insertion: proc 3 at 0 %
+insertion: proc 3 at 10 %
+insertion: proc 0 at 10 %
+insertion: proc 3 at 20 %
+insertion: proc 0 at 20 %
+insertion: proc 3 at 30 %
+insertion: proc 0 at 30 %
+insertion: proc 3 at 40 %
+insertion: proc 0 at 40 %
+insertion: proc 3 at 50 %
+insertion: proc 0 at 50 %
+insertion: proc 3 at 60 %
+insertion: proc 0 at 60 %
+insertion: proc 3 at 70 %
+insertion: proc 0 at 70 %
+insertion: proc 3 at 80 %
+insertion: proc 0 at 80 %
+insertion: proc 3 at 90 %
+insertion: proc 0 at 90 %
+insertion: proc 3 at 100 %
+insertion: proc 0 at 100 %
+INFO: Particle insertion ins: inserted 184931 particle templates (mass 3.213704e-01) at step 1
+ - a total of 184931 particle templates (mass 3.213704e-01) inserted so far.

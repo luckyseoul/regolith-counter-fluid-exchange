@@ -1,0 +1,10 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      transportProperties;
+}
+// H2-dominant 0.1bar 300K: nu = mu/rho = 1.2e-5/0.00962 = 1.247e-3
+transportModel Newtonian;
+nu nu [ 0 2 -1 0 0 0 0 ] 1.247e-3;

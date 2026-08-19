@@ -1,0 +1,61 @@
+# RCFX DEM: Particle settling under lunar gravity
+# LAMMPS + KOKKOS/CUDA on Orin
+# Truncated Apollo PSD (>=45um), CG=5x
+# ~6M particles in pseudo-2D slab
+
+units           si
+atom_style      sphere
+boundary        f f f
+newton          off
+comm_modify vel yes
+
+region          domain block 0.0 0.30 0.0 0.01 0.0 0.60 units box
+create_box      1 domain
+
+neighbor        0.001 bin
+neigh_modify    every 1 delay 0 check yes
+
+pair_style      gran/hertz/history 1 1 0.5 0.6 0.25 1
+# args: Kn Kt gamma_n coeffFriction gamma_t dampflag
+# Kn/Kt derived from E=5e7, nu=0.25
+# coeffFriction = 0.6
+# coeffRestitution ~ 0.5 maps to gamma
+
+timestep        1e-5
+
+fix             gravi all gravity 1.625 vector 0.0 0.0 -1.0
+
+# Walls
+fix             wall_bottom all wall/gran hertz/history 1 1 0.5 0.6 0.25 1 zplane 0.0 NULL
+fix             wall_top all wall/gran hertz/history 1 1 0.5 0.6 0.25 1 zplane NULL 0.60
+fix             wall_left all wall/gran hertz/history 1 1 0.5 0.6 0.25 1 xplane 0.0 NULL
+fix             wall_right all wall/gran hertz/history 1 1 0.5 0.6 0.25 1 xplane NULL 0.30
+fix             wall_front all wall/gran hertz/history 1 1 0.5 0.6 0.25 1 yplane 0.0 NULL
+fix             wall_back all wall/gran hertz/history 1 1 0.5 0.6 0.25 1 yplane NULL 0.01
+
+# Particle insertion via fix pour
+# CG=5x of truncated PSD: d=300um dominant (76%)
+# Using fix pour with polydisperse distribution
+# region for insertion
+region          bed_region block 0.005 0.295 0.001 0.009 0.005 0.15 units box
+
+# Insert particles - pour them in from top of bed region
+# dlo/dhi covers CG=5x range: 300um to 3750um
+fix             ins all pour 500000 1 86028121 region bed_region &
+                diam poly 6 0.7605 0.000300 0.1471 0.000438 0.0757 0.000625 &
+                0.0154 0.001000 0.0012 0.001875 0.0001 0.003750 &
+                dens 3100 3100 vol 0.55 100
+
+fix             integr all nve/sphere
+
+# Output
+thermo_style    custom step atoms ke vol cpu
+thermo          1000
+thermo_modify   lost warn norm no
+
+dump            dmp all custom 10000 post/dump_*.dat id type x y z vx vy vz radius
+
+# Run
+run             100000
+
+print "=== RCFX Rung 0: Settling complete ==="
