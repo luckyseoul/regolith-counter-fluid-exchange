@@ -116,6 +116,15 @@ class TestCurrentClaims(unittest.TestCase):
         self.assertAlmostEqual(s1000["reg_z_mm"], 25.99, places=2)
         self.assertAlmostEqual(s1300["reg_z_mm"], 27.57, places=2)
 
+    def test_exhibits_do_not_sell_stale_812_emi(self):
+        files = (
+            ROOT / "patent_evidence/2026-06-04/Exhibit_B_GPU_DEM_Iron_Agitation.md",
+            ROOT / "patent_evidence/2026-06-04/COLD_CLAIMS_AND_MATH_REVIEW.md",
+        )
+        for path in files:
+            text = path.read_text(encoding="utf-8")
+            self.assertNotRegex(text, r"8\.12\s*[×xX]", msg=str(path))
+
 
 if __name__ == "__main__":
     unittest.main()

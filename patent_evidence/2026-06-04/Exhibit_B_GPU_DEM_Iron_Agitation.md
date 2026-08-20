@@ -27,7 +27,7 @@ The primary Rung1 evidence for iron agitation at physical scale is now the high-
 
 **Migration artifacts**: See the **Rung1_HighN_Primary_Audit_6500.md + .json** (direct np.load numbers, now extended to 2000). sims/custom_gpu_dem/migrate_rung1_highn.py (fresh generate, boosted dist for initial, Raw); sims/custom_gpu_dem/continue_highn_rung1.py (resume from ckpt 1000->2000 with standard 2.8 dist + Raw + lid+opt for long physical runs); benchmark_vram_gpu_util.py (Raw + highN VRAM demo); rung1_highn_checkpoints/ (with-iron to step002000 + no-iron controls to 400); common/dem_kernels.py (RawKernel + high-level reference + self-test, SURFACE=0 for Rung1). Old low-N 99k historical. High-N + Raw + lid + opt + dedicated audit (extended) = primary citable Rung1 for particle-scale iron agitation at physical scale / full VRAM / high GPU util.
 
-**Cold note**: HighN data (to 1000 steps) generated with fixed Raw + lid + opt stepper. 100% contained, physical lid, EMI 8.12×, mechanism intact. Rung5 for robustness (contained 500k). All zero-cost modeling.
+**Cold note**: HighN data (to 1000 steps) generated with fixed Raw + lid + opt stepper. 100% contained, physical lid, EMI **8.04×** (vs no-iron ⟨z⟩ on `rung1_highn_with_iron_step001000.npz`), mechanism intact. Rung5 for robustness (contained 500k, not quantitative EMI). All zero-cost modeling.
 
 ## Rung 5 — Sensitivity / combined degradation (qualitative only)
 
