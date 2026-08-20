@@ -4,7 +4,9 @@
 
 **Containment**: 100.0% inside on both with-iron and no-iron legs (x,y ∈ [0, 0.018] m, z ≥ 0; zmin >0).
 
-**EMI (clean, contained)**: 109.4× (regolith mean bed height with_iron / no_iron)
+**EMI (HISTORICAL, not citable)**: 109.4× on the old unbounded low-N 99k slice.
+Current citable EMI is good-var **3.58×** and high-N **8.04× @ 1000s / 8.53× peak @ 1300s**
+(physical-lid, BOX = 0.018 m). Do not quote 109.4× as a current number.
 
 ## With-iron (agitated)
 - Step: 99000

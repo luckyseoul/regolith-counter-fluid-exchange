@@ -5,8 +5,8 @@
 ## Simulation method (identical across rungs)
 - Custom CuPy GPU DEM: Hertzian normal + tangential friction + JKR-style cohesion (fines); Stokes + quadratic drag with cell-list local porosity; velocity-Verlet; DT = 6.5×10⁻⁷ s.
 - Containment: v2 mass-scaled distributor / wall / floor forces + post-integrate clips (restitution 0.8).
-- Domain: BOX = 0.016 m; N ≈ 1800 particles (bimodal regolith + iron, mat=0/1).
-- **Citable rule**: Only checkpoints with **100.0% inside** (x,y ∈ [0, BOX], z ≥ 0) and **zmin ≥ 0** are cited.
+- Domain: **BOX = 0.018 m** for current high-N / good-var citations (N = 6500). Older Rung 0/5 series used BOX = 0.016 m and are **not** quantitative EMI.
+- **Citable rule**: Only checkpoints with **100.0% inside** (x,y ∈ [0, 0.018] m, z ≥ 0) and **zmin ≥ 0** are cited as current. Unbounded 107.9× / 109.4× EMI is historical.
 
 ## Rung 1 — Full Migration to High-N (6500 particles, full VRAM ~16.5 GB)
 The primary Rung1 evidence for iron agitation at physical scale is now the high-N migration (N=6500, ~7% iron = 455 iron particles, using benchmark generate + opt stepper + lid+freeboard from step 0). This provides higher fidelity statistics and actually utilizes the full device VRAM during evidence generation (addressing performance concerns while producing citable data).
@@ -29,7 +29,13 @@ The primary Rung1 evidence for iron agitation at physical scale is now the high-
 
 **Cold note**: HighN data (to 1000 steps) generated with fixed Raw + lid + opt stepper. 100% contained, physical lid, EMI 8.12×, mechanism intact. Rung5 for robustness (contained 500k). All zero-cost modeling.
 
-## Rung 5 — Sensitivity / combined degradation (real DEM)
+## Rung 5 — Sensitivity / combined degradation (qualitative only)
+
+**Not quantitative EMI.** Absolute bed heights are metre-scale loft in the
+older unbounded-freeboard runner (BOX = 0.016 m). Cite Rung 5 only as a
+robustness narrative (iron still above regolith; campaign stayed contained
+on *that* runner’s 0.016 m mask). Current EMI numbers come from physical-lid
+high-N / good-var at BOX = 0.018 m.
 
 ### 200k lock (initial)
 | Field | Value |
@@ -55,12 +61,11 @@ The primary Rung1 evidence for iron agitation at physical scale is now the high-
 | Mobilization proxy | iron_bed = 12584.1 mm, reg_bed = 9781.8 mm |
 | Log | `rung5 done. Final bed: 10404.50±5708.47 mm (zmax=22704mm zmin=0.49mm inside=100.0%) dead%=3.8` |
 
-## Artifacts (Rung1 fixed + lid)
-- Rung1 checkpoints (current): `sims/custom_gpu_dem/rung1_checkpoints/` (rung1_*_step99000.npz 100% inside)
-- New fixed audit: `patent_evidence/2026-06-04/Rung1_Fixed_Contained_Audit_99k.md` + `.json`
-- Lid demo: `Rung1_Lid_Freeboard_Demo.txt` + `rung1_with_iron_lid_demo_step99000.npz`
-- Test code: `sims/custom_gpu_dem/test_lid_fast_demo.py` (and add_lid... in test_lid_freeboard_rung1.py)
-- Rung5 for robustness: `sims/custom_gpu_dem/rung5_checkpoints/` (500k, 100% inside)
+## Artifacts (current vs historical)
+- Current Rung 1: `sims/custom_gpu_dem/rung1_highn_checkpoints/` (physical lid, BOX = 0.018 m)
+- Current audit: `Rung1_HighN_Primary_Audit_6500.md`
+- Historical 99k lofted slice: `Rung1_Fixed_Contained_Audit_99k.md` (EMI 109.4× — do not cite as current)
+- Rung 5 qualitative robustness: `sims/custom_gpu_dem/rung5_checkpoints/` (metre-scale beds, not EMI)
 
 ## Figures
 - FIG. 3 — `FIG_03_iron_agitation_rung5_final` (200k npz)

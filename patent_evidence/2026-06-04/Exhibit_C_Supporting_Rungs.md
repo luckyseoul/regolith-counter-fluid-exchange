@@ -19,7 +19,9 @@
 - Demonstrated transfer of on the order of **~230 particles** across stage boundaries in GPU DEM backfills (see `RUNG_CAMPAIGN_RESULTS.md` Rung 4 section).
 - Supports counter-current staging architecture assumed in the lumped model.
 
-## Rung 5 — Progression (contained checkpoints only)
+## Rung 5 — Progression (qualitative only — not quantitative EMI)
+Older unbounded-freeboard runner, BOX = 0.016 m. Metre-scale beds are loft,
+not performance numbers. Cite high-N / good-var (BOX = 0.018 m) for EMI.
 Verified series from all `rung5_step*.npz` (334 files):
 
 | Step (×10³) | Mean bed (mm) | Iron proxy (mm) | Regolith proxy (mm) | inside |

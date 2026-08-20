@@ -8,9 +8,8 @@
 | 0 | `rung0_step500000.npz` | 500,000 | 334 | Locked prior session |
 | 5 | `rung5_step500000.npz` | 500,000 | 334 | **334/334** pass inside mask (x,y ∈ [0, 0.016] m, z ≥ 0), zmin ≥ 0 |
 
-**Rung 5 final metrics** (citable only):
-- 200k: bed 4949.96±2498.89 mm, inside 100.0%, dead 1.3%, proxy iron/reg 5563.2 / 4774.8 mm
-- 500k: bed 10404.50±5708.47 mm, inside 100.0%, dead 3.8%, proxy iron/reg 12584.1 / 9781.8 mm
+**Rung 5 final metrics** (qualitative robustness only — **not** quantitative EMI; metre-scale loft on the older BOX=0.016 m runner):
+- 200k / 500k logs report ~5 m / ~10 m beds. Do not cite those heights as performance. Iron stayed above regolith in the proxy. Current EMI is high-N / good-var at BOX = 0.018 m.
 
 **Infrastructure note (this session)**: Cell-list hotpath rewrite complete (device-only build + single RawKernel neighbor search; get_compute_forces_fn + recommended_cell_size). High-N sensitivities (iron size leverage on dead% at physical lid) + long extension to 3000 steps executed from 2000-step ckpt; new ckpts + metrics appended to audit. Support drawing FIG_S1 produced. All .docx refreshed. Brute Raw default for N=6500 consistency; cell for scale. All "100% inside + zmin>=0" rules enforced.
 

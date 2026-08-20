@@ -63,7 +63,7 @@ if __name__ == "__main__":
     print(f"Loaded {len(pos)} particles (regolith + iron) from rung2_3000p_current.npz")
     print("Adding proper per-particle gas drag (Stokes + quadratic, stronger on iron)")
 
-    # Drag parameters (tied to ~68 W blower point from lumped model)
+    # Drag parameters (tied to 221 W blower / U_G=0.066 m/s lumped point)
     U_G = 0.066          # m/s superficial gas velocity
     DRAG_STRENGTH = 1.0  # can tune later against 75.6% effectiveness
 

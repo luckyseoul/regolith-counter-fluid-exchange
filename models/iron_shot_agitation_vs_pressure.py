@@ -11,7 +11,7 @@ Goal: Quantify how much low-pressure performance can be recovered simply by
 optimizing iron shot size distribution and fill fraction in the early stages,
 within the ranges already described in Rev 5.2.
 
-No new subject matter. Pure optimization and sensitivity within the provisional.
+No new subject matter. Pure optimization and sensitivity within Rev 5.2.
 """
 
 import numpy as np
@@ -112,4 +112,4 @@ if __name__ == "__main__":
     out = Path(__file__).resolve().parents[1] / "analysis" / "iron_agitation_pressure_sweep.npy"
     np.save(out, data)
     print(f"\nSaved to {out}")
-    print("This is optimization within the existing provisional claims (iron thermal mass + tumbling action).")
+    print("This is optimization within the existing Rev 5.2 claims (iron thermal mass + tumbling action).")

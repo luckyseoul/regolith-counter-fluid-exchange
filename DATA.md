@@ -27,8 +27,9 @@ real-drag point, not the older unbounded-freeboard slices.
 sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_real_u3.5_iron1.5mm_step002000.npz
 ```
 
-Good-variable point: 1.5 mm iron, real drag, 3.5 m/s, physical lid, 100% inside.
-Source of the 3.58× EMI / 34.47 mm iron / 11.56 mm regolith numbers.
+Good-variable point: 1.5 mm iron, real drag, 3.5 m/s, physical lid.
+100% inside **x,y ∈ [0, 0.018] m** (not the older 0.016 m mask). Source of the
+3.58× EMI (vs no-iron ⟨z⟩ = 3.2307 mm) / 34.47 mm iron / 11.56 mm regolith numbers.
 
 ## Lumped-model arrays
 

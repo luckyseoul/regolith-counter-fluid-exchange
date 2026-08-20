@@ -1,6 +1,6 @@
 # RCFX Full Tuning Sweep Results — 31 May 2026
 
-**Scope**: Systematic optimization of parameters **already enabled by the existing provisional patent claims** (PERRY-RCFX-004 Rev 5.2). No new subject matter.
+**Scope**: Systematic optimization of parameters **already enabled by PERRY-RCFX-004 Rev 5.2**. No new subject matter.
 
 **Tuned knobs** (all within current claims):
 - Iron shot diameter (1.5–5.0 mm)

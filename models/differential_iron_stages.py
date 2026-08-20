@@ -7,7 +7,7 @@ and metallic thermal mass language in the existing claims.
 Cold stages: larger/more aggressive shot for maximum agglomerate breaking.
 Hot stages: smaller or optimized shot for thermal mass + carburization.
 
-This is pure tuning within the provisional.
+This is pure tuning within Rev 5.2.
 """
 
 import numpy as np

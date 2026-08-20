@@ -4,7 +4,7 @@ RCFX Rung 2 Production GPU DEM run at 0.14 bar "it works" point.
 Uses claim-legal iron shot (1.5-3.5 mm) + bimodal regolith + cohesion + fixed U_G drag (stronger on iron).
 
 Target: higher-N (6k-10k), longer physical time, time-averaged EMI, iron-regolith collision stats,
-bed expansion time series. Direct evidence for patent at the 68 W / 75.6% lumped point.
+bed expansion time series. Direct evidence for patent at the 221 W / 75.6% lumped point.
 
 All parameters traceable to PERRY-RCFX-004 Rev 5.2.
 """
@@ -19,7 +19,7 @@ sys.path.insert(0, str(Path("common").resolve()))
 from dem_kernels import compute_forces, integrate, compute_drag, estimate_local_porosity
 
 # =============================================================================
-# Production Rung 2 parameters (0.14 bar, target 68 W point)
+# Production Rung 2 parameters (0.14 bar, target 221 W / U_G=0.066 m/s point)
 # =============================================================================
 DT = 8e-7
 N_STEPS = 25000          # ~20 ms physical time at this DT (enough for lift + collisions to develop)
@@ -27,7 +27,7 @@ DUMP_EVERY = 500
 BOX_SIZE = 0.022         # larger representative volume for better stats
 
 # Gas conditions for 0.14 bar (conservative mix from Rev 5.2 volatiles)
-U_G = 0.066              # m/s superficial — exact match to lumped 68 W point
+U_G = 0.066              # m/s superficial — exact match to lumped 221 W point
 DRAG_STRENGTH = 1.0
 
 DAMPING = 0.08
@@ -87,7 +87,7 @@ def count_iron_regolith_contacts(pos, radius, mat_type, cutoff_factor=1.05):
 
 if __name__ == "__main__":
     print("=== RCFX Rung 2 PRODUCTION GPU DEM (0.14 bar iron agitation) ===")
-    print("Target: 68 W / 75.6% lumped point | Stronger drag on iron | Cell-list ready path")
+    print("Target: 221 W / 75.6% lumped point | Stronger drag on iron | Cell-list ready path")
 
     pos, vel, omega, radius, mat_type = generate_rung2_particles(n_total=3500, iron_frac=0.031)
     n_iron = int(cp.sum(mat_type == 1))
@@ -177,7 +177,7 @@ if __name__ == "__main__":
         'box_size': BOX_SIZE,
         'n_iron': n_iron,
         'final_emi_proxy': final_bed / 4.5,   # rough vs historical no-iron ~4.5mm
-        'note': 'Production Rung 2 at exact 0.14 bar 68W point with iron-stronger drag. For patent evidence.'
+        'note': 'Production Rung 2 at exact 0.14 bar 221 W point with iron-stronger drag. For patent evidence.'
     }
     np.savez('rung2_production_0.14bar_6800p.npz', **out)
     print("Saved rung2_production_0.14bar_6800p.npz")

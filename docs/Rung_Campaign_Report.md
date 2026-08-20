@@ -13,7 +13,7 @@ pressure than the 0.2–0.3 bar nominal.
 **0.14 bar**, with **221 W** blower power (1.88% parasitic) at 100 kg/h.
 Rung 1 particle-scale evidence is from the custom GPU DEM: high-N physical-lid
 EMI up to 8.53×, and a good-variable real-drag point at 1.5 mm iron / 3.5 m/s
-with EMI 3.58×, 100% inside the lid.
+with EMI 3.58× vs no-iron, 100% inside **x,y ∈ [0, 0.018] m**.
 
 ## Operating point
 

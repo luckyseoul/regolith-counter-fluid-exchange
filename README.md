@@ -19,7 +19,7 @@ Standalone DEM engine: [luckyseoul/custom-gpu-dem](https://github.com/luckyseoul
 
 ## Headline numbers
 
-All DEM citations below are from **contained** checkpoints (100% of particles inside the physical lid). The lumped-model blower number is the post-fix value (`vol_flow = U × AREA`).
+All DEM citations below are from **contained** checkpoints (100% of particles inside **x,y ∈ [0, 0.018] m**, z ≥ 0, physical lid). EMI is with-iron regolith ⟨z⟩ / no-iron-control regolith ⟨z⟩. The lumped-model blower number is the post-fix value (`vol_flow = U × AREA`). Pre-fix **68 W** and unbounded EMI **107.9× / 109.4×** are historical only.
 
 | Quantity | Value | Source |
 |----------|------:|--------|
@@ -44,7 +44,7 @@ flowchart LR
   S2["Stage 2<br/>cold · 2.0 mm iron"] --> S3
   S3["Stage 3<br/>hot · 3.5 mm iron"] --> S4
   S4["Stage 4<br/>hot · 3.5 mm iron"] --> S5
-  S5["Stage 5<br/>hot · 3.5 mm iron"] --> ColdOut["Heated feed ~"]
+  S5["Stage 5<br/>hot · 3.5 mm iron"] --> ColdOut["Heated feed"]
   HotIn["Spent 900 K"] --> S5
   S5 --> S4 --> S3 --> S2 --> S1 --> HotOut["Cooled spent"]
 ```
@@ -110,7 +110,7 @@ Rung 1 (coarse fraction + iron shot) is the high-N physical-lid series and the g
   <img src="docs/figures/dem_bed_height.png" alt="Bed height with iron vs no-iron control" width="720" />
 </p>
 
-No-iron control stays packed (~3.2 mm). With iron the bed expands to ~25–28 mm (high-N) while remaining inside the lid. That contrast is the Effective Mobilization Index (EMI).
+No-iron control stays packed (~3.2 mm, ~0.4 m/s). With iron the bed expands to ~25–28 mm (high-N) under the lid. Mean regolith speed at the 8.04× / 8.53× checkpoints is ~37–41 m/s (vmax ~130 m/s): lid-capped agitation, not a calm expanded bed. That ⟨z⟩ ratio vs the no-iron control is the Effective Mobilization Index (EMI).
 
 <p align="center">
   <img src="docs/figures/checkpoint_inventory.png" alt="Checkpoint archive counts" width="720" />
@@ -166,7 +166,7 @@ scripts/                figure and logo generators
 
 ## Scope
 
-Results are from the lumped model and the custom GPU DEM. There is no hardware prototype, bench test, or simulant campaign. Quantitative DEM citations use physical-lid checkpoints only (100% of particles inside the vessel).
+Results are from the lumped model and the custom GPU DEM. There is no hardware prototype, bench test, or simulant campaign. Quantitative DEM citations use physical-lid checkpoints only (100% of particles inside **x,y ∈ [0, 0.018] m**, z ≥ 0). Rung 5 metre-scale beds are not quantitative EMI.
 
 ---
 

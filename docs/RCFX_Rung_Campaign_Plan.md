@@ -53,7 +53,7 @@ operating points; produce documented model and DEM evidence.
   - Pre-classification cutoff aggressiveness and fines routing strategy (within the three approaches of Claim 26 and Section 5.8).
   - Independent superficial gas velocity per stage (enabled by the parallel manifold + forced circulation architecture of Claim 7).
   - Exploitation of the natural temperature-dependent volatile release profile for gas composition management (directly supported by Claim 27 and Section 4.3).
-- Deliverable: Clear, documented math and sensitivity curves showing how performance at low pressure (target << 0.2 bar) can be improved or maintained by intelligent tuning and optimization of features already present in the provisional application. Focus on producing evidence suitable for supporting the full patent issuance.
+- Deliverable: Clear, documented math and sensitivity curves showing how performance at low pressure (target << 0.2 bar) can be improved or maintained by intelligent tuning and optimization of features already present in PERRY-RCFX-004 Rev 5.2. Focus on producing evidence suitable for supporting the full patent issuance.
 
 ## Status
 

@@ -5,7 +5,7 @@
 **Basis**: Systematic tuning using parameters and features from PERRY-RCFX-004 Rev 5.2.
 
 ### Target
-Demonstrate that the RCFX architecture can achieve strong thermal recovery performance at significantly lower envelope pressure than the current 0.2–0.3 bar nominal, while remaining fully supportable under the existing provisional claims.
+Demonstrate that the RCFX architecture can achieve strong thermal recovery performance at significantly lower envelope pressure than the current 0.2–0.3 bar nominal, while remaining fully supportable under PERRY-RCFX-004 Rev 5.2.
 
 ### Recommended Tuned Point (Claim-Compliant)
 
@@ -47,7 +47,7 @@ These results were obtained **without introducing any new hardware, new subsyste
 - Stage-wise velocity optimization (enabled by the parallel forced circulation design in Claim 7).
 - Natural gas composition evolution (Claim 27).
 
-This provides clear mathematical support that the invention as disclosed can operate effectively at pressures low enough to avoid the major cost and complexity drivers associated with higher-pressure vessels, while staying entirely inside the scope of the existing provisional application.
+This provides clear mathematical support that the invention as disclosed can operate effectively at pressures low enough to avoid the major cost and complexity drivers associated with higher-pressure vessels, while staying entirely inside the scope of PERRY-RCFX-004 Rev 5.2.
 
 ### Files
 - Raw sweep data: `analysis/full_tuning_sweep_v1.npy`

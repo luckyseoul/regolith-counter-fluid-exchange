@@ -3,7 +3,7 @@
 Full Tuning Sweep for RCFX Low-Pressure Optimization
 Within existing claims only (Rev 5.2 parameters and features).
 
-Tunes the following (all already enabled by the provisional):
+Tunes the following (all already enabled by Rev 5.2):
 - Iron shot diameter (1-5 mm range, staged)
 - Iron fill fraction in cold stages
 - Superficial velocity multiple (3x-6x Umf, independent per stage group)

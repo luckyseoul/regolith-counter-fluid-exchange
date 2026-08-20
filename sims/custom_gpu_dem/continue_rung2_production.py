@@ -5,7 +5,7 @@ Loads rung2_3000p_with_drag.npz (iron + drag at 0.14 bar target) or the no-iron 
 then runs additional physical time with the improved stronger-on-iron drag scaling.
 Collects time-averaged EMI, collision counts, bed expansion stats for patent evidence.
 
-This is the practical way to get longer-duration, higher-statistics Rung 2 data at the 68 W point
+This is the practical way to get longer-duration, higher-statistics Rung 2 data at the 221 W / 0.066 m/s lumped point
 without OOM on brute-force pairwise at higher N.
 """
 

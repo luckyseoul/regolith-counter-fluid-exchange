@@ -30,5 +30,6 @@ remaining inside the 0.1–0.5 bar claim envelope.
 - Blower: **221 W** (1.88% parasitic; `vol_flow = U × AREA`)
 - Cold-stage effectiveness ~86.3%; hot-stage ~99.5%
 
-Rung 1 DEM (custom GPU, physical lid): high-N EMI 8.04× at 1000 steps
-(peak 8.53×); good-variable 1.5 mm / 3.5 m/s EMI 3.58×, 100% inside.
+Rung 1 DEM (custom GPU, physical lid, BOX = 0.018 m): high-N EMI 8.04× at
+1000 steps (peak 8.53×); good-variable 1.5 mm / 3.5 m/s EMI 3.58× vs no-iron;
+100% inside x,y ∈ [0, 0.018] m. High-N with-iron mean speeds ~37–41 m/s.

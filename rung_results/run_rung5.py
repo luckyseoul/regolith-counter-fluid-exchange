@@ -3,7 +3,7 @@
 Rung 5: Sensitivity & Robustness + Optimization Within Existing Claims
 
 Fix pressure at the Rung 4 working point (0.14 bar) and perform detailed
-sensitivity on parameters already enabled by the provisional claims.
+sensitivity on parameters already enabled by the Rev 5.2 claims.
 
 This is the final rung: demonstrate that the 0.14 bar configuration has
 reasonable robustness and that further (claim-compliant) tuning still has

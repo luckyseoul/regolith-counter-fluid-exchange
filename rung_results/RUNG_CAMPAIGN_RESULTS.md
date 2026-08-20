@@ -2,7 +2,9 @@
 
 Particle-scale numbers are from the custom GPU DEM in `sims/custom_gpu_dem/`.
 Plant-level numbers are from `models/five_stage_counterflow.py`. Quantitative DEM
-citations use physical-lid checkpoints (100% of particles inside the vessel).
+citations use physical-lid checkpoints (100% of particles inside
+**x,y ∈ [0, 0.018] m**, z ≥ 0). EMI is with-iron regolith ⟨z⟩ / no-iron-control
+regolith ⟨z⟩. Unbounded EMI 107.9× / 109.4× and the pre-fix 68 W blower are historical.
 
 ## Working point
 
@@ -43,8 +45,10 @@ Physical lid and freeboard from step 0. Direct loads of
 | with-iron step 1300 | 27.57 mm | 27.25 mm | 8.53× (peak) |
 | with-iron step 2000 | 25.48 mm | 23.92 mm | 7.89× |
 
-No-iron control remains packed (~3.2 mm, ~87% dead). With iron, the bed expands
-under the lid (zmax ~41–42 mm) with 100% containment. Audit:
+No-iron control remains packed (~3.2 mm, ~87% dead, ~0.4 m/s). With iron, the bed
+expands under the lid (zmax ~41–42 mm) with 100% containment on **BOX = 0.018 m**.
+Mean regolith speed at peak EMI is ~40 m/s (vmax ~130 m/s) — lid-capped agitation,
+not a calm expanded bed. Audit:
 `patent_evidence/2026-06-04/Rung1_HighN_Primary_Audit_6500.md`.
 
 ### Good-variable real-drag point
@@ -56,8 +60,8 @@ under the lid (zmax ~41–42 mm) with 100% containment. Audit:
 |--|--:|
 | Iron bed | 34.47 mm |
 | Regolith bed | 11.56 mm |
-| EMI | 3.58× |
-| Inside | 100% |
+| EMI vs no-iron | 3.58× |
+| Inside (BOX = 0.018 m) | 100% |
 
 This is the primary mechanistic checkpoint for the 1.5–2.0 mm / 0.1–0.5 bar envelope.
 
