@@ -56,11 +56,11 @@ The primary Rung1 evidence for iron agitation at physical scale is now the high-
 | Log | `rung5 done. Final bed: 10404.50±5708.47 mm (zmax=22704mm zmin=0.49mm inside=100.0%) dead%=3.8` |
 
 ## Artifacts (Rung1 fixed + lid)
-- Rung1 checkpoints (current): `/home/nick/rcfx/sims/custom_gpu_dem/rung1_checkpoints/` (rung1_*_step99000.npz 100% inside)
+- Rung1 checkpoints (current): `sims/custom_gpu_dem/rung1_checkpoints/` (rung1_*_step99000.npz 100% inside)
 - New fixed audit: `patent_evidence/2026-06-04/Rung1_Fixed_Contained_Audit_99k.md` + `.json`
 - Lid demo: `Rung1_Lid_Freeboard_Demo.txt` + `rung1_with_iron_lid_demo_step99000.npz`
 - Test code: `sims/custom_gpu_dem/test_lid_fast_demo.py` (and add_lid... in test_lid_freeboard_rung1.py)
-- Rung5 for robustness: `/home/nick/rcfx/sims/custom_gpu_dem/rung5_checkpoints/` (500k, 100% inside)
+- Rung5 for robustness: `sims/custom_gpu_dem/rung5_checkpoints/` (500k, 100% inside)
 
 ## Figures
 - FIG. 3 — `FIG_03_iron_agitation_rung5_final` (200k npz)

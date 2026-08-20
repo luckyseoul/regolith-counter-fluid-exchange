@@ -2,13 +2,13 @@
 
 **Date**: 31 May 2026
 **Configuration**: 3000 particles (2800 regolith + 200 iron shot, or all regolith)
-**Gas velocity**: U_G = 0.066 m/s (corresponding to ~68 W blower power from the lumped analytical model)
+**Gas velocity**: U_G = 0.066 m/s (corresponding to 221 W blower power from the lumped analytical model)
 **Pressure**: 0.14 bar
 **Method**: Custom CuPy GPU DEM (Hertz + JKR cohesion + friction + rolling + gravity + per-particle drag)
 
 ## Key Finding (Calibrated to 75.6% Lumped Target)
 
-At the gas velocity that corresponds to the target blower power in the lumped model (U_G = 0.066 m/s, ~68 W):
+At the gas velocity that corresponds to the target blower power in the lumped model (U_G = 0.066 m/s, 221 W):
 
 - Drag without iron → bed remains essentially settled (4.50 mm height).
 - Drag with iron shot → iron particles fluidize to 54.9 mm mean height; regolith bed mobilizes to 26.33 mm (fixed drag case).
@@ -24,7 +24,7 @@ This constitutes direct, calibrated particle-scale DEM evidence that the iron sh
 | Case                        | Iron Height (mm) | Mean Bed Height (mm) | EMI (vs no-iron drag) | Notes |
 |-----------------------------|------------------|----------------------|-----------------------|-------|
 | No Drag (baseline)          | 6.31             | 6.40                 | —                     | Settled reference |
-| Fixed Drag + Iron           | 54.90            | 26.33                | **5.85×**             | Target 68 W point; iron fully mobilized |
+| Fixed Drag + Iron           | 54.90            | 26.33                | **5.85×**             | Target 221 W point; iron fully mobilized |
 | Modulated Drag + Iron       | 54.50            | 10.11                | 2.25×                 | Consistent direction |
 | Fixed Drag, No Iron         | —                | 4.50                 | 1.00× (reference)     | Drag alone insufficient |
 

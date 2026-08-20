@@ -5,9 +5,9 @@ These are lower-fidelity than the full 5-stage (Rung 4) but follow the plan defi
 """
 
 import sys
-sys.path.insert(0, "/home/nick/rcfx/models")
-import numpy as np
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "models"))
+import numpy as np
 
 print("=== Rung 0-3 Summary (using current best tuning) ===\n")
 
@@ -64,7 +64,7 @@ print("  0.12 bar: Rung 0-1 pass, Rung 2 marginal, Rung 3 requires max EDS")
 print("  0.14 bar: All Rungs 0-3 comfortably pass with current tuning")
 print("  0.15 bar: Very comfortable margins across all rungs")
 
-np.save("/home/nick/rcfx/rung_results/rungs_0_to_3_summary.npy", {
+np.save(Path(__file__).resolve().parent / "rungs_0_to_3_summary.npy", {
     'best_params': best_params,
     'notes': 'See individual model scripts for detailed per-rung data'
 })

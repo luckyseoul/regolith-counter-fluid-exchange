@@ -28,8 +28,8 @@ Baseline: **75.6%** at 221 W (1.88% of recovered; post vol_flow= U*AREA fix + VE
 - `EVIDENCE_PACKAGE_INDEX.md` — master index
 - `Exhibit_A` … `Exhibit_E` — detailed exhibit write-ups
 - `CLAIM_ELEMENT_MATRIX.md` — claim element cross-reference
-- Drawings: `/home/nick/rcfx/patent_drawings/` (FIG. 1, 3, 5, 6, 7)
-- Specification draft: `/home/nick/rcfx/patent_specification_draft.md`
+- Drawings: `patent_drawings/` (FIG. 1, 3, 5, 6, 7)
+- Specification draft: `patent_specification_draft.md`
 
 ## Filing package notes (internal)
 - Formal Word (.docx) assembly optional via docx skill.

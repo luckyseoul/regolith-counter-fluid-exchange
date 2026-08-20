@@ -34,5 +34,5 @@ The same `dem_kernels` stack (forces, drag, integration), material densities, an
 
 ## Reference documents
 - PERRY-RCFX-004 Rev 5.2 (claim-legal parameters)
-- `/home/nick/rcfx/rung_results/RUNG_CAMPAIGN_RESULTS.md`
-- `/home/nick/rcfx/docs/rcfx_key_parameters.md` (if present)
+- `rung_results/RUNG_CAMPAIGN_RESULTS.md`
+- `docs/rcfx_key_parameters.md` (if present)

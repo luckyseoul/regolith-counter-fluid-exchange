@@ -98,5 +98,5 @@ if __name__ == "__main__":
         print(f"{r['P']:.2f}   | {r['best_eff']:.1%} | {r['cold_shot']:.1f}mm    | {r['hot_shot']:.1f}mm    | "
               f"{r['fill_c']:.2f}/{r['fill_h']:.2f}  | {r['v_cold']:.1f}/{r['v_hot']:.1f}")
 
-    np.save("/home/nick/rcfx/analysis/differential_iron_v1.npy", data)
+    np.save(Path(__file__).resolve().parents[1] / "analysis" / "differential_iron_v1.npy", data)
     print("\nSaved. This is still fully within the staged iron deployment and thermal mass claims.")

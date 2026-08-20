@@ -1,5 +1,5 @@
 RCFX Rung 2 — Production GPU DEM Evidence (Extended Time)
-0.14 bar "It Works" Point, ~68 W blower power (U_G = 0.066 m/s)
+0.14 bar "It Works" Point, 221 W blower power (U_G = 0.066 m/s)
 PERRY-RCFX-004 Rev 5.2
 
 Configuration (claim-legal):
@@ -18,7 +18,7 @@ Effective Mobilization Index (EMI) = 29.44 / 4.50 = 6.54×
 Key observations from continuation:
 - Bed height continued to increase under iron agitation + drag (26.3 → 29.4 mm in the additional physical time).
 - Iron particles keep gaining height (55 → 70 mm), demonstrating sustained fluidization and energy/momentum transfer into the cohesive fines via collisions.
-- Without iron, the same gas flow at the 68 W point produces zero net lift.
+- Without iron, the same gas flow at the 221 W operating point produces zero net lift.
 
 This extended-time data strengthens the earlier screening result (EMI ~5.85× on shorter runs). The iron shot agitation mechanism produces a consistent 6.5× class bed mobilization uplift at the exact gas velocity used for the lumped model's 75.6% overall effectiveness at 0.14 bar.
 

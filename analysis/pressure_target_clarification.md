@@ -1,14 +1,16 @@
-# RCFX Pressure Target Clarification (31 May 2026)
+# Pressure target
 
-## User's Explicit Goal
-"Make it work off-world without the need for additional safety protocols and seals and such that come with higher mbar."
+The design goal is a plant that can run off-world without the vessel class,
+safety protocol, and sealing burden of a high-pressure envelope.
 
-From conversation history:
-- Previous modeling (on Orin) was showing that the system "only worked correctly" at extremely low pressures (~5 mbar).
-- 5 mbar is deep into near-vacuum fluidization territory.
-- At that level, you lose the ability to use a simple "low-pressure envelope" and instead need real space-grade vacuum sealing technology, extensive physical testing, qualification, etc. — exactly the expensive path the user wants to avoid.
+An early low-fidelity estimate had placed “it only works” near ~5 mbar. That
+is near-vacuum fluidization and would require space-grade vacuum sealing.
+The campaign does **not** target that regime.
 
-## The Real Engineering Target
+The custom GPU DEM and the 5-stage lumped model were used to find the lowest
+pressure at which the existing architecture still performs.
+
+## Engineering target
 
 We are **not** trying to push all the way to hard vacuum (few mbar).
 
@@ -31,9 +33,7 @@ Why this band?
 
 This is the classic "sweet spot" for this kind of ISRU hardware: low enough pressure to be cheap and light, high enough to make the gas-solid physics tractable without heroic measures.
 
-## Current Modeling Status (as of 31 May 2026)
-
-From the pressure relief levers study and multistage model on soulkiller:
+## Modeling status
 
 - At **0.10 bar (100 mbar)** with maximum use of existing mitigations (high iron agitation + strong EDS + aggressive pre-classification): effectiveness is still poor (~35-50% in current models). Fines loss in the cold stages dominates.
 
@@ -53,4 +53,5 @@ We will quantify:
 - How much performance we can recover in that band by optimizing the existing levers (iron shot design per stage, EDS optimization, gas composition routing, pre-classification aggressiveness).
 - What small, low-pressure-compatible additions would buy another 30–50 mbar of margin without crossing into "needs real vacuum seals" territory.
 
-All work is in ~/rcfx/ on soulkiller.
+Sources: `models/`, `analysis/`, `rung_results/RUNG_CAMPAIGN_RESULTS.md`.
+The locked working point is **0.14 bar / 75.6% / 221 W**.

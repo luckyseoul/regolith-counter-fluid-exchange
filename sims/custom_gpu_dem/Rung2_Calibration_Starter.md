@@ -4,7 +4,7 @@
 **Status**: COMPLETE — See Rung2_Calibration_Results.md for final numbers and mapping.
 
 ## Goal
-Map GPU DEM results to the lumped analytical model's 75.6% overall effectiveness at 0.14 bar / ~68 W. (Completed below; starter preserved for provenance.)
+Map GPU DEM results to the lumped analytical model's 75.6% overall effectiveness at 0.14 bar / 221 W. (Completed below; starter preserved for provenance.)
 
 ## Simple Proxy Metric: "Bed Mobilization Factor"
 
@@ -43,12 +43,12 @@ This suggests the iron agitation is contributing a substantial fraction of the p
 **Effective Mobilization Index (EMI)** defined as:
 EMI = mean regolith bed height (iron + drag @ U_G=0.066 m/s) / mean regolith bed height (identical drag, no iron)
 
-**Results at the exact 68 W / 75.6% lumped point**:
+**Results at the DEM-aligned 221 W / 75.6% lumped point**:
 - Iron + fixed drag: 26.33 mm bed height → **EMI = 5.85×**
 - No iron + fixed drag: 4.50 mm bed height (settled)
 - Iron particles reach 54.9 mm mean height (strong fluidization)
 
-**Mapping**: The 5.85× bed mobilization uplift is the particle-scale mechanism that enables the fluidization state assumed in the analytical model. This directly grounds the 75.6% overall effectiveness at 0.14 bar / 68 W in the iron agitation parameters (within Rev 5.2).
+**Mapping**: The 5.85× bed mobilization uplift is the particle-scale mechanism that enables the fluidization state assumed in the analytical model. This directly grounds the 75.6% overall effectiveness at 0.14 bar / 221 W in the iron agitation parameters (within Rev 5.2).
 
 Full details, limitations, and patent-ready table in `Rung2_Calibration_Results.md` + `Rung2_Calibration_Summary.txt`.
 

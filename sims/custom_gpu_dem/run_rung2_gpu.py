@@ -3,7 +3,7 @@
 Minimal working Rung 2 custom GPU DEM runner on V100.
 Uses the fixed kernels for real Hertz + JKR cohesion + friction + rolling.
 
-This is now the active path for generating Rung data (LIGGGHTS abandoned due to time/memory).
+This is now the active path for generating Rung data (reference DEM abandoned due to time/memory).
 """
 
 import cupy as cp

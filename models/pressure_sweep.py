@@ -11,6 +11,8 @@ Correlations used (standard in literature, matching spec references):
 - Haider-Levenspiel for terminal velocity (non-spherical, sphericity 0.7)
 """
 
+from pathlib import Path
+
 import numpy as np
 import matplotlib.pyplot as plt
 from pathlib import Path
@@ -168,9 +170,9 @@ if __name__ == "__main__":
               f"{d['rho_hot']:.4f} | {d['Umf_hot']*1000:.3f}")
 
     # Save for later plotting / analysis
-    outdir = Path("/home/nick/rcfx/analysis")
+    outdir = Path(__file__).resolve().parents[1] / "analysis"
     outdir.mkdir(parents=True, exist_ok=True)
     np.save(outdir / "pressure_sweep_v1.npy", data)
 
-    print("\nResults saved to ~/rcfx/analysis/pressure_sweep_v1.npy")
+    print(f"\nResults saved to {outdir / 'pressure_sweep_v1.npy'}")
     print("This is the first artifact of the pressure-minimization campaign.")

@@ -11,7 +11,7 @@
 
 RCFX is a low-pressure (claim envelope 0.1–0.5 bar) heat-recovery system: cold incoming regolith and hot spent regolith pass each other through five fluidized stages. Dual-role **iron shot** is both thermal mass and a mechanical agitator for cohesive lunar fines (Geldart C). An electrodynamic dust shield (EDS) and pre-classification of the finest cut are the other two levers.
 
-This repository is the public campaign tree: the **custom GPU DEM** (the production particle simulator), the 5-stage lumped model, 1,621 DEM checkpoints, and the utility-patent support package.
+This repository holds the custom single-GPU DEM, the 5-stage lumped thermal model, DEM checkpoints, and the utility-patent support package.
 
 Standalone DEM engine: [luckyseoul/custom-gpu-dem](https://github.com/luckyseoul/custom-gpu-dem).
 
@@ -26,7 +26,7 @@ All DEM citations below are from **contained** checkpoints (100% of particles in
 | Working envelope pressure | **0.14 bar** | `models/five_stage_counterflow.py` |
 | Overall thermal effectiveness | **75.6%** | same, 5-stage counter-flow |
 | Recovered heat @ 100 kg/h | **11.8 kW** | same |
-| Blower power / parasitic | **221 W / 1.88%** | same (was 68 W before the vol-flow bugfix) |
+| Blower power / parasitic | **221 W / 1.88%** | same (`vol_flow = U × AREA`) |
 | Good-var EMI (1.5 mm iron, 3.5 m/s) | **3.58×** | `physical_drag_real_u3.5_iron1.5mm_step002000.npz` |
 | High-N EMI (N = 6500) | **8.04× @ 1000s**, peak **8.53× @ 1300s** | `rung1_highn_checkpoints/` |
 | Temperature span | 200 → 900 K, ~140 K / stage | spec Rev 5.2 |
@@ -90,16 +90,16 @@ python3 models/five_stage_counterflow.py
 
 ---
 
-## Custom GPU DEM (the production simulator)
+## Custom GPU DEM
 
-Off-the-shelf LIGGGHTS / YADE / CFDEM were **not** used for the citable results. The production particle code is a single-GPU DEM (CuPy) with:
+Particle-scale results come from the in-repo CuPy DEM (`sims/custom_gpu_dem/`):
 
 - Hertz + JKR-style contacts and rolling
-- Stokes + quadratic drag with **local porosity**
-- Physical walls, floor, and a **hard lid / freeboard cap**
-- Device-side cell list (the N² path is not authoritative at high N)
+- Stokes + quadratic drag with local porosity
+- Physical walls, floor, and a hard lid / freeboard cap
+- Device-side cell list for high-N runs
 
-Those older decks are in [`sims/legacy/`](sims/legacy/) for provenance only.
+Rung 1 (coarse fraction + iron shot) is the high-N physical-lid series and the good-variable real-drag point cited above. Both were generated with this DEM.
 
 <p align="center">
   <img src="docs/figures/dem_goodvar_snapshot.png" alt="Good-variable DEM snapshot" width="520" />
@@ -142,17 +142,15 @@ python3 scripts/generate_readme_figures.py
 ## Repository map
 
 ```
-models/                 lumped 5-stage + pressure / NTU / iron sweeps
-analysis/               sweep outputs (.npy) and write-ups
-sims/custom_gpu_dem/    production DEM kernels, runners, 1621 checkpoints
-sims/legacy/            LIGGGHTS, YADE, recovered Orin OpenFOAM case (not used)
-rung_results/           locked campaign tables
-docs/                   parameters, campaign plan, README figures, spec PDFs
-docs/figures/           charts used on this page
-patent_application/     2026-06-05 utility support bundle (spec, claims, FIGS)
-patent_evidence/        2026-06-04 exhibits A–E + audits
-patent_drawings/        FIG. 1–7 + supplements (SVG + PDF)
-scripts/                figure generator
+models/                 5-stage lumped model and parameter sweeps
+analysis/               sweep outputs and operating-point notes
+sims/custom_gpu_dem/    DEM kernels, runners, and checkpoints
+rung_results/           campaign tables
+docs/                   parameters, campaign plan, figures, spec PDFs
+patent_application/     2026-06-05 utility support bundle
+patent_evidence/        exhibits and audits
+patent_drawings/        FIG. 1–7 (SVG + PDF)
+scripts/                figure and logo generators
 ```
 
 | Also useful | |
@@ -166,11 +164,9 @@ scripts/                figure generator
 
 ---
 
-## What this is not
+## Scope
 
-- Not a validated plant. No bench, no simulant, no seals test.
-- Not a CFD result set. An OpenFOAM/CFDEM case was started on a Jetson Orin; only the mesh and ICs survived. That tree is under `sims/legacy/orin_openfoam/`.
-- Not every `.npz` is citable. `rung1_checkpoints/v1_blastoff/` is the pre-containment archive (distributor force treated as newtons, particles left the box). Do not use it for EMI.
+Results are from the lumped model and the custom GPU DEM. There is no hardware prototype, bench test, or simulant campaign. Quantitative DEM citations use physical-lid checkpoints only (100% of particles inside the vessel).
 
 ---
 

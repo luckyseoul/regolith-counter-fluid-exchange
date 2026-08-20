@@ -2,7 +2,7 @@
 ## Supporting Math for Patent Filing (within existing claims)
 
 **Date**: 31 May 2026  
-**Basis**: Systematic tuning studies on soulkiller using parameters and features from PERRY-RCFX-004 Rev 5.2 only.
+**Basis**: Systematic tuning using parameters and features from PERRY-RCFX-004 Rev 5.2.
 
 ### Target
 Demonstrate that the RCFX architecture can achieve strong thermal recovery performance at significantly lower envelope pressure than the current 0.2–0.3 bar nominal, while remaining fully supportable under the existing provisional claims.
@@ -50,8 +50,7 @@ These results were obtained **without introducing any new hardware, new subsyste
 This provides clear mathematical support that the invention as disclosed can operate effectively at pressures low enough to avoid the major cost and complexity drivers associated with higher-pressure vessels, while staying entirely inside the scope of the existing provisional application.
 
 ### Files
-- Raw sweep data: `~/rcfx/analysis/full_tuning_sweep_v1.npy`
-- Supporting scripts: `~/rcfx/models/full_tuning_sweep.py`, `pressure_relief_levers.py`, `iron_shot_agitation_vs_pressure.py`
-- Campaign plan: `~/rcfx/docs/RCFX_Rung_Campaign_Plan.md`
+- Raw sweep data: `analysis/full_tuning_sweep_v1.npy`
+- Supporting scripts: `models/full_tuning_sweep.py`, `pressure_relief_levers.py`, `iron_shot_agitation_vs_pressure.py`
+- Campaign plan: `docs/RCFX_Rung_Campaign_Plan.md`
 
-All work performed on soulkiller using only information in the Rev 5.2 specification.

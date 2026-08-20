@@ -115,7 +115,7 @@ if __name__ == "__main__":
         print(f"{r['P_bar']:.2f}   | {r['best_overall_eff']:.1%}  | {r['best_iron_mm']:4.1f}         | {r['best_iron_fill']:.2f} | "
               f"{r['best_vel_mult_cold']:.1f}          | {r['best_eds']:.2f} | {r['best_preclass_um']:2d}")
 
-    out = Path("/home/nick/rcfx/analysis/full_tuning_sweep_v1.npy")
+    out = Path(__file__).resolve().parents[1] / "analysis" / "full_tuning_sweep_v1.npy"
     np.save(out, results)
     print(f"\nSaved to {out}")
     print("This is systematic tuning of existing architecture parameters only.")

@@ -4,7 +4,7 @@ RCFX Rung 2 GPU DEM — Calibration of Iron Agitation to Lumped 75.6% Effectiven
 Target Point (PERRY-RCFX-004 Rev 5.2, Rung 4 lumped model):
   Pressure: 0.14 bar
   Overall effectiveness: 75.6%
-  Blower power: ~68 W
+  Blower power: 221 W
   Cold-stage gas velocity: U_G = 0.066 m/s
 
 GPU DEM (3000 particles, Hertz+JKR+Stokes+quadratic drag, lunar g):
@@ -29,7 +29,7 @@ Interpretation:
 
   This differential is the particle-scale mechanism that enables the fluidization state
   assumed in the analytical model. The ~6× mobilization multiplier grounds the jump
-  from "no fluidization" to the 75.6% overall effectiveness at 0.14 bar / 68 W.
+  from "no fluidization" to the 75.6% overall effectiveness at 0.14 bar / 221 W.
 
 Conclusion:
   Direct DEM evidence that the iron shot agitation strategy (within claim language)

@@ -10,7 +10,7 @@
 - **Minimal intervention**: The system should be stable against reasonable variations in regolith properties, gas generation, component wear, etc. It should not require frequent adjustment, inspection, or maintenance.
 - **Low-pressure preference**: Operate at the lowest practical envelope pressure that still allows stable fluidization without crossing into regimes that demand complex high-pressure vessels or true vacuum sealing technology.
 
-## Current Best Understanding (from modeling on soulkiller)
+## Current best understanding
 
 Using only parameters and features already within PERRY-RCFX-004 Rev 5.2 claims:
 
@@ -18,13 +18,13 @@ Using only parameters and features already within PERRY-RCFX-004 Rev 5.2 claims:
 
 - Cold stages (1-2): 2.0 mm iron shot at 0.32 fill fraction, 5.5× Umf, max EDS (0.97), aggressive pre-class (22 µm)
 - Hot stages (3-5): 3.5 mm iron shot at 0.20 fill fraction, 3.5× Umf, max EDS (0.97)
-- Overall: 75.6% recovery at 100 kg/hr reference, ~68 W blower power.
+- Overall: 75.6% recovery at 100 kg/hr reference, 221 W blower power.
 
 At this point the integrated 5-stage counter-flow energy balance model shows:
 - Overall thermal recovery effectiveness: **75.6%**
 - Cold stages: ~86%
 - Hot stages: ~99.5% (limited by available ΔT)
-- Total blower power: ~68 W (very low parasitic)
+- Total blower power: 221 W (1.88% parasitic)
 
 This is a clear, conservative, defensible configuration that meets the >70% target while operating at significantly lower pressure than the current 0.2–0.3 bar nominal.
 
@@ -74,6 +74,5 @@ This is a clear, conservative, defensible configuration that meets the >70% targ
 - Refined 5-stage counterflow energy balance with better local heat transfer correlations that respond to fluidization quality.
 - Confirmation that the chosen iron shot size distribution still provides adequate agitation in the cold stages without excessive wear or elutriation of the shot itself.
 
-All supporting scripts and data are in `~/rcfx/` on soulkiller.
 
 This point is intended to be **defensible** with the current modeling fidelity while giving real engineering and economic advantage over the baseline 0.2–0.3 bar design.

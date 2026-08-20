@@ -1,24 +1,25 @@
 # Data catalog
 
-All particle-scale results in this repository come from the **custom GPU DEM**
-(`sims/custom_gpu_dem/`). Checkpoints are NumPy `.npz` archives with at least
-`pos`, `vel`, `radius`, `mat`, `step`.
+Particle-scale results are from the custom GPU DEM in `sims/custom_gpu_dem/`.
+Checkpoints are NumPy `.npz` archives with `pos`, `vel`, `radius`, `mat`, `step`.
 
 `mat == 0` is regolith; `mat != 0` is iron shot. Positions are metres.
+
+Rung 1 citations use the high-N physical-lid series and the good-variable
+real-drag point, not the older unbounded-freeboard slices.
 
 ## Checkpoint archive
 
 | Directory | Files | Size | What it is |
 |---|---:|---:|---|
-| `sims/custom_gpu_dem/rung0_checkpoints/` | 334 | 26.9 MB | Distributor / gas-only backfill to 500k steps |
-| `sims/custom_gpu_dem/rung1_checkpoints/` | 677 | 78.3 MB | Coarse fraction + iron, post-containment |
-| `sims/custom_gpu_dem/rung1_checkpoints/v1_blastoff/` | 154 | 17.8 MB | **Invalid** pre-containment archive (kept for audit) |
-| `sims/custom_gpu_dem/rung1_highn_checkpoints/` | 60 | 13.5 MB | Primary citable high-N + good-variable runs |
-| `sims/custom_gpu_dem/rung2_checkpoints/` | 34 | 3.3 MB | Iron agitation production / controls |
-| `sims/custom_gpu_dem/rung4_checkpoints/` | 15 | 1.2 MB | Two-stage transfer demos |
-| `sims/custom_gpu_dem/rung5_checkpoints/` | 334 | 26.9 MB | Combined-degradation 500k backfill |
-| `sims/custom_gpu_dem/*.npz` | 13 | 0.9 MB | Early Rung 2 calibration dumps |
-| **Total** | **1621** | **168.8 MB** | |
+| `sims/custom_gpu_dem/rung0_checkpoints/` | 334 | 26.9 MB | Distributor / gas-only series |
+| `sims/custom_gpu_dem/rung1_checkpoints/` | 677 | 78.3 MB | Early contained Rung 1 slices |
+| `sims/custom_gpu_dem/rung1_highn_checkpoints/` | 60 | 13.5 MB | Primary Rung 1: high-N + good-variable |
+| `sims/custom_gpu_dem/rung2_checkpoints/` | 34 | 3.3 MB | Iron-agitation production / controls |
+| `sims/custom_gpu_dem/rung4_checkpoints/` | 15 | 1.2 MB | Two-stage transfer |
+| `sims/custom_gpu_dem/rung5_checkpoints/` | 334 | 26.9 MB | Combined-degradation series |
+| `sims/custom_gpu_dem/*.npz` | 13 | 0.9 MB | Rung 2 calibration dumps |
+| **Total** | **1467** | **151.0 MB** | |
 
 ## Primary citable DEM file
 

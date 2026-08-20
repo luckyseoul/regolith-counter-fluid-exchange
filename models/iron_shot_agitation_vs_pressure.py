@@ -109,7 +109,7 @@ if __name__ == "__main__":
             print(f"{r['P_bar']:.2f}   | {r['shot_mm']:4.1f}    | {r['fill']:.2f} | {r['agitation']:.2f} | "
                   f"{r['cold_eff']:.2f}    | {r['entrain']:.2f}   | {r['U_mm_s']:.1f}")
 
-    out = Path("/home/nick/rcfx/analysis/iron_agitation_pressure_sweep.npy")
+    out = Path(__file__).resolve().parents[1] / "analysis" / "iron_agitation_pressure_sweep.npy"
     np.save(out, data)
     print(f"\nSaved to {out}")
     print("This is optimization within the existing provisional claims (iron thermal mass + tumbling action).")

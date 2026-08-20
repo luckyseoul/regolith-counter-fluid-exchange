@@ -92,5 +92,5 @@ if __name__ == "__main__":
         cases.append(res)
         print(f"P={P:.2f} bar | Overall eff = {res['overall_eff']:.1%} | Recovered ~{res['overall_recovered_kW']:.1f} kW (ref 100 kg/hr)")
 
-    np.save("/home/nick/rcfx/analysis/multistage_v1.npy", cases)
+    np.save(Path(__file__).resolve().parents[1] / "analysis" / "multistage_v1.npy", cases)
     print("\nSaved multistage_v1.npy")

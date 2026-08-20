@@ -46,4 +46,4 @@ NEXT WORK
 - Run the full Rung 0–3 prototypes from the campaign plan using the above levers.
 - Quantify exactly how much extra margin each proposed additional feature would buy at 0.10–0.12 bar.
 
-All data in ~/rcfx/analysis/pressure_relief_levers_v1.npy
+Data: `analysis/pressure_relief_levers_v1.npy`

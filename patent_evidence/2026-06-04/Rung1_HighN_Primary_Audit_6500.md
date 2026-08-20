@@ -1,6 +1,6 @@
 # Rung1 High-N Primary Audit (N=6500, full VRAM)
 
-**CLEAN CITABLE DATA ONLY (for patent review)**: See /home/nick/rcfx/patent_application/2026-06-05/Patent_Citable_Evidence_Summary.md (also in this dir as clean excerpt below). ONLY use physical-lid Rung1 data with 100.0% inside and physical heights. All other (Rung5 loft, etc.) are NOT for quantitative claims.
+**CLEAN CITABLE DATA ONLY (for patent review)**: See patent_application/2026-06-05/Patent_Citable_Evidence_Summary.md (also in this dir as clean excerpt below). ONLY use physical-lid Rung1 data with 100.0% inside and physical heights. All other (Rung5 loft, etc.) are NOT for quantitative claims.
 
 **Clean excerpt**:
 - No-iron baseline (step 400): reg_bed = 3.23 mm, dead_reg ≈ 86.7%, inside=100.0%.

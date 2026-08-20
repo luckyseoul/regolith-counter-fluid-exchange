@@ -31,8 +31,8 @@ From `RUNG_CAMPAIGN_RESULTS.md` § Rung 5, source `rung_results/rung5_sensitivit
 | Worst combined (more fines + EDS 0.85 + wear) | 59.3% (221 W) |
 
 ## Model artifact
-- **Primary**: `/home/nick/rcfx/rung_results/rung5_sensitivity.npy`
-- **Implementation**: `/home/nick/rcfx/models/five_stage_counterflow.py` (and related tuning scripts)
+- **Primary**: `rung_results/rung5_sensitivity.npy`
+- **Implementation**: `models/five_stage_counterflow.py` (and related tuning scripts)
 
 ## Relation to GPU DEM (Rung 5)
 The lumped worst-combined case motivates the particle-scale Rung 5 GPU DEM backfill (bimodal PSD + iron + cohesion). DEM does not recompute 75.6%; it provides mechanistic corroboration that iron agitation and containment hold under degradation at the same pressure representative point.

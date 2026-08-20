@@ -4,7 +4,7 @@ RCFX Rung 2 GPU DEM - Iron Agitation Benefit under Target Drag Conditions
 
 Configuration:
 - 3000 particles (2800 regolith + 200 iron shot, or all regolith)
-- Fixed superficial gas velocity U_G = 0.066 m/s (corresponding to ~68 W blower power from lumped model)
+- Fixed superficial gas velocity U_G = 0.066 m/s (corresponding to 221 W blower power from lumped model)
 - 0.14 bar low-pressure conditions
 - Custom GPU DEM (Hertz + JKR cohesion + friction + rolling + gravity + per-particle Stokes+quadratic drag)
 
@@ -26,7 +26,7 @@ Results:
    - Bed remains essentially settled despite gas flow
 
 Key Finding (Calibrated):
-At the gas velocity that corresponds to the target blower power in the lumped analytical model (~68 W, U_G=0.066 m/s), the presence of iron shot under gas drag produces a 5.85× higher mean bed height (26.33 mm vs 4.50 mm) compared to identical drag with no iron.
+At the gas velocity that corresponds to the target blower power in the lumped analytical model (221 W, U_G=0.066 m/s), the presence of iron shot under gas drag produces a 5.85× higher mean bed height (26.33 mm vs 4.50 mm) compared to identical drag with no iron.
 
 Effective Mobilization Index (EMI) = 5.85× at the exact condition used for the 75.6% lumped effectiveness.
 

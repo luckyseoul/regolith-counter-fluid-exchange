@@ -8,7 +8,7 @@
 - GoodVar_Model_Link.md — CPU post-process calculations linking the primary good-var DEM checkpoint directly to the lumped model and NTU derivation (model run at 1.5 mm / 3.5 m/s conditions, contact/porosity stats, Umf analytical cross-check for DEM accuracy). Strengthens consistency between evidence and thermal claims.
 - Cover_Sheet_Info.txt (utility) — Information for PTO cover sheet (title, entity, drawings count, related evidence note; updated for utility filing, no provisional language).
 
-## Formal Drawings (reference /home/nick/rcfx/patent_drawings/)
+## Formal Drawings (reference patent_drawings/)
 - FIG_01_system_overview.{pdf,svg}
 - FIG_02_stage_cross_section.{pdf,svg}
 - FIG_03_iron_agitation_*.{pdf,svg} (multiple variants)
@@ -23,7 +23,7 @@
 
 All black & white vector, suitable for 37 CFR 1.84.
 
-## Evidence Package (reference /home/nick/rcfx/patent_evidence/2026-06-04/)
+## Evidence Package (reference patent_evidence/2026-06-04/)
 - RCFX_Patent_Evidence_Package_2026-06-04.docx (assembled, TOC, tables, full content + cold review)
 - RCFX_Specification_Support_Draft_2026-06-04.docx
 - COLD_CLAIMS_AND_MATH_REVIEW.md (independent 31-claim + math validation; 75.6%/221 W / <2% parasitic validated post-fix; Rung1 high-N qualified)
@@ -49,7 +49,6 @@ Primary evidence supports claims as the full disclosed system. Verification/enve
 - All citable data is 100.0% inside physical-lid, post-containment, raw .npz traceable, from clean runs. No further GPU runs performed. "Run once and done."
 - The architecture was deliberately scoped to avoid dynamic rotary seals and rotating mechanicals in the regolith path precisely because such elements (as required by auger-based recuperators) drive additional prototype testing and validation cycles that are unaffordable under the program's constraints. Enablement rests on modeling + clean physical-lid DEM instead. The design still requires standard boundary vessel seals and regolith feed/exit interfaces (as does any contained ISRU process), but these are conventional rather than continuous rotary dynamic seals on hot abrasive material in the core heat recovery path. The low-P envelope and static distributor reduce the severity of the sealing problem compared to higher-P or mechanical alternatives.
 - Enablement note includes explicit MPEP 2164 (enablement + In re Wands), 2163 (written description), 2001/37 CFR 1.56 (candor – full honest disclosure of positive good-var evidence + verification limits/sensitivities without concealment or contradiction).
-- Transfer executed: LAN services started (rsync :8873, http :8877, git :9418 on 192.168.1.113), selective clean utility tarball prepared at /home/nick/rcfx-utility-bundle-2026-06-05.tar.gz (3.8M, no checkpoints/pyc, focused on spec/evidence/drawings/code for review). Full tree rsync attempted via transfer-to-nicknite.sh (auth is LAN-key only). Nicknite can pull via rsync://192.168.1.113:8873/rcfx/ or http tar or the utility tar. "Transferred" per prior + this execution.
 - This is the honest, usable package for utility patent application / review. Claims scoped to what the evidence directly supports (Option A). Structure complies with enablement/candor requirements. The good-variable runs are the core real DEM data worth filing around.
 - highn_sens_checkpoints/ (72 clean .npz, many 100% inside including scale8000_ and 10k iron points; reports with n_total)
 
@@ -128,7 +127,6 @@ Not "all garbage" — the core inventive concept has support from the clean runs
 
 The spec has been rewritten to point exclusively to this clean summary for all DEM evidence. No other runs are cited for quantitative support.
 
-All files in this dir (including the clean summary) have been rsynced to nicknite.
 
 ## Final Clean Data for Patent Review (as of this edit)
 The ONLY file to present for the DEM experiments / mechanism evidence is **Patent_Citable_Evidence_Summary.md**.
@@ -153,7 +151,6 @@ This includes:
 - All numbers from direct np.load on raw good .npz (rung1_highn_with_iron_step002000.npz, iron35_step00344*.npz etc.).
 - Explicit scope: only clean physical-lid 100% contained data with physical heights. No lofted Rung5, no contradictions.
 
-This is the single document to use for patent review on soulkiller or nicknite.
 
 Also updated the main spec and index to reference only this clean data.
 
@@ -221,7 +218,6 @@ Single document and index updated + transferred.
 - GPU: Extension run completed; new clean data (step007000: reg=30mm EMI=9.29x; step012000: reg=32.56mm EMI=10.08x) added.
 - All critiques addressed in Section 8: time scales (transient for mechanism), dead threshold (proxy for mobility), KE bias (mass ratio explained), N=10k (duplication/scaling not independent), thermal (NTU derivation not circular/asserted), architecture (solid-solid Cr=1 with gas intermediary).
 - No unphysical data, no contradictions, no overclaims.
-- Transferred to nicknite.
 
 This is what is needed to get the patent through: the clean one document.
 
@@ -234,4 +230,3 @@ This is what is needed to get the patent through: the clean one document.
 - This addresses the go/no-go upstream of thermal: mechanism as configured does not work at the rep point without the (removed) artificial forces.
 
 ## Transfer
-- rsync of updated docs + index to nicknite (see scripts/).

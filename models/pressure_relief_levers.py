@@ -137,7 +137,7 @@ if __name__ == "__main__":
                   f"{r['cold_eff']:.2f}   | {r['hot_eff']:.2f}  | {r['overall_eff']:.2f}   | "
                   f"{r['blower_W']:.0f}      | {r['cohesion_cold']:.2f}")
 
-    outpath = Path("/home/nick/rcfx/analysis/pressure_relief_levers_v1.npy")
+    outpath = Path(__file__).resolve().parents[1] / "analysis" / "pressure_relief_levers_v1.npy"
     np.save(outpath, data)
     print(f"\nSaved to {outpath}")
     print("This directly quantifies how much the existing mitigations buy us at low pressure.")

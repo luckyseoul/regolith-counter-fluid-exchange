@@ -1,5 +1,5 @@
 # RCFX Rungs 2–5 Combined Patent Evidence (Final)
-**Target Point**: 0.14 bar / ~68 W blower power (U_G = 0.066 m/s cold stages)  
+**Target Point**: 0.14 bar / 221 W blower power (U_G = 0.066 m/s cold stages)  
 **Reference**: PERRY-RCFX-004 Rev 5.2  
 **Date**: 31 May 2026
 
@@ -42,7 +42,7 @@
 
 ## Direct Mapping to 75.6% Lumped Effectiveness
 
-The lumped 5-stage counterflow model reaches **75.6% overall effectiveness** at 0.14 bar / ~68 W only when the iron shot agitation and EDS mitigations are active in the per-stage effectiveness and entrainment calculations.
+The lumped 5-stage counterflow model reaches **75.6% overall effectiveness** at 0.14 bar / 221 W only when the iron shot agitation and EDS mitigations are active in the per-stage effectiveness and entrainment calculations.
 
 The completed GPU DEM runs at the exact same conditions supply the particle-scale mechanism:
 - Rung 2: 7.32× bed mobilization uplift from iron shot (the foundational enabler)

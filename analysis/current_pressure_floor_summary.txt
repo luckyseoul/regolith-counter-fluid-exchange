@@ -34,4 +34,3 @@ Next Steps in Campaign:
 - Systematically explore additional levers that are still compatible with a simple low-pressure envelope (targeted agitation, gas composition management, bed geometry tweaks, mild external assistance, etc.).
 - Quantify exactly how much margin each additional lever can buy without crossing into high-pressure or hard-vacuum hardware territory.
 
-All artifacts in ~/rcfx/ on soulkiller.

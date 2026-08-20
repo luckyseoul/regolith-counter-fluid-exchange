@@ -49,4 +49,4 @@ for step in range(1500):
         print(f"  Step {step:4d} | max |v| = {maxv:.2e} m/s")
 
 print("\nCustom GPU DEM test completed successfully on V100.")
-print("Real particle physics executed (no LIGGGHTS involved).")
+print("Real particle physics executed (no reference DEM involved).")

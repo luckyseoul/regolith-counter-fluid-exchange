@@ -1,12 +1,10 @@
-# Custom GPU DEM (production)
+# Custom GPU DEM
 
-This is the particle-scale simulator used for every citable RCFX DEM number.
+Particle-scale simulator for every RCFX DEM number in this repository.
 
 - Kernels: `common/dem_kernels.py` (Hertz + JKR-style cohesion, rolling, porosity-aware drag)
 - Step / cell-list: `common/cell_list.py`, `common/optimized_step.py`
-- Runners: `run_rung*.py`, `continue_*.py`
-- Checkpoints: `rung*_checkpoints/` (see [DATA.md](../../DATA.md))
+- Runners: `run_rung*.py`, `continue_*.py`, `migrate_rung1_highn.py`
+- Checkpoints: `rung*_checkpoints/` — Rung 1 citations use `rung1_highn_checkpoints/`
 
-Do not use `rung1_checkpoints/v1_blastoff/` for EMI — those runs predate the containment fix.
-
-A slimmer, standalone extraction of the engine is [luckyseoul/custom-gpu-dem](https://github.com/luckyseoul/custom-gpu-dem).
+See [DATA.md](../../DATA.md). Standalone extract: [luckyseoul/custom-gpu-dem](https://github.com/luckyseoul/custom-gpu-dem).

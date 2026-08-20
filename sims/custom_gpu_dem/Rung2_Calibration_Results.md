@@ -2,13 +2,13 @@
 
 **Date**: 31 May 2026  
 **Status**: First-pass calibration complete (screening scale)  
-**Reference**: PERRY-RCFX-004 Rev 5.2, ~68 W blower power point
+**Reference**: PERRY-RCFX-004 Rev 5.2, 221 W blower power point
 
 ## Target Operating Point (from Lumped Analytical Model)
 
 - Pressure: 0.14 bar
 - Overall 5-stage effectiveness: **75.6%**
-- Blower power: **~68 W**
+- Blower power: **221 W**
 - Superficial gas velocity at cold stages: **U_G = 0.066 m/s**
 - Iron shot agitation: 1.5–3.5 mm, 0.20–0.32 fill, 3.5–5.5× Umf (cold stage)
 
@@ -30,7 +30,7 @@ The lumped model (five_stage_counterflow.py + iron_shot_agitation_vs_pressure.py
 
 This is the simplest particle-scale proxy for the *differential fluidization benefit* provided by the iron shot agitation mechanism at the exact gas flow used in the 75.6% lumped prediction.
 
-## Calibration Results at U_G = 0.066 m/s (68 W Point)
+## Calibration Results at U_G = 0.066 m/s (221 W Point)
 
 | Case                        | Mean Regolith Bed Height | Iron Mean Height | EMI (vs no-iron drag) | EMI (vs no-drag baseline) | Notes |
 |-----------------------------|--------------------------|------------------|-----------------------|---------------------------|-------|
@@ -39,7 +39,7 @@ This is the simplest particle-scale proxy for the *differential fluidization ben
 | Modulated drag + iron       | 10.11 mm                | 54.50 mm        | 2.25×                 | 1.58×                     | Local porosity modulation (conservative form) |
 | Fixed drag, no iron         | 4.50 mm                 | —               | 1.00× (reference)     | 0.70×                     | Drag alone produces no net lift; bed remains settled |
 
-**Primary Result (extended-time production)**: At the gas velocity corresponding to the lumped model's 68 W / 75.6% point, the iron shot agitation produces a **6.54× increase in mean bed height** (29.44 mm vs 4.50 mm control) relative to identical gas flow without iron. Bed height continued rising under sustained iron fluidization.
+**Primary Result (extended-time production)**: At the gas velocity corresponding to the lumped model's 221 W / 75.6% point, the iron shot agitation produces a **6.54× increase in mean bed height** (29.44 mm vs 4.50 mm control) relative to identical gas flow without iron. Bed height continued rising under sustained iron fluidization.
 
 Iron particles themselves reach mean heights of ~55 mm (multiple box heights), demonstrating strong fluidization and vertical momentum against lunar gravity + interparticle cohesion.
 
@@ -52,7 +52,7 @@ The GPU DEM at *identical* U_G shows that:
 1. Without iron, the same gas flow leaves the bed essentially at settled height (4.5 mm). Gas drag on the fines alone is insufficient to overcome cohesion at 0.14 bar in the small-particle fraction.
 2. With iron, the large shot fluidizes vigorously (55 mm lift) and produces a 5.85× bulk bed expansion in the regolith.
 
-This establishes, at the particle scale, that the iron agitation is **not incremental but enabling** for the fluidization state assumed in the lumped model. The ~6× mobilization multiplier provides direct mechanistic support for the performance jump that allows the 5-stage system to reach the 75.6% target at 0.14 bar / 68 W rather than remaining near the no-fluidization floor.
+This establishes, at the particle scale, that the iron agitation is **not incremental but enabling** for the fluidization state assumed in the lumped model. The ~6× mobilization multiplier provides direct mechanistic support for the performance jump that allows the 5-stage system to reach the 75.6% target at 0.14 bar / 221 W rather than remaining near the no-fluidization floor.
 
 ## Limitations (Transparent for Patent Support)
 
@@ -71,7 +71,7 @@ This establishes, at the particle scale, that the iron agitation is **not increm
 
 ## Conclusion for Claim Support
 
-The Rung 2 GPU DEM at the exact 0.14 bar / 68 W operating point from the lumped model provides **defensible particle-scale evidence** that the iron shot agitation (size, fill fraction, and gas velocity within PERRY-RCFX-004 Rev 5.2 claims) produces a 5.85× bed mobilization uplift that is the critical mechanism enabling the modeled 75.6% overall effectiveness at low pressure.
+The Rung 2 GPU DEM at the exact 0.14 bar / 221 W operating point from the lumped model provides **defensible particle-scale evidence** that the iron shot agitation (size, fill fraction, and gas velocity within PERRY-RCFX-004 Rev 5.2 claims) produces a 5.85× bed mobilization uplift that is the critical mechanism enabling the modeled 75.6% overall effectiveness at low pressure.
 
 This directly supports the "it works" configuration at 0.14 bar for the 5-stage counter-current heat recovery system.
 

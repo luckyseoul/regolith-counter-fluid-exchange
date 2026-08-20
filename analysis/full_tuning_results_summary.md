@@ -55,4 +55,3 @@ This pressure range is low enough to provide substantial relief on vessel design
 - Explore one additional safe dimension: differential iron shot sizing between cold vs hot stages (still within the staged deployment language of the claims).
 - Document the exact parameter sets that achieve the reported performance for inclusion in the patent support file.
 
-All raw data and scripts in `~/rcfx/` on soulkiller.

@@ -36,9 +36,9 @@
 
 ## Reproduction commands
 ```bash
-python /home/nick/rcfx/sims/custom_gpu_dem/rung5_status.py
+python sims/custom_gpu_dem/rung5_status.py
 cat /tmp/rung5_status.txt
-python3 -c "import numpy as np; d=np.load('/home/nick/rcfx/sims/custom_gpu_dem/rung5_checkpoints/rung5_step500000.npz'); print(list(d.files), d['step'])"
+python3 -c "import numpy as np; d=np.load('sims/custom_gpu_dem/rung5_checkpoints/rung5_step500000.npz'); print(list(d.files), d['step'])"
 ```
 
 ## Integrity note

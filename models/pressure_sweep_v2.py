@@ -159,6 +159,6 @@ if __name__ == "__main__":
               f"{r['Umf_mm/s']:.2f}     | {r['blower_total_W']:.0f}      | "
               f"{r['entrain_frac']:.2f}    | {r['eff_stage']:.2f}")
 
-    out = Path("/home/nick/rcfx/analysis/pressure_sweep_v2.npy")
+    out = Path(__file__).resolve().parents[1] / "analysis" / "pressure_sweep_v2.npy"
     np.save(out, data)
     print(f"\nSaved to {out}")

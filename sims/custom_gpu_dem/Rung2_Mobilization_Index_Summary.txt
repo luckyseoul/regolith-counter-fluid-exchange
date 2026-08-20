@@ -3,7 +3,7 @@ RCFX Rung 2 GPU DEM — Mobilization Index under Target Drag (Calibrated)
 
 Configuration:
 - 3000 particles (2800 regolith + 200 iron or all regolith)
-- U_G = 0.066 m/s (exact match to ~68 W blower power from lumped 75.6% model)
+- U_G = 0.066 m/s (exact match to 221 W blower power from lumped 75.6% model)
 - 0.14 bar, lunar gravity, Hertz+JKR+Stokes+quadratic drag (stronger on iron)
 
 Metric: Effective Mobilization Index (EMI)
@@ -22,6 +22,6 @@ Key conclusion for patent:
 Iron shot + drag at the exact gas velocity used for the lumped 75.6% prediction produces 5.85× higher bed mobilization than identical drag without iron.
 Drag alone is insufficient; the bed remains settled. Iron agitation is the enabling mechanism.
 
-This EMI = 5.85× directly supports the fluidization performance assumed in the analytical model that delivers 75.6% overall effectiveness at 0.14 bar / 68 W.
+This EMI = 5.85× directly supports the fluidization performance assumed in the analytical model that delivers 75.6% overall effectiveness at 0.14 bar / 221 W.
 
 See Rung2_Calibration_Results.md for full mapping and limitations.

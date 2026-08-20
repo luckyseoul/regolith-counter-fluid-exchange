@@ -5,10 +5,10 @@ Using best current claim-compliant tuning.
 """
 
 import sys
-sys.path.insert(0, "/home/nick/rcfx/models")
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "models"))
 import five_stage_counterflow as m
 import numpy as np
-from pathlib import Path
 
 # Best current tuning (from full tuning sweeps + 5-stage refinement)
 m.IRON_COLD_MM = 2.0
@@ -35,6 +35,6 @@ for p in [0.12, 0.14, 0.15]:
     print()
 
 # Save for later
-out = Path("/home/nick/rcfx/rung_results/rung4_results.npy")
+out = Path(__file__).resolve().parent / "rung4_results.npy"
 np.save(out, results)
 print(f"Results saved to {out}")

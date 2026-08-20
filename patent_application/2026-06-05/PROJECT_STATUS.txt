@@ -1,24 +1,12 @@
-RCFX Patent Support Package - Final Status (2026-06-05)
+RCFX utility support bundle (2026-06-05)
 
-This directory contains a complete, narrow, honest utility patent application support bundle (specification, suggested claims, drawings, citable evidence summary, index) for the 5-stage counter-current low-pressure fluidized bed heat recovery system with dual-role iron shot (PERRY-RCFX-004 Rev 5.2 scope).
+Five-stage counter-current low-pressure fluidized bed with dual-role iron shot
+(PERRY-RCFX-004 Rev 5.2). Modeling only; no hardware prototype.
 
-All evidence is modeling-only:
-- Lumped 5-stage counterflow model (five_stage_counterflow.py) producing 75.6% effectiveness / 221 W blower (1.88% parasitic) at 0.14 bar reference.
-- Clean physical-lid GPU DEM (high-N Rung 1 + sensitivities + good-variable run at 1.5 mm iron / 3.5 m/s real drag only: iron_bed 34.47 mm, reg 11.56 mm, EMI 3.58×, 100% inside lid).
-- Forward NTU derivation, drag-fix verification, fluidization envelope calc using the model's own formulas.
-- Reproducible runner + cell-list kernels.
+- Lumped 5-stage model: 75.6% effectiveness, 221 W blower (1.88% parasitic) at 0.14 bar.
+- Custom GPU DEM Rung 1: high-N physical-lid series plus good-variable real-drag
+  point (1.5 mm iron, 3.5 m/s, EMI 3.58×, 100% inside lid).
+- Envelope for claims: 1.5–2.0 mm iron, ~2.5–3.5+ m/s cold stages, 0.1–0.5 bar.
 
-Key limitations (explicitly documented in spec and index):
-- No hardware prototype exists.
-- The design avoids continuous rotary dynamic seals and rotating mechanicals in the hot abrasive regolith path (unlike auger-based recuperators such as Zubrin CoRHE, which require prototypes for seal/wear validation).
-- However, any real implementation still requires standard boundary vessel seals and regolith feed/discharge interfaces (valves, locks, etc.) capable of operating with abrasive lunar regolith in vacuum, thermal cycling, and low gravity.
-- Validation of even these "conventional" seals and interfaces for long-duration lunar use requires physical prototypes, simulant testing, and qualification work.
-- This testing is unaffordable with current resources. The project has no path to hardware development, prototype validation, or commercialization without millions in additional funding.
-
-The package is scoped to Option A (1.5–2.0 mm iron, ~2.5–3.5+ m/s cold stages, 0.1–0.5 bar envelope) directly supported by the good-variable DEM. Enablement rests on modeling + traceable DEM per MPEP 2164/2163 and 37 CFR 1.56. "Run once and done."
-
-Utility filing is possible with this evidence alone (constructive reduction to practice via enabling disclosure). However, without funding for the prototype phase required for any real system, further work on the technology is blocked.
-
-Files are ready for counsel review and EFS-Web filing if desired. Selective clean tarball also prepared (rcfx-utility-bundle-2026-06-05.tar.gz).
-
-No further simulation or document work will change the fundamental blocker: lack of resources for required physical prototype validation of seals and interfaces.
+Any physical plant still needs conventional vessel seals and feed/discharge
+interfaces. Those are not demonstrated here.

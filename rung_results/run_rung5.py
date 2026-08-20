@@ -11,10 +11,10 @@ headroom.
 """
 
 import sys
-sys.path.insert(0, "/home/nick/rcfx/models")
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "models"))
 import five_stage_counterflow as m
 import numpy as np
-from pathlib import Path
 
 # Lock to Rung 4 best configuration (updated post vol_flow fix for U_G=0.066 alignment + power <2%)
 P_TARGET = 0.14
@@ -101,7 +101,7 @@ for name, overrides in scenarios:
     print(f"   {name:40s} → {eff:.1%}  ({pwr:.0f} W)")
 
 # Save
-out = Path("/home/nick/rcfx/rung_results/rung5_sensitivity.npy")
+out = Path(__file__).resolve().parent / "rung5_sensitivity.npy"
 np.save(out, {
     'baseline': (base_eff, base_power),
     'single_param_sweeps': results,

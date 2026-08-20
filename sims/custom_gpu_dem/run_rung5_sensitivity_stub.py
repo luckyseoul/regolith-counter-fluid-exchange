@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Rung 5 — Real high-fidelity custom GPU DEM (sensitivity / combined degradation case).
-Converted from stub per directive: identical physics to Rung 0/1/2 (kernels/drag/DT/containment/v2 forces/post clips/numeric loader).
+Converted from stub : identical physics to Rung 0/1/2 (kernels/drag/DT/containment/v2 forces/post clips/numeric loader).
 Full bimodal PSD + iron shot agitation + cohesion (for fines) to provide particle-scale evidence for robustness at the 0.14 bar "it works" point (U_G=0.066 cold rep).
 Measures mobilization / dead-zone / bed height under nominal vs degraded params (e.g. lower EDS proxy via drag, wear via PSD shift).
 Checkpointed 1500-step .npz, 100.0% inside + zmin>=0 logging enforced. Only contained raw .npz citable.

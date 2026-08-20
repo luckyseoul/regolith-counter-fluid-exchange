@@ -3,7 +3,7 @@
 Rung 2 using custom GPU DEM (CuPy on V100)
 Bimodal regolith + cohesion + iron shot at 0.14 bar target.
 
-This is the actual particle-level simulation replacing LIGGGHTS for now.
+This is the actual particle-level simulation replacing reference DEM for now.
 """
 
 import cupy as cp

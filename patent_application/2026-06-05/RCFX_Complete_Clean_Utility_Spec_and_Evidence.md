@@ -158,7 +158,7 @@ See full COLD_CLAIMS_AND_MATH_REVIEW.md for 31-claim element-by-element support 
 
 ## DRAWINGS AND SUPPORTING EVIDENCE
 
-Formal drawings: see /home/nick/rcfx/patent_drawings/ (FIG. 1–7 + S1–S4, SVG/PDF vector, black & white, 37 CFR 1.84 compliant).
+Formal drawings: see patent_drawings/ (FIG. 1–7 + S1–S4, SVG/PDF vector, black & white, 37 CFR 1.84 compliant).
 
 Evidence package (2026-06-04): RCFX_Patent_Evidence_Package_*.docx, COLD_CLAIMS_AND_MATH_REVIEW.md, Rung1_HighN_Primary_Audit_6500.md (with raw .npz citations), campaign reports, highn_sens_checkpoints/ (61+ clean 100% contained ckpts including scale), RUNG_CAMPAIGN_RESULTS.md.
 

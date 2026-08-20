@@ -9,6 +9,10 @@ __pycache__/
 # Nested clone of the extracted engine (published separately)
 /custom-gpu-dem/
 
+# Not part of the public tree
+sims/legacy/
+archive/
+
 # Self-copies, not source
 *.bundle
 rcfx-utility-bundle*.tar.gz

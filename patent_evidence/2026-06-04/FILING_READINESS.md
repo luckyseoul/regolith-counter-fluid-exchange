@@ -16,7 +16,7 @@
 
 **Lumped post-audit (fixed)**: 75.6% at 221 W (U_G=0.066 m/s cold, 1.88% parasitic). Rung1 high-N primary (6500 particles, ~16.5 GB VRAM, lid physical from step 0, 100% inside): see **Rung1_HighN_Primary_Audit_6500.md/.json** (direct np.load + extension to 2000) — no-iron baseline 3.2307 mm (86.66% dead); with-iron EMI 3.8657×@400s → 6.3805×@700s → **8.0445×**@1000s → **8.53× peak (1300s)** → 7.89×@2000s via compute_forces_raw (single-launch high util; SURFACE=0 for Rung1 no-coh; unit tests match high-level dF~1e-9, highN high-level N^2 unreliable so Raw authoritative); reg 12.4889→27.57 mm peak (1300s) then 25.48 mm (2000s, iron ~24 mm), physical zmax 41.3-41.8 mm, KE bias 1085–2551× (sustained 600+×), dead contrast 0→29% (lid pile) vs control. Rung0/5 100% citable contained. See dedicated audit + COLD + Exhibit B + ckpts to 002000.
 
-Process: not running. Log: `/tmp/rung5_slice.log`. Status: `python /home/nick/rcfx/sims/custom_gpu_dem/rung5_status.py`
+Process: not running. Log: `/tmp/rung5_slice.log`. Status: `python sims/custom_gpu_dem/rung5_status.py`
 
 ## Patent support package (ready)
 | Deliverable | Path | Status |
@@ -41,16 +41,16 @@ Process: not running. Log: `/tmp/rung5_slice.log`. Status: `python /home/nick/rc
 ## Recommended filing package bundle
 Copy or zip these paths:
 ```
-/home/nick/rcfx/patent_evidence/2026-06-04/RCFX_Patent_Evidence_Package_2026-06-04.docx
-/home/nick/rcfx/patent_evidence/2026-06-04/RCFX_Specification_Support_Draft_2026-06-04.docx
-/home/nick/rcfx/patent_evidence/2026-06-04/  (source MDs + COLD_CLAIMS_AND_MATH_REVIEW.md + Rung1_Fixed_Contained_Audit_99k.* + Rung1_Lid_Freeboard_Demo.txt + raw exhibits for reference)
-/home/nick/rcfx/patent_drawings/FIG_*.pdf
-/home/nick/rcfx/patent_specification_draft.md
-/home/nick/rcfx/rung_results/RUNG_CAMPAIGN_RESULTS.md
-/home/nick/rcfx/sims/custom_gpu_dem/rung5_checkpoints/rung5_step500000.npz
-/home/nick/rcfx/sims/custom_gpu_dem/rung0_checkpoints/rung0_step500000.npz
-/home/nick/rcfx/models/five_stage_counterflow.py
-/home/nick/rcfx/rung_results/rung5_sensitivity.npy
+patent_evidence/2026-06-04/RCFX_Patent_Evidence_Package_2026-06-04.docx
+patent_evidence/2026-06-04/RCFX_Specification_Support_Draft_2026-06-04.docx
+patent_evidence/2026-06-04/  (source MDs + COLD_CLAIMS_AND_MATH_REVIEW.md + Rung1_Fixed_Contained_Audit_99k.* + Rung1_Lid_Freeboard_Demo.txt + raw exhibits for reference)
+patent_drawings/FIG_*.pdf
+patent_specification_draft.md
+rung_results/RUNG_CAMPAIGN_RESULTS.md
+sims/custom_gpu_dem/rung5_checkpoints/rung5_step500000.npz
+sims/custom_gpu_dem/rung0_checkpoints/rung0_step500000.npz
+models/five_stage_counterflow.py
+rung_results/rung5_sensitivity.npy
 ```
 
 ## Enablement note
@@ -68,7 +68,7 @@ The modeling evidence base (lumped + highN physical-lid DEM + scale demo + sensi
 - N=10000 scale run completed via runner (100% inside, KE bias to 45k x, ~70 s/s). FIG_S4 (perf scaling) added. All in updated audit/COLD/evidence package.
 
 ## 2026-06-05: New Utility Bundle Generated
-Full updated utility specification, bundle index, and suggested claims created in /home/nick/rcfx/patent_application/2026-06-05/. Incorporates 10k scale, cell-list, iron size sensitivities, runner, S3/S4, all 100% contained high-N data, and campaign results. MD source of truth; drawings included. Practitioner can convert to .docx/PDF and complete cover sheet with inventor details for utility filing.
+Full updated utility specification, bundle index, and suggested claims created in patent_application/2026-06-05/. Incorporates 10k scale, cell-list, iron size sensitivities, runner, S3/S4, all 100% contained high-N data, and campaign results. MD source of truth; drawings included. Practitioner can convert to .docx/PDF and complete cover sheet with inventor details for utility filing.
 
 ## Clean Data for Filing (2026-06-05 update)
 Use ONLY the clean summary: patent_application/2026-06-05/Patent_Citable_Evidence_Summary.md (or the excerpt at top of Rung1_HighN_Primary_Audit_6500.md).

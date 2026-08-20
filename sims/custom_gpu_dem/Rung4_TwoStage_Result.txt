@@ -17,7 +17,7 @@ Limitations of this first run (transparent):
 - No explicit temperature/heat tracking yet (pure kinematic transfer proof).
 
 Key claim support:
-This is the first particle-scale demonstration that the iron shot agitation mechanism (validated in Rung 2 at 6.98× mobilization) combined with EDS (Rung 3) enables actual material transfer between counter-current stages at the target 0.14 bar / 68 W conditions.
+This is the first particle-scale demonstration that the iron shot agitation mechanism (validated in Rung 2 at 6.98× mobilization) combined with EDS (Rung 3) enables actual material transfer between counter-current stages at the target 0.14 bar / 221 W conditions.
 
 60 particles moved cold → hot purely due to the within-claims mitigations. This is the physical basis for the staged counter-flow heat recovery in the 5-stage system that the lumped model says reaches 75.6% overall.
 

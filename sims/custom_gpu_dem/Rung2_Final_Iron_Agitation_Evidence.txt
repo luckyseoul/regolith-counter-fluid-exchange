@@ -2,7 +2,7 @@ RCFX Rung 2 GPU DEM — Iron Agitation Evidence under Target Drag Conditions
 ================================================================================
 
 Configuration: 3000 particles (2800 regolith + 200 iron or all regolith)
-U_G = 0.066 m/s (from lumped model ~68 W blower power), 0.14 bar
+U_G = 0.066 m/s (from lumped model 221 W blower power), 0.14 bar
 Physics: Hertz + JKR cohesion + friction + rolling + gravity + per-particle Stokes+quadratic drag
 
 Key Results:
