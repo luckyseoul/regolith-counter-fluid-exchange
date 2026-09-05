@@ -6,7 +6,7 @@
 **Inventor(s):** [To be added]
 **Assignee (if any):** [To be added]
 
-**Drawings:** 11 (FIG. 1–7 + S1–S4; see patent_drawings/ and subdir copies; black & white line art / vector per 37 CFR 1.84)
+**Drawings:** 11 (FIG. 1–7 + S1–S4; see patent_drawings/ and subdir copies; SVG/PDF vector; Figure 1 is a revised color technical schematic)
 
 **Specification pages:** See RCFX_Complete_Clean_Utility_Spec_and_Evidence.md (combined spec + evidence)
 

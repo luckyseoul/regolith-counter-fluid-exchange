@@ -40,7 +40,9 @@ The architecture achieves high effectiveness within practical power limits witho
 
 ## BRIEF DESCRIPTION OF THE DRAWINGS
 
-**FIG. 1** is a schematic overview of the five-stage counter-current fluidized bed heat recovery system illustrating regolith feed path, iron/heat media return path, process gas flow, stage-to-stage transfer weirs, and heat extraction surfaces.
+**FIG. 1** is the corrected color overview of the original Rev 5.2 arrangement: cold incoming regolith passes Stage 1→5, hot spent regolith returns Stage 5→1, and iron shot is thermal mass within each stage. A separate panel shows the five parallel gas branches with fines capture and blower/standby. Transfer mechanics are not detailed.
+
+**Figure 1 scope:** The later regolith/iron counter-flow description elsewhere in this draft is a different arrangement. Figure 1 follows Rev 5.2 §4.1 and the repository README; it does not reconcile that later variant. The current and bundle Figure 1 SVG/PDF copies are synchronized.
 
 **FIG. 2** is a cross-section of a representative fluidized bed stage showing the vessel, sintered distributor plate, gas plenum, mixed bed of regolith fines and iron shot, overflow/weir, heat transfer coils, and optional EDS electrodes.
 
@@ -158,7 +160,7 @@ See full COLD_CLAIMS_AND_MATH_REVIEW.md for 31-claim element-by-element support 
 
 ## DRAWINGS AND SUPPORTING EVIDENCE
 
-Formal drawings: see patent_drawings/ (FIG. 1–7 + S1–S4, SVG/PDF vector, black & white, 37 CFR 1.84 compliant).
+Technical drawings: see patent_drawings/ (FIG. 1–7 + S1–S4, SVG/PDF vector). Figure 1 is a revised color flow schematic; the other bundle drawings are historical copies.
 
 Evidence package (2026-06-04): RCFX_Patent_Evidence_Package_*.docx, COLD_CLAIMS_AND_MATH_REVIEW.md, Rung1_HighN_Primary_Audit_6500.md (with raw .npz citations), campaign reports, highn_sens_checkpoints/ (61+ clean 100% contained ckpts including scale), RUNG_CAMPAIGN_RESULTS.md.
 

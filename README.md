@@ -70,8 +70,8 @@ flowchart LR
 ```
 
 <p align="center">
-  <img src="patent_drawings/FIG_01_system_overview.svg" alt="RCFX system overview" width="720" />
-  <br/><em>FIG. 1 — five-stage counter-current bed, parallel blower manifold, iron shot, EDS.</em>
+  <img src="patent_drawings/FIG_01_system_overview.svg" alt="Cold regolith passes through stages 1 to 5; hot spent regolith returns through stages 5 to 1. The same five stages connect in parallel to the gas loop." width="960" />
+  <br/><em>FIG. 1 — Rev 5.2 flow arrangement: opposing regolith streams and a parallel gas loop. The lower panel shows gas connections to the same five stages.</em>
 </p>
 
 **Historical Option A parameter inputs (performance unvalidated)**
@@ -175,6 +175,7 @@ Regenerate the figures in this README:
 
 ```bash
 python3 scripts/generate_readme_figures.py
+python3 patent_drawings/generate_fig01_system_overview.py
 python3 scripts/audit_dem_figures.py
 python3 -m unittest discover -s tests -v
 ```

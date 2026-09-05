@@ -1,6 +1,6 @@
 # Figure and quantitative-claim audit — 2026-09-05
 
-The pre-audit figures contained reproducible plotting errors and unsupported thermal-performance interpretations. Corrections distinguish locally validated DEM results, thermal-model diagnostics, and design targets. No hardware performance is established. Dated `patent_application/2026-06-05` and `patent_evidence/2026-06-04` copies remain historical artifacts and do not inherit the numerical corrections. Their obsolete patent docket labeling is removed separately at the user’s request.
+The pre-audit figures contained reproducible plotting errors and unsupported thermal-performance interpretations. Corrections distinguish locally validated DEM results, thermal-model diagnostics, and design targets. No hardware performance is established. Dated `patent_application/2026-06-05` and `patent_evidence/2026-06-04` copies remain historical artifacts and do not inherit the numerical corrections; Figure 1 is now synchronized explicitly as described below. Their obsolete patent docket labeling is removed separately at the user’s request.
 
 ## Local DEM validation retained
 
@@ -61,7 +61,7 @@ and data, without fitting a replacement heat-transfer correlation.
 
 | Current drawing | Finding and correction |
 |---|---|
-| FIG. 1 | System schematic. Removed the unvalidated “0% dead zones” caption; a particle-speed threshold in a no-lid model is not a distributor-uniformity measurement. |
+| FIG. 1 | Redrawn in color with readable stage cards and separate regolith/gas panels. Corrected cold regolith to Stage 1→5 and hot spent regolith to Stage 5→1; iron is stage thermal mass. Shows five parallel gas branches, fines capture, blower with standby, and per-stage distributor/EDS. Current and bundle SVG/PDF copies are identical. |
 | FIG. 2 | Conceptual cross-section; dimensions and 0.14 bar are representative design inputs, not measured validation. No numeric coordinate plot. |
 | FIG. 3, Rung 5 at 200k and 500k | Raw checkpoint z coordinates were numerically plotted in metres under millimetre labels. Regenerated with x in mm and z in m and explicit no-lid limitation. Maximum z is 9.840985 m at 200k and 22.703933 m at 500k. |
 | FIG. 3, good-variable | Regenerated a legible coordinate scatter and statistics panel. Mean heights reproduce; 100% refers only to particle centers, while 6331/6500 whole spheres fit the 18 × 18 × 60 mm source bounds. The 3.58x ratio is cross-run, not a matched control. Do not conflate its filename 3.5 m/s input with Rung 5 0.066 m/s. |
@@ -95,18 +95,47 @@ From repository root:
 ```sh
 python3 scripts/generate_readme_figures.py
 python3 scripts/audit_dem_figures.py
+python3 patent_drawings/generate_fig01_system_overview.py
 python3 patent_drawings/generate_audited_figures.py
 python3 patent_drawings/generate_fig07_rung5_progression.py
 python3 patent_drawings/generate_fig02_fig04.py --fig04-only
 python3 -m unittest discover -s tests -v
 ```
 
-SVG/PDF pairs were regenerated together. FIG. 2 artifacts were preserved, since its schematic needs no numerical correction. FIG. 1's caption was corrected in both existing vector artifacts while preserving its schematic. Source checkpoint arrays were read directly; no GPU simulation or data mutation was needed. The generated FIG. 3 good-variable and FIG. 7 PDFs were rasterized and visually inspected for legible units and correct legend assignment.
+SVG/PDF pairs were regenerated together. FIG. 2 artifacts were preserved, since its schematic needs no numerical correction. FIG. 1 was subsequently redrawn and synchronized in both drawing directories; its generator reproduces both SVG/PDF pairs. Source checkpoint arrays were read directly; no GPU simulation or data mutation was needed. The generated FIG. 3 good-variable and FIG. 7 PDFs were rasterized and visually inspected for legible units and correct legend assignment.
 
 The campaign velocity multipliers use an assumed 0.015 m/s reference, not the model-computed minimum-fluidization velocity. At the default model state, U_mf = 0.00567574 m/s; inputs 0.066/0.0525 m/s correspond to actual U/U_mf ≈ 11.6284/9.24989.
 
 Validation environment: Python 3, NumPy 2.4.4, Matplotlib 3.10.9. Figure regeneration and the CPU audit need no GPU or checkpoint mutation.
 
-The final CPU suite passes 25 tests, including plotted units, material legends, source hashes, archive measurements, and thermal invalidity diagnostics.
+The initial figure-audit CPU suite passed 25 tests, including plotted units, material legends, source hashes, archive measurements, and thermal invalidity diagnostics.
 
 The obsolete patent docket label was removed from 32 text/source files (48 occurrences), two DOCX files (8 occurrences), and three PDFs (39 occurrences). DOCX XML structure and unchanged ZIP entries were verified; PDF reading-order text across all 37 changed-document pages matches the originals after only the intended label substitutions and whitespace normalization. All 24 repository PDFs and both DOCX files were scanned afterward. Unrelated decimal values and checkpoint step identifiers were preserved.
+
+## Figure 1 architecture and presentation correction
+
+The initial figure pass changed only Figure 1's distributor caption and missed
+its incorrect solids-stream labels, omitted gas circuit and unreadable layout.
+The corrected figure follows the original Rev 5.2 specification (PDF pages
+7–8, §4.1; pages 11–12, §§4.5–4.6; page 17, §5.7) and the current README:
+cold incoming regolith passes Stage 1→5; hot spent regolith returns Stage 5→1;
+iron shot is thermal mass within each stage. Gas circulation has five parallel
+branches with fines capture and a primary blower with standby backup.
+
+Blue and orange identify the two regolith paths. A separate teal panel shows
+gas connections to the same five stages, avoiding pipe crossings over the
+solids routes. Inlet temperatures are design inputs; no calculated outlet
+temperatures or heat-recovery percentages are added. Transfer/separation
+hardware remains conceptual. Both the current and dated-bundle Figure 1 copies
+are now generated together; the color schematic is for technical communication.
+
+The later `RCFX_Complete_Clean_Utility_Spec_and_Evidence.md` describes an
+alternative regolith/iron counter-flow arrangement. That conflicts with the
+original specification and current README. Figure 1 explicitly depicts the
+Rev 5.2 two-regolith-stream arrangement; it does not resolve that later design
+variant. The bundle now identifies this scope alongside its figure description.
+
+The updated CPU suite passes 28 tests, including opposing regolith-arrow
+directions, five parallel gas branches, and byte-identical Figure 1 copies.
+The new figure was rendered and independently reviewed for label readability,
+flow directions, and absence of overlapping text.

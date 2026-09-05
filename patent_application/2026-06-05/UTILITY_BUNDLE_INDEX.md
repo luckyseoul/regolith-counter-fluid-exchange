@@ -21,7 +21,7 @@
 - FIG_S3_iron_size_cross_state.{pdf,svg} (new: KE bias + reg bed overlay across 200-step, evolved, 8k/10k states)
 - FIG_S4_perf_scaling.{pdf,svg} (new: steps/s vs N, cell-list at tuned cs, including real 10k ~70 s/s)
 
-All black & white vector, suitable for 37 CFR 1.84.
+All drawings are SVG/PDF vectors. Figure 1 is the revised color flow schematic, synchronized with the current repository drawing and depicting the Rev 5.2 two-regolith-stream arrangement. The other bundle drawings are historical copies.
 
 ## Evidence Package (reference patent_evidence/2026-06-04/)
 - RCFX_Patent_Evidence_Package_2026-06-04.docx (assembled, TOC, tables, full content + cold review)
