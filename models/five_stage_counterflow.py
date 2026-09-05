@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-5-Stage Counter-Flow Energy Balance Model — Tuned Configuration
-Uses the best parameters from the full tuning sweep (within existing claims).
+Legacy five-step thermal recurrence, retained for numerical reproducibility.
 
-This is the first higher-fidelity math artifact intended to support the full patent.
-
-Configuration: 0.14 bar / U_G=0.066 m/s cold (VEL=4.4) with vol_flow=U*AREA power calc fixed (post cold review).
-Operating power ~221 W (1.88% parasitic, <2% per claims); eff 75.6% flat vs velocity.
+This is NOT a validated counterflow energy balance: both stream temperatures
+advance in the same loop direction, rather than satisfying opposite-end inlet
+conditions. The default arithmetic returns 75.6%, but alternates the sign of
+heat transfer. Empirical stage coefficients can also exceed unity. Neither
+this number nor a blower/recovery ratio establishes exchanger performance.
 """
 
 import numpy as np
@@ -76,10 +76,11 @@ def stage(U, rho, mu, iron_d_mm, iron_fill, eds, pre_um, is_cold_stage=True):
 
 def run_5stage():
     """
-    Proper counter-flow 5-stage energy balance.
-    Cold regolith stream heated from 200K → ~900K
-    Hot regolith stream cooled from 900K → ~200K
-    Heat transfer in each stage limited by local stage effectiveness.
+    Replay the legacy recurrence, with explicit validity diagnostics.
+
+    Existing numeric result keys are preserved without clipping or calibration.
+    ``valid_counterflow`` remains false because this recurrence does not solve
+    the counterflow boundary-value problem, even when numeric bounds pass.
     """
     mdot = 100.0 / 3600.0   # kg/s  (reference throughput)
 
@@ -90,6 +91,10 @@ def run_5stage():
     total_heat_recovered = 0.0
     stage_effs = []
     blower_powers = []
+    stage_trace = []
+    invalid_eff_stages = []
+    negative_heat_stages = []
+    reversed_inlet_stages = []
 
     for i in range(5):
         # Local gas properties at average temperature in this stage
@@ -112,17 +117,33 @@ def run_5stage():
         eff, entr, dp_bed, Umf = stage(U, rho, mu, iron_d, iron_f, EDS_EFF, PRECLASS_UM, is_cold)
         stage_effs.append(eff)
 
-        # Counterflow heat transfer in this stage
+        # Legacy local heat-transfer arithmetic (not a counterflow network).
         # Maximum possible heat transfer limited by the smaller capacity rate stream
         # (both streams have same mdot * CP)
         max_possible_this_stage = mdot * CP_REG * (T_hot - T_cold)
         actual_heat_this_stage = max_possible_this_stage * eff
+        cold_in, hot_in = T_cold, T_hot
+        if not np.isfinite(eff) or not 0 <= eff <= 1:
+            invalid_eff_stages.append(i + 1)
+        if actual_heat_this_stage < 0:
+            negative_heat_stages.append(i + 1)
+        if T_hot < T_cold:
+            reversed_inlet_stages.append(i + 1)
 
         total_heat_recovered += actual_heat_this_stage
 
         # Update both streams
         T_cold += actual_heat_this_stage / (mdot * CP_REG)
         T_hot  -= actual_heat_this_stage / (mdot * CP_REG)
+        stage_trace.append({
+            'stage': i + 1,
+            'cold_in_K': cold_in,
+            'hot_in_K': hot_in,
+            'cold_out_K': T_cold,
+            'hot_out_K': T_hot,
+            'heat_W': actual_heat_this_stage,
+            'effectiveness': eff,
+        })
 
         # Blower power for this stage (parallel manifold)
         # vol_flow must use actual local U (was hardcoded 0.015*AREA — bug)
@@ -140,6 +161,15 @@ def run_5stage():
         'recovered_kW': total_heat_recovered / 1000,
         'stage_effs': stage_effs,
         'total_blower_W': total_blower,
+        'stage_trace': stage_trace,
+        'valid_counterflow': False,
+        'validity': {
+            'reason': 'Both streams advance in the same direction; opposite-end counterflow boundary conditions are not solved.',
+            'stage_effectiveness_out_of_bounds': invalid_eff_stages,
+            'negative_heat_stages': negative_heat_stages,
+            'reversed_inlet_stages': reversed_inlet_stages,
+            'overall_effectiveness_out_of_bounds': not bool(np.isfinite(overall_eff) and 0 <= overall_eff <= 1),
+        },
         'params': {
             'iron_cold_mm': IRON_COLD_MM,
             'iron_hot_mm': IRON_HOT_MM,
@@ -154,11 +184,18 @@ def run_5stage():
 
 if __name__ == "__main__":
     res = run_5stage()
-    print("5-Stage Counter-Flow — Tuned Low-Pressure Point")
+    print("Legacy five-step thermal recurrence — numerical replay")
+    print("WARNING: invalid counterflow interpretation; reported effectiveness and recovery are unvalidated arithmetic outputs.")
+    print(res['validity']['reason'])
     print(f"Pressure: {res['P_bar']:.2f} bar")
     print(f"Overall effectiveness: {res['overall_eff']:.1%}")
     print(f"Recovered (100 kg/hr ref): {res['recovered_kW']:.2f} kW")
     print(f"Estimated blower power: {res['total_blower_W']:.0f} W")
     print(f"Stage effectivenesses: {[f'{e:.1%}' for e in res['stage_effs']]}")
+    print("Stage trace (K; heat positive from labelled hot to cold stream):")
+    for row in res['stage_trace']:
+        print(f"  {row['stage']}: cold {row['cold_in_K']:.2f} -> {row['cold_out_K']:.2f}; "
+              f"hot {row['hot_in_K']:.2f} -> {row['hot_out_K']:.2f}; Q={row['heat_W']:.2f} W")
+    print(f"Validity diagnostics: {res['validity']}")
     print("\nParameters used (all within existing claims):")
     print(res['params'])

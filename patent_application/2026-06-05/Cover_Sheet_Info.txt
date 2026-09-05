@@ -1,6 +1,6 @@
 # UTILITY PATENT APPLICATION COVER SHEET INFORMATION
 **Title:** Multi-Stage Counter-Current Fluidized Bed Heat Recovery System with Dual-Function Iron Shot Media for Low-Pressure Operation
-**Docket/Reference:** PERRY-RCFX-004 Rev 5.2 (modeling evidence support)
+**Specification:** RCFX Rev 5.2 (modeling evidence support)
 **Date of bundle:** 2026-06-05
 **Entity status:** [To be completed by counsel: e.g. small entity / micro entity]
 **Inventor(s):** [To be added]

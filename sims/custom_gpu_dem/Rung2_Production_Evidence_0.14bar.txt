@@ -1,6 +1,6 @@
 RCFX Rung 2 — Production GPU DEM Evidence (Extended Time)
 0.14 bar "It Works" Point, 221 W blower power (U_G = 0.066 m/s)
-PERRY-RCFX-004 Rev 5.2
+RCFX Rev 5.2
 
 Configuration (claim-legal):
 - 3000 particles (2800 bimodal regolith + 200 iron 1.5-3.5 mm)

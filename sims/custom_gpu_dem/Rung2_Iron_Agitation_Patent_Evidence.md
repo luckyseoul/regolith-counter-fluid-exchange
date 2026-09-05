@@ -36,7 +36,7 @@ Rung 3 EDS on the same iron-activated bed added a further +7.6 mm mobilization (
 - `rung2_3000p_drag_comparison_summary.npz`
 - `Rung2_Final_Iron_Agitation_Evidence.txt`
 
-## Relevance to PERRY-RCFX-004 Rev 5.2 + Calibration
+## Relevance to RCFX Rev 5.2 + Calibration
 
 These results provide particle-level DEM validation, now calibrated directly to the lumped analytical model:
 

@@ -16,7 +16,7 @@ const doc = new Document({
   },
   sections: [{
     properties: { page: { margin: { top: 1440, right: 1440, bottom: 1440, left: 1440 } } },
-    headers: [ new Header({ children: [new Paragraph({ children: [new TextRun({ text: "PERRY-RCFX-004 Rev 5.2 | RCFX Patent Evidence Package | Confidential — Internal Filing Support", size: 18, italics: true })] })] }) ],
+    headers: [ new Header({ children: [new Paragraph({ children: [new TextRun({ text: "RCFX Rev 5.2 | RCFX Patent Evidence Package | Confidential — Internal Filing Support", size: 18, italics: true })] })] }) ],
     footers: [ new Footer({ children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [
       new TextRun({ text: "Page ", size: 18 }),
       new TextRun({ children: [PageNumber.CURRENT], size: 18 }),
@@ -24,7 +24,7 @@ const doc = new Document({
     ] })] }) ],
     children: [
       new Paragraph({ heading: HeadingLevel.TITLE, children: [new TextRun("RCFX Patent Evidence Package")] }),
-      new Paragraph({ children: [new TextRun({ text: "PERRY-RCFX-004 Rev 5.2 — Updated (modeling data for full patent support; Rung1 containment + lid enablement fixes; no hardware)", size: 22 })] }),
+      new Paragraph({ children: [new TextRun({ text: "RCFX Rev 5.2 — Updated (modeling data for full patent support; Rung1 containment + lid enablement fixes; no hardware)", size: 22 })] }),
       new Paragraph({ children: [new TextRun({ text: "CONFIDENTIAL — Internal Patent Support Data", bold: true, size: 22 })] }),
       new Paragraph({ children: [] }),
 

@@ -1,5 +1,5 @@
 # Suggested Independent/Dependent Claims (for utility patent application)
-**Internal working draft only — not for direct filing. Aligns with PERRY-RCFX-004 Rev 5.2 and COLD review. Narrows to Option A envelope supported by good-variable real-drag physical-lid GPU DEM.**
+**Internal working draft only — not for direct filing. Aligns with RCFX Rev 5.2 and COLD review. Narrows to Option A envelope supported by good-variable real-drag physical-lid GPU DEM.**
 
 ## Independent Claim 1 (System + Iron Dual-Role at Low Pressure – Supported Envelope)
 A multi-stage counter-current fluidized bed heat recovery system comprising:

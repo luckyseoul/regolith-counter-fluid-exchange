@@ -2,13 +2,13 @@
 
 **Objective.** Find the lowest envelope pressure at which the 5-stage system still
 reaches ≥75% thermal recovery at 50–100 kg/h pilot scale, with blower power
-under ~250 W, **inside PERRY-RCFX-004 Rev 5.2**.
+under ~250 W, **inside RCFX Rev 5.2**.
 
 Constraints: stay supportable under the existing claims; prefer simpler
 operating points; produce documented model and DEM evidence.
 
 ## Guiding Principles
-- All analysis and any proposed optimizations must remain fully supportable under the existing claims of PERRY-RCFX-004 Rev 5.2. No new patentable subject matter.
+- All analysis and any proposed optimizations must remain fully supportable under the existing claims of RCFX Rev 5.2. No new patentable subject matter.
 - Simplicity is strongly preferred.
 - Start at the lowest credible pressure (targeting well below the current 0.2-0.3 bar nominal) and quantify exactly what is required (within existing features) to make performance acceptable.
 - Focus on generating clear, documented math and sensitivity data suitable for supporting full patent issuance.
@@ -53,7 +53,7 @@ operating points; produce documented model and DEM evidence.
   - Pre-classification cutoff aggressiveness and fines routing strategy (within the three approaches of Claim 26 and Section 5.8).
   - Independent superficial gas velocity per stage (enabled by the parallel manifold + forced circulation architecture of Claim 7).
   - Exploitation of the natural temperature-dependent volatile release profile for gas composition management (directly supported by Claim 27 and Section 4.3).
-- Deliverable: Clear, documented math and sensitivity curves showing how performance at low pressure (target << 0.2 bar) can be improved or maintained by intelligent tuning and optimization of features already present in PERRY-RCFX-004 Rev 5.2. Focus on producing evidence suitable for supporting the full patent issuance.
+- Deliverable: Clear, documented math and sensitivity curves showing how performance at low pressure (target << 0.2 bar) can be improved or maintained by intelligent tuning and optimization of features already present in RCFX Rev 5.2. Focus on producing evidence suitable for supporting the full patent issuance.
 
 ## Status
 

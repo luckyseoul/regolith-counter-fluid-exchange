@@ -1,7 +1,7 @@
 # RCFX Rung 2 – GPU DEM Evidence for Iron Shot Agitation at Target Low-Pressure Conditions
 
 **Date**: 31 May 2026  
-**Reference**: PERRY-RCFX-004 Rev 5.2  
+**Reference**: RCFX Rev 5.2  
 **Configuration**: 3000 particles (~2800 regolith + 200 iron shot or all regolith)  
 **Gas velocity**: U_G = 0.066 m/s (corresponding to 221 W blower power in lumped analytical model)  
 **Pressure**: 0.14 bar  
@@ -31,7 +31,7 @@ At the gas velocity corresponding to the target blower power in the lumped model
 
 ## Relevance to Claims + Calibration
 
-This evidence directly supports the operating point and mitigation strategy in PERRY-RCFX-004 Rev 5.2, now calibrated:
+This evidence directly supports the operating point and mitigation strategy in RCFX Rev 5.2, now calibrated:
 
 - At the exact U_G = 0.066 m/s (221 W) condition used for the lumped 75.6% overall effectiveness, iron agitation delivers **EMI = 5.85×** bed mobilization vs no-iron control.
 - The ~5.85× uplift is the particle-scale mechanism enabling the fluidization state assumed in the analytical model that reaches 75.6%.

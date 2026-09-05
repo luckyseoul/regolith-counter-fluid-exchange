@@ -1,6 +1,6 @@
 # RCFX Patent Application Evidence and Enablement Support Bundle (Utility Filing)
 **Date**: 2026-06-23 (final cross-checks and model linkage for utility conversion handoff; original campaign 2026-06-05)
-**Scope**: Modeling-only evidence and specification support for a utility patent application on the 5-stage counter-current low-pressure fluidized bed heat recovery system with dual-role iron shot (PERRY-RCFX-004 Rev 5.2 parameters). All evidence limited to clean 100% inside physical-lid DEM data + lumped model + envelope calculation. No provisional language or structure.
+**Scope**: Modeling-only evidence and specification support for a utility patent application on the 5-stage counter-current low-pressure fluidized bed heat recovery system with dual-role iron shot (RCFX Rev 5.2 parameters). All evidence limited to clean 100% inside physical-lid DEM data + lumped model + envelope calculation. No provisional language or structure.
 
 ## Core Documents (this directory)
 - RCFX_Complete_Clean_Utility_Spec_and_Evidence.md (renamed internally for content; functions as utility spec + evidence) — Complete specification (abstract, background, summary, detailed description, brief description of drawings, enablement note with MPEP 2164/2163/2001 + 37 CFR 1.56 guidance, claims support). Claims narrowed to the envelope directly supported by good-variable real-drag DEM (1.5–2.0 mm iron, 0.1–0.5 bar, ~2.5–3.5+ m/s U_G cold stages). Integrates: good-variable positive data at envelope point (primary mechanistic evidence: 1.5 mm iron at 3.5 m/s real drag only from physical_drag_real_u3.5_iron1.5mm_step002000.npz – iron lifts to 34.47 mm above reg 11.56 mm, EMI 3.58×, 100% inside physical lid) + drag-fix verification (real drag limits at reference point, showing distributor hardware is essential) + fluidization envelope calc (model's own formulas) + three numbers from five_stage_counterflow.py + suggested claims updated to Option A (narrowed, honest scope). Primary Rung 1 data at 0.14 bar with distributor term is supporting (full system with claimed hardware). All clean 100% inside physical-lid data only. No provisional structure. Sub-grid distributor term qualified with momentum budget limitation (actual hardware must deliver sufficient local jets).
@@ -79,7 +79,7 @@ All modeling-only. Sufficient for 35 USC 112 enablement + written description wh
 - Integrated cell-list hotpath and reproducible runner (highn_sensitivity.py) as part of the disclosure.
 - Added FIG_S3 (cross-state iron size comparison) and FIG_S4 (perf scaling with real 10k data).
 - Updated abstract, summary, detailed description, brief description of drawings, and enablement note with latest citable numbers from Rung1_HighN_Primary_Audit_6500.md and campaign reports.
-- All within PERRY-RCFX-004 Rev 5.2; no new matter.
+- All within RCFX Rev 5.2; no new matter.
 
 Contact qualified patent counsel for formal filing. This bundle is technical content only.
 ## Post-Review Update (Claude critique + verification)

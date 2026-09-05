@@ -1,6 +1,6 @@
 RCFX Rung 2 — Final Production GPU DEM Summary (Checkpointed Extended Run)
 0.14 bar target point, U_G = 0.066 m/s (221 W lumped blower power)
-PERRY-RCFX-004 Rev 5.2
+RCFX Rev 5.2
 
 Method:
 - 3000 particles (2800 bimodal regolith + 200 iron 1.5-3.5 mm)

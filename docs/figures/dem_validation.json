@@ -1,0 +1,1269 @@
+{
+  "schema_version": 1,
+  "scope": "Archive measurement and source inspection; no GPU simulation or physical validation",
+  "containment_test_bounds_m": [
+    0.018,
+    0.018,
+    0.06
+  ],
+  "inventory": {
+    "directories": [
+      {
+        "directory": "sims/custom_gpu_dem/rung0_checkpoints",
+        "files": 334,
+        "bytes": 26862952
+      },
+      {
+        "directory": "sims/custom_gpu_dem/rung1_checkpoints",
+        "files": 677,
+        "bytes": 78280156
+      },
+      {
+        "directory": "sims/custom_gpu_dem/rung1_highn_checkpoints",
+        "files": 60,
+        "bytes": 13489680
+      },
+      {
+        "directory": "sims/custom_gpu_dem/rung2_checkpoints",
+        "files": 34,
+        "bytes": 3305752
+      },
+      {
+        "directory": "sims/custom_gpu_dem/rung4_checkpoints",
+        "files": 15,
+        "bytes": 1247380
+      },
+      {
+        "directory": "sims/custom_gpu_dem/rung5_checkpoints",
+        "files": 334,
+        "bytes": 26862952
+      }
+    ],
+    "loose_files": 13,
+    "loose_bytes": 932431,
+    "total_files": 1467,
+    "total_bytes": 150981303,
+    "size_units": "decimal MB = bytes / 1,000,000"
+  },
+  "series": {
+    "highn_with_iron": [
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000050.npz",
+        "sha256": "98db7d4a2c4290de014a865305a485927f11d4c7e219395e36a06bcc584b1cf3",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 50,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.018,
+            0.018,
+            0.009025592918987968
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 5448,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 2.9187947838362986,
+          "diameter_range_mm": [
+            0.060003956605214626,
+            0.39990400546230376
+          ],
+          "mean_speed_m_s": 78.73656421472089
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 2.4713184678920177,
+          "diameter_range_mm": [
+            1.8058775458484888,
+            3.299191128462553
+          ],
+          "mean_speed_m_s": 100.24475348045775
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000100.npz",
+        "sha256": "79e0ae56b9105ff36b0493dc7acb8b8847c36e849daf58e96b0c62baa7ebdfa1",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 100,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.018,
+            0.018,
+            0.011669534185784869
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6014,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 4.7474075365026644,
+          "diameter_range_mm": [
+            0.060003956605214626,
+            0.39990400546230376
+          ],
+          "mean_speed_m_s": 67.30957808136804
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 5.371893695964199,
+          "diameter_range_mm": [
+            1.8058775458484888,
+            3.299191128462553
+          ],
+          "mean_speed_m_s": 50.9848821640945
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000200.npz",
+        "sha256": "1bd8c19e69eb1be45032c42fc459911ecedb14d28da4845f3f5cf7af3e5182f3",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 200,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.018,
+            0.018,
+            0.016869534127181396
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6062,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 7.175662311681508,
+          "diameter_range_mm": [
+            0.060003956605214626,
+            0.39990400546230376
+          ],
+          "mean_speed_m_s": 58.97626941097601
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 8.24089302164702,
+          "diameter_range_mm": [
+            1.8058775458484888,
+            3.299191128462553
+          ],
+          "mean_speed_m_s": 50.00812851203125
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000300.npz",
+        "sha256": "090dec8abb4076b0d10566d449f48ba978f29b1f967241c33788216627611b15",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 300,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.018,
+            0.018,
+            0.022069533915782813
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6070,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 9.796647412759713,
+          "diameter_range_mm": [
+            0.060003956605214626,
+            0.39990400546230376
+          ],
+          "mean_speed_m_s": 54.50494962834473
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 11.230550963279162,
+          "diameter_range_mm": [
+            1.8058775458484888,
+            3.299191128462553
+          ],
+          "mean_speed_m_s": 49.253154556338814
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000400.npz",
+        "sha256": "4f8b0c860859b311a11deeeacc1079ec991d3d26562116c1d6d945cc8b6990fc",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 400,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.018,
+            0.018,
+            0.027269516802334692
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6106,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 12.48889162543,
+          "diameter_range_mm": [
+            0.060003956605214626,
+            0.39990400546230376
+          ],
+          "mean_speed_m_s": 52.32580557628473
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 14.243865580742275,
+          "diameter_range_mm": [
+            1.8058775458484888,
+            3.299191128462553
+          ],
+          "mean_speed_m_s": 48.3799461178782
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000500.npz",
+        "sha256": "5f0f28fc49166bfb9d422a1173d68fa3cf8828b0ac4853cb284dd35f28dd7f92",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 500,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.018,
+            0.018,
+            0.03246929157467093
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6104,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 15.17698265601307,
+          "diameter_range_mm": [
+            0.060003956605214626,
+            0.39990400546230376
+          ],
+          "mean_speed_m_s": 51.55388830107144
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 17.243824243077466,
+          "diameter_range_mm": [
+            1.8058775458484888,
+            3.299191128462553
+          ],
+          "mean_speed_m_s": 51.252428758201056
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000700.npz",
+        "sha256": "74152ba9b3d51ea010b55a7172dd7d700784e6fa0f671d4d060da61781beb6f3",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 700,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            0.0,
+            0.0,
+            1.0562959673610095e-08
+          ],
+          [
+            0.018,
+            0.018,
+            0.04052642764203185
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6066,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 20.61363530726063,
+          "diameter_range_mm": [
+            0.060003956605214626,
+            0.39990400546230376
+          ],
+          "mean_speed_m_s": 49.308678820954114
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 23.082320622234665,
+          "diameter_range_mm": [
+            1.8058775458484888,
+            3.299191128462553
+          ],
+          "mean_speed_m_s": 40.105786141635704
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000800.npz",
+        "sha256": "b9a8bbf2c29a5fe944cb311f83a34c354a262406b5dcd41fa896aba595a7d9dc",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 800,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.017999999225139618,
+            0.017999999225139618,
+            0.04085928201675415
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6096,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 22.949580495197807,
+          "diameter_range_mm": [
+            0.060003956605214626,
+            0.39990400546230376
+          ],
+          "mean_speed_m_s": 44.89025020671924
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 24.969395692114052,
+          "diameter_range_mm": [
+            1.8058775458484888,
+            3.299191128462553
+          ],
+          "mean_speed_m_s": 34.36407201629763
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000900.npz",
+        "sha256": "459d4b5b6d63b1b35581a6b8e7b2e51ec378278a05d8614bd7ad1e43d89d43c3",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 900,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.017999999225139618,
+            0.017999999225139618,
+            0.04112286865711212
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6114,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 24.720017592820767,
+          "diameter_range_mm": [
+            0.060003956605214626,
+            0.39990400546230376
+          ],
+          "mean_speed_m_s": 41.99746323685086
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 26.132516635831085,
+          "diameter_range_mm": [
+            1.8058775458484888,
+            3.299191128462553
+          ],
+          "mean_speed_m_s": 29.67912986698845
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001000.npz",
+        "sha256": "a2cac4fa438b293e2101e97980d511118a930c9dd22ae3296c5bfb37ca23e1a1",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 1000,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.017999999225139618,
+            0.017999999225139618,
+            0.04128903150558472
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6143,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 25.989418275057872,
+          "diameter_range_mm": [
+            0.060003956605214626,
+            0.39990400546230376
+          ],
+          "mean_speed_m_s": 40.703289751426375
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 26.86232464230517,
+          "diameter_range_mm": [
+            1.8058775458484888,
+            3.299191128462553
+          ],
+          "mean_speed_m_s": 27.334556404347236
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001100.npz",
+        "sha256": "d9da4d6030188d0a3cf381decba9b11b21426199eea377ad9629317c74440f2d",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 1100,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            0.0,
+            0.0,
+            8.546141572196575e-11
+          ],
+          [
+            0.017999999225139618,
+            0.017999999225139618,
+            0.04143354669213295
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6107,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 26.83906931830213,
+          "diameter_range_mm": [
+            0.060003956605214626,
+            0.39990400546230376
+          ],
+          "mean_speed_m_s": 40.23445907249626
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 27.23790471911441,
+          "diameter_range_mm": [
+            1.8058775458484888,
+            3.299191128462553
+          ],
+          "mean_speed_m_s": 25.445367101537578
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001200.npz",
+        "sha256": "4271c60d7b98c8463a1a819c2bde28e3a65d82321a2a012f8a6e7b25c20331d5",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 1200,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            0.0,
+            0.0,
+            1.0939507077978305e-08
+          ],
+          [
+            0.017999999225139618,
+            0.017999999225139618,
+            0.04163077846169472
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6109,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 27.354822803683444,
+          "diameter_range_mm": [
+            0.060003956605214626,
+            0.39990400546230376
+          ],
+          "mean_speed_m_s": 39.832900315645674
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 27.35949510696511,
+          "diameter_range_mm": [
+            1.8058775458484888,
+            3.299191128462553
+          ],
+          "mean_speed_m_s": 24.653439046433146
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001300.npz",
+        "sha256": "8bd51f8d4c085cac102e890f9938b22de6db029ff55e08358ee3cd27b804b1e2",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 1300,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.017999999225139618,
+            0.017999999225139618,
+            0.041718363761901855
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6122,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 27.565638696947012,
+          "diameter_range_mm": [
+            0.060003956605214626,
+            0.39990400546230376
+          ],
+          "mean_speed_m_s": 39.868387833728754
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 27.25476911903882,
+          "diameter_range_mm": [
+            1.8058775458484888,
+            3.299191128462553
+          ],
+          "mean_speed_m_s": 23.433523652225716
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001500.npz",
+        "sha256": "3f57d8a8b5d8df5e8ed8688e755000fa8c8d2227ad90976507f6dcadaf6e2ca9",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 1500,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.017999999225139618,
+            0.017999999225139618,
+            0.04173966869711876
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6115,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 27.293458418765685,
+          "diameter_range_mm": [
+            0.060003956605214626,
+            0.39990400546230376
+          ],
+          "mean_speed_m_s": 39.35472135215165
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 26.538322253172936,
+          "diameter_range_mm": [
+            1.8058775458484888,
+            3.299191128462553
+          ],
+          "mean_speed_m_s": 22.074111966216183
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001700.npz",
+        "sha256": "83e5bd2189090fa8c0b986fd139e6259b8edda3ca72672b624dfafb4c530cf28",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 1700,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.017999999225139618,
+            0.017999999225139618,
+            0.041764579713344574
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6128,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 26.530299927462526,
+          "diameter_range_mm": [
+            0.060003956605214626,
+            0.39990400546230376
+          ],
+          "mean_speed_m_s": 38.815092390858084
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 25.534200763058585,
+          "diameter_range_mm": [
+            1.8058775458484888,
+            3.299191128462553
+          ],
+          "mean_speed_m_s": 21.2752300403915
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001900.npz",
+        "sha256": "455c8fb14430d0cb620e0ee407b69c266850972b9126f9ccfc5d55b13c62f9b0",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 1900,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.017999999225139618,
+            0.017999999225139618,
+            0.041771020740270615
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6101,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 25.76074345096936,
+          "diameter_range_mm": [
+            0.060003956605214626,
+            0.39990400546230376
+          ],
+          "mean_speed_m_s": 38.01709055309002
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 24.415503121813494,
+          "diameter_range_mm": [
+            1.8058775458484888,
+            3.299191128462553
+          ],
+          "mean_speed_m_s": 20.173432520267134
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step002000.npz",
+        "sha256": "ad74c202562f258790f9d95f41ee46c2f9832d5e1eb63b2bffe284102da34e83",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 2000,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.017999999225139618,
+            0.017999999225139618,
+            0.04177216812968254
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6102,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 25.48305950405846,
+          "diameter_range_mm": [
+            0.060003956605214626,
+            0.39990400546230376
+          ],
+          "mean_speed_m_s": 37.435481190037656
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 23.91888743500453,
+          "diameter_range_mm": [
+            1.8058775458484888,
+            3.299191128462553
+          ],
+          "mean_speed_m_s": 19.943498476753295
+        }
+      }
+    ],
+    "highn_no_iron": [
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_no_iron_step000050.npz",
+        "sha256": "ef0d49474bc5973a8ce1cffd1dfa79952e83588984829b7a6dc92931d317d0f2",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 50,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            4.376034846945886e-06,
+            3.449794675691596e-05,
+            3.629467733758483e-05
+          ],
+          [
+            0.016194256022572517,
+            0.01619655266404152,
+            0.006533526760570396
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6486,
+        "regolith": {
+          "count": 6500,
+          "mean_center_z_mm": 3.2258722298577025,
+          "diameter_range_mm": [
+            0.06002306326990947,
+            0.3999626205768436
+          ],
+          "mean_speed_m_s": 0.20545524287845057
+        },
+        "iron": {
+          "count": 0,
+          "mean_center_z_mm": null,
+          "diameter_range_mm": null,
+          "mean_speed_m_s": null
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_no_iron_step000100.npz",
+        "sha256": "85d9fe113376787fef9ece27d634a08e3d07e842a2eb2674e4a5a0c8363ce39a",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 100,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            2.1891909269122355e-05,
+            3.449794675691596e-05,
+            8.155089639479032e-06
+          ],
+          [
+            0.016275953245720842,
+            0.01622210993128448,
+            0.006646754850073933
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6484,
+        "regolith": {
+          "count": 6500,
+          "mean_center_z_mm": 3.2258847216870477,
+          "diameter_range_mm": [
+            0.06002306326990947,
+            0.3999626205768436
+          ],
+          "mean_speed_m_s": 0.2393291514374768
+        },
+        "iron": {
+          "count": 0,
+          "mean_center_z_mm": null,
+          "diameter_range_mm": null,
+          "mean_speed_m_s": null
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_no_iron_step000200.npz",
+        "sha256": "ba3e4455b55d5b9fc478da9b9a806a269d4aefee18fe86eeea809085cf2ce303",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 200,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            5.158452950126957e-06,
+            1.1533800687857365e-05,
+            1.7535788359168691e-06
+          ],
+          [
+            0.016567362834962296,
+            0.016323695808210914,
+            0.008006948129605007
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6461,
+        "regolith": {
+          "count": 6500,
+          "mean_center_z_mm": 3.2274919418925316,
+          "diameter_range_mm": [
+            0.06002306326990947,
+            0.3999626205768436
+          ],
+          "mean_speed_m_s": 0.38197797166719955
+        },
+        "iron": {
+          "count": 0,
+          "mean_center_z_mm": null,
+          "diameter_range_mm": null,
+          "mean_speed_m_s": null
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_no_iron_step000300.npz",
+        "sha256": "a14af547a04042c78f4743145eb77b4a6b2ea2d834e8f23f52f37efd70da32d3",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 300,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            1.980207168334139e-05,
+            1.14753329398809e-05,
+            2.797688898681372e-05
+          ],
+          [
+            0.016899574416243013,
+            0.01658854771547169,
+            0.009040958805144328
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6456,
+        "regolith": {
+          "count": 6500,
+          "mean_center_z_mm": 3.228876714181471,
+          "diameter_range_mm": [
+            0.06002306326990947,
+            0.3999626205768436
+          ],
+          "mean_speed_m_s": 0.39453057136590136
+        },
+        "iron": {
+          "count": 0,
+          "mean_center_z_mm": null,
+          "diameter_range_mm": null,
+          "mean_speed_m_s": null
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_no_iron_step000400.npz",
+        "sha256": "a98de56286c6e2a7b05d34ab418869f902d1d7dd7b912edca5b6bc4f9d3d575e",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 400,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            3.6340061993748074e-06,
+            1.2881835496179363e-05,
+            1.2258786545864237e-05
+          ],
+          [
+            0.017231782897965786,
+            0.016941705384695638,
+            0.010074888895815093
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6455,
+        "regolith": {
+          "count": 6500,
+          "mean_center_z_mm": 3.2307320244145448,
+          "diameter_range_mm": [
+            0.06002306326990947,
+            0.3999626205768436
+          ],
+          "mean_speed_m_s": 0.4033770974108251
+        },
+        "iron": {
+          "count": 0,
+          "mean_center_z_mm": null,
+          "diameter_range_mm": null,
+          "mean_speed_m_s": null
+        }
+      }
+    ],
+    "real_drag_filename_u3_5_iron1_5mm": [
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_real_u3.5_iron1.5mm_step000500.npz",
+        "sha256": "f1711f2ba7f348562c1693b520fc86269034b8a673075d8bbe01f0a95d4c2133",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 500,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            3.634006134234369e-06,
+            1.1243772860325407e-05,
+            0.0
+          ],
+          [
+            0.017999999225139618,
+            0.017999999225139618,
+            0.026746636256575584
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6321,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 4.945787309756717,
+          "diameter_range_mm": [
+            0.06002306326990947,
+            0.3999626205768436
+          ],
+          "mean_speed_m_s": 13.438362996493154
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 11.69627802085635,
+          "diameter_range_mm": [
+            1.500000013038516,
+            1.500000013038516
+          ],
+          "mean_speed_m_s": 83.84689587982322
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_real_u3.5_iron1.5mm_step001000.npz",
+        "sha256": "ecf4c943a5c3dd1a4ae4a2bed0ebfd25375cac393dbaa9c16a90337441828e6f",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 1000,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            3.634006134234369e-06,
+            0.0,
+            8.000673915375955e-06
+          ],
+          [
+            0.017989112064242363,
+            0.017984656617045403,
+            0.040129706263542175
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6331,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 7.467562068577039,
+          "diameter_range_mm": [
+            0.06002306326990947,
+            0.3999626205768436
+          ],
+          "mean_speed_m_s": 14.002689802027867
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 26.077742130651682,
+          "diameter_range_mm": [
+            1.500000013038516,
+            1.500000013038516
+          ],
+          "mean_speed_m_s": 50.37225528964859
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_real_u3.5_iron1.5mm_step001500.npz",
+        "sha256": "131c78dcc33729b22a0df904864546f5ec92a662a684a5fbbbc5736122e68083",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 1500,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            0.0,
+            0.0,
+            4.152501787757501e-06
+          ],
+          [
+            0.017988717183470726,
+            0.01799159310758114,
+            0.040129706263542175
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6346,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 9.713888715978506,
+          "diameter_range_mm": [
+            0.06002306326990947,
+            0.3999626205768436
+          ],
+          "mean_speed_m_s": 12.294245606877757
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 31.636669365132665,
+          "diameter_range_mm": [
+            1.500000013038516,
+            1.500000013038516
+          ],
+          "mean_speed_m_s": 22.328849068268664
+        }
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_real_u3.5_iron1.5mm_step002000.npz",
+        "sha256": "08667f6f94cb5ebcca2c2da6f75f49d84bcb94ce45595d3b0ecb830b900b9023",
+        "stored_fields": [
+          "mat",
+          "pos",
+          "radius",
+          "step",
+          "vel"
+        ],
+        "step": 2000,
+        "n_particles": 6500,
+        "center_bounds_m": [
+          [
+            0.0,
+            0.0,
+            5.0301732699153945e-06
+          ],
+          [
+            0.017999999225139618,
+            0.01799159310758114,
+            0.040129706263542175
+          ]
+        ],
+        "center_inside_count": 6500,
+        "whole_sphere_inside_count": 6331,
+        "regolith": {
+          "count": 6045,
+          "mean_center_z_mm": 11.560937956146654,
+          "diameter_range_mm": [
+            0.06002306326990947,
+            0.3999626205768436
+          ],
+          "mean_speed_m_s": 10.55031361012877
+        },
+        "iron": {
+          "count": 455,
+          "mean_center_z_mm": 34.468897499347484,
+          "diameter_range_mm": [
+            1.500000013038516,
+            1.500000013038516
+          ],
+          "mean_speed_m_s": 15.533653630916037
+        }
+      }
+    ]
+  },
+  "reference_ratios": {
+    "interpretation": "Descriptive ratios to an earlier no-iron checkpoint; not matched-condition causal effects",
+    "denominator_path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_no_iron_step000400.npz",
+    "denominator_step": 400,
+    "denominator_mean_regolith_z_mm": 3.2307320244145448,
+    "goodvar_to_baseline": 3.5784267679216333,
+    "sampled_highn_peak_step": 1300,
+    "sampled_highn_peak_mean_regolith_z_mm": 27.565638696947012,
+    "sampled_highn_peak_to_baseline": 8.532319761785969
+  },
+  "current_source_runners": [
+    {
+      "path": "sims/custom_gpu_dem/migrate_rung1_highn.py",
+      "sha256": "698d63ff5041aaf3c6b7d20c14e6167666c43442f0c1637fcea4b06cad0070ad",
+      "default_constants": {
+        "BOX": 0.018,
+        "U_G": 0.066,
+        "DAMP": 0.08,
+        "FREEBOARD_Z": 0.04,
+        "LID_Z": 0.06,
+        "DT": 6.5e-07
+      }
+    },
+    {
+      "path": "sims/custom_gpu_dem/continue_highn_rung1.py",
+      "sha256": "1848ac75fda5186e9af7e26ee166a6aca354b5938f6107894db9f092312ed465",
+      "default_constants": {
+        "BOX": 0.018,
+        "U_G": 0.066,
+        "DAMP": 0.08,
+        "FREEBOARD_Z": 0.04,
+        "LID_Z": 0.06,
+        "DT": 6.5e-07
+      }
+    },
+    {
+      "path": "sims/custom_gpu_dem/continue_physical_drag_fix.py",
+      "sha256": "cc9b119e669af5b714083c46fc7cd77a74e7f71976ddbb5572c9007e54160636",
+      "default_constants": {
+        "BOX": 0.018,
+        "U_G": 0.066,
+        "DAMP": 0.5,
+        "FREEBOARD_Z": 0.04,
+        "LID_Z": 0.06,
+        "DT": 6.5e-07
+      }
+    }
+  ],
+  "limitations": [
+    "Step labels are stored checkpoint counters, not verified time since initialization; all inspected runners currently set DT=6.5e-7 seconds.",
+    "Checkpoints store no run configuration or source revision; gas velocity 3.5 m/s is a filename label, not stored metadata.",
+    "Current high-N runner defaults use U_G=0.066 m/s and distributor body forces; physical-drag runner can override velocity and disables those adders.",
+    "Fresh high-N runner uses distributor strength 12; continuation uses 2.8, so filenames alone do not establish homogeneous forcing history.",
+    "No-iron series ends at step 400; no matched no-iron step 2000 or matched physical-drag control is included in these plotted series.",
+    "Current lid routine caps particle centers and damps velocity; whole-sphere containment is a separate stricter measurement.",
+    "Mean particle-center height is neither bed surface height nor a direct measurement of thermal exchange or agitation.",
+    "The sampled high-N peak is the maximum among archived plotted checkpoints, not a steady-state or full-trajectory maximum."
+  ]
+}

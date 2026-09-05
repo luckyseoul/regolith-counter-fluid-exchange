@@ -1,12 +1,14 @@
 # RCFX pressure-minimization campaign
 
+> **2026-09-05 audit:** Historical design targets and model outputs below are not validated system performance. The thermal recurrence advances both streams in the same direction and allows stage effectiveness above one; 75.6% recovery and its derived parasitic fraction are unsupported. See [figure audit](FIGURE_AUDIT.md).
+
 **Date**: 2026-06  
 **Repository**: https://github.com/luckyseoul/regolith-counter-fluid-exchange
 
 ## Summary
 
 The campaign asked whether the five-stage counter-current fluidized bed in
-PERRY-RCFX-004 Rev 5.2 can meet thermal-recovery targets at a lower envelope
+RCFX Rev 5.2 can meet thermal-recovery targets at a lower envelope
 pressure than the 0.2–0.3 bar nominal.
 
 **Result.** The lumped 5-stage model reaches **75.6% overall effectiveness** at

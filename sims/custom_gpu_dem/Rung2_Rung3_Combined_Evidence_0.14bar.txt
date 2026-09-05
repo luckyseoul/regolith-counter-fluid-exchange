@@ -1,5 +1,5 @@
 RCFX Rung 2 + Rung 3 Combined GPU DEM Evidence at Target 0.14 bar Point
-PERRY-RCFX-004 Rev 5.2
+RCFX Rev 5.2
 
 Rung 2 — Iron Agitation (checkpointed production)
 - 3000 particles, iron 1.5-3.5 mm + bimodal regolith + drag (stronger on iron)

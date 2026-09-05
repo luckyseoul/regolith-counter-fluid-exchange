@@ -2,7 +2,7 @@
 
 **Date**: 31 May 2026  
 **Status**: First-pass calibration complete (screening scale)  
-**Reference**: PERRY-RCFX-004 Rev 5.2, 221 W blower power point
+**Reference**: RCFX Rev 5.2, 221 W blower power point
 
 ## Target Operating Point (from Lumped Analytical Model)
 
@@ -71,7 +71,7 @@ This establishes, at the particle scale, that the iron agitation is **not increm
 
 ## Conclusion for Claim Support
 
-The Rung 2 GPU DEM at the exact 0.14 bar / 221 W operating point from the lumped model provides **defensible particle-scale evidence** that the iron shot agitation (size, fill fraction, and gas velocity within PERRY-RCFX-004 Rev 5.2 claims) produces a 5.85× bed mobilization uplift that is the critical mechanism enabling the modeled 75.6% overall effectiveness at low pressure.
+The Rung 2 GPU DEM at the exact 0.14 bar / 221 W operating point from the lumped model provides **defensible particle-scale evidence** that the iron shot agitation (size, fill fraction, and gas velocity within RCFX Rev 5.2 claims) produces a 5.85× bed mobilization uplift that is the critical mechanism enabling the modeled 75.6% overall effectiveness at low pressure.
 
 This directly supports the "it works" configuration at 0.14 bar for the 5-stage counter-current heat recovery system.
 

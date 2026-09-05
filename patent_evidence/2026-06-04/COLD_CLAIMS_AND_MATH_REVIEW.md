@@ -1,4 +1,4 @@
-# Cold Claims Review + Math Validation — RCFX (PERRY-RCFX-004 Rev 5.2)
+# Cold Claims Review + Math Validation — RCFX (RCFX Rev 5.2)
 **Date**: 2026-06-04 (review performed 2026-06-04 session)  
 **Reviewer posture**: Independent / cold — no reliance on prior campaign narrative beyond raw artifacts, model source, and the formal claims + full PDF spec text.  
 **Purpose**: Validate headline math claims (75.6%, **221 W** operating / pre-fix **68 W** historical, robustness cases, parasitic %, effectiveness floors) and perform element-by-element review of all 31 claims for support, enablement (112), written description, claim construction issues, internal consistency with evidence package (2026-06-04), spec draft, drawings, and raw data.
@@ -65,7 +65,7 @@ Raw .npz audits (direct `np.load`, same inside mask as campaign: x,y ∈ [0,0.01
 
 **Math validation bottom line**: Lumped 75.6% / robustness numbers are exactly reproducible (post vol_flow=U*AREA fix in five_stage_counterflow.py:126 + VEL_COLD=4.4 for U_G=0.066 alignment with DEM; operating 221 W / 1.88% parasitic). Pre-fix 68 W was artifactual. DEM quantitative bed/EMI numbers fail the campaign's own "only 100.0% inside contained raw .npz" rule for the most-cited Rung1 case (Rung0/5 clean), and exhibit unphysical velocities/lofting (24-80 m/s, m-scale z) in iron-present runs. Use DEM for qualitative enablement of "iron agitation mobilizes fines at low P" only; do not rely on 107.9× or 10 m bed heights as precise performance math. Model/evidence now updated for consistency.
 
-## 2. Full Cold Review of the 31 Claims (PERRY-RCFX-004 Rev 5.2, pp. 25-28)
+## 2. Full Cold Review of the 31 Claims (RCFX Rev 5.2, pp. 25-28)
 
 Claims extracted verbatim via pypdf from the complete specification PDF. Cross-checked against:
 - patent_specification_draft.md (support-oriented, abbreviated)

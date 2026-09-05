@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Gating test: current RCFX claims must match the shipped model and cited .npz.
+"""Regression test: archived arithmetic and checkpoint statistics reproduce.
 
 Drives models/five_stage_counterflow.py (import + CLI) and np.load of the
-primary physical-lid checkpoints. Fails if documented current numbers drift.
+primary checkpoints. Numeric agreement does not validate the thermal model;
+see test_thermal_validity.py for physical-consistency diagnostics.
 """
 from __future__ import annotations
 
@@ -62,7 +63,7 @@ def stats(path: Path) -> dict:
     }
 
 
-class TestCurrentClaims(unittest.TestCase):
+class TestArchivedArithmetic(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.model = load_shipped_lumped()
@@ -79,7 +80,7 @@ class TestCurrentClaims(unittest.TestCase):
         self.assertIn("Estimated blower power: 221 W", out)
         self.assertNotIn("68 W", out)
 
-    def test_lumped_run_5stage_matches_documented_plant(self):
+    def test_lumped_run_5stage_reproduces_legacy_arithmetic(self):
         self.assertAlmostEqual(self.res["P_bar"], 0.14, places=2)
         self.assertAlmostEqual(self.res["overall_eff"] * 100.0, 75.6, places=1)
         self.assertEqual(round(self.res["total_blower_W"]), 221)

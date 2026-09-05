@@ -30,9 +30,9 @@ At the gas velocity that corresponds to the target blower power in the lumped an
 
 Effective Mobilization Index (EMI) = 5.85× at the exact condition used for the 75.6% lumped effectiveness.
 
-Without iron, drag alone is insufficient (bed settles at 4.50 mm). The iron agitation is therefore not merely material but *enabling* for the low-pressure performance claimed in PERRY-RCFX-004 Rev 5.2. Calibration mapping to the 75.6% target is documented in Rung2_Calibration_Results.md.
+Without iron, drag alone is insufficient (bed settles at 4.50 mm). The iron agitation is therefore not merely material but *enabling* for the low-pressure performance claimed in RCFX Rev 5.2. Calibration mapping to the 75.6% target is documented in Rung2_Calibration_Results.md.
 
-This provides direct particle-scale DEM evidence supporting the low-pressure claim when using the iron shot mitigation strategy described in PERRY-RCFX-004 Rev 5.2.
+This provides direct particle-scale DEM evidence supporting the low-pressure claim when using the iron shot mitigation strategy described in RCFX Rev 5.2.
 
 Files:
 - rung2_3000p_with_drag.npz

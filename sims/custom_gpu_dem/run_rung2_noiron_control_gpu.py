@@ -6,7 +6,7 @@ Uses claim-legal iron shot (1.5-3.5 mm) + bimodal regolith + cohesion + fixed U_
 Target: higher-N (6k-10k), longer physical time, time-averaged EMI, iron-regolith collision stats,
 bed expansion time series. Direct evidence for patent at the 221 W / 75.6% lumped point.
 
-All parameters traceable to PERRY-RCFX-004 Rev 5.2.
+All parameters traceable to RCFX Rev 5.2.
 """
 
 import cupy as cp

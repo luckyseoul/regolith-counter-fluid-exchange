@@ -1,4 +1,4 @@
-# Exhibit D — Calibration & Traceability to Claims (PERRY-RCFX-004 Rev 5.2)
+# Exhibit D — Calibration & Traceability to Claims (RCFX Rev 5.2)
 
 **Cover statement**: This exhibit maps the GPU DEM operating point and numerical method to the lumped-model inputs that produce 75.6% overall effectiveness at 0.14 bar, and documents the containment verification protocol used before any cited DEM number enters the specification or evidence package.
 
@@ -35,6 +35,6 @@ The same `dem_kernels` stack (forces, drag, integration), material densities, an
 | No particle escape in cited DEM | Exhibit D protocol + all cited ckpts 100.0% inside |
 
 ## Reference documents
-- PERRY-RCFX-004 Rev 5.2 (claim-legal parameters)
+- RCFX Rev 5.2 (claim-legal parameters)
 - `rung_results/RUNG_CAMPAIGN_RESULTS.md`
 - `docs/rcfx_key_parameters.md` (if present)

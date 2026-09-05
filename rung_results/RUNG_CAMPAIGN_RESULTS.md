@@ -1,5 +1,7 @@
 # RCFX campaign results
 
+> **2026-09-05 audit:** Historical design targets and model outputs below are not validated system performance. The thermal recurrence advances both streams in the same direction and allows stage effectiveness above one; 75.6% recovery and its derived parasitic fraction are unsupported. See [figure audit](../docs/FIGURE_AUDIT.md).
+
 Particle-scale numbers are from the custom GPU DEM in `sims/custom_gpu_dem/`.
 Plant-level numbers are from `models/five_stage_counterflow.py`. Quantitative DEM
 citations use physical-lid checkpoints (100% of particles inside

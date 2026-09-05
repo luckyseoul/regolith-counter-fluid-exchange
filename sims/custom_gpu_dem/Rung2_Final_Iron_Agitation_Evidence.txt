@@ -15,4 +15,4 @@ Conclusion:
 The iron shot agitation mechanism produces a ~5–10× increase in bed height
 at the target gas velocity compared to the no-iron case under identical drag.
 This provides direct particle-scale evidence supporting low-pressure (0.14 bar)
-operation when using the iron shot mitigation strategy in PERRY-RCFX-004 Rev 5.2.
+operation when using the iron shot mitigation strategy in RCFX Rev 5.2.

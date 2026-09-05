@@ -1,7 +1,7 @@
 RCFX utility support bundle (2026-06-05)
 
 Five-stage counter-current low-pressure fluidized bed with dual-role iron shot
-(PERRY-RCFX-004 Rev 5.2). Modeling only; no hardware prototype.
+(RCFX Rev 5.2). Modeling only; no hardware prototype.
 
 - Lumped 5-stage model: 75.6% effectiveness, 221 W blower (1.88% parasitic) at 0.14 bar.
 - Custom GPU DEM Rung 1: high-N physical-lid series plus good-variable real-drag

@@ -13,7 +13,7 @@ const doc = new Document({
   },
   sections: [{
     properties: { page: { margin: { top: 1440, right: 1440, bottom: 1440, left: 1440 } } },
-    headers: [ new Header({ children: [new Paragraph({ children: [new TextRun({ text: "PERRY-RCFX-004 Rev 5.2 | Specification Support Draft | Confidential — Internal", size: 18, italics: true })] })] }) ],
+    headers: [ new Header({ children: [new Paragraph({ children: [new TextRun({ text: "RCFX Rev 5.2 | Specification Support Draft | Confidential — Internal", size: 18, italics: true })] })] }) ],
     footers: [ new Footer({ children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [
       new TextRun({ text: "Page ", size: 18 }),
       new TextRun({ children: [PageNumber.CURRENT], size: 18 }),
@@ -21,7 +21,7 @@ const doc = new Document({
     ] })] }) ],
     children: [
       new Paragraph({ heading: HeadingLevel.TITLE, children: [new TextRun("RCFX Specification Support Draft")] }),
-      new Paragraph({ children: [new TextRun({ text: "Supporting the utility patent application for the 5-stage counter-current low-pressure fluidized bed heat recovery system (PERRY-RCFX-004 Rev 5.2)", size: 22 })] }),
+      new Paragraph({ children: [new TextRun({ text: "Supporting the utility patent application for the 5-stage counter-current low-pressure fluidized bed heat recovery system (RCFX Rev 5.2)", size: 22 })] }),
       new Paragraph({ children: [new TextRun({ text: "Cross-reference: RCFX_Patent_Evidence_Package_2026-06-04.docx and COLD_CLAIMS_AND_MATH_REVIEW.md (modeling data package with Rung1 fixed 100% contained + lid demo sufficient to patent fully).", italics: true })] }),
       new Paragraph({ children: [] }),
 

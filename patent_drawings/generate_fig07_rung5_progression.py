@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""FIG. 7 — Rung 5 GPU DEM mobilization progression (contained checkpoints only)."""
+"""FIG. 7 — Rung 5 GPU DEM mobilization progression (historical no-lid checkpoint diagnostics)."""
 from pathlib import Path
 import numpy as np
 import matplotlib
@@ -36,8 +36,8 @@ def main():
     rows = load_series()
     steps = np.array([r[0] for r in rows])
     bed = np.array([r[1] for r in rows])
-    iron_b = np.array([r[2] for r in rows])
-    reg_b = np.array([r[3] for r in rows])
+    reg_b = np.array([r[2] for r in rows])
+    iron_b = np.array([r[3] for r in rows])
 
     plt.rcParams.update({
         "font.family": "sans-serif",
@@ -49,9 +49,9 @@ def main():
         "text.color": "black",
     })
     fig, ax = plt.subplots(figsize=(6.5, 4.0))
-    ax.plot(steps / 1000, bed, "k-", linewidth=1.2, label="Mean bed height (all)")
-    ax.plot(steps / 1000, iron_b, "k--", linewidth=0.9, label="Iron mean z (proxy)")
-    ax.plot(steps / 1000, reg_b, "k:", linewidth=0.9, label="Regolith mean z (proxy)")
+    ax.plot(steps / 1000, bed, "k-", linewidth=1.2, label="Mean particle z (all; lateral domain)")
+    ax.plot(steps / 1000, iron_b, "k--", linewidth=0.9, label="Iron mean z")
+    ax.plot(steps / 1000, reg_b, "k:", linewidth=0.9, label="Regolith mean z")
     ax.axvline(200, color="black", linewidth=0.6, linestyle="-.", alpha=0.7)
     ax.axvline(500, color="black", linewidth=0.6, linestyle="-.", alpha=0.7)
     ax.annotate("200k lock", xy=(200, bed[np.searchsorted(steps, 200000)]), xytext=(210, bed.max() * 0.55),
@@ -59,9 +59,9 @@ def main():
     ax.annotate("500k lock", xy=(500, bed[-1]), xytext=(420, bed.max() * 0.85),
                 fontsize=8, arrowprops=dict(arrowstyle="->", color="black", lw=0.6))
     ax.set_xlabel("Simulation step (×10³)")
-    ax.set_ylabel("Mean bed height (mm)")
+    ax.set_ylabel("Mean particle z (mm)")
     ax.set_title("FIG. 7 — Rung 5 sensitivity GPU DEM mobilization progression\n"
-                 "0.14 bar rep (U_G=0.066 m/s); combined degradation; 100.0% contained all ckpts")
+                 "Historical no-lid run: lateral containment only; not physical bed-height evidence")
     ax.legend(loc="upper left", frameon=True, edgecolor="black", fontsize=8)
     ax.grid(True, linestyle=":", linewidth=0.4, color="gray")
     fig.tight_layout()

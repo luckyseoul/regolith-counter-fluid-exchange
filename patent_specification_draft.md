@@ -1,5 +1,5 @@
 # RCFX 5-Stage Counter-Current Low-Pressure Fluidized Bed Heat Recovery System
-**Utility Patent Application Draft** (support only; within PERRY-RCFX-004 Rev 5.2 claims)  
+**Utility Patent Application Draft** (support only; within RCFX Rev 5.2 claims)  
 **Date**: 2026-06-05  
 **Cross-reference**: `patent_evidence/2026-06-04/COLD_CLAIMS_AND_MATH_REVIEW.md` and `patent_application/2026-06-05/` (utility bundle). Quantitative DEM citations are the physical-lid high-N Rung 1 series and iron-size sensitivities.
 

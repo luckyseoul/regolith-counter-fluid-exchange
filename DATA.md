@@ -5,8 +5,11 @@ Checkpoints are NumPy `.npz` archives with `pos`, `vel`, `radius`, `mat`, `step`
 
 `mat == 0` is regolith; `mat != 0` is iron shot. Positions are metres.
 
-Rung 1 citations use the high-N physical-lid series and the good-variable
-real-drag point, not the older unbounded-freeboard slices.
+Rung 1 statistics use the high-N series and the separate real-drag point.
+Their particle centres satisfy the documented bounds, but neither whole-sphere
+containment nor physical validity follows from this. Checkpoints contain no
+elapsed-time, timestep, gas-speed, force-mode, or lid metadata. Runner source
+is contextual evidence; step labels must not be interpreted as seconds.
 
 ## Checkpoint archive
 
@@ -27,11 +30,22 @@ real-drag point, not the older unbounded-freeboard slices.
 sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_real_u3.5_iron1.5mm_step002000.npz
 ```
 
-Good-variable point: 1.5 mm iron, real drag, 3.5 m/s, physical lid.
-100% inside **x,y ∈ [0, 0.018] m** (not the older 0.016 m mask). Source of the
-3.58× EMI (vs no-iron ⟨z⟩ = 3.2307 mm) / 34.47 mm iron / 11.56 mm regolith numbers.
+Real-drag point: 1.5 mm iron; source runner uses 3.5 m/s gas.
+All 6500 particle centres are inside x,y ∈ [0, 0.018] m, z ∈ [0, 0.060] m.
+Only 6331 full spheres fit inside those bounds when radii are included.
+Maximum centre z is 40.1297 mm, not evidence of a 41 mm lid.
+The 3.58× ratio uses the separate no-iron step-400 reference (3.2307 mm), with
+different forcing and no matched-time control. Means are 34.4689 mm iron and
+11.5609 mm regolith. These are reproducible statistics, not a controlled
+mobilization gain.
 
 ## Lumped-model arrays
+
+**Historical invalid-model outputs.** These arrays reproduce the old recurrence,
+which does not solve counter-flow boundary conditions. They do not validate
+75.6% recovery, 11.8 kW heat duty, or a 1.88% blower fraction. The corrected
+README figures regenerate sensitivity directly from source and show thermal
+outputs as diagnostics; the archived arrays are preserved.
 
 | File | Contents |
 |------|----------|
@@ -52,3 +66,12 @@ print(step, reg[:, 2].mean() * 1e3, iron[:, 2].mean() * 1e3)  # mm
 ```
 
 Regenerate README charts with `python3 scripts/generate_readme_figures.py`.
+
+## Validation evidence
+
+- [Figure audit](docs/FIGURE_AUDIT.md): corrections and physical limits.
+- [Figure data and source hashes](docs/figures/figure_data.json).
+- [Independent DEM audit](docs/figures/dem_validation.json), regenerated with
+  `python3 scripts/audit_dem_figures.py`.
+
+Inventory uses decimal MB (1,000,000 bytes); exact total: 150,981,303 bytes.

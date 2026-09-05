@@ -1,0 +1,6215 @@
+{
+  "pressure": {
+    "pressure_bar": [
+      0.1,
+      0.12,
+      0.14,
+      0.16,
+      0.18,
+      0.2
+    ],
+    "legacy_output_percent": [
+      51.20783726137367,
+      58.05035822350353,
+      75.5922660639789,
+      108.06815678368696,
+      158.7812666999342,
+      230.31631049278022
+    ],
+    "legacy_blower_W": [
+      157.5392268928,
+      189.04707227136004,
+      220.55491764992004,
+      252.06276302848005,
+      283.57060840704,
+      315.0784537856
+    ]
+  },
+  "stages": {
+    "raw_stage_coefficients": [
+      0.8633628745935665,
+      0.8633628745935665,
+      0.9948070567481503,
+      0.9948070567481503,
+      0.9948070567481503
+    ],
+    "legacy_output_percent": 75.5922660639789,
+    "stage_trace": [
+      {
+        "stage": 1,
+        "cold_in_K": 200.0,
+        "hot_in_K": 900.0,
+        "cold_out_K": 804.3540122154965,
+        "hot_out_K": 295.6459877845035,
+        "heat_W": 13430.089160344367,
+        "effectiveness": 0.8633628745935665
+      },
+      {
+        "stage": 2,
+        "cold_in_K": 804.3540122154965,
+        "hot_in_K": 295.6459877845035,
+        "cold_out_K": 365.15438991394007,
+        "hot_out_K": 734.8456100860599,
+        "heat_W": -9759.991606701253,
+        "effectiveness": 0.8633628745935665
+      },
+      {
+        "stage": 3,
+        "cold_in_K": 365.15438991394007,
+        "hot_in_K": 734.8456100860599,
+        "cold_out_K": 732.925824558999,
+        "hot_out_K": 367.074175441001,
+        "heat_W": 8172.698547667975,
+        "effectiveness": 0.9948070567481503
+      },
+      {
+        "stage": 4,
+        "cold_in_K": 732.925824558999,
+        "hot_in_K": 367.074175441001,
+        "cold_out_K": 368.9740222934664,
+        "hot_out_K": 731.0259777065336,
+        "heat_W": -8087.817828122947,
+        "effectiveness": 0.9948070567481503
+      },
+      {
+        "stage": 5,
+        "cold_in_K": 368.9740222934664,
+        "hot_in_K": 731.0259777065336,
+        "cold_out_K": 729.1458624478523,
+        "hot_out_K": 370.8541375521477,
+        "heat_W": 8003.818670097464,
+        "effectiveness": 0.9948070567481503
+      }
+    ],
+    "validity": {
+      "reason": "Both streams advance in the same direction; opposite-end counterflow boundary conditions are not solved.",
+      "stage_effectiveness_out_of_bounds": [],
+      "negative_heat_stages": [
+        2,
+        4
+      ],
+      "reversed_inlet_stages": [
+        2,
+        4
+      ],
+      "overall_effectiveness_out_of_bounds": false
+    },
+    "valid_counterflow": false
+  },
+  "sensitivity": {
+    "EDS": {
+      "parameter": "EDS_EFF",
+      "x": [
+        0.7,
+        0.8,
+        0.88,
+        0.93,
+        0.97,
+        0.99
+      ],
+      "legacy_output_percent": [
+        56.2353230804845,
+        60.92368111614132,
+        66.53773281222254,
+        71.1543835186118,
+        75.5922660639789,
+        78.0911343513599
+      ]
+    },
+    "Preclass": {
+      "parameter": "PRECLASS_UM",
+      "x": [
+        18,
+        22,
+        26,
+        30,
+        35,
+        40,
+        50
+      ],
+      "legacy_output_percent": [
+        83.98795058703786,
+        75.5922660639789,
+        69.01165977629582,
+        63.919454385043494,
+        59.214968629019694,
+        55.92406664052748,
+        52.17805929712459
+      ]
+    }
+  },
+  "snapshot": {
+    "source": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_real_u3.5_iron1.5mm_step002000.npz",
+    "regolith_mean_z_mm": 11.56093692779541,
+    "iron_mean_z_mm": 34.46889877319336
+  },
+  "dem_height": {
+    "with_iron": [
+      [
+        50,
+        2.918794783836298,
+        2.4713184678920177
+      ],
+      [
+        100,
+        4.7474075365026644,
+        5.371893695964198
+      ],
+      [
+        200,
+        7.175662311681509,
+        8.24089302164702
+      ],
+      [
+        300,
+        9.796647412759711,
+        11.230550963279162
+      ],
+      [
+        400,
+        12.488891625429995,
+        14.243865580742275
+      ],
+      [
+        500,
+        15.176982656013072,
+        17.243824243077466
+      ],
+      [
+        700,
+        20.61363530726063,
+        23.08232062223467
+      ],
+      [
+        800,
+        22.949581146240234,
+        24.969396591186523
+      ],
+      [
+        900,
+        24.720016479492188,
+        26.132516860961914
+      ],
+      [
+        1000,
+        25.989418029785156,
+        26.86232566833496
+      ],
+      [
+        1100,
+        26.839069366455078,
+        27.237905502319336
+      ],
+      [
+        1200,
+        27.35482406616211,
+        27.359495162963867
+      ],
+      [
+        1300,
+        27.565637588500977,
+        27.25476837158203
+      ],
+      [
+        1500,
+        27.29345703125,
+        26.5383243560791
+      ],
+      [
+        1700,
+        26.530298233032227,
+        25.534198760986328
+      ],
+      [
+        1900,
+        25.7607421875,
+        24.415502548217773
+      ],
+      [
+        2000,
+        25.48305892944336,
+        23.918888092041016
+      ]
+    ],
+    "no_iron": [
+      [
+        50,
+        3.2258722298577025
+      ],
+      [
+        100,
+        3.225884721687048
+      ],
+      [
+        200,
+        3.227491941892532
+      ],
+      [
+        300,
+        3.2288767141814705
+      ],
+      [
+        400,
+        3.2307320244145443
+      ]
+    ],
+    "columns": {
+      "with_iron": [
+        "step",
+        "regolith_mean_z_mm",
+        "iron_mean_z_mm"
+      ],
+      "no_iron": [
+        "step",
+        "regolith_mean_z_mm"
+      ]
+    },
+    "separate_real_drag_step2000_mm": [
+      11.560938835144043,
+      34.46889877319336
+    ]
+  },
+  "inventory": {
+    "rows": [
+      [
+        "rung0",
+        334,
+        26.862952
+      ],
+      [
+        "rung1",
+        677,
+        78.280156
+      ],
+      [
+        "rung1_highn",
+        60,
+        13.48968
+      ],
+      [
+        "rung2",
+        34,
+        3.305752
+      ],
+      [
+        "rung4",
+        15,
+        1.24738
+      ],
+      [
+        "rung5",
+        334,
+        26.862952
+      ],
+      [
+        "root dumps",
+        13,
+        0.932431
+      ]
+    ],
+    "columns": [
+      "directory",
+      "files",
+      "decimal_MB"
+    ],
+    "total_files": 1467,
+    "total_MB": 150.981303,
+    "files": [
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step01500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step03000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step04500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step06000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step07500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step09000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step100500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step102000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step103500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step10500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step105000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step106500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step108000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step109500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step111000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step112500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step114000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step115500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step117000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step118500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step12000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step120000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step121500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step123000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step124500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step126000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step127500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step129000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step130500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step132000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step133500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step13500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step135000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step136500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step138000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step139500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step141000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step142500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step144000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step145500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step147000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step148500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step15000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step150000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step151500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step153000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step154500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step156000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step157500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step159000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step160500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step162000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step163500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step16500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step165000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step166500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step168000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step169500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step171000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step172500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step174000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step175500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step177000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step178500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step18000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step180000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step181500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step183000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step184500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step186000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step187500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step189000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step190500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step192000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step193500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step19500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step195000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step196500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step198000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step199500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step201000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step202500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step204000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step205500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step207000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step208500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step21000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step210000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step211500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step213000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step214500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step216000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step217500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step219000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step220500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step222000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step223500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step22500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step225000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step226500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step228000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step229500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step231000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step232500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step234000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step235500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step237000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step238500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step24000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step240000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step241500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step243000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step244500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step246000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step247500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step249000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step250500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step252000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step253500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step25500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step255000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step256500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step258000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step259500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step261000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step262500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step264000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step265500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step267000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step268500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step27000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step270000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step271500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step273000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step274500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step276000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step277500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step279000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step280500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step282000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step283500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step28500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step285000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step286500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step288000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step289500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step291000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step292500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step294000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step295500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step297000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step298500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step30000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step300000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step301500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step303000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step304500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step306000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step307500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step309000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step310500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step312000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step313500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step31500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step315000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step316500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step318000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step319500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step321000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step322500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step324000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step325500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step327000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step328500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step33000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step330000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step331500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step333000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step334500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step336000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step337500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step339000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step340500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step342000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step343500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step34500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step345000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step346500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step348000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step349500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step351000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step352500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step354000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step355500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step357000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step358500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step36000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step360000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step361500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step363000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step364500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step366000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step367500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step369000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step370500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step372000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step373500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step37500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step375000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step376500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step378000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step379500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step381000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step382500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step384000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step385500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step387000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step388500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step39000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step390000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step391500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step393000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step394500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step396000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step397500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step399000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step400500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step402000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step403500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step40500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step405000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step406500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step408000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step409500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step411000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step412500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step414000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step415500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step417000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step418500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step42000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step420000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step421500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step423000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step424500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step426000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step427500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step429000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step430500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step432000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step433500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step43500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step435000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step436500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step438000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step439500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step441000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step442500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step444000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step445500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step447000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step448500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step45000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step450000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step451500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step453000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step454500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step456000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step457500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step459000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step460500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step462000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step463500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step46500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step465000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step466500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step468000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step469500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step471000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step472500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step474000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step475500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step477000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step478500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step48000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step480000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step481500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step483000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step484500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step486000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step487500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step489000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step490500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step492000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step493500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step49500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step495000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step496500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step498000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step499500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step500000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step51000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step52500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step54000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step55500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step57000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step58500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step60000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step61500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step63000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step64500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step66000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step67500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step69000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step70500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step72000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step73500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step75000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step76500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step78000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step79500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step81000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step82500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step84000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step85500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step87000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step88500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step90000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step91500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step93000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step94500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step96000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step97500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung0_checkpoints/rung0_step99000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step01500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step03000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step04500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step06000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step07500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step09000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step100500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step102000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step103500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step10500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step105000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step106500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step108000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step109500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step111000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step112500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step114000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step115500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step117000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step118500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step12000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step120000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step121500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step123000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step124500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step126000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step127500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step129000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step130500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step132000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step133500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step13500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step135000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step136500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step138000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step139500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step141000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step142500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step144000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step145500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step147000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step148500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step15000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step150000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step151500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step153000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step154500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step156000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step157500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step159000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step160500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step162000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step163500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step16500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step165000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step166500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step168000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step169500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step171000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step172500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step174000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step175500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step177000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step178500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step18000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step180000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step181500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step183000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step184500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step186000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step187500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step189000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step190500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step192000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step193500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step19500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step195000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step196500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step198000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step199500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step201000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step202500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step204000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step205500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step207000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step208500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step21000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step210000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step211500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step213000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step214500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step216000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step217500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step219000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step220500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step222000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step223500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step22500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step225000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step226500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step228000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step229500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step231000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step232500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step234000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step235500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step237000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step238500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step24000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step240000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step241500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step243000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step244500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step246000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step247500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step249000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step250500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step252000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step253500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step25500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step255000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step256500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step258000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step259500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step261000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step262500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step264000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step265500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step267000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step268500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step27000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step270000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step271500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step273000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step274500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step276000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step277500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step279000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step280500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step282000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step283500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step28500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step285000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step286500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step288000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step289500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step291000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step292500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step294000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step295500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step297000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step298500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step30000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step300000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step301500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step303000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step304500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step306000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step307500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step309000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step310500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step312000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step313500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step31500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step315000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step316500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step318000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step319500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step321000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step322500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step324000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step325500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step327000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step328500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step33000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step330000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step331500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step333000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step334500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step336000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step337500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step339000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step340500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step342000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step343500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step34500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step345000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step346500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step348000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step349500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step351000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step352500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step354000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step355500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step357000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step358500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step36000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step360000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step361500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step363000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step364500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step366000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step367500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step369000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step370500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step372000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step373500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step37500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step375000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step376500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step378000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step379500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step381000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step382500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step384000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step385500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step387000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step388500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step39000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step390000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step391500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step393000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step394500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step396000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step397500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step399000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step400500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step402000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step403500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step40500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step405000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step406500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step408000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step409500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step411000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step412500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step414000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step415500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step417000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step418500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step42000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step420000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step421500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step423000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step424500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step426000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step427500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step429000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step430500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step432000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step433500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step43500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step435000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step436500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step438000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step439500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step441000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step442500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step444000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step445500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step447000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step448500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step45000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step450000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step451500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step453000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step454500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step456000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step457500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step459000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step460500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step462000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step463500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step46500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step465000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step466500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step468000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step469500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step471000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step472500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step474000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step475500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step477000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step478500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step48000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step480000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step481500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step483000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step484500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step486000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step487500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step489000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step490500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step492000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step493500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step49500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step495000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step496500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step498000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step499500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step500000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step51000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step52500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step54000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step55500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step57000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step58500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step60000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step61500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step63000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step64500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step66000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step67500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step69000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step70500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step72000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step73500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step75000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step76500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step78000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step79500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step81000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step82500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step84000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step85500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step87000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step88500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step90000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step91500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step93000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step94500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step96000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step97500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_no_iron_step99000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_lid_demo_step99000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_lid_step100800.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_lid_step101800.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_lid_step102800.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_lid_step103800.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_lid_step104800.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_lid_step105800.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_lid_step106300.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_lid_step99800.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step01500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step03000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step04500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step06000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step07500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step09000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step100500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step102000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step103500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step10500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step105000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step106500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step108000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step109500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step111000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step112500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step114000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step115500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step117000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step118500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step12000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step120000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step121500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step123000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step124500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step126000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step127500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step129000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step130500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step132000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step133500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step13500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step135000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step136500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step138000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step139500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step141000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step142500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step144000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step145500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step147000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step148500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step15000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step150000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step151500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step153000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step154500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step156000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step157500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step159000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step160500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step162000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step163500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step16500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step165000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step166500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step168000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step169500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step171000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step172500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step174000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step175500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step177000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step178500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step18000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step180000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step181500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step183000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step184500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step186000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step187500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step189000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step190500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step192000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step193500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step19500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step195000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step196500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step198000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step199500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step201000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step202500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step204000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step205500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step207000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step208500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step21000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step210000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step211500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step213000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step214500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step216000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step217500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step219000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step220500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step222000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step223500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step22500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step225000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step226500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step228000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step229500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step231000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step232500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step234000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step235500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step237000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step238500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step24000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step240000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step241500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step243000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step244500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step246000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step247500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step249000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step250500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step252000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step253500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step25500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step255000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step256500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step258000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step259500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step261000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step262500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step264000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step265500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step267000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step268500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step27000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step270000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step271500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step273000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step274500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step276000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step277500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step279000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step280500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step282000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step283500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step28500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step285000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step286500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step288000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step289500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step291000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step292500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step294000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step295500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step297000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step298500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step30000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step300000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step301500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step303000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step304500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step306000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step307500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step309000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step310500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step312000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step313500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step31500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step315000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step316500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step318000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step319500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step321000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step322500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step324000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step325500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step327000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step328500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step33000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step330000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step331500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step333000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step334500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step336000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step337500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step339000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step340500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step342000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step343500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step34500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step345000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step346500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step348000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step349500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step351000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step352500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step354000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step355500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step357000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step358500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step36000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step360000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step361500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step363000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step364500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step366000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step367500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step369000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step370500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step372000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step373500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step37500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step375000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step376500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step378000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step379500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step381000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step382500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step384000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step385500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step387000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step388500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step39000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step390000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step391500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step393000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step394500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step396000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step397500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step399000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step400500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step402000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step403500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step40500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step405000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step406500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step408000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step409500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step411000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step412500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step414000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step415500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step417000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step418500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step42000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step420000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step421500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step423000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step424500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step426000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step427500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step429000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step430500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step432000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step433500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step43500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step435000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step436500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step438000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step439500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step441000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step442500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step444000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step445500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step447000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step448500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step45000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step450000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step451500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step453000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step454500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step456000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step457500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step459000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step460500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step462000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step463500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step46500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step465000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step466500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step468000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step469500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step471000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step472500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step474000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step475500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step477000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step478500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step48000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step480000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step481500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step483000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step484500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step486000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step487500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step489000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step490500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step492000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step493500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step49500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step495000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step496500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step498000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step499500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step500000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step51000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step52500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step54000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step55500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step57000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step58500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step60000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step61500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step63000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step64500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step66000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step67500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step69000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step70500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step72000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step73500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step75000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step76500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step78000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step79500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step81000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step82500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step84000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step85500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step87000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step88500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step90000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step91500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step93000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step94500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step96000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step97500.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_checkpoints/rung1_with_iron_step99000.npz",
+        "bytes": 115628
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/extended_physical_lid_rung1_step007000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/extended_physical_lid_rung1_step012000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_fix_cell_step003500.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_fix_cell_step005000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_fix_cell_step006500.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_fix_rung1_step003000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_fix_rung1_step003500.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_fix_rung1_step004000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_fix_rung1_step005000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_fix_rung1_step006000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_fix_rung1_step006500.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_fix_rung1_step008000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_fix_rung1_step010000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_from_bottom_step000500.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_from_bottom_step001000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_from_bottom_step001500.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_from_bottom_step002000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_from_bottom_step003000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_from_bottom_step004000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_from_bottom_step005000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_iron2mm_from_bottom_step000500.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_iron2mm_from_bottom_step001000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_iron2mm_from_bottom_step001500.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_iron2mm_from_bottom_step002000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_real_u3.5_iron1.5mm_step000500.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_real_u3.5_iron1.5mm_step001000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_real_u3.5_iron1.5mm_step001500.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_real_u3.5_iron1.5mm_step002000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_real_u3_iron2mm_step000500.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_real_u3_iron2mm_step001000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_real_u3_iron2mm_step001500.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_real_u3_iron2mm_step002000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_real_u5.5_iron2mm_step000500.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_real_u5.5_iron2mm_step001000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_real_u5.5_iron2mm_step001500.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_start_iron1.5mm_bottom_step000000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_start_iron2mm_bottom_step000000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_start_iron_bottom_step000000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_no_iron_step000050.npz",
+        "bytes": 287228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_no_iron_step000100.npz",
+        "bytes": 287228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_no_iron_step000200.npz",
+        "bytes": 287228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_no_iron_step000300.npz",
+        "bytes": 287228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_no_iron_step000400.npz",
+        "bytes": 287228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000050.npz",
+        "bytes": 287228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000100.npz",
+        "bytes": 287228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000200.npz",
+        "bytes": 287228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000300.npz",
+        "bytes": 287228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000400.npz",
+        "bytes": 287228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000500.npz",
+        "bytes": 287228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000700.npz",
+        "bytes": 287228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000800.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000900.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001100.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001200.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001300.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001500.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001700.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001900.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step002000.npz",
+        "bytes": 209228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_3000p_current.npz",
+        "bytes": 96980
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_3000p_drag_comparison_summary.npz",
+        "bytes": 2318
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_3000p_final_comparison.npz",
+        "bytes": 1673
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_3000p_noiron_for_drag.npz",
+        "bytes": 96980
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_3000p_noiron_with_drag.npz",
+        "bytes": 98078
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_3000p_with_drag.npz",
+        "bytes": 98282
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_3000p_with_modulated_drag.npz",
+        "bytes": 98154
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_calibration_metrics_v1.npz",
+        "bytes": 811
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/noiron_rung2_step01500.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/noiron_rung2_step03000.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/noiron_rung2_step04500.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/noiron_rung2_step06000.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/noiron_rung2_step07500.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/noiron_rung2_step09000.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/noiron_rung2_step10500.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/noiron_rung2_step12000.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/noiron_rung2_step13500.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/noiron_rung2_step15000.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/noiron_rung2_step16500.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/noiron_rung2_step18000.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/noiron_rung2_step19500.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/noiron_rung2_step21000.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/noiron_rung2_step22500.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/noiron_rung2_step24000.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/noiron_rung2_step25000.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/with_iron_rung2_step01500.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/with_iron_rung2_step03000.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/with_iron_rung2_step04500.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/with_iron_rung2_step06000.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/with_iron_rung2_step07500.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/with_iron_rung2_step09000.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/with_iron_rung2_step10500.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/with_iron_rung2_step12000.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/with_iron_rung2_step13500.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/with_iron_rung2_step15000.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/with_iron_rung2_step16500.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/with_iron_rung2_step18000.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/with_iron_rung2_step19500.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/with_iron_rung2_step21000.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/with_iron_rung2_step22500.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/with_iron_rung2_step24000.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_checkpoints/with_iron_rung2_step25000.npz",
+        "bytes": 97228
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_custom_gpu_2000p_v3.npz",
+        "bytes": 89222
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_custom_gpu_2200p_stable.npz",
+        "bytes": 98463
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_custom_gpu_2500p.npz",
+        "bytes": 110980
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_gpu_output.npz",
+        "bytes": 39336
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung2_prod_with_iron_continued.npz",
+        "bytes": 101154
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung4_checkpoints/rung4_step01000.npz",
+        "bytes": 83042
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung4_checkpoints/rung4_step02000.npz",
+        "bytes": 83062
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung4_checkpoints/rung4_step03000.npz",
+        "bytes": 83082
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung4_checkpoints/rung4_step04000.npz",
+        "bytes": 83092
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung4_checkpoints/rung4_step05000.npz",
+        "bytes": 83112
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung4_checkpoints/rung4_step06000.npz",
+        "bytes": 83132
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung4_checkpoints/rung4_step07000.npz",
+        "bytes": 83142
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung4_checkpoints/rung4_step08000.npz",
+        "bytes": 83162
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung4_checkpoints/rung4_step09000.npz",
+        "bytes": 83182
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung4_checkpoints/rung4_step10000.npz",
+        "bytes": 83192
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung4_checkpoints/rung4_step11000.npz",
+        "bytes": 83202
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung4_checkpoints/rung4_step12000.npz",
+        "bytes": 83222
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung4_checkpoints/rung4_step13000.npz",
+        "bytes": 83242
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung4_checkpoints/rung4_step14000.npz",
+        "bytes": 83252
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung4_checkpoints/rung4_step15000.npz",
+        "bytes": 83262
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step01500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step03000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step04500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step06000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step07500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step09000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step100500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step102000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step103500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step10500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step105000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step106500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step108000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step109500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step111000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step112500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step114000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step115500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step117000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step118500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step12000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step120000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step121500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step123000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step124500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step126000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step127500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step129000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step130500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step132000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step133500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step13500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step135000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step136500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step138000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step139500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step141000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step142500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step144000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step145500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step147000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step148500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step15000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step150000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step151500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step153000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step154500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step156000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step157500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step159000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step160500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step162000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step163500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step16500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step165000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step166500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step168000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step169500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step171000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step172500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step174000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step175500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step177000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step178500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step18000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step180000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step181500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step183000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step184500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step186000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step187500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step189000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step190500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step192000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step193500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step19500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step195000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step196500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step198000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step199500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step200000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step201500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step203000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step204500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step206000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step207500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step209000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step21000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step210500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step212000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step213500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step215000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step216500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step218000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step219500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step221000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step222500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step224000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step22500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step225500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step227000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step228500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step230000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step231500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step233000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step234500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step236000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step237500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step239000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step24000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step240500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step242000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step243500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step245000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step246500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step248000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step249500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step251000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step252500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step254000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step25500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step255500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step257000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step258500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step260000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step261500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step263000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step264500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step266000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step267500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step269000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step27000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step270500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step272000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step273500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step275000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step276500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step278000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step279500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step281000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step282500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step284000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step28500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step285500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step287000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step288500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step290000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step291500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step293000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step294500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step296000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step297500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step299000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step30000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step300500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step302000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step303500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step305000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step306500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step308000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step309500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step311000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step312500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step314000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step31500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step315500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step317000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step318500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step320000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step321500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step323000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step324500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step326000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step327500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step329000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step33000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step330500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step332000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step333500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step335000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step336500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step338000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step339500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step341000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step342500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step344000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step34500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step345500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step347000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step348500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step350000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step351500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step353000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step354500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step356000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step357500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step359000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step36000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step360500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step362000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step363500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step365000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step366500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step368000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step369500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step371000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step372500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step374000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step37500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step375500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step377000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step378500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step380000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step381500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step383000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step384500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step386000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step387500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step389000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step39000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step390500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step392000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step393500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step395000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step396500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step398000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step399500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step401000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step402500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step404000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step40500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step405500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step407000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step408500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step410000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step411500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step413000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step414500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step416000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step417500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step419000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step42000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step420500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step422000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step423500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step425000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step426500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step428000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step429500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step431000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step432500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step434000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step43500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step435500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step437000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step438500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step440000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step441500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step443000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step444500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step446000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step447500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step449000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step45000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step450500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step452000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step453500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step455000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step456500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step458000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step459500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step461000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step462500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step464000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step46500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step465500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step467000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step468500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step470000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step471500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step473000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step474500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step476000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step477500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step479000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step48000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step480500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step482000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step483500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step485000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step486500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step488000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step489500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step491000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step492500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step494000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step49500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step495500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step497000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step498500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step500000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step51000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step52500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step54000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step55500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step57000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step58500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step60000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step61500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step63000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step64500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step66000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step67500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step69000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step70500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step72000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step73500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step75000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step76500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step78000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step79500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step81000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step82500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step84000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step85500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step87000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step88500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step90000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step91500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step93000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step94500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step96000.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step97500.npz",
+        "bytes": 80428
+      },
+      {
+        "path": "sims/custom_gpu_dem/rung5_checkpoints/rung5_step99000.npz",
+        "bytes": 80428
+      }
+    ]
+  },
+  "sources_sha256": {
+    "models/five_stage_counterflow.py": "dcb65244bebf3c3f834ceaafad6030d8683dece40d18583840f7cd808c05be64",
+    "scripts/generate_readme_figures.py": "11bc2cd1d1bbd5f75d17ffcc13aec60ceb0e6979afdde995d08967b30743c1a4",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/physical_drag_real_u3.5_iron1.5mm_step002000.npz": "08667f6f94cb5ebcca2c2da6f75f49d84bcb94ce45595d3b0ecb830b900b9023",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_no_iron_step000050.npz": "ef0d49474bc5973a8ce1cffd1dfa79952e83588984829b7a6dc92931d317d0f2",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_no_iron_step000100.npz": "85d9fe113376787fef9ece27d634a08e3d07e842a2eb2674e4a5a0c8363ce39a",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_no_iron_step000200.npz": "ba3e4455b55d5b9fc478da9b9a806a269d4aefee18fe86eeea809085cf2ce303",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_no_iron_step000300.npz": "a14af547a04042c78f4743145eb77b4a6b2ea2d834e8f23f52f37efd70da32d3",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_no_iron_step000400.npz": "a98de56286c6e2a7b05d34ab418869f902d1d7dd7b912edca5b6bc4f9d3d575e",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000050.npz": "98db7d4a2c4290de014a865305a485927f11d4c7e219395e36a06bcc584b1cf3",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000100.npz": "79e0ae56b9105ff36b0493dc7acb8b8847c36e849daf58e96b0c62baa7ebdfa1",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000200.npz": "1bd8c19e69eb1be45032c42fc459911ecedb14d28da4845f3f5cf7af3e5182f3",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000300.npz": "090dec8abb4076b0d10566d449f48ba978f29b1f967241c33788216627611b15",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000400.npz": "4f8b0c860859b311a11deeeacc1079ec991d3d26562116c1d6d945cc8b6990fc",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000500.npz": "5f0f28fc49166bfb9d422a1173d68fa3cf8828b0ac4853cb284dd35f28dd7f92",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000700.npz": "74152ba9b3d51ea010b55a7172dd7d700784e6fa0f671d4d060da61781beb6f3",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000800.npz": "b9a8bbf2c29a5fe944cb311f83a34c354a262406b5dcd41fa896aba595a7d9dc",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step000900.npz": "459d4b5b6d63b1b35581a6b8e7b2e51ec378278a05d8614bd7ad1e43d89d43c3",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001000.npz": "a2cac4fa438b293e2101e97980d511118a930c9dd22ae3296c5bfb37ca23e1a1",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001100.npz": "d9da4d6030188d0a3cf381decba9b11b21426199eea377ad9629317c74440f2d",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001200.npz": "4271c60d7b98c8463a1a819c2bde28e3a65d82321a2a012f8a6e7b25c20331d5",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001300.npz": "8bd51f8d4c085cac102e890f9938b22de6db029ff55e08358ee3cd27b804b1e2",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001500.npz": "3f57d8a8b5d8df5e8ed8688e755000fa8c8d2227ad90976507f6dcadaf6e2ca9",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001700.npz": "83e5bd2189090fa8c0b986fd139e6259b8edda3ca72672b624dfafb4c530cf28",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step001900.npz": "455c8fb14430d0cb620e0ee407b69c266850972b9126f9ccfc5d55b13c62f9b0",
+    "sims/custom_gpu_dem/rung1_highn_checkpoints/rung1_highn_with_iron_step002000.npz": "ad74c202562f258790f9d95f41ee46c2f9832d5e1eb63b2bffe284102da34e83"
+  }
+}

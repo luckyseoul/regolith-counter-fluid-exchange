@@ -3,10 +3,10 @@
 
 **Inventors:** [To be added]
 **Assignee:** [To be added if applicable]
-**Docket/Reference:** PERRY-RCFX-004 Rev 5.2 and updates (modeling-only evidence campaign)
+**Specification:** RCFX Rev 5.2 and updates (modeling-only evidence campaign)
 **Related Applications:** None
 
-**Note:** This document combines the full patent specification with integrated enablement evidence (DEM, lumped model, sensitivities, verification runs under real gas drag, and operating envelope calculation). It is intended to support a utility patent application filing (not a provisional). All quantitative evidence is limited to clean, 100% inside physical-lid checkpoints from the GPU DEM campaign. No new matter beyond PERRY-RCFX-004 Rev 5.2.
+**Note:** This document combines the full patent specification with integrated enablement evidence (DEM, lumped model, sensitivities, verification runs under real gas drag, and operating envelope calculation). It is intended to support a utility patent application filing (not a provisional). All quantitative evidence is limited to clean, 100% inside physical-lid checkpoints from the GPU DEM campaign. No new matter beyond RCFX Rev 5.2.
 
 ---
 
@@ -179,7 +179,7 @@ Sufficient for 35 U.S.C. § 112(a) enablement and written description when combi
 
 *End of Specification*
 
-**Note to Examiner / Practitioner**: This document incorporates the full RCFX modeling campaign through the 2026-06 session, including high-N physical-lid DEM (N=6,500 primary + 10k scale), cell-list optimizations, iron size sensitivities, full knob campaign at evolved states, and supporting drawings S3/S4. All numbers are traceable to raw committed .npz and the exact code used. No new matter beyond the scope of PERRY-RCFX-004 Rev 5.2 and the cited evidence. The claims are scoped to the envelope directly supported by good-variable real-drag DEM (1.5–2.0 mm iron, 0.1–0.5 bar, ~2.5–3.5+ m/s U_G cold); the good-variable run at 1.5 mm / 3.5 m/s (ckpt physical_drag_real_u3.5_iron1.5mm_step002000.npz) is primary mechanistic evidence for the dual-role agitation under real drag. The distributor design is essential (drag-fix verification shows bulk real drag alone is insufficient at reference conditions). The evidence supports enablement of the utility claims as a complete system (including the gas introduction/distributor design). Standard boundary sealing for the low-pressure vessel and conventional regolith interface valves are assumed as background ISRU hardware (same class addressed in prior NASA regolith handling development); the invention does not add or require novel continuous rotary dynamic seals in the abrasive material path.
+**Note to Examiner / Practitioner**: This document incorporates the full RCFX modeling campaign through the 2026-06 session, including high-N physical-lid DEM (N=6,500 primary + 10k scale), cell-list optimizations, iron size sensitivities, full knob campaign at evolved states, and supporting drawings S3/S4. All numbers are traceable to raw committed .npz and the exact code used. No new matter beyond the scope of RCFX Rev 5.2 and the cited evidence. The claims are scoped to the envelope directly supported by good-variable real-drag DEM (1.5–2.0 mm iron, 0.1–0.5 bar, ~2.5–3.5+ m/s U_G cold); the good-variable run at 1.5 mm / 3.5 m/s (ckpt physical_drag_real_u3.5_iron1.5mm_step002000.npz) is primary mechanistic evidence for the dual-role agitation under real drag. The distributor design is essential (drag-fix verification shows bulk real drag alone is insufficient at reference conditions). The evidence supports enablement of the utility claims as a complete system (including the gas introduction/distributor design). Standard boundary sealing for the low-pressure vessel and conventional regolith interface valves are assumed as background ISRU hardware (same class addressed in prior NASA regolith handling development); the invention does not add or require novel continuous rotary dynamic seals in the abrasive material path.
 
 ---
 

@@ -213,7 +213,7 @@ def fig04_countercurrent():
     # Rung 4 evidence callout
     ax.add_patch(Rectangle((6.8, 0.15), 2.9, 0.85, fill=False, ec="black", lw=0.8))
     ax.text(8.25, 0.58,
-            "Rung 4 GPU DEM:\n~230 particles transferred\nacross stage boundaries",
+            "Two-stage DEM skeleton:\n230 historical transfer events\nnot five-stage validation",
             ha="center", va="center", fontsize=7)
 
     # System envelope (204)
@@ -239,9 +239,14 @@ def save(fig, stem):
 
 
 def main():
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--fig04-only", action="store_true")
+    args = parser.parse_args()
     patent_style()
-    save(fig02_stage_cross_section(), "FIG_02_stage_cross_section")
-    plt.close()
+    if not args.fig04_only:
+        save(fig02_stage_cross_section(), "FIG_02_stage_cross_section")
+        plt.close()
     save(fig04_countercurrent(), "FIG_04_countercurrent_transfer")
     plt.close()
 

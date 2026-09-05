@@ -12,7 +12,7 @@
 
 ## Current best understanding
 
-Using only parameters and features already within PERRY-RCFX-004 Rev 5.2 claims:
+Using only parameters and features already within RCFX Rev 5.2 claims:
 
 **Current working demonstration point**: **0.14 bar** (140 mbar) with the following tuned parameters (all within existing claims):
 

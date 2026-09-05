@@ -1,6 +1,6 @@
 # RCFX Patent Evidence Package
 **Date**: 2026-06-04  
-**Source**: PERRY-RCFX-004 Rev 5.2 + GPU DEM Rung campaign (identical physics across rungs)  
+**Source**: RCFX Rev 5.2 + GPU DEM Rung campaign (identical physics across rungs)  
 **Key claim point**: 75.6% overall thermal effectiveness at 0.14 bar envelope (221 W operating / 1.88% parasitic with corrected vol_flow=U*AREA, U_G = 0.066 m/s cold stages; see COLD_CLAIMS_AND_MATH_REVIEW.md)
 
 ## Index of Exhibits / Appendices
@@ -27,7 +27,7 @@
 - Rung 5 sensitivity/robustness (this 500k lock): final bed=10404.50±5708.47 mm (zmin=0.49mm inside=100.0%) dead%=3.8 at step 500000 + exact "rung5 done..." ; progression from 200k lock (bed~4949.96 zmin=0.18 100% 1.3 , proxy iron/reg 5563/4775) to 500k (bed~10404.50 zmin=0.49 100% 3.8 , proxy 12584/9782). All 334 ckpts 100.0% inside zmin>=0 CONTAINED. Combined degradation case (bimodal PSD + iron + cohesion).  
 - Source: respective rung*_checkpoints/ + RUNG_CAMPAIGN_RESULTS.md (only verified raw .npz cited). 
 
-**Exhibit D — Calibration & Traceability to Claims (PERRY-RCFX-004 Rev 5.2)**  
+**Exhibit D — Calibration & Traceability to Claims (RCFX Rev 5.2)**  
 - Direct mapping: GPU DEM operating point (U_G, 0.14 bar rep, iron 1.5-3.5 mm, fill, DT=6.5e-7, **BOX=0.018 m** for current high-N / good-var, N=6500) feeds the lumped model inputs that produce 75.6% / 221 W.  
 - Containment guarantee (v2 mass-scaled add_distributor_force + add_wall_forces + add_floor_force + post-integrate restitution 0.8 clips) ensures 100.0% inside + zmin>=0 on every citable ckpt (verified ps/nvidia + direct np.load inside mask before every claim).  
 - Material properties, drag formulation, contact model identical across rungs.  

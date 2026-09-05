@@ -1,6 +1,6 @@
 # RCFX Rungs 2–5 Combined Patent Evidence (Final)
 **Target Point**: 0.14 bar / 221 W blower power (U_G = 0.066 m/s cold stages)  
-**Reference**: PERRY-RCFX-004 Rev 5.2  
+**Reference**: RCFX Rev 5.2  
 **Date**: 31 May 2026
 
 ## Summary of Completed GPU DEM Production Runs
@@ -62,4 +62,4 @@ The completed GPU DEM runs at the exact same conditions supply the particle-scal
 
 All production runs at target parameters reached. Evidence locked.
 ---
-*All parameters conservative and traceable to PERRY-RCFX-004 Rev 5.2.*
+*All parameters conservative and traceable to RCFX Rev 5.2.*

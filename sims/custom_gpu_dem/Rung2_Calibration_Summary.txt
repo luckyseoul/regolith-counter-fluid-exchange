@@ -1,7 +1,7 @@
 RCFX Rung 2 GPU DEM — Calibration of Iron Agitation to Lumped 75.6% Effectiveness
 =========================================================================================
 
-Target Point (PERRY-RCFX-004 Rev 5.2, Rung 4 lumped model):
+Target Point (RCFX Rev 5.2, Rung 4 lumped model):
   Pressure: 0.14 bar
   Overall effectiveness: 75.6%
   Blower power: 221 W

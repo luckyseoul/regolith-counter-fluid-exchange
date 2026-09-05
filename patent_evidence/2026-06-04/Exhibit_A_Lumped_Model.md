@@ -5,7 +5,7 @@
 ## Nominal operating point
 | Quantity | Value | Source |
 |----------|-------|--------|
-| Envelope pressure | 0.14 bar | PERRY-RCFX-004 Rev 5.2 |
+| Envelope pressure | 0.14 bar | RCFX Rev 5.2 |
 | Overall effectiveness | **75.6%** | `rung_results/rung5_sensitivity.npy` → `baseline` |
 | Blower power | **221 W** (post vol_flow fix; 1.88% of recovered) | same |
 | Cold-stage U_G (rep) | 0.066 m/s (VEL_MULT_COLD=4.4) | Rev 5.2 / DEM alignment (model/DEM now consistent) |

@@ -48,7 +48,7 @@ See Rung2_Calibration_Results.md for formal mapping to 75.6% effectiveness.
 - `rung2_3000p_final_comparison.npz` — Full metrics from all cases
 - This summary document
 
-## Relevance to Patent (PERRY-RCFX-004 Rev 5.2)
+## Relevance to Patent (RCFX Rev 5.2)
 
 This provides particle-level DEM confirmation that the iron shot agitation strategy (a core within-claims mitigation for cold-stage Geldart C behavior) is effective at the target low-pressure envelope when gas flow is present at the power level predicted by the lumped model.
 
