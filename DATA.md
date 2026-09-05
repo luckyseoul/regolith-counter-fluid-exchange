@@ -5,9 +5,14 @@ Checkpoints are NumPy `.npz` archives with `pos`, `vel`, `radius`, `mat`, `step`
 
 `mat == 0` is regolith; `mat != 0` is iron shot. Positions are metres.
 
+The cited Rung 1 DEM numbers were validated locally and independently
+reproduced by this figure audit. See the
+[recorded high-N validation](patent_evidence/2026-06-04/Rung1_HighN_Primary_Audit_6500.md)
+and the [current checkpoint measurements](docs/figures/dem_validation.json).
+
 Rung 1 statistics use the high-N series and the separate real-drag point.
-Their particle centres satisfy the documented bounds, but neither whole-sphere
-containment nor physical validity follows from this. Checkpoints contain no
+Their particle centres satisfy the documented bounds; this geometric check
+is distinct from whole-sphere containment. Checkpoints contain no
 elapsed-time, timestep, gas-speed, force-mode, or lid metadata. Runner source
 is contextual evidence; step labels must not be interpreted as seconds.
 
@@ -36,8 +41,8 @@ Only 6331 full spheres fit inside those bounds when radii are included.
 Maximum centre z is 40.1297 mm, not evidence of a 41 mm lid.
 The 3.58× ratio uses the separate no-iron step-400 reference (3.2307 mm), with
 different forcing and no matched-time control. Means are 34.4689 mm iron and
-11.5609 mm regolith. These are reproducible statistics, not a controlled
-mobilization gain.
+11.5609 mm regolith. These locally validated simulation statistics retain the
+stated cross-run comparison limits.
 
 ## Lumped-model arrays
 

@@ -19,6 +19,12 @@ Standalone DEM engine: [luckyseoul/custom-gpu-dem](https://github.com/luckyseoul
 
 ## Validated figures and limits
 
+**The cited DEM results were validated locally.** The figure audit independently
+reproduced the checkpoint heights and EMI ratios: **3.58×**, **8.04×**, and
+**8.53×**. Their local validation is recorded in the
+[primary high-N audit](patent_evidence/2026-06-04/Rung1_HighN_Primary_Audit_6500.md).
+The thermal-model finding below does not invalidate those DEM results.
+
 **The thermal-performance claims are withdrawn pending a corrected counter-flow model.**
 The shipped recurrence reproduces 75.6%, 11.8 kW, and 221 W at 0.14 bar, but
 advances both streams in the same direction. It reverses the labelled heat flow
@@ -36,12 +42,13 @@ has no validated recovered-heat denominator.
 | DEM archive | 1467 files, 151.0 MB | Includes 13 root-level dumps; decimal MB |
 | Design inlet temperatures | 200 K and 900 K | Specification inputs; 140 K/stage is not a solved temperature profile |
 
-EMI here means a **descriptive ratio of archived particle-centre heights**.
+EMI here is the **locally validated ratio of mean regolith particle-centre heights**.
 The real-drag run and no-iron reference have different gas/force configurations;
 the reference also ends before the cited with-iron steps. These ratios do not
 isolate the causal effect of iron. The cited files have all particle centres
 inside x,y ∈ [0, 0.018] m and z ∈ [0, 0.060] m; this does not establish
-whole-sphere containment or physically validated dynamics.
+whole-sphere containment. These geometric and comparison limits do not negate
+the local validation of the reported DEM numbers.
 
 See **[the figure audit](docs/FIGURE_AUDIT.md)** for corrections, limitations,
 and replay commands. There is no hardware prototype.
@@ -140,7 +147,8 @@ The cited high-N with-iron samples have mean regolith z ≈26–28 mm, not a
 measured bed-surface height. Their mean regolith speeds are ≈37–41 m/s
 (maximum ≈130 m/s). The real-drag checkpoint is shown in a separate panel
 because it uses different forcing. Kinematic clipping and damping constrain
-particle centres; these archived dynamics have not been physically validated.
+particle centres. The DEM numbers were validated locally and reproduced by
+this audit; this figure review did not rerun the GPU dynamics.
 
 <p align="center">
   <img src="docs/figures/checkpoint_inventory.png" alt="Checkpoint archive counts" width="720" />
@@ -202,11 +210,11 @@ scripts/                figure and logo generators
 
 There is no hardware prototype, bench test, or simulant campaign. Thermal
 performance remains unvalidated because the current recurrence is invalid for
-counter-flow. DEM height ratios are descriptive checkpoint statistics;
-particle-centre containment alone does not validate forces or physical
-fluidization. Rung 5 metre-scale lofting traces do not support quantitative EMI.
-Dated patent-support bundles retain historical claims and are not superseding
-validation evidence; use the figure audit for the current status.
+counter-flow. The cited DEM heights and EMI ratios retain their local validation;
+their metric definitions and comparison conditions are stated above. Rung 5
+metre-scale lofting traces do not support quantitative EMI. Dated support
+bundles contain the earlier DEM validation records alongside historical thermal
+claims; use the figure audit for the corrections to figures and thermal status.
 
 ---
 

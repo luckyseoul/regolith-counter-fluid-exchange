@@ -1,6 +1,24 @@
 # Figure and quantitative-claim audit — 2026-09-05
 
-The current figures contain reproducible plotting errors and unsupported physical interpretations. Corrections distinguish checkpoint coordinates, model diagnostics, and design targets. No hardware performance is established. Dated `patent_application/2026-06-05` and `patent_evidence/2026-06-04` copies remain historical artifacts and do not inherit the numerical corrections. Their obsolete patent docket labeling is removed separately at the user’s request.
+The pre-audit figures contained reproducible plotting errors and unsupported thermal-performance interpretations. Corrections distinguish locally validated DEM results, thermal-model diagnostics, and design targets. No hardware performance is established. Dated `patent_application/2026-06-05` and `patent_evidence/2026-06-04` copies remain historical artifacts and do not inherit the numerical corrections. Their obsolete patent docket labeling is removed separately at the user’s request.
+
+## Local DEM validation retained
+
+The cited DEM results were validated locally before this figure review. The
+[primary high-N audit](../patent_evidence/2026-06-04/Rung1_HighN_Primary_Audit_6500.md)
+records direct checkpoint verification and earlier contact-kernel comparison
+checks. The [citable evidence summary](../patent_application/2026-06-05/Patent_Citable_Evidence_Summary.md)
+records the local continuation and drag-isolation checks with their outcomes.
+Those records provide validation context beyond the metadata stored in each NPZ.
+
+This review independently reproduced the cited mean heights and EMI ratios
+(3.58×, 8.04×, sampled maximum 8.53×). It corrected plotting units,
+material labels, step labels and geometric/comparison descriptions; it did not
+rerun the GPU dynamics or overturn the prior local DEM validation. The earlier
+README statement that the archived dynamics had not been physically validated
+was broader than the evidence from this figure audit and has been removed.
+The invalid thermal recurrence is a separate finding and does not invalidate
+the locally validated DEM numbers.
 
 ## README figure results
 
